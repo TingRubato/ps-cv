@@ -27,7 +27,7 @@
       "name": "Byte Carnival LLC",
       "position": "Technology Consultant",
       "url": "",
-      "startDate": "2023-06-01",
+      "startDate": "2024-06-01",
       "endDate": "Present",
       "summary": "Developed innovative solutions for AI tool integration and enhanced technical workflows for global clients.",
       "highlights": [
@@ -50,7 +50,7 @@
     {
       "name": "Washington University in St. Louis",
       "position": "Technical Support Specialist",
-      "url": "",
+      "url": "https://ctl.wustl.edu/",
       "startDate": "2021-08-01",
       "endDate": "2023-05-01",
       "summary": "Streamlined campus-wide technology support and developed automated tools for project management.",
@@ -64,7 +64,7 @@
     {
       "organization": "IAESTE",
       "position": "Exchange Program Coordination Intern",
-      "url": "",
+      "url": "https://iaeste.org/",
       "startDate": "2018-02-01",
       "endDate": "2018-06-01",
       "summary": "Facilitated cultural exchanges and internships for international students.",
@@ -77,12 +77,11 @@
   "education": [
     {
       "institution": "Washington University in St. Louis",
-      "url": "",
+      "url": "https://wustl.edu",
       "area": "Electrical Engineering",
-      "studyType": "Master's",
+      "studyType": "Master of Science",
       "startDate": "2021-08-01",
       "endDate": "2023-05-01",
-      "score": "3.72",
       "courses": [
         "Machine Learning",
         "Embedded Systems",
@@ -94,10 +93,9 @@
       "institution": "Shanghai Maritime University",
       "url": "",
       "area": "Electrical Engineering",
-      "studyType": "Bachelor's",
+      "studyType": "Bachelor of Engineering",
       "startDate": "2017-09-01",
       "endDate": "2021-07-01",
-      "score": "3.51",
       "courses": [
         "Robotics",
         "Control Systems",
