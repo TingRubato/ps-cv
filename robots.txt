@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://tingrubato.github.io/sitemap.xml
+Sitemap: https://tingrubato.github.io/ps-cv/sitemap.xml
