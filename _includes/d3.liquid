@@ -1,0 +1,4 @@
+<!-- Load Custom Chart Scripts -->
+{% for script in page.chart_scripts %}
+  <script src="{{ '/assets/js/' | append: script | relative_url }}" defer></script>
+{% endfor %}

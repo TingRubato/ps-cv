@@ -1342,3 +1342,19 @@ ninja-keys::part(ninja-input-wrapper) {
   background-color: var(--global-theme-color);
   color: var(--global-text-color);
 }
+
+#chart-occlusion {
+  // display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if there's height */
+  margin: 0 auto; /* Remove extra spacing */
+  padding: 0;
+}
+
+.d3-chart-svg {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if there's height */
+  margin: 0 auto; /* Remove extra spacing */
+  padding: 0;
+}

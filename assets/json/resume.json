@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Ting Xu",
-    "label": "Engineer and Music Technologist",
+    "label": "Polymath in Progress",
     "image": "",
     "email": "ting.x@myschool.edu",
     "phone": "(314)-224-XXXX",
@@ -38,7 +38,7 @@
     {
       "name": "Varsity Tutors Inc.",
       "position": "Tutor",
-      "url": "",
+      "url": "https://varsitytutors.com",
       "startDate": "2024-02-01",
       "endDate": "2024-06-01",
       "summary": "Tutored college students and professionals in STEM topics and developed tailored learning plans.",
@@ -54,10 +54,7 @@
       "startDate": "2021-08-01",
       "endDate": "2023-05-01",
       "summary": "Streamlined campus-wide technology support and developed automated tools for project management.",
-      "highlights": [
-        "Reduced travel distances through optimized routing for tech support.",
-        "Automated pricing inquiries using Python and Selenium."
-      ]
+      "highlights": ["Reduced travel distances through optimized routing for tech support.", "Automated pricing inquiries using Python and Selenium."]
     }
   ],
   "volunteer": [
@@ -82,12 +79,7 @@
       "studyType": "Master of Science",
       "startDate": "2021-08-01",
       "endDate": "2023-05-01",
-      "courses": [
-        "Machine Learning",
-        "Embedded Systems",
-        "Data Science",
-        "Signal Processing"
-      ]
+      "courses": ["Machine Learning", "Embedded Systems", "Data Science", "Signal Processing"]
     },
     {
       "institution": "Shanghai Maritime University",
@@ -96,13 +88,7 @@
       "studyType": "Bachelor of Engineering",
       "startDate": "2017-09-01",
       "endDate": "2021-07-01",
-      "courses": [
-        "Robotics",
-        "Control Systems",
-        "Image Processing",
-        "Digital Signal Processing",
-        "Circuit Theory"
-      ]
+      "courses": ["Robotics", "Control Systems", "Image Processing", "Digital Signal Processing", "Circuit Theory"]
     }
   ],
   "awards": [
@@ -153,10 +139,7 @@
       "startDate": "",
       "endDate": "",
       "description": "Simulated cochlear implant performance in noisy environments to analyze auditory responses and optimize sound processing for users.",
-      "highlights": [
-        "Implemented a Python-based tool using Librosa.",
-        "Evaluated noise reduction algorithms for auditory enhancement."
-      ],
+      "highlights": ["Implemented a Python-based tool using Librosa.", "Evaluated noise reduction algorithms for auditory enhancement."],
       "url": ""
     },
     {

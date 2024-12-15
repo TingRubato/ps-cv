@@ -2,24 +2,37 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
-
+subtitle: Explore without boundaries, create without limits, and connect the dots no one else sees.
+d3: true
+chart_scripts:
+  - chart-occlusion.js
 profile:
   align: right
-  image: prof_pic.jpg
+  image: ting.jpeg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>St. Louis, MO 63130</p>
 
 news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: false # includes a list of papers marked as "selected={true}"
+social: false # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+<script src="{{ '/assets/js/chart-occlusion.js' | relative_url }}" defer></script>
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+<!-- Call the Chart Function -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof renderOcclusionChart === 'function') {
+      renderOcclusionChart('#chart-occlusion'); // Call the function
+    } else {
+      console.error("Function 'renderOcclusion' is not defined.");
+    }
+  });
+</script>
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+🚀 Step into a realm where innovation meets boundless creativity—a world where toys transform into machines and machines come to life in the hands of a true visionary.
+
+That’s me—a relentless tinkerer, a master of taking things apart and putting them back together, all powered by an insatiable curiosity that defies boundaries. My mind works like the neural pathways of Brian Finch from Limitless—a mysterious enigma that keeps others intrigued and captivated.
+
+Think I’m exaggerating? Now that I’ve submitted everything you asked for, the burden of proof rests on you. (See **[_Cruzan v. Director, Missouri Dep't of Health, 497 U.S. 261 (1990)_](https://supreme.justia.com/cases/federal/us/497/261/)**)🤓
