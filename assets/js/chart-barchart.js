@@ -1,0 +1,1 @@
+function renderBarchart(t){const e=[10,20,30,40,50];d3.select(t).select("svg").classed("d3-chart-svg",!0).attr("width",400).attr("height",400).selectAll("rect").data(e).enter().append("rect").attr("x",(t,e)=>100*e+10).attr("y",t=>400-8*t).attr("width",80).attr("height",t=>8*t).attr("fill","steelblue")}
