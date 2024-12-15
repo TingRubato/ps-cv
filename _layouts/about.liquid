@@ -38,11 +38,10 @@ layout: default
     <!-- D3 Chart Container -->
     <div id="chart-wrapper">
       <div id="chart-occlusion" style="justify-content: center;"></div>
-  </div>
+    </div>
 
     <!-- Load D3 and Custom Chart Script -->
     {% include d3.liquid chart_id="chart-occlusion" chart_function="renderOcclusionChart" %}
-
 
     <div class="clearfix">{{ content }}</div>
 
@@ -53,7 +52,6 @@ layout: default
       </h2>
       {% include news.liquid limit=true %}
     {% endif %}
-
 
     <!-- Latest posts -->
     {% if site.latest_posts.enabled %}
