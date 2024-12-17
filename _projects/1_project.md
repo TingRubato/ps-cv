@@ -10,8 +10,9 @@ mermaid:
   enabled: true
   zoomable: true
 pretty_table: true
-# toc:
-#   sidebar: left
+giscus_comments: true
+toc:
+  sidebar: left
 ---
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
