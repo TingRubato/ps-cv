@@ -1,81 +1,374 @@
 ---
 layout: page
-title: project 3 with very long name
-description: a project that redirects to another website
+title: Lyapunov vs USCIS?
+description: For entertainment purposes only. Feel free to judge, but please be kind.
 img: assets/img/7.jpg
-redirect: https://unsplash.com
 importance: 3
-category: work
+pretty_table: true
+category: fun
+---
+> ##### WARNING
+>
+> For entertainment purposes only. 
+> Feel free to judge, but please be kind.
+{: .block-warning }
+# Lyapunov Analysis on NIW Petitions
+
+Hey, friends! Let’s talk about how important NIW applications are in U.S. immigration, shall we?
+
+This special option under the EB-2 category is practically a “backdoor” to a Green Card for highly skilled professionals who can make major contributions to the United States.
+
+Today, we’re going to use Lyapunov stability theory to examine how the NIW application processing system operates.
+
+Why use this theory? Because I never fully understood the basics of system identification during the pandemic, so I’m here to catch up today.
+
+Sounds pretty cool, right?
+
+We’ll take a look at NIW application data from 2019 to 2023 and see how the system responds when applications suddenly surge or policies change.
+
+By applying Lyapunov analysis, we can gain a better understanding of the system’s stability, adaptability, and long-term sustainability.
+
+Not only will this help us figure out how the NIW processing system currently works, we can also take a bit of strategic advantage from it.
+
+Pretty interesting, don’t you think?
+
+Next, we’ll walk you through the NIW application data trends, then build a Lyapunov stability model (don’t worry, I’ll explain it as clearly as possible!), and finally we’ll dive into an in-depth discussion of the system’s stability.
+
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+| Year | Receipts | Completions | New Incomplete (Backlog Increase) | Cumulative Backlog |
+| --- | --- | --- | --- | --- |
+| **2019** | 12,510 | 7,390 | 5,120 | 5120 |
+| **2020** | 14,310 | 10,520 | 3,790 | 8910 |
+| **2021** | 14,610 | 11,210 | 3,400 | 12310 |
+| **2022** | 21,990 | 21,230 | 760 | 13070 |
+| **2023** | 39,810 | 39,840 | -30 | 13040 |
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+**Table 1: EB-2 Category NIW Total Receipts, Completions, and Approvals, FY 2023 USCIS**
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+**Note: The cumulative backlog does not include cases pending before 2018.**
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+---
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+# Key Data Points:
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+## I. In-Depth Analysis of Backlog Trends
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+### 1. 2019-2021: Backlog Increased Year by Year
 
-{% raw %}
+- **Steady Increase in Receipts**: From 12,510 in 2019 to 14,610 in 2021 (up 16.8%)
+- **Slower Growth in Completions**: From 7,390 in 2019 to 11,210 in 2021 (up 51.7%, but not enough to offset the increase in receipts)
+- **Cumulative Backlog Effect**: From 5,120 in 2019 to 12,310 in 2021 (up 2.4 times)
+- **Pandemic Impact**: USCIS office closures, staffing shortages, and remote work led to fewer completions
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+Trends of Receipts, New Incomplete Cases, and Cumulative Backlog of EB2-NIW
 
-{% endraw %}
+### 2. 2022: Significant Improvement in Processing Efficiency
+
+- **Surge in Receipts**: 21,990 (50.5% increase over 2021)
+- **Major Increase in Completions**: 21,230 (up 89.4% from 2021)
+- **Backlog Growth Slows**: Only 760 new incomplete cases
+- **Possible Reasons**: More staffing, introduction of automation, streamlined processes
+
+### 3. 2023: System Enters a New Equilibrium
+
+- **Receipts and Completions Nearly Equal**: 39,810 vs. 39,840
+- **Negative New Incompletes**: -30, reducing some backlog
+- **Slight Decrease in Cumulative Backlog**: From 13,070 to 13,040
+- **Increased Processing Capacity**: Completions are 5.4 times 2019’s figure
+
+## II. In-Depth Exploration of System Stability
+
+### 1. Backlog Remains Stable or Even Decreases
+
+- **Backlog Under Control**: Despite a big increase in receipts during 2022-2023, backlog did not rise significantly
+- **Enhanced Adaptability**: USCIS shows stable processing capability under high application volumes
+- **Potential Risk**: Persistent rapid growth in receipts could lead to new backlog issues
+
+### 2. Matching Growth in Completions to Growth in Receipts
+
+- **Completions Grow Faster**: From 2022 to 2023, completions grew faster than receipts
+- **Sustained Increase in Completions**: From 2019 to 2023, completions grew at an average rate of 53.2% annually, compared to 34.8% for receipts
+- **Contribution to Stability**: The rapid increase in completions is key to system stability
+
+## III. In-Depth Analysis of Application Volume Changes
+
+### 1. Reasons Behind the Application Surge
+
+- **Policy Changes**: Possible easing of NIW requirements in 2022
+- **Employment Environment**: Big tech companies halting PERM applications and layoffs push STEM talent toward NIW
+- **International Factors**: Global political conditions and the pandemic lead overseas talent to choose U.S. immigration
+
+### 2. Application Growth Trend
+
+- **Significant Growth in 2022**: 50.5% increase over 2021
+- **Further Growth in 2023**: 39,810 cases, up 81% over 2022, 3.18 times 2019’s figure
+- **Future Outlook**: USCIS must further increase capacity to handle potential continued growth
+
+## IV. Other Noteworthy Data Points
+
+### 1. Changes in Annual Backlog Increases
+
+- **Reduced Backlog Increases**: 3,400 in 2021 → 760 in 2022 → -30 in 2023
+
+### 2. Significant Improvement in Processing Efficiency
+
+- **Improved Completion Rate**: From 59% in 2019 to 100.1% in 2023
+
+### 3. Changes in System Load
+
+- **Absolute Values of Receipts and Completions Increased**: Around 40,000 each in 2023
+- **Matching Capacity and Load**: The system remained efficient under high load
+
+---
+
+# Lyapunov Stability Model
+
+First, we need to determine the system’s state variable. We choose the **backlog of unprocessed NIW cases** as the system’s **state variable**.
+
+Why choose **backlog** as the system’s **state variable**?
+
+1. **Backlog Directly Reflects System Load**: Backlog measures the gap between receipts and completions. Even if completions are high, if receipts are higher, the backlog persists.
+2. **Backlog is the Core State of the Dynamic System**: System stability hinges on whether backlog decreases over time. Continuous increase signals instability.
+3. **A Clear Definition of Equilibrium**: Equilibrium means the **backlog approaches zero**, i.e., processed and received cases balance out over the long term.
+
+To analyze the system more accurately, we split the state into **two parts**:
+
+1. Backlog $$B(t)$$: Represents the current number of uncompleted cases in the system
+2. Backlog Rate of Change $$\frac{dB(t)}{dt}$$: Describes how the backlog changes over time
+
+Thus we have:
+
+$$\frac{dB(t)}{dt} = R(t) - C(t)+\eta(t)$$
+
+- $$B(t)$$: NIW backlog at time t.
+- $$R(t)$$: Annual receipt volume
+- $$C(t)$$: Annual completion volume
+- $$\eta(t)$$: External disturbances, such as policy changes or international events
+
+This state equation shows **how backlog changes over time**, with receipts, completions, and external factors all influencing the backlog dynamics.
+
+### Now we define the Lyapunov function:
+
+$$V(B,\dot{B})=\alpha(B(t))^2+\beta(\frac{dB(t)}{dt})^2$$
+
+1. $$B(t)^2$$: Reflects the current magnitude of the backlog (system load).
+2. $$(\frac{dB(t)}{dt})^2$$: Measures the rate of change of backlog, capturing system dynamics.
+3. $$\alpha, \beta>0$$: Weighting factors to balance the influence of backlog magnitude and its rate of change.
+
+This Lyapunov function not only **measures the backlog itself** but also **captures the rate of change**, enabling a more comprehensive stability analysis.
+
+## **Solution Process:**
+
+### **Calculating the Derivative of the Lyapunov Function $$V(B,\dot{B})$$:**
+
+$$\dot{V}(B, \dot{B}) = 2 \alpha B(t) \frac{dB(t)}{dt} + 2 \beta \frac{dB(t)}{dt} \cdot \frac{d^2 B(t)}{dt^2}$$
+
+### Substituting the State Equation:
+
+$$\dot{V}(B, \dot{B}) = 2 \alpha B(t) \cdot (R(t) - C(t) + \eta(t)) + 2 \beta \left( R{\prime}(t) - C{\prime}(t) + \eta{\prime}(t) \right)$$
+
+## **Stability Analysis:**
+
+## 1. Without External Disturbance ($$\eta(t)=0$$):
+
+The equation simplifies to:
+
+$$\frac{dB(t)}{dt} = R(t) - C(t)$$
+
+The Lyapunov function’s derivative becomes:
+
+$$\dot{V}(B, \dot{B}) = 2 \alpha B(t) \cdot (R(t) - C(t)) + 2 \beta \frac{dB(t)}{dt} \cdot ( R{\prime}(t) - C{\prime}(t) )$$
+
+### Case 1: If $$R(t) < C(t)$$, i.e., completions exceed receipts,
+
+$$R(t)-C(t)<0$$ and $$B(t)(R(t)-C(t))<0$$
+
+1. The first term $$2 \alpha B(t)(R(t)-C(t))$$ is negative.
+2. The second term $$2 \beta \frac{dB(t)}{dt}(R^{\prime}(t)-C^{\prime}(t))$$ depends on the rate of change, but if $$\frac{dB(t)}{dt}<0$$, this term also tends to be negative.
+- Conclusion: $$\dot{V}(B,\dot{B})<0$$ indicates **the backlog is decreasing**, showing **asymptotic stability**. Even if there’s initial backlog, the system will **gradually return to zero backlog**.
+
+### Case 2: $$R(t) > C(t)$$, i.e., completions exceed receipts,
+
+If $$R(t)-C(t)>0$$ and thus $$B(t)(R(t)-C(t))>0$$
+
+1. The first term $$2 \alpha B(t)(R(t)-C(t))$$ is positive, indicating **backlog is increasing**.
+2. The sign of the second term $$2 \beta \frac{dB(t)}{dt}(R^{\prime}(t)-C^{\prime}(t))$$ depends on the rate of change. If **receipts grow faster** ($$R^{\prime}(t)>C^{\prime}(t)$$), it’s also positive.
+- Conclusion: $$\dot{V}(B,\dot{B})>0$$ shows backlog keeps rising and the system is **unstable**. Without increasing completions or reducing receipts, the backlog will continue to grow.
+
+## 2. Considering External Disturbances $$\eta(t)\neq0$$
+
+In reality, external disturbances (policy shifts, economic crises, etc.) can have unpredictable effects on the system.
+
+Now the state equation is: $$\frac{dB(t)}{dt}=R(t)-C(t)+\eta(t)$$
+
+### Case 1: Large, Sustained External Disturbance
+
+If $$\eta(t)$$ is large and positive for a sustained period, the system’s dynamics are strongly affected.
+
+Even if $$C(t)>R(t)$$ would normally reduce backlog, due to the external disturbance:
+
+$$\frac{dB(t)}{dt} = R(t) - C(t) + \eta(t)$$
+
+If $$\eta(t)$$ is large and positive, it’s possible that $$\frac{dB(t)}{dt}>0$$.
+
+This means **backlog $$B(t)$$ still increases** even if the system’s processing capacity $$C(t)$$ surpasses $$R(t)$$.
+
+At this point, the Lyapunov function derivative is:
+
+$$\dot{V}(B, \dot{B}) = 2\alpha B(t) [R(t) - C(t) + \eta(t)] + 2\beta \frac{dB(t)}{dt} [R{\prime}(t) - C{\prime}(t) + \eta{\prime}(t)]$$
+
+- **First Term**: $$2\alpha B(t)[R(t)-C(t)+\eta(t)]$$ might be positive because of the large $$\eta(t)$$, increasing backlog.
+- **Second Term**: $$2\beta \frac{dB(t)}{dt}[R^{\prime}(t)-C^{\prime}(t)+\eta^{\prime}(t)]$$ can also be positive if $$\eta^{\prime}(t)>0$$.
+
+**Interpretation:**
+
+- **System Instability**: $$\dot{V}(B,\dot{B})>0$$ indicates instability, backlog keeps rising.
+- **Real-World Example**: A sudden easing of immigration policies causing a surge in applications. Even if USCIS increases completions, backlog still grows.
+- **Long-Term Impact**: If disturbances persist, the system can’t recover on its own, requiring further intervention.
+
+### Case 2: External Disturbance Small and Non-Continuous
+
+If $$\eta(t)$$ is small and temporary:
+
+Once the disturbance ends, it returns to $$\frac{dB(t)}{dt}=R(t)-C(t)$$.
+
+As long as $$C(t)>R(t)$$, $$R(t)-C(t)<0$$:
+
+- The Lyapunov function derivative $$\dot{V}(B,\dot{B})<0$$, the system regains asymptotic stability, and the backlog decreases.
+
+**Interpretation:**
+
+- **Self-Recovery**: The system can return to stability after small, short-lived disturbances.
+- **Real Example**: Seasonal spikes in applications that USCIS can handle without significant backlog build-up.
+
+**Comprehensive Analysis:**
+
+1. **With External Disturbances**:
+    - Large, sustained disturbances → Hard for system to recover
+    - Small, short-lived disturbances → System returns to stability after they fade
+2. **Without External Disturbances**:
+    - If $$R(t)<C(t)$$, backlog decreases, system stable
+    - If $$R(t)>C(t)$$, backlog grows, system unstable
+
+# Interpretation of Results:
+
+## **System Stability Analysis**
+
+### 1. Evidence of Asymptotic Stability
+
+2023 data shows the system is stabilizing:
+
+- Receipts and completions nearly equal (39,810 vs 39,840)
+- Backlog decreased slightly (-30 cases)
+- Cumulative backlog down to 13,040
+
+These indicators show the system has reached a new equilibrium, demonstrating good asymptotic stability.
+
+### 2. Significant Improvement in Processing Capacity
+
+USCIS has greatly improved efficiency over the past five years:
+
+- Completions rose from 7,390 in 2019 to 39,840 in 2023
+- Over a fourfold increase, narrowing the $$R(t)$$ and $$C(t)$$ gap
+
+### 3. Enhanced Stress Resistance
+
+Faced with a surge in applications (2022-2023), the system performed well:
+
+- Maintained high completion volume
+- Remained efficient under heavy load
+
+### 4. Impact of Policy Changes
+
+Policy shifts significantly affect the system:
+
+- In 2022, big tech firms paused PERM, causing NIW receipts to surge to 21,990
+- USCIS responded quickly, completing 21,230 and adding only 760 to backlog
+
+Uncertainty in future policies remains:
+
+- The 2024 presidential election may alter immigration policies
+- Tightening policy may cause a short-term spike in $$R(t)$$
+- Easing policy could sustain high application volumes
+
+These changes are sources of external disturbance $$\eta(t)$$.
+
+### 5. Influence of External Environment
+
+**Pandemic Impact**: The backlog rose in 2020-2021 due to the pandemic, impact lessened after 2022.
+
+**Economic Fluctuations**:
+
+- Tech layoffs increase NIW applications
+- Economic recovery may restart PERM, easing NIW pressure
+
+**Geopolitical Factors**: International tensions can spur surges in high-skilled immigration.
+
+USCIS must adapt to maintain Lyapunov stability.
+
+### Summary:
+
+- **Without Disturbances**, stability depends on $$R(t)$$ and $$C(t)$$. Ensuring $$C(t)\ge R(t)$$ is key.
+- **With Disturbances**, the magnitude and duration of $$\eta(t)$$ matter. Anticipating and strategizing help maintain stability.
+
+# **Future Potential Disturbances and Stability Risks in the EB2-NIW System**
+
+## I. Policy and Election Influences
+
+### 1. Uncertainty of the 2024 Presidential Election Outcome
+
+Latest polls show the election between Harris and Trump, affecting immigration policy:
+
+- **Easing Policy (Harris)**: EB2-NIW surge, $$R(t)$$ soars, potentially outstripping USCIS capacity.
+- **Tightening Policy (Trump)**: Stricter scrutiny, $$C(t)$$ falls, short-term spike in $$R(t)$$.
+
+If $$\eta(t)\gg0$$ and $$R(t)>C(t)$$, $$\dot{V}(B,\dot{B})>0$$, instability occurs. USCIS must plan ahead.
+
+### II. Ripple Effects of Big Tech Companies Pausing PERM
+
+**Amazon and Google Pausing PERM until 2025**:
+
+- Talent shifts to NIW, $$R(t)$$ surges
+- If $$C(t)$$ doesn’t rise, $$B(t)$$ grows
+
+### III. Economic Fluctuations and Labor Market Shocks
+
+**Mass Layoffs**:
+
+- PERM gets harder, more NIW applications
+- With $$R(t)>C(t)$$ and $$\eta(t)>0$$, $$\dot{V}(B,\dot{B})>0$$ means instability
+
+**Economic Recovery**:
+
+- PERM resumes, $$R(t)$$ drops, aiding stability
+
+USCIS should monitor economic indicators and optimize resources.
+
+### IV. Technological and Automated Support
+
+Automation boosts $$C(t)$$:
+
+- If $$C(t)\gg R(t)$$, $$\dot{V}(B,\dot{B})<0$$, system stable
+
+### V. Spillover Effects of Geopolitical Tensions
+
+International conflicts push STEM talent to the U.S., $$R(t)$$ spikes:
+
+- If $$R(t)\gg C(t)$$, $$\dot{V}(B,\dot{B})>0$$, temporary measures needed to boost $$C(t)$$
+
+**Summary**: All these factors are sources of external disturbances, affecting stability. USCIS needs flexibility and foresight.
+
+# References
+
+1. "2024 Presidential Election Polls: Harris vs. Trump," *270toWin*, Oct. 2024. [Online].
+    
+    Available: [https://www.270towin.com](https://www.270towin.com/). [Accessed: 15-Oct-2024].
+    
+2. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," *U.S. Citizenship and
+Immigration Services (USCIS)*, Oct. 2023. [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].
+3. "Green card: Decoding why Amazon & Google suspended green card applications," *The Economic
+Times*, May 2024. [Online]. Available: [https://economictimes.indiatimes.com](https://economictimes.indiatimes.com/). [Accessed: 15-Oct-2024].
+4. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," *USCIS*, 2023.
+    
+    [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].

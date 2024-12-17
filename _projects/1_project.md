@@ -1,7 +1,7 @@
 ---
 layout: page
-title: PulsePace
-description: the metronome that you should feel.
+title: A Soundless Metronome
+description: The metronome that you should feel, 
 img: assets/img/pulsepace/featured.png
 importance: 1
 category: fun
