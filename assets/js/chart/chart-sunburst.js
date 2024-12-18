@@ -12,9 +12,7 @@ function renderSunburstChart(selector) {
         .sum((d) => d.value || 0)
         .sort((a, b) => b.value - a.value);
 
-      const root = d3
-        .partition()
-        .size([2 * Math.PI, hierarchy.height + 1])(hierarchy);
+      const root = d3.partition().size([2 * Math.PI, hierarchy.height + 1])(hierarchy);
       root.each((d) => (d.current = d));
 
       // Initialize zoom scale and rotation angle
@@ -54,16 +52,14 @@ function renderSunburstChart(selector) {
         .attr("d", (d) => arcGenerator(d.current))
         .on("click", clicked);
 
-      path
-        .append("title")
-        .text(
-          (d) =>
-            `${d
-              .ancestors()
-              .map((d) => d.data.name)
-              .reverse()
-              .join("/")}\n${d.value}`
-        );
+      path.append("title").text(
+        (d) =>
+          `${d
+            .ancestors()
+            .map((d) => d.data.name)
+            .reverse()
+            .join("/")}\n${d.value}`
+      );
 
       const label = g
         .append("g")
@@ -92,14 +88,8 @@ function renderSunburstChart(selector) {
       function clicked(event, p) {
         root.each((d) => {
           d.target = {
-            x0:
-              Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) *
-              2 *
-              Math.PI,
-            x1:
-              Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) *
-              2 *
-              Math.PI,
+            x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+            x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
             y0: Math.max(0, d.y0 - p.depth),
             y1: Math.max(0, d.y1 - p.depth),
           };
@@ -122,23 +112,18 @@ function renderSunburstChart(selector) {
       }
 
       function labelVisible(d) {
-        return (
-          d.y1 <= 3 &&
-          d.y0 >= 1 &&
-          (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03
-        );
+        return d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
       }
 
       function labelTransform(d) {
         const x = ((d.x0 + d.x1) / 2 + rotationAngle) * (180 / Math.PI);
         const y = ((d.y0 + d.y1) / 2) * radius * zoomScale;
-        return `rotate(${x - 90}) translate(${y},0) rotate(${
-          x < 180 ? 0 : 180
-        })`;
+        return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
       }
 
       // Set up zoom behavior
-      const zoom = d3.zoom()
+      const zoom = d3
+        .zoom()
         .scaleExtent([0.5, 5]) // Adjust the min and max zoom scale
         .on("zoom", (event) => {
           zoomScale = event.transform.k;
@@ -153,12 +138,7 @@ function renderSunburstChart(selector) {
         // Update arc generator with new zoom scale and rotation angle
         arcGenerator
           .innerRadius((d) => d.y0 * radius * zoomScale)
-          .outerRadius((d) =>
-            Math.max(
-              d.y0 * radius * zoomScale,
-              d.y1 * radius * zoomScale - 1
-            )
-          )
+          .outerRadius((d) => Math.max(d.y0 * radius * zoomScale, d.y1 * radius * zoomScale - 1))
           .startAngle((d) => d.x0 + rotationAngle)
           .endAngle((d) => d.x1 + rotationAngle);
 

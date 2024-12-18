@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A Soundless Metronome
-description: The metronome that you should feel, 
+description: The metronome that you should feel,
 img: assets/img/pulsepace/featured.png
 importance: 1
 category: fun
@@ -14,6 +14,7 @@ giscus_comments: true
 toc:
   sidebar: left
 ---
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/pulsepace/featured.png" title="A Soundless Metronome" class="img-fluid rounded z-depth-1" %}
@@ -59,7 +60,7 @@ These limitations should be taken into consideration during the development and 
 
 # But first, Music Theory
 
-**Note:** *Hey, buckle up and brace yourself for some bumpy reading! Bracelet yourselves, folks, 'cause this part might have a few juicy tidbits of misinformation. So, put on your detective hats, grab a magnifying glass, and scrutinize me like a judge on a reality show. Go ahead, roast me, but make sure to sprinkle it with a generous dose of sugar-coated niceness!*
+**Note:** _Hey, buckle up and brace yourself for some bumpy reading! Bracelet yourselves, folks, 'cause this part might have a few juicy tidbits of misinformation. So, put on your detective hats, grab a magnifying glass, and scrutinize me like a judge on a reality show. Go ahead, roast me, but make sure to sprinkle it with a generous dose of sugar-coated niceness!_
 
 ## Meters
 
@@ -81,7 +82,6 @@ flowchart TD
     B -- "Other" --> E[Complex Meter]
 ```
 
-
 In the flowchart above, a method is shown to help understand a function in the Software section. Keep in mind that this flowchart doesn't provide a flawless method for determining whether a meter is simple or compound. There may still be exceptions, such as simple duple, that are not covered by the flowchart.
 
 ### Strong and Weak Beats
@@ -102,38 +102,38 @@ This would help to determine what type of connectivity technology would be neede
 
 ### Composition and Size of Selected Orchestras Through the Centuries
 
-| Date | City and Orchestra | V | Va | C | DB | F | O | Cl | B | Ho | Tr | T/T | Ti | Pc | K | Ha | Total |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1607 | Mantua, Palace, theatre (Orfeo) | 4 | 4 | 2 | 2 | 2 | - | - | - | 2 | 4 | - | - | - | 5 | 3+3 | 31 |
-| 1634 | London, King's Violins | 4 | 7 | 4 | - |  | - | - | - | - | - | - | - | - | - | - | 15 |
-| 1670s/80s | Paris, Opera orchestra | 12 | 6 | 6 | - | - | 4 | - | - | 2 | 2 | - | - | - | 1 | - | 32 |
-| 1708 | Rome, Court orchestra | 23 | 4 | 6 | 6 | 4 | - | - | 2 | 1 | 1 | - | - | - | - | 1 | 47 |
-| 1712 | King of Prussia, Court orchestra | 11 | 2 | 3 | 2 | - | 4 | - | 3 | - | 2 | - | 1 | - | 1 | - | 29 |
-| 1730 | Leipzig, for Bach's cantatas | 6 | 4 | 2 | 1 | - | 3 | - | 2 | - | 3 | - | 1 | - | 2 | - | 24 |
-| 1773 | Paris, Opera orchestra | 22 | 5 | 9 | 6 | 2 | 3 | 1 | 8 | 2 | 1 | - | 1 | - | - | - | 57 |
-| 1773 | Paris, Concert spirituel orchestra | 24 | 4 | 10 | 4 | 2 | 3 | 2 | 4 | 2 | 2 | - | 1 | - | - | - | 58 |
-| 1777 | Mannheim, Court orchestra | 22 | 4 | 4 | 4 | 2 | 2 | 2 | 4 | 2 | 2 | - | 1 | - | ? | - | 49 |
-| 1782 | Vienna, Court orchestra | 12 | 4 | 3 | 3 | 2 | 2 | - | 2 | 2 | 2 | - | 1 | - | - | - | 33 |
-| 1783 | Regensburg, Court orchestra | 12 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 4 | 4 | - | 1 | - | - | - | 35 |
-| 1783 | Eszterháza, Court orchestra | 10 | 2 | 2 | 2 | - | 2 | - | 2 | 2 | ? | - | ? | - | - | - | 22 ? |
-| 1830 | Paris, for Symph.Fantastique | 30 | 10 | 11 | 9 | 2 | 2 | 2 | 4 | 4 | 4 | 3/2 | 4 | 3 | 2 | - | 92 |
-| 1830 | Vienna Philharmonic, concert | 24 | 10 | 6 | 6 | 2 | 2 | 2 | 2 | 2 | 2 | 2/- | 1 | ? | - | - | 61 |
-| 1865 | Leipzig Gewandhaus, concert | 30 | 8 | 9 | 5 | 2 | 2 | 2 | 2 | 4 | 2 | 3/- | 1 | ? | - | - | 70 |
-| 1900 | Vienna Philharmonic, concert | 33 | 11 | 10 | 10 | 4 | 4 | 4 | 4 | 8 | 4 | 5/1 | 1 | 4 | 1 | - | 104 |
-| 1929 | Dresden Philharmonic, concert | 33 | 11 | 11 | 11 | 6 | 6 | 6 | 6 | 10 | 6 | 6/1 | 1 | 5 | - | 1 | 120 |
-| 1974 | New York Philharmonic, concert | 34 | 12 | 12 | 9 | 4 | 4 | 5 | 4 | 6 | 4 | 4/1 | 1 | 4 | 1 | 1 | 106 |
-| 1970 | National Arts Centre, Ottawa | 16 | 7 | 6 | 4 | 2 | 2 | 2 | 2 | 2 | 2 | - | 1 | - | - | 1 | 47 |
-| 2003 | Scottish Chamber, concert | 12 | 5 | 5 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | - | 1 | - | - | - | 35 |
-| 2003 | Philharmonia, London | 27 | 10 | 9 | 7 | 3 | 3 | 4 | 4 | 4 | 3 | 3/1 | 1 | 3 | - | 2 | 84 |
-| 2003 | Vancouver Symphony, concert | 21 | 7 | 8 | 6 | 3 | 3 | 4 | 3 | 4 | 3 | 3/1 | 1 | 2 | 1 | 1 | 71 |
-| 2003 | New Zealand Symphony, concert | 28 | 12 | 9 | 8 | 3 | 3 | 4 | 3 | 5 | 4 | 3/1 | 1 | 3 | - | 1 | 88 |
-| 2003 | Toronto Symphony | 29 | 11 | 10 | 8 | 4 | 4 | 4 | 4 | 6 | 4 | 4/1 | 1 | 4 | - | 1 | 95 |
-| 2003 | Chicago Symphony | 36 | 14 | 12 | 9 | 4 | 4 | 4 | 5 | 5 | 4 | 4/1 | 1 | 4 | 1 | 2 | 109 |
-| 2003 | O. de Suisse Romande, concert | 32 | 12 | 11 | 9 | 5 | 5 | 5 | 5 | 6 | 5 | 5/1 | 1 | 4 | 1 | 1 | 108 |
-| 2003 | Berlin Philharmonic | 42 | 16 | 13 | 12 | 5 | 5 | 5 | 5 | 8 | 5 | 5/1 | 2 | 4 | - | 1 | 129 |
-| 2003 | Vienna Philharmonic | 46 | 17 | 14 | 13 | 5 | 6 | 6 | 6 | 11 | 6 | 6/1 | 2 | 5 | - | 1 | 145 |
+| Date      | City and Orchestra                 | V   | Va  | C   | DB  | F   | O   | Cl  | B   | Ho  | Tr  | T/T | Ti  | Pc  | K   | Ha  | Total |
+| --------- | ---------------------------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ----- |
+| 1607      | Mantua, Palace, theatre (Orfeo)    | 4   | 4   | 2   | 2   | 2   | -   | -   | -   | 2   | 4   | -   | -   | -   | 5   | 3+3 | 31    |
+| 1634      | London, King's Violins             | 4   | 7   | 4   | -   |     | -   | -   | -   | -   | -   | -   | -   | -   | -   | -   | 15    |
+| 1670s/80s | Paris, Opera orchestra             | 12  | 6   | 6   | -   | -   | 4   | -   | -   | 2   | 2   | -   | -   | -   | 1   | -   | 32    |
+| 1708      | Rome, Court orchestra              | 23  | 4   | 6   | 6   | 4   | -   | -   | 2   | 1   | 1   | -   | -   | -   | -   | 1   | 47    |
+| 1712      | King of Prussia, Court orchestra   | 11  | 2   | 3   | 2   | -   | 4   | -   | 3   | -   | 2   | -   | 1   | -   | 1   | -   | 29    |
+| 1730      | Leipzig, for Bach's cantatas       | 6   | 4   | 2   | 1   | -   | 3   | -   | 2   | -   | 3   | -   | 1   | -   | 2   | -   | 24    |
+| 1773      | Paris, Opera orchestra             | 22  | 5   | 9   | 6   | 2   | 3   | 1   | 8   | 2   | 1   | -   | 1   | -   | -   | -   | 57    |
+| 1773      | Paris, Concert spirituel orchestra | 24  | 4   | 10  | 4   | 2   | 3   | 2   | 4   | 2   | 2   | -   | 1   | -   | -   | -   | 58    |
+| 1777      | Mannheim, Court orchestra          | 22  | 4   | 4   | 4   | 2   | 2   | 2   | 4   | 2   | 2   | -   | 1   | -   | ?   | -   | 49    |
+| 1782      | Vienna, Court orchestra            | 12  | 4   | 3   | 3   | 2   | 2   | -   | 2   | 2   | 2   | -   | 1   | -   | -   | -   | 33    |
+| 1783      | Regensburg, Court orchestra        | 12  | 2   | 2   | 2   | 2   | 2   | 2   | 2   | 4   | 4   | -   | 1   | -   | -   | -   | 35    |
+| 1783      | Eszterháza, Court orchestra        | 10  | 2   | 2   | 2   | -   | 2   | -   | 2   | 2   | ?   | -   | ?   | -   | -   | -   | 22 ?  |
+| 1830      | Paris, for Symph.Fantastique       | 30  | 10  | 11  | 9   | 2   | 2   | 2   | 4   | 4   | 4   | 3/2 | 4   | 3   | 2   | -   | 92    |
+| 1830      | Vienna Philharmonic, concert       | 24  | 10  | 6   | 6   | 2   | 2   | 2   | 2   | 2   | 2   | 2/- | 1   | ?   | -   | -   | 61    |
+| 1865      | Leipzig Gewandhaus, concert        | 30  | 8   | 9   | 5   | 2   | 2   | 2   | 2   | 4   | 2   | 3/- | 1   | ?   | -   | -   | 70    |
+| 1900      | Vienna Philharmonic, concert       | 33  | 11  | 10  | 10  | 4   | 4   | 4   | 4   | 8   | 4   | 5/1 | 1   | 4   | 1   | -   | 104   |
+| 1929      | Dresden Philharmonic, concert      | 33  | 11  | 11  | 11  | 6   | 6   | 6   | 6   | 10  | 6   | 6/1 | 1   | 5   | -   | 1   | 120   |
+| 1974      | New York Philharmonic, concert     | 34  | 12  | 12  | 9   | 4   | 4   | 5   | 4   | 6   | 4   | 4/1 | 1   | 4   | 1   | 1   | 106   |
+| 1970      | National Arts Centre, Ottawa       | 16  | 7   | 6   | 4   | 2   | 2   | 2   | 2   | 2   | 2   | -   | 1   | -   | -   | 1   | 47    |
+| 2003      | Scottish Chamber, concert          | 12  | 5   | 5   | 2   | 2   | 2   | 2   | 2   | 2   | 2   | -   | 1   | -   | -   | -   | 35    |
+| 2003      | Philharmonia, London               | 27  | 10  | 9   | 7   | 3   | 3   | 4   | 4   | 4   | 3   | 3/1 | 1   | 3   | -   | 2   | 84    |
+| 2003      | Vancouver Symphony, concert        | 21  | 7   | 8   | 6   | 3   | 3   | 4   | 3   | 4   | 3   | 3/1 | 1   | 2   | 1   | 1   | 71    |
+| 2003      | New Zealand Symphony, concert      | 28  | 12  | 9   | 8   | 3   | 3   | 4   | 3   | 5   | 4   | 3/1 | 1   | 3   | -   | 1   | 88    |
+| 2003      | Toronto Symphony                   | 29  | 11  | 10  | 8   | 4   | 4   | 4   | 4   | 6   | 4   | 4/1 | 1   | 4   | -   | 1   | 95    |
+| 2003      | Chicago Symphony                   | 36  | 14  | 12  | 9   | 4   | 4   | 4   | 5   | 5   | 4   | 4/1 | 1   | 4   | 1   | 2   | 109   |
+| 2003      | O. de Suisse Romande, concert      | 32  | 12  | 11  | 9   | 5   | 5   | 5   | 5   | 6   | 5   | 5/1 | 1   | 4   | 1   | 1   | 108   |
+| 2003      | Berlin Philharmonic                | 42  | 16  | 13  | 12  | 5   | 5   | 5   | 5   | 8   | 5   | 5/1 | 2   | 4   | -   | 1   | 129   |
+| 2003      | Vienna Philharmonic                | 46  | 17  | 14  | 13  | 5   | 6   | 6   | 6   | 11  | 6   | 6/1 | 2   | 5   | -   | 1   | 145   |
 
-*Table: Composition and Size of Selected Orchestras Through the Centuries*
+_Table: Composition and Size of Selected Orchestras Through the Centuries_
 
 # System Requirements and Specifications
 
@@ -332,9 +332,9 @@ To set up a thing type, thing group, and create things for a device called Tensn
 ### Create a Thing Type:
 
 1. In the AWS IoT Console, go to the "Manage" tab and select "Thing Types".
-    
-    Here we add a searchable attribute: Device_ID.
-    
+
+   Here we add a searchable attribute: Device_ID.
+
 2. Click on the "Create" button and enter a name for the new thing type.
 3. Add any relevant attributes to the thing type, such as "Tempo" or "Time Signature".
 4. Save the thing type.
@@ -350,13 +350,12 @@ After that, we can see that a thing type is already created.
     Created Thing Type
 </div>
 
-
 ### Create a Thing
 
 1. In the AWS IoT Console, go to the "Manage" tab and select "Things".
 2. Click on the "Create" button and enter a name for the new thing, such as "Raspberry Pi".
 3. Select the thing type you created in step 1 for the thing.
-This would automatically add the attributes of the thing type that was created before, in this instance, it would be Device_ID.
+   This would automatically add the attributes of the thing type that was created before, in this instance, it would be Device_ID.
 4. Save the thing.
 
 <div class="row">
@@ -368,18 +367,17 @@ This would automatically add the attributes of the thing type that was created b
     Created a Thing
 </div>
 
-
 ### Create a Rule
 
 1. In the AWS IoT Console, go to the "Manage" tab and select "Message Routing" and select "Rules"
 2. Click on the "Create Rule" button and enter a name for the Rule, e.g. "New_Status_published_Rule".
 3. Specify the SQL statement for the rule. Here the rule I created is used to take the user input. So the SQL Statement would.
-    
-    ```sql
-    SELECT * FROM 'user/input'
-    
-    ```
-    
+
+   ```sql
+   SELECT * FROM 'user/input'
+
+   ```
+
 4. Choose the source where the rule will get data from. Here it would be "user/input".
 5. Add actions that should be taken when the rule is triggered. Here the action needed is: Send a message to a Lambda function. The lambda function should be created before this step. Here I will use the function: music_info_extract.
 
@@ -400,137 +398,133 @@ So in this section, I will go through how to implement a lambda function that ca
 
 1. Navigate to the AWS Lambda Console
 2. In the tab Functions, create a lambda function by clicking on the "Create Function" button.
-    - Select the runtime environment for the function, here we pick Python.
-    - Create a new role in the "Role" dropdown menu, and provide a name for the role.
+   - Select the runtime environment for the function, here we pick Python.
+   - Create a new role in the "Role" dropdown menu, and provide a name for the role.
 3. After the function is created, we need to do some environment setup to use a library called **music21** to get scores' bpm and time signature.
-    - Install the Library Locally
-        
-        ```bash
-        user@ubuntu/> mkdir music21_layer & cd music21_layer
-        user@ubuntu/> pip3 install music21 -t .
-        ```
-        
-    - Create Zip File
-        
-        ```bash
-        user@ubuntu/> zip -r music21_layer.zip
-        ```
-        
+   - Install the Library Locally
+     ```bash
+     user@ubuntu/> mkdir music21_layer & cd music21_layer
+     user@ubuntu/> pip3 install music21 -t .
+     ```
+   - Create Zip File
+     ```bash
+     user@ubuntu/> zip -r music21_layer.zip
+     ```
 4. Navigate to **Lambda > Layers** and create a layer. Then upload the zip file to the layer.
 5. In the Code source panel, add the following script to the lambda_function.py.
-    
-    ```python
-     import json
-     import boto3
-     import music21
-     from music21 import corpus, tempo, meter, converter, metadata
-     from music21.stream import Score
-     from pathlib import Path
-    
-     music21.environment.set('autoDownload', 'allow')
-     client_id = "iotconsole-af3331df-123d-4682-817d-e63ea14cc248"
-     topic = "status"
-     iot_endpoint = "<https://a2lfjupb1otf51-ats.iot.us-east-1.amazonaws.com>"
-     iot_client = boto3.client("iot-data", region_name="us-east-1", endpoint_url=iot_endpoint)
-    
-     def get_time_signatures_from_piece(music_piece: Score) -> list[str]:
-         if not isinstance(music_piece, Score):
-             raise TypeError("Expected music_piece to be a Score object")
-    
-         time_signatures = []
-    
-         time_signature_elements = music_piece.getTimeSignatures()
-         for element in time_signature_elements:
-             time_signature = f"{element.numerator}/{element.denominator}"
-             if time_signature not in time_signatures:
-                 time_signatures.append(time_signature)
-    
-         return time_signatures
-    
-     def get_tempo_from_piece(music_piece: Score) -> int:
-         if not isinstance(music_piece, Score):
-             raise TypeError("Expected music_piece to be a Score object")
-    
-         metronome_marks = music_piece.metronomeMarkBoundaries()
-         if metronome_marks:
-             first_metronome_mark = metronome_marks[0]
-             bpm = first_metronome_mark[2].number
-             return bpm
-         else:
-             return None
-    
-     def find_music_piece(title=None):
-         """
-         Find a music piece based on the given title.
-    
-         :param title: The title of the music piece to search for.
-         :return: A matching music piece as a music21 Score object, or None if no match is found.
-         """
-         # Use the search() function to find a list of pieces with the given title
-         matches = corpus.search(title)
-    
-         if len(matches) == 0:
-             print(f"No matches found for title: {title}")
-             return None
-    
-         # Load the first match using parse()
-         try:
-             music_piece = converter.parse(matches[0])
-         except Exception as e:
-             print(f"Error loading music piece {matches[0]}: {e}")
-             return None
-    
-         return music_piece
-    
-     def lambda_handler(event, context):
-         metronome_id = event["metronomeID"]
-         input_data = event["inputDATA"]
-    
-         if "bpm" in input_data and "time_signature" in input_data:
-             bpm = input_data["bpm"]
-             time_signature = input_data["time_signature"]
-         elif "title" in input_data:
-             music_piece_title = input_data["title"]
-             music_score = find_music_piece(music_piece_title)
-             if music_score is not None:
-                 if not isinstance(music_score, Score):
-                     raise TypeError("Expected music_score to be a Score object")
-                 bpm = get_tempo_from_piece(music_score)
-                 time_signature = get_time_signatures_from_piece(music_score)
-                 print(f"Score Loaded: {dir(music_score)}")
-             else:
-                 print(f"Invalid music piece: {music_piece_title}")
-                 return {"statusCode": 400, "body": f"Invalid music title: {music_piece_title}"}
-    
-         else:
-             print("Invalid inputDATA format.")
-             return {"statusCode": 400, "body": "Invalid inputDATA format."}
-    
-         print(f"bpm: {bpm}, time_signature: {time_signature}")  # Debugging print statement
-    
-         message = {
-             "metronomeID": metronome_id,
-             "inputDATA": {
-                 "bpm": bpm,
-                 "time_signature": time_signature
-             }
-         }
-    
-         response = iot_client.publish(topic=topic, qos=1, payload=json.dumps(message))
-    
-         return {"statusCode": 200, "body": "Message published to music_info topic."}
-    
-    ```
-    
+
+   ```python
+    import json
+    import boto3
+    import music21
+    from music21 import corpus, tempo, meter, converter, metadata
+    from music21.stream import Score
+    from pathlib import Path
+
+    music21.environment.set('autoDownload', 'allow')
+    client_id = "iotconsole-af3331df-123d-4682-817d-e63ea14cc248"
+    topic = "status"
+    iot_endpoint = "<https://a2lfjupb1otf51-ats.iot.us-east-1.amazonaws.com>"
+    iot_client = boto3.client("iot-data", region_name="us-east-1", endpoint_url=iot_endpoint)
+
+    def get_time_signatures_from_piece(music_piece: Score) -> list[str]:
+        if not isinstance(music_piece, Score):
+            raise TypeError("Expected music_piece to be a Score object")
+
+        time_signatures = []
+
+        time_signature_elements = music_piece.getTimeSignatures()
+        for element in time_signature_elements:
+            time_signature = f"{element.numerator}/{element.denominator}"
+            if time_signature not in time_signatures:
+                time_signatures.append(time_signature)
+
+        return time_signatures
+
+    def get_tempo_from_piece(music_piece: Score) -> int:
+        if not isinstance(music_piece, Score):
+            raise TypeError("Expected music_piece to be a Score object")
+
+        metronome_marks = music_piece.metronomeMarkBoundaries()
+        if metronome_marks:
+            first_metronome_mark = metronome_marks[0]
+            bpm = first_metronome_mark[2].number
+            return bpm
+        else:
+            return None
+
+    def find_music_piece(title=None):
+        """
+        Find a music piece based on the given title.
+
+        :param title: The title of the music piece to search for.
+        :return: A matching music piece as a music21 Score object, or None if no match is found.
+        """
+        # Use the search() function to find a list of pieces with the given title
+        matches = corpus.search(title)
+
+        if len(matches) == 0:
+            print(f"No matches found for title: {title}")
+            return None
+
+        # Load the first match using parse()
+        try:
+            music_piece = converter.parse(matches[0])
+        except Exception as e:
+            print(f"Error loading music piece {matches[0]}: {e}")
+            return None
+
+        return music_piece
+
+    def lambda_handler(event, context):
+        metronome_id = event["metronomeID"]
+        input_data = event["inputDATA"]
+
+        if "bpm" in input_data and "time_signature" in input_data:
+            bpm = input_data["bpm"]
+            time_signature = input_data["time_signature"]
+        elif "title" in input_data:
+            music_piece_title = input_data["title"]
+            music_score = find_music_piece(music_piece_title)
+            if music_score is not None:
+                if not isinstance(music_score, Score):
+                    raise TypeError("Expected music_score to be a Score object")
+                bpm = get_tempo_from_piece(music_score)
+                time_signature = get_time_signatures_from_piece(music_score)
+                print(f"Score Loaded: {dir(music_score)}")
+            else:
+                print(f"Invalid music piece: {music_piece_title}")
+                return {"statusCode": 400, "body": f"Invalid music title: {music_piece_title}"}
+
+        else:
+            print("Invalid inputDATA format.")
+            return {"statusCode": 400, "body": "Invalid inputDATA format."}
+
+        print(f"bpm: {bpm}, time_signature: {time_signature}")  # Debugging print statement
+
+        message = {
+            "metronomeID": metronome_id,
+            "inputDATA": {
+                "bpm": bpm,
+                "time_signature": time_signature
+            }
+        }
+
+        response = iot_client.publish(topic=topic, qos=1, payload=json.dumps(message))
+
+        return {"statusCode": 200, "body": "Message published to music_info topic."}
+
+   ```
+
 6. Add a Trigger
-    
-    If this lambda function is created from the new rule that we created from Message Routing setup, this should already be done.
-    
-    In the Trigger configuration, please set the trigger as listed below:
-    
-    - Service: AWS IoT
-    - Select Custom IoT Rule
-    - Using existing rules:
+
+   If this lambda function is created from the new rule that we created from Message Routing setup, this should already be done.
+
+   In the Trigger configuration, please set the trigger as listed below:
+
+   - Service: AWS IoT
+   - Select Custom IoT Rule
+   - Using existing rules:
 
 arn:aws:iot:region:id:rule/New_Status_published_Rule
 
@@ -544,7 +538,6 @@ After created, you should see this.
 <div class="caption">
     Add a trigger
 </div>
-
 
 When everything is properly set, we can go to the Test Tab and send out a test function to see if it works.
 

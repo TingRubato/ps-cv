@@ -7,11 +7,13 @@ importance: 3
 pretty_table: true
 category: fun
 ---
+
 > ##### WARNING
 >
-> For entertainment purposes only. 
+> For entertainment purposes only.
 > Feel free to judge, but please be kind.
-{: .block-warning }
+> {: .block-warning }
+
 # Lyapunov Analysis on NIW Petitions
 
 Hey, friends! Let’s talk about how important NIW applications are in U.S. immigration, shall we?
@@ -36,13 +38,13 @@ Next, we’ll walk you through the NIW application data trends, then build a Lya
 
 ---
 
-| Year | Receipts | Completions | New Incomplete (Backlog Increase) | Cumulative Backlog |
-| --- | --- | --- | --- | --- |
-| **2019** | 12,510 | 7,390 | 5,120 | 5120 |
-| **2020** | 14,310 | 10,520 | 3,790 | 8910 |
-| **2021** | 14,610 | 11,210 | 3,400 | 12310 |
-| **2022** | 21,990 | 21,230 | 760 | 13070 |
-| **2023** | 39,810 | 39,840 | -30 | 13040 |
+| Year     | Receipts | Completions | New Incomplete (Backlog Increase) | Cumulative Backlog |
+| -------- | -------- | ----------- | --------------------------------- | ------------------ |
+| **2019** | 12,510   | 7,390       | 5,120                             | 5120               |
+| **2020** | 14,310   | 10,520      | 3,790                             | 8910               |
+| **2021** | 14,610   | 11,210      | 3,400                             | 12310              |
+| **2022** | 21,990   | 21,230      | 760                               | 13070              |
+| **2023** | 39,810   | 39,840      | -30                               | 13040              |
 
 **Table 1: EB-2 Category NIW Total Receipts, Completions, and Approvals, FY 2023 USCIS**
 
@@ -186,6 +188,7 @@ $$R(t)-C(t)<0$$ and $$B(t)(R(t)-C(t))<0$$
 
 1. The first term $$2 \alpha B(t)(R(t)-C(t))$$ is negative.
 2. The second term $$2 \beta \frac{dB(t)}{dt}(R^{\prime}(t)-C^{\prime}(t))$$ depends on the rate of change, but if $$\frac{dB(t)}{dt}<0$$, this term also tends to be negative.
+
 - Conclusion: $$\dot{V}(B,\dot{B})<0$$ indicates **the backlog is decreasing**, showing **asymptotic stability**. Even if there’s initial backlog, the system will **gradually return to zero backlog**.
 
 ### Case 2: $$R(t) > C(t)$$, i.e., completions exceed receipts,
@@ -194,6 +197,7 @@ If $$R(t)-C(t)>0$$ and thus $$B(t)(R(t)-C(t))>0$$
 
 1. The first term $$2 \alpha B(t)(R(t)-C(t))$$ is positive, indicating **backlog is increasing**.
 2. The sign of the second term $$2 \beta \frac{dB(t)}{dt}(R^{\prime}(t)-C^{\prime}(t))$$ depends on the rate of change. If **receipts grow faster** ($$R^{\prime}(t)>C^{\prime}(t)$$), it’s also positive.
+
 - Conclusion: $$\dot{V}(B,\dot{B})>0$$ shows backlog keeps rising and the system is **unstable**. Without increasing completions or reducing receipts, the backlog will continue to grow.
 
 ## 2. Considering External Disturbances $$\eta(t)\neq0$$
@@ -245,11 +249,11 @@ As long as $$C(t)>R(t)$$, $$R(t)-C(t)<0$$:
 **Comprehensive Analysis:**
 
 1. **With External Disturbances**:
-    - Large, sustained disturbances → Hard for system to recover
-    - Small, short-lived disturbances → System returns to stability after they fade
+   - Large, sustained disturbances → Hard for system to recover
+   - Small, short-lived disturbances → System returns to stability after they fade
 2. **Without External Disturbances**:
-    - If $$R(t)<C(t)$$, backlog decreases, system stable
-    - If $$R(t)>C(t)$$, backlog grows, system unstable
+   - If $$R(t)<C(t)$$, backlog decreases, system stable
+   - If $$R(t)>C(t)$$, backlog grows, system unstable
 
 # Interpretation of Results:
 
@@ -361,14 +365,14 @@ International conflicts push STEM talent to the U.S., $$R(t)$$ spikes:
 
 # References
 
-1. "2024 Presidential Election Polls: Harris vs. Trump," *270toWin*, Oct. 2024. [Online].
-    
-    Available: [https://www.270towin.com](https://www.270towin.com/). [Accessed: 15-Oct-2024].
-    
-2. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," *U.S. Citizenship and
-Immigration Services (USCIS)*, Oct. 2023. [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].
-3. "Green card: Decoding why Amazon & Google suspended green card applications," *The Economic
-Times*, May 2024. [Online]. Available: [https://economictimes.indiatimes.com](https://economictimes.indiatimes.com/). [Accessed: 15-Oct-2024].
-4. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," *USCIS*, 2023.
-    
-    [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].
+1. "2024 Presidential Election Polls: Harris vs. Trump," _270toWin_, Oct. 2024. [Online].
+
+   Available: [https://www.270towin.com](https://www.270towin.com/). [Accessed: 15-Oct-2024].
+
+2. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," _U.S. Citizenship and
+   Immigration Services (USCIS)_, Oct. 2023. [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].
+3. "Green card: Decoding why Amazon & Google suspended green card applications," _The Economic
+   Times_, May 2024. [Online]. Available: [https://economictimes.indiatimes.com](https://economictimes.indiatimes.com/). [Accessed: 15-Oct-2024].
+4. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," _USCIS_, 2023.
+
+   [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].
