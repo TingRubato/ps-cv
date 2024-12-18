@@ -18,7 +18,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-<script src="{{ '/assets/js/chart-occlusion.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/chart/chart-occlusion.js' | relative_url }}" defer></script>
 
 <!-- Call the Chart Function -->
 <script>

@@ -1,0 +1,70 @@
+{
+    "name": "National Interest Waiver",
+    "children": [
+      {
+        "name": "Merit&Importance",
+        "children": [
+          { "name": "Substantial Merit", "value": 1.0 },
+          { "name": "Non-Quantifiable Impact", "value": 0.8 },
+          { "name": "Prospective Research Impact", "value": 1.0 },
+          { "name": "Detailed Explanation of Merit", "value": 1.0 },
+          { "name": "National/Global Implications", "value": 1.0 },
+          { "name": "Potential Economic Impact", "value": 0.9 },
+          { "name": "Regional Impact but Broad Scope", "value": 0.9 },
+          { "name": "Specificity of Contribution", "value": 1.0 }
+        ]
+      },
+      {
+        "name": "Well-Position",
+        "children": [
+          {
+            "name": "Qualifications",
+            "children": [
+              { "name": "Education, Skills, and Knowledge", "value": 1.0 },
+              { "name": "Record of Success", "value": 1.0 },
+              { "name": "Patents, Copyrights, or Trademarks", "value": 1.0 },
+              { "name": "Expert Letters and Testimonials", "value": 1.0 },
+              { "name": "Published Articles & Media Reports", "value": 0.8 },
+              { "name": "Citation History & Field Influence", "value": 0.8 }
+            ]
+          },
+          {
+            "name": "Model or Plan for Future",
+            "children": [
+              { "name": "Strategic Plan for Endeavor", "value": 1.0 },
+              { "name": "Detailed Business Model", "value": 0.9 },
+              { "name": "Prospective Employer/Client Support", "value": 0.9 },
+              { "name": "Financial Support Feasibility", "value": 0.8 }
+            ]
+          },
+          {
+            "name": "Progress Towards Endeavor",
+            "children": [
+              { "name": "Grants Awarded", "value": 1.0 },
+              { "name": "Contracts or Licenses", "value": 1.0 },
+              { "name": "Achievements & Inventions", "value": 1.0 }
+            ]
+          },
+          {
+            "name": "External Interest & Validation",
+            "children": [
+              { "name": "Government Interest Letters", "value": 0.9 },
+              { "name": "Investments from U.S. Investors", "value": 0.9 },
+              { "name": "Awards or Non-Monetary Support", "value": 0.8 },
+              { "name": "Licensed Technology Used by Others", "value": 0.8 }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Balancing Benefits",
+        "children": [
+          { "name": "Impracticality of Labor Certification", "value": 1.0 },
+          { "name": "U.S. Benefit Despite Availability of Workers", "value": 0.9 },
+          { "name": "Urgency of National Interest", "value": 1.0 },
+          { "name": "Potential Job Creation", "value": 0.9 },
+          { "name": "Beneficiary's Self-Employment Impact", "value": 0.8 }
+        ]
+      }
+    ]
+  }
