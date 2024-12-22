@@ -1,12 +1,14 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
-importance: 3
-category: fun
+title: EB2-NIW in Math
+description: A quantified methods to evaluate your EB2-NIW petition.
+img: assets/img/dhanasar/niw.png
+importance: 1
+category: work
 d3: true
 pretty_table: true
+toc:
+  sidebar: left
 chart_scripts:
   - chart/chart-sunburst.js
 ---

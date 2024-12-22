@@ -1,20 +1,22 @@
 ---
 layout: page
-title: Lyapunov vs USCIS?
+title: USCIS Stability?
 description: For entertainment purposes only. Feel free to judge, but please be kind.
-img: assets/img/7.jpg
+img: assets/img/lyapunov/image.png
 importance: 3
 pretty_table: true
 category: fun
+toc:
+  sidebar: left
+chart:
+  echarts: true
 ---
 
 > ##### WARNING
 >
 > For entertainment purposes only.
 > Feel free to judge, but please be kind.
-> {: .block-warning }
-
-# Lyapunov Analysis on NIW Petitions
+> {: .block-danger }
 
 Hey, friends! Let’s talk about how important NIW applications are in U.S. immigration, shall we?
 
@@ -52,79 +54,326 @@ Next, we’ll walk you through the NIW application data trends, then build a Lya
 
 ---
 
-# Key Data Points:
+## **Key Data Points:**
 
-## I. In-Depth Analysis of Backlog Trends
+### **I. In-Depth Analysis of Backlog Trends**
 
-### 1. 2019-2021: Backlog Increased Year by Year
+#### **1. 2019-2021: Backlog Increased Year by Year**
 
 - **Steady Increase in Receipts**: From 12,510 in 2019 to 14,610 in 2021 (up 16.8%)
 - **Slower Growth in Completions**: From 7,390 in 2019 to 11,210 in 2021 (up 51.7%, but not enough to offset the increase in receipts)
 - **Cumulative Backlog Effect**: From 5,120 in 2019 to 12,310 in 2021 (up 2.4 times)
 - **Pandemic Impact**: USCIS office closures, staffing shortages, and remote work led to fewer completions
 
-Trends of Receipts, New Incomplete Cases, and Cumulative Backlog of EB2-NIW
+```echarts
+{
+   "title": {
+      "text": "Backlog and Case Processing Trends (2019-2021)",
+      "left": "center"
+   },
+   "tooltip": {
+      "trigger": "axis",
+      "axisPointer": {
+         "type": "shadow"
+      }
+   },
+   "legend": {
+      "top": "10%",
+      "data": ["Receipts", "Completions", "Backlog"]
+   },
+   "xAxis": {
+      "type": "category",
+      "data": ["2019", "2020", "2021"]
+   },
+   "yAxis": {
+      "type": "value",
+      "name": "Counts",
+      "min": 0
+   },
+   "series": [
+      {
+         "name": "Receipts",
+         "type": "bar",
+         "data": [12510, 13890, 14610],
+         "itemStyle": {
+            "color": "rgba(54, 162, 235, 0.8)"
+         }
+      },
+      {
+         "name": "Completions",
+         "type": "bar",
+         "data": [7390, 9100, 11210],
+         "itemStyle": {
+            "color": "rgba(75, 192, 192, 0.8)"
+         }
+      },
+      {
+         "name": "Backlog",
+         "type": "bar",
+         "data": [5120, 8790, 12310],
+         "itemStyle": {
+            "color": "rgba(255, 159, 64, 0.8)"
+         }
+      }
+   ]
+}
+```
 
-### 2. 2022: Significant Improvement in Processing Efficiency
+#### **2. 2022: Significant Improvement in Processing Efficiency**
 
 - **Surge in Receipts**: 21,990 (50.5% increase over 2021)
 - **Major Increase in Completions**: 21,230 (up 89.4% from 2021)
 - **Backlog Growth Slows**: Only 760 new incomplete cases
 - **Possible Reasons**: More staffing, introduction of automation, streamlined processes
 
-### 3. 2023: System Enters a New Equilibrium
+```echarts
+{
+   "title": {
+      "text": "Case Processing Trends (2022)",
+      "left": "center"
+   },
+   "tooltip": {
+      "trigger": "axis",
+      "axisPointer": {
+         "type": "shadow"
+      }
+   },
+   "legend": {
+      "top": "10%",
+      "data": ["Receipts", "Completions", "Backlog Growth"]
+   },
+   "xAxis": {
+      "type": "category",
+      "data": ["2022"]
+   },
+   "yAxis": {
+      "type": "value",
+      "name": "Counts",
+      "min": 0
+   },
+   "series": [
+      {
+         "name": "Receipts",
+         "type": "bar",
+         "data": [21990],
+         "itemStyle": {
+            "color": "rgba(54, 162, 235, 0.8)"
+         }
+      },
+      {
+         "name": "Completions",
+         "type": "bar",
+         "data": [21230],
+         "itemStyle": {
+            "color": "rgba(75, 192, 192, 0.8)"
+         }
+      },
+      {
+         "name": "Backlog Growth",
+         "type": "bar",
+         "data": [760],
+         "itemStyle": {
+            "color": "rgba(255, 159, 64, 0.8)"
+         }
+      }
+   ]
+}
+```
+
+#### **3. 2023: System Enters a New Equilibrium**
 
 - **Receipts and Completions Nearly Equal**: 39,810 vs. 39,840
 - **Negative New Incompletes**: -30, reducing some backlog
 - **Slight Decrease in Cumulative Backlog**: From 13,070 to 13,040
 - **Increased Processing Capacity**: Completions are 5.4 times 2019’s figure
 
-## II. In-Depth Exploration of System Stability
+```echarts
+{
+   "title": {
+      "text": "Case Processing Trends (2023)",
+      "left": "center"
+   },
+   "tooltip": {
+      "trigger": "axis",
+      "axisPointer": {
+         "type": "shadow"
+      }
+   },
+   "legend": {
+      "top": "10%",
+      "data": ["Receipts", "Completions", "Backlog Change"]
+   },
+   "xAxis": {
+      "type": "category",
+      "data": ["2023"]
+   },
+   "yAxis": {
+      "type": "value",
+      "name": "Counts",
+      "min": -50
+   },
+   "series": [
+      {
+         "name": "Receipts",
+         "type": "bar",
+         "data": [39810],
+         "itemStyle": {
+            "color": "rgba(54, 162, 235, 0.8)"
+         }
+      },
+      {
+         "name": "Completions",
+         "type": "bar",
+         "data": [39840],
+         "itemStyle": {
+            "color": "rgba(75, 192, 192, 0.8)"
+         }
+      },
+      {
+         "name": "Backlog Change",
+         "type": "bar",
+         "data": [-30],
+         "itemStyle": {
+            "color": "rgba(255, 159, 64, 0.8)"
+         }
+      }
+   ]
+}
+```
 
-### 1. Backlog Remains Stable or Even Decreases
+### **II. In-Depth Exploration of System Stability**
+
+#### **1. Backlog Remains Stable or Even Decreases**
 
 - **Backlog Under Control**: Despite a big increase in receipts during 2022-2023, backlog did not rise significantly
 - **Enhanced Adaptability**: USCIS shows stable processing capability under high application volumes
 - **Potential Risk**: Persistent rapid growth in receipts could lead to new backlog issues
 
-### 2. Matching Growth in Completions to Growth in Receipts
+#### **2. Matching Growth in Completions to Growth in Receipts**
 
 - **Completions Grow Faster**: From 2022 to 2023, completions grew faster than receipts
 - **Sustained Increase in Completions**: From 2019 to 2023, completions grew at an average rate of 53.2% annually, compared to 34.8% for receipts
 - **Contribution to Stability**: The rapid increase in completions is key to system stability
 
-## III. In-Depth Analysis of Application Volume Changes
+### **III. In-Depth Analysis of Application Volume Changes**
 
-### 1. Reasons Behind the Application Surge
+#### **1. Reasons Behind the Application Surge**
 
 - **Policy Changes**: Possible easing of NIW requirements in 2022
 - **Employment Environment**: Big tech companies halting PERM applications and layoffs push STEM talent toward NIW
 - **International Factors**: Global political conditions and the pandemic lead overseas talent to choose U.S. immigration
 
-### 2. Application Growth Trend
+```echarts
+{
+    "title": {
+        "text": "Receipts vs. Completions (2019-2023)",
+        "left": "center"
+    },
+    "tooltip": {
+        "trigger": "axis"
+    },
+    "legend": {
+        "top": "10%",
+        "data": ["Receipts", "Completions"]
+    },
+    "xAxis": {
+        "type": "category",
+        "data": ["2019", "2020", "2021", "2022", "2023"]
+    },
+    "yAxis": {
+        "type": "value",
+        "name": "Counts"
+    },
+    "series": [
+        {
+            "name": "Receipts",
+            "type": "line",
+            "data": [12510, 13890, 14610, 21990, 39810],
+            "itemStyle": {
+                "color": "rgba(54, 162, 235, 0.8)"
+            }
+        },
+        {
+            "name": "Completions",
+            "type": "line",
+            "data": [7390, 9100, 11210, 21230, 39840],
+            "itemStyle": {
+                "color": "rgba(75, 192, 192, 0.8)"
+            }
+        }
+    ]
+}
+```
+
+#### **2. Application Growth Trend**
 
 - **Significant Growth in 2022**: 50.5% increase over 2021
 - **Further Growth in 2023**: 39,810 cases, up 81% over 2022, 3.18 times 2019’s figure
 - **Future Outlook**: USCIS must further increase capacity to handle potential continued growth
 
-## IV. Other Noteworthy Data Points
+  ```echarts
+  {
+     "title": {
+        "text": "Annual Growth Rates: Receipts vs. Completions",
+        "left": "center"
+     },
+     "tooltip": {
+        "trigger": "axis",
+        "axisPointer": {
+           "type": "line"
+        }
+     },
+     "legend": {
+        "top": "10%",
+        "data": ["Receipts Growth", "Completions Growth"]
+     },
+     "xAxis": {
+        "type": "category",
+        "data": ["2019-2020", "2020-2021", "2021-2022", "2022-2023"]
+     },
+     "yAxis": {
+        "type": "value",
+        "name": "Growth Rate (%)"
+     },
+     "series": [
+        {
+           "name": "Receipts Growth",
+           "type": "line",
+           "data": [11.0, 5.2, 50.5, 81.0],
+           "itemStyle": {
+              "color": "rgba(54, 162, 235, 0.8)"
+           }
+        },
+        {
+           "name": "Completions Growth",
+           "type": "line",
+           "data": [23.1, 23.0, 89.4, 87.6],
+           "itemStyle": {
+              "color": "rgba(75, 192, 192, 0.8)"
+           }
+        }
+     ]
+  }
+  ```
 
-### 1. Changes in Annual Backlog Increases
+### **IV. Other Noteworthy Data Points**
+
+#### **1. Changes in Annual Backlog Increases**
 
 - **Reduced Backlog Increases**: 3,400 in 2021 → 760 in 2022 → -30 in 2023
 
-### 2. Significant Improvement in Processing Efficiency
+#### **2. Significant Improvement in Processing Efficiency**
 
 - **Improved Completion Rate**: From 59% in 2019 to 100.1% in 2023
 
-### 3. Changes in System Load
+#### **3. Changes in System Load**
 
 - **Absolute Values of Receipts and Completions Increased**: Around 40,000 each in 2023
 - **Matching Capacity and Load**: The system remained efficient under high load
 
 ---
 
-# Lyapunov Stability Model
+## **Lyapunov Stability Model**
 
 First, we need to determine the system’s state variable. We choose the **backlog of unprocessed NIW cases** as the system’s **state variable**.
 
@@ -150,7 +399,7 @@ $$\frac{dB(t)}{dt} = R(t) - C(t)+\eta(t)$$
 
 This state equation shows **how backlog changes over time**, with receipts, completions, and external factors all influencing the backlog dynamics.
 
-### Now we define the Lyapunov function:
+### **Now we define the Lyapunov function:**
 
 $$V(B,\dot{B})=\alpha(B(t))^2+\beta(\frac{dB(t)}{dt})^2$$
 
@@ -162,17 +411,17 @@ This Lyapunov function not only **measures the backlog itself** but also **captu
 
 ## **Solution Process:**
 
-### **Calculating the Derivative of the Lyapunov Function $$V(B,\dot{B})$$:**
+1. **Calculating the Derivative of the Lyapunov Function $$V(B,\dot{B})$$:**
 
 $$\dot{V}(B, \dot{B}) = 2 \alpha B(t) \frac{dB(t)}{dt} + 2 \beta \frac{dB(t)}{dt} \cdot \frac{d^2 B(t)}{dt^2}$$
 
-### Substituting the State Equation:
+2. **Substituting the State Equation:**
 
 $$\dot{V}(B, \dot{B}) = 2 \alpha B(t) \cdot (R(t) - C(t) + \eta(t)) + 2 \beta \left( R{\prime}(t) - C{\prime}(t) + \eta{\prime}(t) \right)$$
 
 ## **Stability Analysis:**
 
-## 1. Without External Disturbance ($$\eta(t)=0$$):
+### **1. Without External Disturbance ($$\eta(t)=0$$):**
 
 The equation simplifies to:
 
@@ -182,7 +431,7 @@ The Lyapunov function’s derivative becomes:
 
 $$\dot{V}(B, \dot{B}) = 2 \alpha B(t) \cdot (R(t) - C(t)) + 2 \beta \frac{dB(t)}{dt} \cdot ( R{\prime}(t) - C{\prime}(t) )$$
 
-### Case 1: If $$R(t) < C(t)$$, i.e., completions exceed receipts,
+#### **Case 1: If $$R(t) < C(t)$$, i.e., completions exceed receipts,**
 
 $$R(t)-C(t)<0$$ and $$B(t)(R(t)-C(t))<0$$
 
@@ -191,7 +440,7 @@ $$R(t)-C(t)<0$$ and $$B(t)(R(t)-C(t))<0$$
 
 - Conclusion: $$\dot{V}(B,\dot{B})<0$$ indicates **the backlog is decreasing**, showing **asymptotic stability**. Even if there’s initial backlog, the system will **gradually return to zero backlog**.
 
-### Case 2: $$R(t) > C(t)$$, i.e., completions exceed receipts,
+#### **Case 2: $$R(t) > C(t)$$, i.e., completions exceed receipts,**
 
 If $$R(t)-C(t)>0$$ and thus $$B(t)(R(t)-C(t))>0$$
 
@@ -200,13 +449,13 @@ If $$R(t)-C(t)>0$$ and thus $$B(t)(R(t)-C(t))>0$$
 
 - Conclusion: $$\dot{V}(B,\dot{B})>0$$ shows backlog keeps rising and the system is **unstable**. Without increasing completions or reducing receipts, the backlog will continue to grow.
 
-## 2. Considering External Disturbances $$\eta(t)\neq0$$
+### **2. Considering External Disturbances $$\eta(t)\neq0$$**
 
 In reality, external disturbances (policy shifts, economic crises, etc.) can have unpredictable effects on the system.
 
 Now the state equation is: $$\frac{dB(t)}{dt}=R(t)-C(t)+\eta(t)$$
 
-### Case 1: Large, Sustained External Disturbance
+#### **Case 1: Large, Sustained External Disturbance**
 
 If $$\eta(t)$$ is large and positive for a sustained period, the system’s dynamics are strongly affected.
 
@@ -231,7 +480,7 @@ $$\dot{V}(B, \dot{B}) = 2\alpha B(t) [R(t) - C(t) + \eta(t)] + 2\beta \frac{dB(t
 - **Real-World Example**: A sudden easing of immigration policies causing a surge in applications. Even if USCIS increases completions, backlog still grows.
 - **Long-Term Impact**: If disturbances persist, the system can’t recover on its own, requiring further intervention.
 
-### Case 2: External Disturbance Small and Non-Continuous
+#### **Case 2: External Disturbance Small and Non-Continuous**
 
 If $$\eta(t)$$ is small and temporary:
 
@@ -255,11 +504,11 @@ As long as $$C(t)>R(t)$$, $$R(t)-C(t)<0$$:
    - If $$R(t)<C(t)$$, backlog decreases, system stable
    - If $$R(t)>C(t)$$, backlog grows, system unstable
 
-# Interpretation of Results:
+## **Interpretation of Results:**
 
-## **System Stability Analysis**
+### **System Stability Analysis**
 
-### 1. Evidence of Asymptotic Stability
+#### 1. Evidence of Asymptotic Stability
 
 2023 data shows the system is stabilizing:
 
@@ -269,21 +518,101 @@ As long as $$C(t)>R(t)$$, $$R(t)-C(t)<0$$:
 
 These indicators show the system has reached a new equilibrium, demonstrating good asymptotic stability.
 
-### 2. Significant Improvement in Processing Capacity
+#### 2. Significant Improvement in Processing Capacity
 
 USCIS has greatly improved efficiency over the past five years:
 
 - Completions rose from 7,390 in 2019 to 39,840 in 2023
 - Over a fourfold increase, narrowing the $$R(t)$$ and $$C(t)$$ gap
 
-### 3. Enhanced Stress Resistance
+```echarts
+{
+   "title": {
+      "text": "Improved Processing Capacity (2019-2023)",
+      "left": "center"
+   },
+   "tooltip": {
+      "trigger": "axis"
+   },
+   "xAxis": {
+      "type": "category",
+      "data": ["2019", "2020", "2021", "2022", "2023"]
+   },
+   "yAxis": {
+      "type": "value",
+      "name": "Completions"
+   },
+   "series": [
+      {
+         "name": "Completions",
+         "type": "line",
+         "data": [7390, 9100, 11210, 21230, 39840],
+         "itemStyle": { "color": "rgba(75, 192, 192, 0.8)" },
+         "lineStyle": { "width": 3 }
+      }
+   ]
+}
+```
+
+#### 3. Enhanced Stress Resistance
 
 Faced with a surge in applications (2022-2023), the system performed well:
 
 - Maintained high completion volume
 - Remained efficient under heavy load
 
-### 4. Impact of Policy Changes
+```echarts
+{
+   "title": {
+      "text": "Stress Resistance: High Volume Handling (2022-2023)",
+      "left": "center"
+   },
+   "tooltip": {
+      "trigger": "axis",
+      "axisPointer": { "type": "shadow" }
+   },
+   "legend": {
+      "top": "10%",
+      "data": ["Receipts", "Completions"]
+   },
+   "xAxis": {
+      "type": "category",
+      "data": ["2022", "2023"]
+   },
+   "yAxis": {
+      "type": "value",
+      "name": "Counts"
+   },
+   "series": [
+      {
+         "name": "Receipts",
+         "type": "bar",
+         "stack": "Receipts",
+         "data": [21990, 39810],
+         "itemStyle": { "color": "rgba(54, 162, 235, 0.8)" },
+         "label": {
+            "show": true,
+            "position": "inside",
+            "formatter": "{c}"
+         }
+      },
+      {
+         "name": "Completions",
+         "type": "bar",
+         "stack": "Completions",
+         "data": [21230, 39840],
+         "itemStyle": { "color": "rgba(75, 192, 192, 0.8)" },
+         "label": {
+            "show": true,
+            "position": "inside",
+            "formatter": "{c}"
+         }
+      }
+   ]
+}
+```
+
+#### 4. Impact of Policy Changes
 
 Policy shifts significantly affect the system:
 
@@ -298,7 +627,42 @@ Uncertainty in future policies remains:
 
 These changes are sources of external disturbance $$\eta(t)$$.
 
-### 5. Influence of External Environment
+```echarts
+{
+   "title": {
+      "text": "Impact of Policy Changes",
+      "left": "center"
+   },
+   "tooltip": {
+      "trigger": "item"
+   },
+   "legend": {
+      "top": "10%",
+      "left": "center"
+   },
+   "series": [
+      {
+         "name": "Factors",
+         "type": "pie",
+         "radius": "50%",
+         "data": [
+            { "value": 40, "name": "Policy Shifts" },
+            { "value": 35, "name": "Economic Changes" },
+            { "value": 25, "name": "Geopolitical Factors" }
+         ],
+         "itemStyle": {
+            "emphasis": {
+               "shadowBlur": 10,
+               "shadowOffsetX": 0,
+               "shadowColor": "rgba(0, 0, 0, 0.5)"
+            }
+         }
+      }
+   ]
+}
+```
+
+#### 5. Influence of External Environment
 
 **Pandemic Impact**: The backlog rose in 2020-2021 due to the pandemic, impact lessened after 2022.
 
@@ -311,16 +675,46 @@ These changes are sources of external disturbance $$\eta(t)$$.
 
 USCIS must adapt to maintain Lyapunov stability.
 
+```echarts
+{
+   "title": {
+      "text": "Backlog Evolution Under External Pressures",
+      "left": "center"
+   },
+   "tooltip": {
+      "trigger": "axis",
+      "axisPointer": { "type": "shadow" }
+   },
+   "xAxis": {
+      "type": "category",
+      "data": ["2019", "2020", "2021", "2022", "2023"]
+   },
+   "yAxis": {
+      "type": "value",
+      "name": "Backlog"
+   },
+   "series": [
+      {
+         "name": "Backlog",
+         "type": "line",
+         "data": [5120, 8790, 12310, 13070, 13040],
+         "areaStyle": { "color": "rgba(255, 159, 64, 0.3)" },
+         "itemStyle": { "color": "rgba(255, 159, 64, 0.8)" }
+      }
+   ]
+}
+```
+
 ### Summary:
 
 - **Without Disturbances**, stability depends on $$R(t)$$ and $$C(t)$$. Ensuring $$C(t)\ge R(t)$$ is key.
 - **With Disturbances**, the magnitude and duration of $$\eta(t)$$ matter. Anticipating and strategizing help maintain stability.
 
-# **Future Potential Disturbances and Stability Risks in the EB2-NIW System**
+## **Future Potential Disturbances and Stability Risks in the EB2-NIW System**
 
-## I. Policy and Election Influences
+### **I. Policy and Election Influences**
 
-### 1. Uncertainty of the 2024 Presidential Election Outcome
+#### 1. Uncertainty of the 2024 Presidential Election Outcome
 
 Latest polls show the election between Harris and Trump, affecting immigration policy:
 
@@ -329,14 +723,14 @@ Latest polls show the election between Harris and Trump, affecting immigration p
 
 If $$\eta(t)\gg0$$ and $$R(t)>C(t)$$, $$\dot{V}(B,\dot{B})>0$$, instability occurs. USCIS must plan ahead.
 
-### II. Ripple Effects of Big Tech Companies Pausing PERM
+#### **II. Ripple Effects of Big Tech Companies Pausing PERM**
 
 **Amazon and Google Pausing PERM until 2025**:
 
 - Talent shifts to NIW, $$R(t)$$ surges
 - If $$C(t)$$ doesn’t rise, $$B(t)$$ grows
 
-### III. Economic Fluctuations and Labor Market Shocks
+#### **III. Economic Fluctuations and Labor Market Shocks**
 
 **Mass Layoffs**:
 
@@ -349,13 +743,13 @@ If $$\eta(t)\gg0$$ and $$R(t)>C(t)$$, $$\dot{V}(B,\dot{B})>0$$, instability occu
 
 USCIS should monitor economic indicators and optimize resources.
 
-### IV. Technological and Automated Support
+#### **IV. Technological and Automated Support**
 
 Automation boosts $$C(t)$$:
 
 - If $$C(t)\gg R(t)$$, $$\dot{V}(B,\dot{B})<0$$, system stable
 
-### V. Spillover Effects of Geopolitical Tensions
+#### **V. Spillover Effects of Geopolitical Tensions**
 
 International conflicts push STEM talent to the U.S., $$R(t)$$ spikes:
 
@@ -376,3 +770,15 @@ International conflicts push STEM talent to the U.S., $$R(t)$$ spikes:
 4. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," _USCIS_, 2023.
 
    [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
