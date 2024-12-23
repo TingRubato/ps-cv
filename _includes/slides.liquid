@@ -1,0 +1,35 @@
+<div class="col">
+  <a href="{% if slide.redirect %}{{ slide.redirect }}{% else %}{{ slide.url | relative_url }}{% endif %}">
+    <div class="card h-100 hoverable">
+      {% if slide.img %}
+        {%
+          include figure.liquid
+          loading="eager"
+          path=slide.img
+          sizes = "250px"
+          alt="slide thumbnail"
+          class="card-img-top"
+        %}
+      {% endif %}
+      <div class="card-body">
+        <h2 class="card-title">{{ slide.title }}</h2>
+        <p class="card-text">{{ slide.description }}</p>
+        <div class="row ml-1 mr-1 p-0">
+          {% if slide.github %}
+            <div class="github-icon">
+              <div class="icon" data-toggle="tooltip" title="Code Repository">
+                <a href="{{ slide.github }}"><i class="fa-brands fa-github gh-icon"></i></a>
+              </div>
+              {% if slide.github_stars %}
+                <span class="stars" data-toggle="tooltip" title="GitHub Stars">
+                  <i class="fa-solid fa-star"></i>
+                  <span id="{{ slide.github_stars }}-stars"></span>
+                </span>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

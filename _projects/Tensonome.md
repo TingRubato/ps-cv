@@ -4,7 +4,7 @@ title: A Soundless Metronome
 description: The metronome that you should feel,
 img: assets/img/pulsepace/featured.png
 importance: 1
-category: fun
+category: tech
 related_publications: true
 mermaid:
   enabled: true

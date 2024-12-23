@@ -151,6 +151,9 @@ collections:
   projects:
     output: true
     permalink: /:collection/:title/
+  slides:
+    output: true
+    permalink: /:collection/:title/
 
 announcements:
   enabled: true

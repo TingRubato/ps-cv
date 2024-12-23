@@ -48,7 +48,7 @@ Next, we’ll walk you through the NIW application data trends, then build a Lya
 | **2022** | 21,990   | 21,230      | 760                               | 13070              |
 | **2023** | 39,810   | 39,840      | -30                               | 13040              |
 
-**Table 1: EB-2 Category NIW Total Receipts, Completions, and Approvals, FY 2023 USCIS**
+**Table 1: EB-2 Category NIW Total Receipts, Completions, and Approvals, FY 2023 USCIS[2]**
 
 **Note: The cumulative backlog does not include cases pending before 2018.**
 
@@ -621,7 +621,7 @@ Policy shifts significantly affect the system:
 
 Uncertainty in future policies remains:
 
-- The 2024 presidential election may alter immigration policies
+- The 2024 presidential election may alter immigration policies[1]
 - Tightening policy may cause a short-term spike in $$R(t)$$
 - Easing policy could sustain high application volumes
 
@@ -725,7 +725,7 @@ If $$\eta(t)\gg0$$ and $$R(t)>C(t)$$, $$\dot{V}(B,\dot{B})>0$$, instability occu
 
 #### **II. Ripple Effects of Big Tech Companies Pausing PERM**
 
-**Amazon and Google Pausing PERM until 2025**:
+**Amazon and Google Pausing PERM until 2025[3]**:
 
 - Talent shifts to NIW, $$R(t)$$ surges
 - If $$C(t)$$ doesn’t rise, $$B(t)$$ grows
@@ -759,26 +759,6 @@ International conflicts push STEM talent to the U.S., $$R(t)$$ spikes:
 
 # References
 
-1. "2024 Presidential Election Polls: Harris vs. Trump," _270toWin_, Oct. 2024. [Online].
-
-   Available: [https://www.270towin.com](https://www.270towin.com/). [Accessed: 15-Oct-2024].
-
-2. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," _U.S. Citizenship and
-   Immigration Services (USCIS)_, Oct. 2023. [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].
-3. "Green card: Decoding why Amazon & Google suspended green card applications," _The Economic
-   Times_, May 2024. [Online]. Available: [https://economictimes.indiatimes.com](https://economictimes.indiatimes.com/). [Accessed: 15-Oct-2024].
-4. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," _USCIS_, 2023.
-
-   [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+1. "2024 Presidential Election Polls: Harris vs. Trump," _270toWin_, Oct. 2024. [Online]. Available: [https://www.270towin.com](https://www.270towin.com/). [Accessed: 15-Oct-2024].
+2. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," _U.S. Citizenship and Immigration Services (USCIS)_, Oct. 2023. [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].
+3. "Green card: Decoding why Amazon & Google suspended green card applications," _The Economic Times_, May 2024. [Online]. Available: [https://economictimes.indiatimes.com](https://economictimes.indiatimes.com/). [Accessed: 15-Oct-2024].

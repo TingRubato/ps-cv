@@ -4,7 +4,7 @@ title: QuietCool
 description: Charge Grandpa's Machine w/ Artificial Neural Network
 img: assets/img/quietCool/image.png
 importance: 3
-category: fun
+category: tech
 toc:
   sidebar: left
 ---

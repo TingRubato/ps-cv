@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Grafana
-description: a project with a background image and giscus comments
-img: assets/img/grafana/featured.png
+description: Tired of BI? Or Tableau too expensive? Well, try Grafana, or d3js(Come on, all the options available, don't get yourself robbed)
+img: assets/img/grafana/image.png
 importance: 1
-category: work
+category: tech
 giscus_comments: true
 toc:
   sidebar: left
