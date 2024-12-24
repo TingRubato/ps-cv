@@ -3,7 +3,7 @@ layout: page
 title: Stable Diffusion
 description: For Grade school, a Friendly Stable Diffusion Workshop Slides
 category: teaching
-img: assets/img/dfd.png
+img: assets/img/stable-diffusion.png
 importance: 4
 ---
 

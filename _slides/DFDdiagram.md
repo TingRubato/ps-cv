@@ -3,7 +3,7 @@ layout: page
 title: DFD Diagram
 description: 
 category: teaching
-img: assets/img/py.png
+img: assets/img/dfd.png
 importance: 4
 ---
 
