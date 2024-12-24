@@ -3,7 +3,7 @@ layout: page
 title: Python vs. MATLAB
 description: A comparative guide of Python for Advanced MATLAB Users
 category: teaching
-img:
+img: assets/img/py.png
 importance: 4
 ---
 
