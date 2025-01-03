@@ -3,8 +3,8 @@
     "name": "Ting Xu",
     "label": "Polymath in Progress",
     "image": "",
-    "email": "ting.x@myschool.edu",
-    "phone": "(314)-224-XXXX",
+    "email": "ting.x@wustl.edu",
+    "phone": "(314)-224-6046",
     "url": "https://github.io/tingrubato",
     "summary": "An innovative engineer and music technologist passionate about combining music and technology to solve real-world challenges, including applications in cochlear implant sound processing and human-computer interaction.",
     "location": {
@@ -100,7 +100,22 @@
     }
   ],
   "certificates": [],
-  "publications": [],
+  "publications": [
+    {
+      "name": "Design, Optimization, and Experimental Study of a Novel Direct-Driven Linear-Rotary Wave Generator",
+      "publisher": "IEEE Transactions on Energy Conversion",
+      "releaseDate": "Manuscript",
+      "url": "https://tingrubato.github.io/ps-cv/assets/pdf/TEC-01067-2023.R2.pdf",
+      "summary": "This paper introduces a novel linear-rotary wave generator to enhance the reliability and efficiency of wave energy conversion systems. It proposes an optimization approach and validates it through experimental platforms."
+    },
+    {
+      "name": "3-D Analysis and Experimental Verification of A Novel Magnetic Lead Screw with Checkerboard Array Magnetic Pole",
+      "publisher": "IEEE Transactions on Transportation Electrification",
+      "releaseDate": "Manuscript",
+      "url": "https://tingrubato.github.io/ps-cv/assets/pdf/TTE-Reg-2024-09-2195.R1.pdf",
+      "summary": "This research proposes a checkerboard array pole magnetic lead screw that improves efficiency and reduces material costs while ensuring optimal thrust and torque characteristics."
+    }
+  ],
   "skills": [
     {
       "name": "Programming",
@@ -136,22 +151,24 @@
   "projects": [
     {
       "name": "Cochlear Implant Simulator",
-      "startDate": "",
-      "endDate": "",
-      "description": "Simulated cochlear implant performance in noisy environments to analyze auditory responses and optimize sound processing for users.",
-      "highlights": ["Implemented a Python-based tool using Librosa.", "Evaluated noise reduction algorithms for auditory enhancement."],
-      "url": ""
+      "url": "",
+      "highlights": ["Implemented a Python-based tool using Librosa.", "Evaluated noise reduction algorithms for auditory enhancement."]
     },
     {
       "name": "A Metronome Using TENS Unit",
-      "startDate": "",
-      "endDate": "",
-      "description": "Developed a rhythm guidance tool for musicians using Raspberry Pi, TENS technology, and AWS IoT.",
+      "url": "https://tingrubato.github.io/ps-cv/projects/Tensonome/",
       "highlights": [
         "Created an embedded system to stimulate muscle rhythm for better timing.",
         "Pioneered a novel approach in music performance technology."
-      ],
-      "url": ""
+      ]
+    },
+    {
+      "name": "Quiet Cool: ML for Fan Control",
+      "url": "https://tingrubato.github.io/ps-cv/projects/Quiet-Cool/",
+      "highlights": [
+        "Designed a custom ML model to balance fan noise and GPU temperature.",
+        "Improved cooling efficiency in enterprise server environments."
+      ]
     }
   ]
 }
