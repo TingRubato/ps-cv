@@ -1,16 +1,17 @@
 ---
-layout: page
-title: Grafana
+layout: post
+title: Monitor Your Homelab Using Grafana + Prometheus
+date: 2024-04-01 15:06:00
 description: Tired of BI? Or Tableau too expensive? Well, try Grafana, or d3js(Come on, all the options available, don't get yourself robbed)
-img: assets/img/grafana/image.png
-importance: 1
-category: tech
+tags: data IoT Observability
+thumbnail: assets/img/grafana/image.png
+categories: Observability
 giscus_comments: true
 toc:
   sidebar: left
 ---
 
-### Prelude: Tired of BI Tools? Try Grafana!
+## Prelude: Tired of BI Tools? Try Grafana!
 
 Are you fed up with the same old BI tools like Tableau and PowerBI? Then, welcome to the Grafana fan club—a refreshing twist in the world of analytics and monitoring! Grafana isn’t just any platform; it’s an open-source wonder that lets you query, visualize, alert on, and understand your metrics, no matter their hiding spots. Dive into creating, exploring, and sharing dashboards that not only look cool but also make you the hero of data-driven decision-making. Here’s why Grafana stands out from the crowd:
 
@@ -26,7 +27,7 @@ Are you fed up with the same old BI tools like Tableau and PowerBI? Then, welcom
 
 Ready to break up with your old BI tools? Grafana is your new data-soulmate waiting to sweep you off your feet!
 
-### Fugue Grafana: A Journey From Zero to Hero
+## Grafana: A Journey From Zero to Hero
 
 Aight folks, let's start preparing for the Grafana journey. We'll be covering the following topics:
 
@@ -53,7 +54,7 @@ If you set up Grafana successfully, you should see the login page as shown below
 
 What? are you asking me for the default username and password? Well, I don't want to spoil the fun for you. Go ahead and find it out yourself. If you still can't find it, you can always refer to the [Grafana documentation](https://grafana.com/docs/grafana/latest/installation/) or leave me a comment below and I will teach you hands-on.
 
-#### Data Sources
+### Data Sources
 
 Grafana supports a wide range of data sources, including Graphite, Prometheus, InfluxDB, Elasticsearch, and many more. You can easily connect Grafana to these data sources by configuring the data source settings in Grafana. Here is a quick guide to help you get started: [Grafana Data Sources Guide](https://grafana.com/docs/grafana/latest/features/datasources/).
 
@@ -78,7 +79,7 @@ Grafana supports a wide range of data sources, including Graphite, Prometheus, I
     Save and Test Data Source
 </div>
 
-#### Dashboards
+### Dashboards
 
 Dashboards are the heart and soul of Grafana. They allow you to visualize your data in a meaningful way and gain insights from it. You can create custom dashboards in Grafana by adding panels that display your data in various formats like graphs, tables, and gauges. Here is a quick guide to help you get started: [Grafana Dashboards Guide](https://grafana.com/docs/grafana/latest/features/dashboard/dashboards/).
 
@@ -107,7 +108,7 @@ In the example above, you can easily see the metric values like CPU usage, memor
 
 Now that you have a basic understanding of how to create and customize dashboards in Grafana, you can start exploring the various features and options available in Grafana to create stunning visualizations of your data. Remember, the sky's the limit when it comes to Grafana dashboards!
 
-### Fugue Prometheus: From Raw Metrics to Symphony of Insights
+## Prometheus: From Raw Metrics to Symphony of Insights
 
 You might wonder why it sounds so easy to set up a Grafana Dashboard. Well, the secret sauce behind this is Prometheus. Prometheus is an open-source monitoring and alerting toolkit that is widely used in the industry. It provides a powerful data model, a flexible query language, and a sophisticated alerting system that makes it easy to monitor your applications and infrastructure. Prometheus collects metrics from your applications and infrastructure and stores them in a time-series database. You can then query these metrics using the Prometheus query language and visualize them in Grafana. This is why Prometheus is a great choice for monitoring your server metrics and Grafana is a great choice for visualizing these metrics. Together, they make a powerful combination that can help you monitor and troubleshoot your applications and infrastructure with ease. And I gotta be honest with you that it took me a while to properly set up Prometheus and PVE Exporter to monitor my Proxmox server. If you come across any issues while setting up Prometheus, here is a hint: **Check the certificates and user permission.** I know this sounds like a generic hint, but trust me, it can save you a lot of time.
 
@@ -216,6 +217,6 @@ By properly setting up Prometheus and Grafana, you can monitor your server metri
     Figure: Prometheus Targets
 </div>
 
-### Epilogue: This is Just the Beginning
+## Epilogue: This is Just the Beginning
 
 Congratulations! You’ve taken your first steps into the world of Grafana and Prometheus. But remember, this is just the beginning of your journey. There’s so much more to explore and learn in the realm of monitoring and alerting. Dive deeper into the world of Grafana plugins, explore the vast landscape of data sources, and master the art of creating stunning dashboards that tell a story. And don’t forget to share your knowledge with others in the Grafana community. Together, we can build a world where data is not just a number but a powerful tool for change. So go forth, brave explorer, and chart your course through the data-driven universe with Grafana and Prometheus as your trusty companions. Happy monitoring!

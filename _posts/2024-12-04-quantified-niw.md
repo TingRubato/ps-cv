@@ -1,14 +1,15 @@
 ---
-layout: page
-title: EB2-NIW in Math
+layout: post
+title: A quantified way to evaluate your EB2-NIW Petition
+date: 2024-12-04 01:59:00
 description: A quantified methods to evaluate your EB2-NIW petition.
-img: assets/img/dhanasar/niw.png
-importance: 1
-category: work
+tags: legal analysis
+categories: work
+thumbnail:  assets/img/dhanasar/niw.png
 d3: true
 pretty_table: true
-toc:
-  sidebar: left
+# toc:
+#   sidebar: left
 chart_scripts:
   - chart/chart-sunburst.js
 ---
@@ -183,12 +184,11 @@ Consider **Dr. Jane Doe**, a biomedical researcher using AI-driven diagnostics t
 > Prong 3 Passed (≥75 required).
 > {: .block-blue }
 
-### **Final Decision:** Dr. Doe qualifies for the National Interest Waiver.
+### **Final Decision:** 
+Dr. Doe qualifies for the National Interest Waiver.
 
 ---
 
 ## **Conclusion: A Structured, Quantifiable Approach**
 
 This refined model uses a staged, mathematically grounded methodology that mirrors the Dhanasar framework’s sequential logic. Prong 1’s foundational threshold ensures that only nationally significant endeavors proceed. Prong 2’s weighted scoring underscores the petitioner’s readiness and capability. Finally, Prong 3 balances these findings against the broader national interest, offering a transparent, consistent, and data-driven decision process. By integrating clear criteria, conditional logic, and numerical thresholds, this model enhances fairness, reduces subjectivity, and provides a roadmap for systematic NIW adjudication.
-
----

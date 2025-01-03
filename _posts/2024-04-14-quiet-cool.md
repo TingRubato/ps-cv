@@ -1,14 +1,14 @@
 ---
 layout: page
-title: QuietCool - Infuse your old machine with ML Fan Control
+title: ML Enablement for Old Homelab
 description: Charge Grandpa's Machine w/ Artificial Neural Network
-img: assets/img/quietCool/image.png
-importance: 3
-category: tech
+date:  2024-04-14 04:30:00
+thumbnail: assets/img/quietCool/image.png
+tags: code IoT ML
+categories: "Machine Learning"
 toc:
   sidebar: left
 ---
-
 
 ## **Reading Time**
 
