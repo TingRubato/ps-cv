@@ -619,11 +619,15 @@ third_party_libraries:
       css: "https://cdn.jsdelivr.net/npm/venobox@{{version}}/dist/venobox.min.css"
       js: "https://cdn.jsdelivr.net/npm/venobox@{{version}}/dist/venobox.min.js"
     version: "2.1.8"
-  pdfjs:
-    integrity:
-      js: "sha384-+0ti2moQlmLN7WZHE2RHIf5lV8hHxhxEalN0il3YZceG26fUPyOkR0hp9daxk1i7"
+  opensheetmusicdisplay:
     url:
-      js: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs"
+      js: "https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@0.9.4/build/opensheetmusicdisplay.min.js"
+  osmd-audio-player:
+    url:
+      js: "https://cdn.jsdelivr.net/npm/osmd-audio-player@0.6.4/umd/OsmdAudioPlayer.min.js"
+  axios:
+    url:
+      js: "https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"
 
 # -----------------------------------------------------------------------------
 # Get external JSON data

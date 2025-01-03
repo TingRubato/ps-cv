@@ -1,7 +1,7 @@
 ---
 layout: page
 title: DFD Diagram
-description: 
+description:
 category: teaching
 img: assets/img/dfd.png
 importance: 4
@@ -14,5 +14,6 @@ importance: 4
 </div>
 
 ## Key Take-Away
+
 1. Student might have missed some classes.
 2. Everything in the slides could be found anywhere on internet, or any book that is related to information system designing.

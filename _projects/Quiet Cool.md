@@ -9,7 +9,6 @@ toc:
   sidebar: left
 ---
 
-
 ## **Reading Time**
 
 About as long as it takes your GPU fan to spin up to 100% and then ease back down as it ponders your newfound genius.
@@ -74,6 +73,7 @@ Quiet Cool serves as the missing link—a dynamic fan control system that fine-t
 The system’s adaptive fan speed control mechanism is illustrated in the diagram below. This logic leverages real-time GPU temperature data, a machine learning-based prediction model, and fallback safety mechanisms to maintain thermal stability and acoustic optimization.
 
 #### **Key Components and Workflow**
+
 1. GPU Machine:
    - Continuously monitors GPU temperatures and relays this data to the Fan Control Server via the sendGPUTemperature() function.
    - Serves as the primary source of real-time environmental data.
@@ -93,6 +93,7 @@ The system’s adaptive fan speed control mechanism is illustrated in the diagra
    - Logs operational data (e.g., temperature, fan speed, predictions) for future analysis and continuous model improvement.
 
 #### **Safety and Adaptability**
+
 1. If the prediction-based logic fails validation or the iteration count is below 100, a fallback mechanism (useFallbackLogic()) ensures safe fan operations, preventing system instability.
 2. Machine learning models continuously adapt, balancing noise levels and thermal performance by learning from the recorded data.
 
@@ -115,22 +116,25 @@ After collecting enough data from the baseline runs, we feed it into a machine l
 ---
 
 ## The Math & The Madness
+
 ### **1. Initial Control Logic**
 
 Before we involve machine learning, we rely on a piecewise (rule-based) approach to ensure the GPU doesn’t overheat while we collect data. For example:
 
-$$F_{\text{init}}(T) =
+$$
+F_{\text{init}}(T) =
 \begin{cases}
 10\%, & T < 40^\circ\text{C}, \\[6pt]
 30\%, & 40^\circ\text{C} \le T < 55^\circ\text{C}, \\[6pt]
 50\%, & T \ge 55^\circ\text{C}
-\end{cases}$$
+\end{cases}
+$$
 
 This basic logic logs pairs of $$(T_{\text{GPU}}, \text{fan_speed})$$ . Those pairs become our initial training samples for the ML model.
 
 ### **2. Moving to a Smarter Model**
 
-We introduce a neural network  that, given a temperature , predicts an **optimal fan speed**. However, “optimal” here also depends on noise constraints, so we must include noise and temperature considerations in our training objective (loss function). The network must learn that:
+We introduce a neural network that, given a temperature , predicts an **optimal fan speed**. However, “optimal” here also depends on noise constraints, so we must include noise and temperature considerations in our training objective (loss function). The network must learn that:
 
 1. Excessive fan speeds can mean high noise.
 2. Too-low fan speeds can mean high temperatures.
@@ -147,7 +151,7 @@ so the network can self-consistently learn to balance these outputs.
 
 ### **3. Modeling Noise From Fan Speed**
 
-Noise often increases with fan RPM in a roughly logarithmic manner. If we know a reference noise level $N_0$ at reference  $$RPM_0$$ , we can approximate noise $N_1$ at $$RPM_1$$  with:
+Noise often increases with fan RPM in a roughly logarithmic manner. If we know a reference noise level $N_0$ at reference $$RPM_0$$ , we can approximate noise $N_1$ at $$RPM_1$$ with:
 
 $$N_1 \approx N_0 + K \cdot \log\!\Bigl(\frac{\text{RPM}_1}{\text{RPM}_0}\Bigr)$$
 
@@ -186,27 +190,31 @@ where $\sigma$ is the ReLU activation, and $W_1, b_1, W_2, b_2$  are trainable 
 
 Our custom loss function must capture three things:
 
-1. **Fan Speed MSE**: We compare the predicted fan speed  to the *true/observed* fan speed $$\hat{s}$$ (initially from the rule-based logic) to ensure continuity with past data:
+1. **Fan Speed MSE**: We compare the predicted fan speed to the _true/observed_ fan speed $$\hat{s}$$ (initially from the rule-based logic) to ensure continuity with past data:
 
 $$\mathcal{L}_{\text{fan_speed}} = \frac{1}{N}\sum{i=1}^{N} \bigl(\hat{s}_i - s_i\bigr)^2$$
 
 1. **Noise Penalty: We penalize noise beyond some threshold $$\text{NOISE_THRESHOLD}$$ , e.g., 80 dB:**
 
-$$\text{noise_penalty}_i = 
+$$
+\text{noise_penalty}_i =
 \begin{cases}
 \alpha_N \,\bigl(n_i - 80\bigr)^2, & n_i > 80,\\
 0, & \text{otherwise}
-\end{cases}$$
+\end{cases}
+$$
 
 This encourages predictions that keep noise under 80 dB.
 
 1. **Temperature Penalty: We penalize predicted temperatures above some safe threshold $$\text{TEMP_THRESHOLD}$$ , e.g., 85°C:**
 
-$$\text{temp_penalty}_i = 
+$$
+\text{temp_penalty}_i =
 \begin{cases}
 \alpha_T \,\bigl(t_i - 85\bigr)^2, & t_i > 85,\\
 0, & \text{otherwise}
-\end{cases}$$
+\end{cases}
+$$
 
 Putting it all together:
 
@@ -214,27 +222,31 @@ $$\mathcal{L} = \underbrace{\frac{1}{N}\sum_{i=1}^{N} (\hat{s}_i - s_i)^2}_{\tex
 
 ### **7. Fan-Speed Decision Logic**
 
-Even after training, we keep a fallback check. When a new temperature  arrives:
+Even after training, we keep a fallback check. When a new temperature arrives:
 
 1. **Model Prediction**: $$\bigl(s,\,n,\,t\bigr) = f(T)$$
 2. **Validity Check:**
 
 **We have a piecewise “safe range” for fan speed:**
 
-$$\text{is_valid_fan_speed}(T, s)=
-\begin{cases}\text{True}, & \text{if } T<40 \implies 10\%\le s \le 30\%,\\\text{True}, & \text{if } 40\le T<50 \implies 30\%\le s \le 50\%,\\\dots & \dots \\\text{False}, & \text{otherwise}\end{cases}$$
+$$
+\text{is_valid_fan_speed}(T, s)=
+\begin{cases}\text{True}, & \text{if } T<40 \implies 10\%\le s \le 30\%,\\\text{True}, & \text{if } 40\le T<50 \implies 30\%\le s \le 50\%,\\\dots & \dots \\\text{False}, & \text{otherwise}\end{cases}
+$$
 
 If $$s$$ is outside this range, revert to the simpler piecewise function $$F_{\text{init}}(T)$$.
 
 1. **Set Fan Speed**: Whichever final speed we settle on gets applied via IPMI.
 
-**Hence, the chosen fan speed  is:**
+**Hence, the chosen fan speed is:**
 
-$$F(t)=
+$$
+F(t)=
 \begin{cases}
 s, & \text{if is_valid_fan_speed}(T, s)=\text{True}\\
 F{\text{init}}(T), & \text{otherwise}
-\end{cases}$$
+\end{cases}
+$$
 
 ### **8. Periodic Retraining**
 
@@ -243,24 +255,23 @@ F{\text{init}}(T), & \text{otherwise}
 $$\Bigl(T(t),\,F(t),\,\text{RPM}(t),\,\text{any noise measurements}\Bigr)$$
 
 1. **Augment**: Possibly estimate noise $\hat{n}(t)$ using the noise model, or measure it.
-2. **Retrain Condition**: Every time we accumulate, say, 10 new samples (or some threshold), we update the dataset $$\{(T_i, \hat{s}_i, \hat{n}_i, \hat{t}i)\}$$ and retrain the network  by minimizing:
-    
-    $$\min_{{W_1, b_1, W_2, b_2}} \mathcal{L}\Bigl(\{f(T_i)\}, \{\hat{\mathbf{y}}_i\}\Bigr)$$
-    
+2. **Retrain Condition**: Every time we accumulate, say, 10 new samples (or some threshold), we update the dataset $$\{(T_i, \hat{s}_i, \hat{n}_i, \hat{t}i)\}$$ and retrain the network by minimizing:
+
+   $$\min_{{W_1, b_1, W_2, b_2}} \mathcal{L}\Bigl(\{f(T_i)\}, \{\hat{\mathbf{y}}_i\}\Bigr)$$
+
 3. **Iterate**: Over time, the model learns more accurate temperature/noise relationships, refining predictions.
 
 ### **Putting It All Together**
 
 1. **Baseline**: Use a simple piecewise fan-speed logic $$\bigl(F_{\text{init}}(T)\bigr)$$ to gather initial data.
-2. **Train** a neural network that outputs  with a custom loss balancing fan-speed accuracy, noise penalty, and temperature penalty.
+2. **Train** a neural network that outputs with a custom loss balancing fan-speed accuracy, noise penalty, and temperature penalty.
 3. **Runtime**: For each new GPU temperature:
 4. Predict $$\bigl(s, n, t\bigr) = f(T)$$.
-5. Validate  $s$ via `is_valid_fan_speed()`.
+5. Validate $s$ via `is_valid_fan_speed()`.
 6. Either accept $s$ or fallback to the piecewise rule.
 7. Log data; periodically retrain.
 
 This architecture ensures we keep the system safe (by falling back if predictions go wild) while gradually shifting control toward an ML-driven approach. Over enough iterations, you get a **data-informed fan-speed controller** that strikes an improved balance between **noise** and **temperature** compared to naive, fixed thresholds.
-
 
 ## **Implementation Details**
 
@@ -329,6 +340,7 @@ while true; do
     sleep 10
 done
 ```
+
 ### **2. fan_control_server.py**
 
 ```python
@@ -434,7 +446,7 @@ def train_model():
 def set_fan_speed(config, speed):
     # Convert the speed to a two-digit hexadecimal string
     hex_speed = f"{speed:02x}"
-    
+
     # Create the command
     command = [
         "ipmitool",
@@ -445,7 +457,7 @@ def set_fan_speed(config, speed):
         "raw",
         "0x30", "0x30", "0x02", "0xff", f"0x{hex_speed}"
     ]
-    
+
     # Execute the command
     subprocess.run(command, check=True)
     logging.info(f"Fan speed set to {speed}%")

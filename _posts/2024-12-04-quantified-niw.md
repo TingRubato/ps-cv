@@ -5,13 +5,13 @@ date: 2024-12-04 01:59:00
 description: A quantified methods to evaluate your EB2-NIW petition.
 tags: legal analysis
 categories: work
-thumbnail:  assets/img/dhanasar/niw.png
+thumbnail: assets/img/dhanasar/niw.png
 d3: true
 pretty_table: true
 # toc:
 #   sidebar: left
 chart_scripts:
-  - chart/chart-sunburst.js
+  - chart-sunburst.js
 ---
 
 ## **Introduction**
@@ -184,7 +184,8 @@ Consider **Dr. Jane Doe**, a biomedical researcher using AI-driven diagnostics t
 > Prong 3 Passed (≥75 required).
 > {: .block-blue }
 
-### **Final Decision:** 
+### **Final Decision:**
+
 Dr. Doe qualifies for the National Interest Waiver.
 
 ---

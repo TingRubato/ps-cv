@@ -48,9 +48,9 @@ Sound interesting? Let’s begin by looking at the NIW application data trends, 
 
 #### A. 2019–2021: Backlog Increased Year by Year
 
-- **Steady Increase in Receipts**: From 12,510 in 2019 to 14,610 in 2021 (up 16.8%).  
-- **Slower Growth in Completions**: From 7,390 in 2019 to 11,210 in 2021 (up 51.7%, but not enough to offset the growth in receipts).  
-- **Cumulative Backlog Effect**: From 5,120 in 2019 to 12,310 in 2021 (a 2.4-fold increase).  
+- **Steady Increase in Receipts**: From 12,510 in 2019 to 14,610 in 2021 (up 16.8%).
+- **Slower Growth in Completions**: From 7,390 in 2019 to 11,210 in 2021 (up 51.7%, but not enough to offset the growth in receipts).
+- **Cumulative Backlog Effect**: From 5,120 in 2019 to 12,310 in 2021 (a 2.4-fold increase).
 - **Pandemic Impact**: USCIS office closures, staffing shortages, and remote work led to fewer completions.
 
 ```echarts
@@ -174,7 +174,7 @@ Sound interesting? Let’s begin by looking at the NIW application data trends, 
 - **Negative New Incompletes**: -30, reducing some backlog
 - **Slight Decrease in Cumulative Backlog**: From 13,070 to 13,040
 - **Increased Processing Capacity**: Completions are 5.4 times the figure in 2019.
-  
+
 ```echarts
 {
    "title": {
@@ -366,10 +366,11 @@ Sound interesting? Let’s begin by looking at the NIW application data trends, 
 To analyze this system, we define our state variable as the **backlog of unprocessed NIW cases**.
 
 > ##### Why choose **backlog** as the system’s **state variable**?
+>
 > 1. Direct Reflection of System Load: Backlog measures the gap between receipts and completions.
 > 2. Core State of the Dynamic System: Continuous backlog increase indicates potential instability.
 > 3. Clear Definition of Equilibrium: Equilibrium means the backlog approaches zero (the rate of new cases vs. completions is balanced).
-> {: .block-blue }
+>    {: .block-blue }
 
 To analyze the system more accurately, we split the state into **two parts**:
 
@@ -747,7 +748,6 @@ International conflicts push STEM talent to the U.S., $$R(t)$$ spikes:
 >
 > Recent discussions with immigration attorneys highlight the urgent need for clearer, more detailed coordination between USCIS and the Department of Labor (DOL). The surge in NIW petition filings is closely tied to factors such as big tech companies (e.g., Google and Amazon) halting PERM applications and the commencement of EB-2 Premium Processing in 2023, both of which have propelled NIW filings to new heights.
 >
-> 
 > To address this, USCIS and DOL should refine their division of responsibilities and share the workload more effectively, potentially allowing large tech employers to resume at least some PERM filings. After all, NIW petitions are self-petitions, intended to be initiated by the individuals themselves, rather than by companies treating employees as beneficiaries. Without reform, large tech–driven NIW submissions risk creating an unfair disadvantage for genuine self-petitioners and straining system capacity. Collaboration between USCIS and DOL is therefore vital to maintain both the integrity of the NIW process and a balanced workflow.
 > {: .block-danger }
 

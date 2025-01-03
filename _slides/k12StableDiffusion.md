@@ -14,18 +14,22 @@ importance: 4
 </div>
 
 ## Key Considerations:
+
 1. The students are grade-school children (aged 7–9) with minimal prior coding experience.
 2. They learn best through hands-on activities, visuals, and storytelling that keep them engaged.
 3. The focus should be on simple explanations of technical concepts, avoiding jargon while making it fun.
 4. Activities should encourage creativity and experimentation to build excitement about AI.
 
 ## Decision:
+
 1. Send a pre-session email including:
+
    - A welcoming and fun introduction to the workshop.
    - Instructions on how to prepare (e.g., links to pre-installed tools or applications).
    - A confirmation of the scheduled session time.
 
 2. Prepare slides tailored for grade-school learners, featuring:
+
    - **Introduction to Stable Diffusion**:
      - A child-friendly explanation: "It’s like a magic artist that draws pictures from your words!"
      - Fun examples of AI-generated images, like a rainbow unicorn or a superhero banana.
@@ -34,6 +38,7 @@ importance: 4
      - Show visuals of how an image becomes clearer step-by-step.
 
 3. Examples for Hands-On Activities:
+
    - **Prompt Writing**:
      - "Write something fun, like 'a cat astronaut' or 'a dancing robot,' and see what happens!"
      - Compare results from simple and detailed prompts.
@@ -46,7 +51,9 @@ importance: 4
    - Introduce a playful challenge: "What’s the craziest idea you can come up with?"
 
 ## Outcome:
+
 By the end of the session, students should:
+
 - Understand the basics of Stable Diffusion and how it turns words into images.
 - Feel confident and excited about using AI to create art.
 - Be inspired to explore new ideas and experiment with technology creatively.
