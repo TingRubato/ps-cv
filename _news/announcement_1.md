@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2024-12-14
+date: 2025-01-01
 inline: true
 related_posts: false
 ---
 
-Portfolio 2.0 is here! 🎉
+Dear Admission Committee of Georgia Institute of Technology, please click here for a structured view of the requested portfolio. 📃

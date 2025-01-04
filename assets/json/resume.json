@@ -5,8 +5,8 @@
     "image": "",
     "email": "ting.x@wustl.edu",
     "phone": "(314)-224-6046",
-    "url": "https://github.io/tingrubato",
-    "summary": "An innovative engineer and music technologist passionate about combining music and technology to solve real-world challenges, including applications in cochlear implant sound processing and human-computer interaction.",
+    "url": "https://tingrubato.github.io/ps-cv/",
+    "summary": "Undefined by a single discipline, I am a polymath in progress with a passion for technology, music, and research.",
     "location": {
       "address": "",
       "postalCode": "",
@@ -31,8 +31,8 @@
       "endDate": "Present",
       "summary": "Developed innovative solutions for AI tool integration and enhanced technical workflows for global clients.",
       "highlights": [
-        "Developed a GPT-based knowledge bot to address hallucination issues in language models.",
-        "Provided strategic insights to legal teams for STEM-related compliance and regulatory projects."
+        "Designed and deployed dashboards for enhanced observability and monitoring of cloud services, ensuring robust performance and reliability.",
+        "Conducted in-depth research and analysis of client-provided evidence(STEM-Related) in collaboration with a law ﬁrm, utilizing analytical frameworks to evaluate alignment with regulatory standards and strategic objectives."
       ]
     },
     {
@@ -54,7 +54,10 @@
       "startDate": "2021-08-01",
       "endDate": "2023-05-01",
       "summary": "Streamlined campus-wide technology support and developed automated tools for project management.",
-      "highlights": ["Reduced travel distances through optimized routing for tech support.", "Automated pricing inquiries using Python and Selenium."]
+      "highlights": [
+        "Streamlined routing for the tech support group by analyzing daily operations, signiﬁcantly reducing travel distances and boosting campus-wide efﬁciency",
+        "Automated the pricing inquiry process for an EdTech project by developing a Python script with Selenium to systematically gather pricing data from vendor websites."
+      ]
     }
   ],
   "volunteer": [
@@ -66,8 +69,8 @@
       "endDate": "2018-06-01",
       "summary": "Facilitated cultural exchanges and internships for international students.",
       "highlights": [
-        "Organized onboarding for overseas interns and coordinated cultural events.",
-        "Matched candidates with international opportunities, improving stakeholder communication."
+        "Facilitated the onboarding of overseas interns and organized cultural exchange events, improving participant satisfaction.",
+        "Matched candidates with international roles, coordinating communication across multiple stakeholders."
       ]
     }
   ],
@@ -153,6 +156,14 @@
       "name": "Cochlear Implant Simulator",
       "url": "",
       "highlights": ["Implemented a Python-based tool using Librosa.", "Evaluated noise reduction algorithms for auditory enhancement."]
+    },
+    {
+      "name": "Ezzy Job",
+      "url": "https://tingrubato.github.io/ps-cv/blog/2024/ezzy-job/",
+      "highlights": [
+        "Built a backend scraper to automate the collection of job postings from Indeed by location and position.",
+        "Developed interactive dashboards using d3.js to track job postings, providing real-time insights with enhanced UI/UX."
+      ]
     },
     {
       "name": "A Metronome Using TENS Unit",
