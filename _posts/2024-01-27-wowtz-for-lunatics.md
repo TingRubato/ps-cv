@@ -3,7 +3,7 @@ layout: post
 title: Music - Wowtz For Lunatics
 date: 2024-01-27 19:22:00
 description: very first composition I have finished
-tags: music 
+tags: music
 categories: sample-posts
 pdfjs: true
 music_scripts:

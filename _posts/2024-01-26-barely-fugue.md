@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Music - Barely Fugue 
+title: Music - Barely Fugue
 date: 2024-01-26 17:57:00
 description: hmm, maybe not a fugue
 tags: music
 categories: sample-posts
 ---
+
 <div id="embed-container" style="width: 900px; height: 1165px;"></div>
 <script src="https://prod.flat-cdn.com/embed-js/v2.3.0/embed.min.js"></script>
 <script>

@@ -8,7 +8,7 @@ chart_scripts:
   - chart-occlusion.js
 profile:
   align: right
-  image: ting.jpeg
+  image: photo.png
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>St. Louis, MO 63130</p>
@@ -17,6 +17,15 @@ news: true # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
+
+<!-- <script src="{{ '/assets/js/chart/quad-splitting.js' | relative_url }}" defer></script> -->
+
+<!-- <canvas id="quadCanvas" width="" height="" style="max-width:100%;"></canvas> -->
+<script type="module">
+import { initQuadSplitting } from "{{ '/assets/js/chart/quad-splitting.js' | relative_url }}"; 
+// Kick off the animation
+initQuadSplitting("{{ '/assets/img/ting.jpeg' | relative_url }}", "quadCanvas");
+</script>
 
 <script src="{{ '/assets/js/chart/chart-occlusion.js' | relative_url }}" defer></script>
 

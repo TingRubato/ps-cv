@@ -1,0 +1,64 @@
+{%- comment -%}
+  quadfigure.liquid
+
+  Usage:
+    {% include quadfigure.liquid
+       loading="eager"
+       path="assets/img/ting.jpeg"
+       class="img-fluid"
+       sizes="(min-width: 576px) 30vw, 95vw"
+       alt="Profile Picture"f
+       cache_bust=true
+    %}
+{%- endcomment -%}
+
+{% assign path_no_cache = path | append: '?cb=' | append: site.time | default: path %}
+
+<div class="quad-figure-container">
+  <!--
+    We'll preserve the same "responsiveness" that you'd use for <img>
+    by controlling the canvas via CSS media queries.
+    You can also consider inlining the breakpoints here or in a scss file.
+  -->
+  <style>
+    .quad-figure-container #quadCanvas {
+      /* Start with something similar to your `sizes` concept */
+      /* width: 95vw; */
+      max-width: 100%;
+      display: block;
+      margin: 0 auto 1.5rem auto;
+    }
+    @media (min-width: 576px) {
+      .quad-figure-container #quadCanvas {
+        width: 30vw;
+      }
+    }
+    @media (min-width: {{ site.max_width }}) {
+      .quad-figure-container #quadCanvas {
+        width: calc({{site.max_width | minus: 30 | times: 0.3}}px);
+      }
+    }
+  </style>
+
+  <canvas
+    id="quadCanvas"
+    width="270"
+    height="405"
+    class="{{ class }}"
+    style="max-width: 100%;"
+    {% if alt %}
+      alt="{{ alt }}"
+    {% endif %}
+  >
+    Sorry, your browser doesn’t support the HTML5 <code>canvas</code> element.
+  </canvas>
+</div>
+
+<script type="module">
+  import { initQuadSplitting } from "{{ '/assets/js/chart/quad-splitting.js' | relative_url }}";
+
+  // If cache_bust=true, we append ?cb=timestamp to bust caches. Otherwise, just "path" itself.
+  const imageURL = '{% if cache_bust %}{{ path_no_cache }}{% else %}{{ path }}{% endif %}';
+  // Kick off the quad-splitting animation using your external JS logic
+  initQuadSplitting(imageURL, 'quadCanvas');
+</script>
