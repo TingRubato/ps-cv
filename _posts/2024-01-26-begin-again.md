@@ -1,12 +1,10 @@
 ---
 layout: post
-title: Music - Begin Again
+title: Music - Begin Again 🎵
 date: 2024-01-26 16:03:00
 description: say goodbye to the darkest year of my life!
-tags: formatting charts
-categories: sample-posts
-chart:
-  echarts: true
+tags: music
+categories: portfolio gatech
 ---
 
 <div id="embed-container" style="width: 900px; height: 1165px;"></div>

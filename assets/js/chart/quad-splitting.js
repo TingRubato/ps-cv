@@ -23,7 +23,7 @@
 // --- 1) External library imports via ES modules (CDN) ---
 import { easeCubicInOut } from "https://cdn.jsdelivr.net/npm/d3-ease@3.0.1/+esm";
 import * as d3interpolate from "https://cdn.jsdelivr.net/npm/d3-interpolate@3.0.1/+esm";
-import tinyqueue from "https://cdn.jsdelivr.net/npm/tinyqueue@3.0.0/+esm";
+import TinyQueue from "https://cdn.jsdelivr.net/npm/tinyqueue@2.0.4/+esm";
 
 // --- 2) Helper functions ---
 
@@ -85,11 +85,9 @@ function computeHistogram(ctx, x, y, w, h) {
 function loadImage(src) {
   return new Promise((resolve, reject) => {
     const img = new Image();
-    img.crossOrigin = "anonymous"; // Include this if loading from another domain
+    img.crossOrigin = "anonymous"; // if needed
     img.onload = () => resolve(img);
-    img.onerror = () => {
-      reject(new Error(`Failed to load image at ${src}`));
-    };
+    img.onerror = (err) => reject(err);
     img.src = src;
   });
 }
@@ -158,7 +156,7 @@ export async function initQuadSplitting(imageURL, canvasId = "quadCanvas", areaP
   mainCtx.drawImage(baseImage, 0, 0, canvasSize, canvasSize);
 
   // 4) The main quad-splitting logic
-  const quads = new tinyqueue([new Quad(hiddenCtx, 0, 0, canvasSize, canvasSize, areaPower)], (a, b) => b.score - a.score);
+  const quads = new TinyQueue([new Quad(hiddenCtx, 0, 0, canvasSize, canvasSize, areaPower)], (a, b) => b.score - a.score);
 
   // We'll run an animation loop that "splits" the largest quad if score >= threshold
   const threshold = 50;

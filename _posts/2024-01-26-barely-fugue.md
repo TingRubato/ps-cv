@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Music - Barely Fugue
+title: Music - Barely Fugue 🎵
 date: 2024-01-26 17:57:00
 description: hmm, maybe not a fugue
 tags: music
-categories: sample-posts
+categories: portfolio gatech
 ---
 
 <div id="embed-container" style="width: 900px; height: 1165px;"></div>

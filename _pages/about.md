@@ -4,31 +4,20 @@ title: about
 permalink: /
 subtitle: Explore without boundaries, create without limits, and connect the dots no one else sees.
 d3: true
-chart_scripts:
-  - chart-occlusion.js
 profile:
   align: right
-  image: photo.png
+  image: ting.jpeg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>St. Louis, MO 63130</p>
-
 news: true # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
-social: false # includes social icons at the bottom of the page
+social: false #
 ---
 
-<!-- <script src="{{ '/assets/js/chart/quad-splitting.js' | relative_url }}" defer></script> -->
-
-<!-- <canvas id="quadCanvas" width="" height="" style="max-width:100%;"></canvas> -->
-<script type="module">
-import { initQuadSplitting } from "{{ '/assets/js/chart/quad-splitting.js' | relative_url }}"; 
-// Kick off the animation
-initQuadSplitting("{{ '/assets/img/ting.jpeg' | relative_url }}", "quadCanvas");
-</script>
-
+<div id="chart-occlusion"></div>
+<!-- Chart Script -->
 <script src="{{ '/assets/js/chart/chart-occlusion.js' | relative_url }}" defer></script>
-
 <!-- Call the Chart Function -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
