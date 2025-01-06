@@ -156,7 +156,9 @@ collections:
     permalink: /:collection/:title/
   musics:
     output: true
-    permalink: /musics/:name/
+    paginate-v2: 4
+    paginate_path: "/musics/page:num/"
+    permalink: /:collection/:name/
 
 announcements:
   enabled: true
