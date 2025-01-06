@@ -1,0 +1,241 @@
+---
+layout: default
+---
+<div class="music-post">
+  <div class="music-container">
+    <!-- Header Section -->
+    <header class="music-header">
+      <div class="header-content">
+        <div class="header-text">
+          <h1 class="music-title">{{ page.title }}</h1>
+          {% if page.description %}
+            <p class="music-description">{{ page.description }}</p>
+          {% endif %}
+          <div class="music-meta">
+            <p><strong>Author:</strong> {{ page.author | default: 'Unknown' }}</p>
+            <p><strong>Composition Time:</strong> {{ page.composition_time | date: '%B %d, %Y' | default: 'N/A' }}</p>
+            {% if page.labels %}
+              <p><strong>Labels:</strong> {{ page.labels | join: ', ' }}</p>
+            {% endif %}
+          </div>
+          <!-- SoundCloud Embed -->
+          {% if page.soundcloud_url %}
+            <div class="soundcloud-embed">
+              <iframe
+                width="100%"
+                height="166"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="{{ page.soundcloud_url | escape }}"
+              >
+              </iframe>
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Vinyl Album Design -->
+        {% if page.image %}
+          <div class="album albumVinyl">
+            <div class="cover">
+              <img src="{{ page.image | relative_url }}" alt="Album Cover for {{ page.title }}">
+            </div>
+            <div class="vinyl round">
+              <div class="label round">
+                <div class="hole round"></div>
+                <div class="textCon">
+                  <h1>{{ page.title }}</h1>
+                  <h3>{{ page.author | default: 'Unknown' }}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="music-main">
+      <!-- Flat Embed -->
+      {% if page.embed_id %}
+        <div class="embed-container" style="width: 100%; height: 1000px;">
+          <div id="embed-container" style="width: 100%; height: 1000px;"></div>
+          <script src="https://prod.flat-cdn.com/embed-js/v2.3.0/embed.min.js"></script>
+          <script>
+            var container = document.getElementById('embed-container');
+            var embed = new Flat.Embed(container, {
+              score: '{{ page.embed_id }}',
+              embedParams: {
+                appId: '{{ page.app_id | default: "default-app-id" }}',
+                controlsPosition: 'top',
+              },
+            });
+          </script>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Additional Content -->
+    <div class="music-content">
+      <article>
+        {{ content }}
+      </article>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Raleway');
+
+  body {
+    background-color: #eee;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .music-post {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 1200px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .music-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .header-text {
+    flex: 2;
+  }
+
+  .music-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0.25rem 0;
+  }
+
+  .music-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0;
+  }
+
+  .music-meta {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+  }
+
+  .music-meta p {
+    margin: 0.2rem 0;
+  }
+
+  /* Basic Vinyl Style */
+  .album {
+    margin: 5vw auto;
+    box-shadow: 0 7px 10px #aaa;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 5%;
+  }
+
+  .album .cover,
+  .album .cover img,
+  .album .vinyl {
+    width: 250px;
+    height: 250px;
+    border-radius: 5%;
+  }
+
+  .album > div,
+  .album .vinyl > div {
+    position: absolute;
+  }
+
+  .album .cover {
+    z-index: 2;
+  }
+
+  .album .vinyl {
+    background-color: #202020;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+
+  .album .vinyl .label {
+    background-color: #af8f80;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 25%;
+  }
+
+  .album .vinyl .hole {
+    background-color: #eee;
+    width: 5%;
+    height: 5%;
+    margin: 45% auto 0 auto;
+  }
+
+  .album .textCon {
+    margin-top: 10px;
+  }
+
+  .album .textCon h1,
+  .album .textCon h3 {
+    color: #eee;
+    font-size: 0.95em;
+    text-align: center;
+    letter-spacing: 3px;
+    margin: 5px 0;
+  }
+
+  .album .textCon h3 {
+    font-size: 0.75em;
+  }
+
+  /* Vinyl Animation */
+  .albumVinyl .round {
+    border-radius: 9999px;
+  }
+
+  .albumVinyl .vinyl {
+    transform: translate(50px, 0) rotate(-180deg);
+  }
+
+  .albumVinyl .vinyl:hover,
+  .albumVinyl .cover:hover + .vinyl {
+    transform: translate(250px, 0) rotate(0deg);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 800px) {
+    .music-header {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 800px;
+    }
+
+    .header-content {
+      flex-direction: column;
+      width: 800px;
+    }
+  }
+</style>

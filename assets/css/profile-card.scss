@@ -1,0 +1,502 @@
+---
+---
+
+/* Profile Card Styles */
+
+/* Original "Perfect" Body Styles */
+body {
+  overflow: hidden;
+  /* background: #bcdee7 url('../img/bg.jpg') no-repeat center center fixed; */
+  background-size: cover;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font:
+    normal 14px/1.618em "Roboto",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  z-index: 1; /* ensures the background is behind other elements */
+}
+
+/* Puff & Border Animations for Body Background */
+body:before {
+  content: "";
+  height: 0;
+  padding: 0;
+  border: 130em solid #313440;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  z-index: 2;
+  display: block;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation:
+    puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards,
+    borderRadius 0.2s 2.3s linear forwards;
+}
+
+/* Base Typography */
+h1,
+h2 {
+  font-weight: 500;
+  margin: 0 0 5px 0;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+p {
+  margin: 0;
+}
+
+/* Container for Page Content Above Background */
+.musics-page {
+  position: relative;
+  z-index: 10; /* ensures .musics-page is above body:before */
+  font-family: "Roboto", sans-serif;
+  color: #a54343; /* Changed from #ffffff for better readability */
+  padding: 20px;
+}
+
+/* Header Tweaks */
+.musics-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.musics-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.musics-description {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Profile Card (Original Perfect Animations) */
+.profile-card {
+  background: #ffb300;
+  width: 56px;
+  height: 56px;
+  /* Removed absolute positioning to fit within grid */
+  margin: 0 auto;
+  overflow: hidden;
+  opacity: 0;
+  border-radius: 50%;
+  box-shadow:
+    0px 3px 6px rgba(0, 0, 0, 0.16),
+    0px 3px 6px rgba(0, 0, 0, 0.23);
+  animation:
+    init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards,
+    moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards,
+    moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+    materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+  /* Adjusted positioning for grid */
+  transition: all 0.3s ease;
+}
+
+/* Profile Card Header */
+.profile-card header {
+  width: 100%;
+  padding: 20px;
+  background: #ffffff;
+  color: #000;
+  opacity: 0;
+  text-align: center;
+  animation: moveIn 1s 3.1s ease forwards;
+}
+
+/* Profile Card Name */
+.profile-card header h1 {
+  color: #ff5722;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.profile-card header h2 {
+  font-size: 1rem;
+  color: #757575;
+  margin-top: 5px;
+}
+
+/* Avatar Link */
+.profile-card header a {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  margin: 25px 30px;
+}
+
+/* Animated Dot */
+.profile-card header a:after {
+  position: absolute;
+  content: "";
+  bottom: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #ffffff;
+  transform: scale(0);
+  background: linear-gradient(#2196f3 0%, #2196f3 50%, #ffc107 50%, #ffc107 100%);
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  animation: scaleIn 0.3s 3.5s ease forwards;
+}
+
+/* Avatar Image */
+.profile-card header a > img {
+  width: 120px;
+  max-width: 100%;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
+}
+
+.profile-card header a:hover > img {
+  box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Bio */
+.profile-bio {
+  width: 100%;
+  padding: 15px 20px 30px 20px;
+  background: #ffffff;
+  color: #333;
+  text-align: center;
+  opacity: 0;
+  animation: moveIn 1s 3.1s ease forwards;
+  margin-top: 20px;
+}
+
+/* Social Links */
+.profile-social-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 0;
+  background: #ffffff;
+  opacity: 0;
+  animation: moveIn 1s 3.1s ease forwards;
+  margin-top: 20px;
+}
+
+.profile-social-links li {
+  list-style: none;
+}
+
+.profile-social-links li a {
+  display: inline-block;
+  color: #757575;
+  font-size: 1.5rem;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.profile-social-links li a:hover {
+  color: #ff5722;
+  transform: scale(1.1);
+}
+
+/* Music Card Styles */
+.music-item .card {
+  background: #ffffff;
+  border: none;
+  border-radius: 8px;
+  box-shadow:
+    0px 3px 6px rgba(0, 0, 0, 0.16),
+    0px 3px 6px rgba(0, 0, 0, 0.23);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.music-item .card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0px 6px 12px rgba(0, 0, 0, 0.2),
+    0px 6px 12px rgba(0, 0, 0, 0.19);
+}
+
+.music-header {
+  background: #f8f9fa;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.music-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.music-title a {
+  color: #333;
+}
+
+.music-title a:hover {
+  color: #ff5722;
+}
+
+.music-meta {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+.music-body {
+  padding: 15px;
+}
+
+.music-footer {
+  background: #f8f9fa;
+  padding: 10px 15px;
+}
+
+.music-footer strong {
+  color: #555;
+}
+
+.music-footer a {
+  color: #007bff;
+}
+
+.music-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Keyframe Animations */
+@keyframes init {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 56px;
+    height: 56px;
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes puff {
+  0% {
+    top: 100%;
+    height: 0px;
+    padding: 0px;
+  }
+  100% {
+    top: 50%;
+    height: 100%;
+    padding: 0px 100%;
+  }
+}
+
+@keyframes borderRadius {
+  0% {
+    border-radius: 50%;
+  }
+  100% {
+    border-radius: 0px;
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    top: 50%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    background: #ffb300;
+    top: 100%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 50%;
+    background: #e0e0e0;
+  }
+}
+
+@keyframes materia {
+  0% {
+    background: #e0e0e0;
+  }
+  50% {
+    border-radius: 4px;
+  }
+  100% {
+    width: 440px;
+    height: 280px;
+    background: #ffffff;
+    border-radius: 4px;
+  }
+}
+
+@keyframes moveIn {
+  0% {
+    margin-top: 50px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: -20px;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale3d(0, 0, 0);
+  }
+  50%,
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Additional Animation for Profile Card on Mobile */
+@keyframes moveInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Media Query Adjustments */
+@media screen and (min-aspect-ratio: 4/3) {
+  body {
+    background-size: cover;
+  }
+  body:before {
+    width: 0px;
+  }
+  @keyframes puff {
+    0% {
+      top: 100%;
+      width: 0px;
+      padding-bottom: 0px;
+    }
+    100% {
+      top: 50%;
+      width: 100%;
+      padding-bottom: 100%;
+    }
+  }
+}
+
+@media screen and (min-height: 480px) {
+  .profile-card header {
+    width: auto;
+    height: auto;
+    padding: 30px 20px;
+    display: block;
+    float: none;
+    border-right: none;
+  }
+
+  .profile-bio {
+    width: auto;
+    height: auto;
+    padding: 15px 20px 30px 20px;
+    display: block;
+    float: none;
+  }
+
+  .profile-social-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  @keyframes materia {
+    0% {
+      background: #e0e0e0;
+    }
+    50% {
+      border-radius: 4px;
+    }
+    100% {
+      width: 280px;
+      height: 440px;
+      background: #ffffff;
+      border-radius: 4px;
+    }
+  }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .profile-card {
+    width: 90%;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 8px;
+    animation:
+      init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards,
+      moveInRight 1s 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+      materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+  }
+
+  .profile-card header {
+    width: auto;
+    padding: 20px;
+    margin-top: 0;
+    border-right: none;
+  }
+
+  .profile-card header a {
+    margin: 15px 0;
+  }
+
+  .profile-card header a > img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-bio {
+    margin-top: 15px;
+  }
+
+  .profile-social-links {
+    margin-top: 15px;
+  }
+
+  /* Adjust music items to occupy full width on smaller screens */
+  .music-item {
+    width: 100%;
+  }
+}

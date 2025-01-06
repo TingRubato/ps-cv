@@ -1,10 +1,9 @@
 ---
 layout: post
-title: Ezzy Job Finder 🕵️‍♂️ With Animated Visualizations
+title: Ezzy Job Scraper 🕵️‍♂️
 date: 2024-05-01 00:32:13
-thumbnail: assets/img/ezzyjob.png
+img: assets/img/ezzyjob.png
 description: Automate Job Postings Scraper with Python and elegent visualization using d3j
-categories: tech
 mermaid:
   enabled: true
   zoomable: true

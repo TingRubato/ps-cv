@@ -5,7 +5,6 @@ description: For entertainment purposes only. Feel free to judge, but please be 
 img: assets/img/lyapunov/image.png
 importance: 3
 pretty_table: true
-category: fun
 toc:
   sidebar: left
 chart:
