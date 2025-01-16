@@ -41,7 +41,7 @@
       overflow: hidden;
       position: relative;
       background: var(--container-bg, var(--container-bg-light)); /* Adjust for light/dark mode */
-      color: var(--container-color, var(--container-color-light));
+      color: #ffffff; /* Light color for the font */
       z-index: 1; /* Ensure slides are interactive but do not overlap controls */
     }
 
@@ -65,19 +65,29 @@
     }
 
     .slides-container p {
-      color: var(--reveal-text-color, var(--reveal-text-color-light));
+      color: #ffffff; /* Light color for the font */
     }
 
-    .slides-container h2,
-    h3,
-    h4 {
-      font-weight: bold;
-      color: var(--reveal-text-color, var(--reveal-text-color-light));
+    .slides-container h2 {
+      color: #ffffff; /* Light color for the font */
     }
 
-    .slides-container p,
-    ul {
-      color: var(--reveal-text-color, var(--reveal-text-color-light));
+    .slides-container h3 {
+      color: #ffffff; /* Light color for the font */
+    }
+
+    .slides-container h4 {
+      color: #ffffff; /* Light color for the font */
+    }
+
+    .slides-container p {
+      color: #ffffff; /* Light color for the font */
+    }
+    .slides-container li {
+      color: #ffffff;
+    }
+    .slides-container ul {
+      color: #ffffff;
     }
   </style>
 
@@ -93,17 +103,9 @@
         controlsBackArrows: 'faded', // Faded back arrow for first slide
         progress: true, // Display a progress bar
         slideNumber: 'c/t', // Show slide number (current/total)
-        hash: true, // Add slide index to the URL hash
-        respondToHashChanges: true, // Update slides based on hash changes
-
         // Layout settings
-        center: true, // Vertically center slides
-        disableLayout: false, // Allow Reveal.js to manage layout
+        center: false, // Vertically center slides
         embedded: true, // Optimize for embedded mode
-        navigationMode: 'default', // Use default navigation mode
-        fragments: true, // Enable progressive reveal fragments
-        fragmentInURL: true, // Track fragments in the URL
-
         // Interaction settings
         keyboard: true, // Enable keyboard navigation
         touch: true, // Enable touch-based navigation
@@ -115,21 +117,8 @@
         // Appearance settings
         transition: 'slide', // Transition style (e.g., fade/slide/zoom)
         transitionSpeed: 'default', // Transition speed (default/fast/slow)
-        backgroundTransition: 'fade', // Background transition style
+        backgroundTransition: 'slide', // Background transition style
         theme: 'solarized', // Set the default theme
-
-        // Advanced settings
-        viewDistance: 3, // Preload slides within a distance of 3
-        mobileViewDistance: 2, // Reduce preload distance on mobile devices
-        hideInactiveCursor: true, // Hide cursor when inactive
-        hideCursorTime: 5000, // Time to hide cursor (in milliseconds)
-        pdfSeparateFragments: true, // Print each fragment as a separate slide
-
-        // Auto-animation settings
-        autoAnimate: true, // Enable auto-animation
-        autoAnimateEasing: 'ease', // Set easing for animations
-        autoAnimateDuration: 1.0, // Animation duration (in seconds)
-
         // Custom event listeners
         ready: (event) => {
           console.log('Reveal.js is ready!');

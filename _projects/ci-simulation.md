@@ -2,7 +2,7 @@
 layout: page
 title: Cochlear Implants and Music Perception 🎵
 description: Understanding how cochlear implants process music, delving into technical nuances and their impacts on musical enjoyment.
-img: assets/img/cochlear/intro_image.png
+img: assets/img/ci/image.png
 bibliography: 2018-12-22-distill.bib
 importance: 4
 revealjs: true
@@ -33,19 +33,18 @@ Cochlear implant technology prioritizes speech. While speech occurs within a rel
     </div>
 </div>
 
-
 <div class="slides-container">
   <div class="reveal">
     <div class="slides">
       <!-- Slide 1 -->
       <section>
-        <h1>Key Observations from the Spectrogram</h1>
+        <h2 class="r-fit-text">Key Observations from the Spectrogram</h2>
         <p>Understanding the spectrogram layout, frequency ranges, and speech nuances.</p>
       </section>
       <!-- Slide 2 -->
       <section>
         <h2>1. Spectrogram Layout</h2>
-        <h3>Vertical Axis</h3>
+        <h3 class="r-fit-text">Vertical Axis (Frequency in Hz)</h3>
         <ul>
           <li>Ranges roughly 50 Hz at the bottom to 7,800 Hz at the top.</li>
           <li>Shows how much energy each voice has in different frequency bands over time.</li>
@@ -53,10 +52,90 @@ Cochlear implant technology prioritizes speech. While speech occurs within a rel
       </section>
       <!-- Slide 3 -->
       <section>
-        <h3>Horizontal Axis</h3>
+        <h3 class="r-fit-text">Horizontal Axis (Time in seconds)</h3>
         <ul>
-          <li>Shows a duration of 0 to ~14 seconds.</li>
-          <li>Displays how frequency content changes over time.</li>
+          <li>Shows a duration of 0 to ~14 seconds, displaying how frequency content changes over time.</li>
+        </ul>
+      </section>
+      <!-- Slide 4 -->
+      <section>
+        <h3 class="r-fit-text">Color Scale (Amplitude in dB)</h3>
+        <ul>
+          <li>Ranges from yellow (highest at 0 dB) to purple (lowest at -80 dB).</li>
+          <li>Bright regions (green/yellow) indicate stronger energy, while darker areas (blue/purple) show weaker energy.</li>
+        </ul>
+        <p><strong>Note:</strong> The reference amplitude (0 dB) represents the loudest amplitude in the signal, and all other values are measured relative to this.</p>
+      </section>
+      <!-- Slide 5 -->
+      <section>
+        <h2 class="r-fit-text">2. Fundamental Frequency (F0) Overlay (White Line)</h2>
+        <h3>Definition</h3>
+        <p>The <strong>Fundamental Frequency (F0)</strong> is the primary pitch of a voiced sound—where the vocal folds vibrate. Consider it as the fundamental wave, which is the lowest frequency component of a periodic signal.</p>
+      </section>
+      <!-- Slide 6 -->
+      <section>
+        <h3 class="r-fit-text">Female vs. Male Pitch</h3>
+        <ul>
+          <li>In the <strong>Female Speech Spectrogram</strong> (top), the F0 line sits notably higher, usually above 200–250 Hz.</li>
+          <li>In the <strong>Male Speech Spectrogram</strong> (bottom), the F0 line is lower, often closer to 100–150 Hz.</li>
+        </ul>
+      </section>
+      <!-- Slide 7 -->
+      <section>
+        <h3 class="r-fit-text">Variation Over Time</h3>
+        <ul>
+          <li>Both speakers’ F0 traces fluctuate as they articulate different words.</li>
+          <li>This natural intonation pattern may rise (e.g., questions) or fall (declarative statements).</li>
+        </ul>
+      </section>
+      <!-- Slide 8 -->
+      <section>
+        <h2 class="r-fit-text">3. Voiced and Unvoiced Segments</h2>
+        <h3 class="r-fit-text">Voiced Segments</h3>
+        <ul>
+          <li>Appear as <strong>stacked harmonic bands</strong> in the lower to mid frequencies.</li>
+          <li>The thick, bright stripes near the bottom (around 300–800 Hz here) reflect the fundamental and its harmonics.</li>
+        </ul>
+      </section>
+      <!-- Slide 9 -->
+      <section>
+        <h3 class="r-fit-text">Unvoiced Segments</h3>
+        <ul>
+          <li>Lack a clear F0 line because there’s no vocal fold vibration (e.g., /s/, /f/).</li>
+          <li>Display a more <strong>broad, noisy energy</strong> in higher frequencies.</li>
+        </ul>
+      </section>
+      <!-- Slide 10 -->
+      <section>
+        <h2 class="r-fit-text">4. Female vs. Male Speech Differences</h2>
+        <h3 class="r-fit-text">Pitch Height</h3>
+        <ul>
+          <li>The female plot has <strong>higher F0 values</strong> (white line well above ~200 Hz), consistent with typical female voice pitch.</li>
+          <li>The male plot has <strong>lower F0 values</strong>, frequently beneath 150 Hz.</li>
+        </ul>
+      </section>
+      <!-- Slide 11 -->
+      <section>
+        <h3 class="r-fit-text">Formant Energy</h3>
+        <ul>
+          <li>Both show multiple bright “stripes” above the fundamental, which are <strong>formants</strong> (resonances of the vocal tract).</li>
+          <li>Females typically have slightly higher formant frequencies due to a shorter vocal tract, so these stripes may appear subtly shifted upward compared to male speech.</li>
+        </ul>
+      </section>
+      <!-- Slide 12 -->
+      <section>
+        <h3 class="r-fit-text">Amplitude Distribution</h3>
+        <ul>
+          <li>The bright green/yellow bars near each voiced segment highlight how loud or energetic the vowels are.</li>
+          <li>Dark gaps indicate softer or voiceless sounds, or brief pauses.</li>
+        </ul>
+      </section>
+      <!-- Slide 13 -->
+      <section>
+        <h2>5. Interpreting the Color Patterns</h2>
+        <ul>
+          <li><strong>Yellow/Green Patches:</strong> Indicate <strong>high-amplitude</strong> regions—likely vowels or voiced consonants where the speaker’s voice is strongest.</li>
+          <li><strong>Blue/Purple Background:</strong> Represents weaker or absent energy, typically silence or very soft fricatives.</li>
         </ul>
       </section>
     </div>
