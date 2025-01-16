@@ -117,7 +117,16 @@
       "releaseDate": "Manuscript",
       "url": "https://tingrubato.github.io/ps-cv/assets/pdf/TTE-Reg-2024-09-2195.R1.pdf",
       "summary": "This research proposes a checkerboard array pole magnetic lead screw that improves efficiency and reduces material costs while ensuring optimal thrust and torque characteristics."
+    },
+    {
+      "name": "A 2-D Mesh-based Magnetic Equivalent Circuit Model for Hybrid Exciting Magnetic Lead Screw",
+      "publisher": "IEEE Transactions on Industry Applications Society",
+      "releaseDate": "Manuscript",
+      "url": "https://tingrubato.github.io/ps-cv/assets/pdf/2024-SECSC-1317.R2.pdf",
+      "summary": "To reduce the computational time involved in analyzing the dynamic performance and conducting optimal design of a hybrid excitation magnetic lead screw (HEMLS), a two-dimensional (2-D) mesh-based (MB) magnetic equivalent circuit (MEC) model is proposed."
     }
+
+
   ],
   "skills": [
     {
