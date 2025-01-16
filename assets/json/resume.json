@@ -125,8 +125,6 @@
       "url": "https://tingrubato.github.io/ps-cv/assets/pdf/2024-SECSC-1317.R2.pdf",
       "summary": "To reduce the computational time involved in analyzing the dynamic performance and conducting optimal design of a hybrid excitation magnetic lead screw (HEMLS), a two-dimensional (2-D) mesh-based (MB) magnetic equivalent circuit (MEC) model is proposed."
     }
-
-
   ],
   "skills": [
     {
@@ -163,8 +161,10 @@
   "projects": [
     {
       "name": "Cochlear Implant Simulator",
-      "url": "",
-      "highlights": ["Implemented a Python-based tool using Librosa.", "Evaluated noise reduction algorithms for auditory enhancement."]
+      "url": "https://tingrubato.github.io/ps-cv/projects/ci-simulator",
+      "highlights": ["Implemented a Python-based tool using Librosa.", "Evaluated noise reduction algorithms for auditory enhancement."],
+      "startDate": "2024-10-01",
+      "endDate": "2025-01-15"
     },
     {
       "name": "Ezzy Job",
@@ -172,7 +172,9 @@
       "highlights": [
         "Built a backend scraper to automate the collection of job postings from Indeed by location and position.",
         "Developed interactive dashboards using d3.js to track job postings, providing real-time insights with enhanced UI/UX."
-      ]
+      ],
+      "startDate": "2023-11",
+      "endDate": "2024-01"
     },
     {
       "name": "A Metronome Using TENS Unit",
@@ -180,7 +182,9 @@
       "highlights": [
         "Created an embedded system to stimulate muscle rhythm for better timing.",
         "Pioneered a novel approach in music performance technology."
-      ]
+      ],
+      "startDate": "2023-04",
+      "endDate": "2023-06"
     },
     {
       "name": "Quiet Cool: ML for Fan Control",
@@ -188,7 +192,9 @@
       "highlights": [
         "Designed a custom ML model to balance fan noise and GPU temperature.",
         "Improved cooling efficiency in enterprise server environments."
-      ]
+      ],
+      "startDate": "2024-07",
+      "endDate": "2024-07"
     }
   ]
 }

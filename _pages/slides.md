@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Slides
+title: slides
 permalink: /slides/
 description: A growing collection of some slides that I did.
 nav: true
