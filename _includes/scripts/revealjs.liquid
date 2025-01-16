@@ -1,0 +1,158 @@
+{% if page.revealjs %}
+  <!-- Include Reveal.js -->
+  <script
+    defer
+    src="{{ site.third_party_libraries.revealjs.url.js }}"
+    integrity="{{ site.third_party_libraries.revealjs.integrity.js }}"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Core Reveal.js CSS -->
+  <link
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.revealjs.url.css }}"
+    integrity="{{ site.third_party_libraries.revealjs.integrity.css }}"
+    crossorigin="anonymous"
+  >
+
+  <!-- Theme CSS -->
+  <script src="{{ '/assets/js/theme.js' | relative_url | bust_file_cache }}"></script>
+  {% if site.enable_darkmode %}
+    <link
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.revealjs.url.theme.dracula }}"
+      integrity="{{ site.third_party_libraries.revealjs.integrity.theme.dracula }}"
+      crossorigin="anonymous"
+      id="highlight_theme_dark"
+    >
+    <script>
+      initTheme();
+    </script>
+  {% endif %}
+
+  <style>
+    .slides-container {
+      max-width: 100%; /* Full width for responsiveness */
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      position: relative;
+      background: var(--container-bg, var(--container-bg-light)); /* Adjust for light/dark mode */
+      color: var(--container-color, var(--container-color-light));
+      z-index: 1; /* Ensure slides are interactive but do not overlap controls */
+    }
+
+    .slides-container .reveal {
+      width: 100%;
+      height: calc(35vh - 50px); /* Full viewport height minus padding */
+    }
+
+    .reveal .controls {
+      z-index: 10; /* Keep navigation controls on top */
+    }
+
+    .reveal .progress {
+      z-index: 10; /* Ensure the progress bar is visible */
+    }
+
+    .slides-container .slides {
+      width: 100%;
+      height: 100%;
+      z-index: 1; /* Ensure slides are interactive but do not overlap controls */
+    }
+
+    .slides-container p {
+      color: var(--reveal-text-color, var(--reveal-text-color-light));
+    }
+
+    .slides-container h2,
+    h3,
+    h4 {
+      font-weight: bold;
+      color: var(--reveal-text-color, var(--reveal-text-color-light));
+    }
+
+    .slides-container p,
+    ul {
+      color: var(--reveal-text-color, var(--reveal-text-color-light));
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const darkModeEnabled = document.body.classList.contains('dark-mode'); // Check if dark mode is active
+
+      Reveal.initialize({
+        // Navigation settings
+        controls: true, // Enable navigation controls
+        controlsTutorial: true, // Show control hints
+        controlsLayout: 'bottom-right', // Layout for navigation controls
+        controlsBackArrows: 'faded', // Faded back arrow for first slide
+        progress: true, // Display a progress bar
+        slideNumber: 'c/t', // Show slide number (current/total)
+        hash: true, // Add slide index to the URL hash
+        respondToHashChanges: true, // Update slides based on hash changes
+
+        // Layout settings
+        center: true, // Vertically center slides
+        disableLayout: false, // Allow Reveal.js to manage layout
+        embedded: true, // Optimize for embedded mode
+        navigationMode: 'default', // Use default navigation mode
+        fragments: true, // Enable progressive reveal fragments
+        fragmentInURL: true, // Track fragments in the URL
+
+        // Interaction settings
+        keyboard: true, // Enable keyboard navigation
+        touch: true, // Enable touch-based navigation
+        overview: true, // Enable slide overview mode
+        mouseWheel: true, // Enable navigation using mouse wheel
+        autoSlide: 0, // Disable auto-sliding by default
+        autoSlideStoppable: true, // Pause auto-slide on user input
+
+        // Appearance settings
+        transition: 'slide', // Transition style (e.g., fade/slide/zoom)
+        transitionSpeed: 'default', // Transition speed (default/fast/slow)
+        backgroundTransition: 'fade', // Background transition style
+        theme: 'solarized', // Set the default theme
+
+        // Advanced settings
+        viewDistance: 3, // Preload slides within a distance of 3
+        mobileViewDistance: 2, // Reduce preload distance on mobile devices
+        hideInactiveCursor: true, // Hide cursor when inactive
+        hideCursorTime: 5000, // Time to hide cursor (in milliseconds)
+        pdfSeparateFragments: true, // Print each fragment as a separate slide
+
+        // Auto-animation settings
+        autoAnimate: true, // Enable auto-animation
+        autoAnimateEasing: 'ease', // Set easing for animations
+        autoAnimateDuration: 1.0, // Animation duration (in seconds)
+
+        // Custom event listeners
+        ready: (event) => {
+          console.log('Reveal.js is ready!');
+        },
+        slidechanged: (event) => {
+          console.log(`Current slide index: ${event.indexh}.${event.indexv}`);
+        },
+      });
+
+      // Enable scrolling inside slides
+      Reveal.on('slidechanged', (event) => {
+        const currentSlide = event.currentSlide;
+        if (currentSlide) {
+          currentSlide.style.overflowY = 'auto'; // Enable vertical scrolling for current slide
+          currentSlide.style.height = 'calc(100vh - 80px)'; // Adjust height to ensure proper scrolling
+        }
+      });
+
+      // Optional: Update the theme dynamically based on mode
+      document.body.addEventListener('classChange', () => {
+        const darkModeActive = document.body.classList.contains('dark-mode');
+        Reveal.configure({ theme: darkModeActive ? 'dracula' : 'solarized' });
+      });
+    });
+  </script>
+{% endif %}

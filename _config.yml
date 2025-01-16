@@ -55,7 +55,7 @@ socials_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 930px
+max_width: 1080px
 
 # TODO: add layout settings (single page vs. multi-page)
 
@@ -410,7 +410,7 @@ enable_video_embedding: false # enables video embedding for bibtex entries. If f
 # The integrity hash is used to ensure that the library is not tampered with.
 # Integrity hashes not provided by the libraries were generated using https://www.srihash.org/
 third_party_libraries:
-  download: false # if true, download the versions of the libraries specified below and use the downloaded files
+  download: true # if true, download the versions of the libraries specified below and use the downloaded files
   bootstrap-table:
     integrity:
       css: "sha256-uRX+PiRTR4ysKFRCykT8HLuRCub26LgXJZym3Yeom1c="
@@ -633,6 +633,26 @@ third_party_libraries:
   axios:
     url:
       js: "https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"
+  revealjs:
+    url:
+      js: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.js"
+      css: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css"
+      theme:
+        dracula: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/dracula.min.css"
+        solarized: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/solarized.min.css"
+      markdown: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/markdown/markdown.min.js"
+    integrity:
+      js: "sha512-35L3EFHQcGaTZ6QN9wAg9iK1hTPVCn8RGsscuXjm5JdmDRyOw+/IWJ4wavGkozQ8VDoddD7nV1psHgu/BYNpxQ=="
+      css: "sha512-0AUO8B5ll9y1ERV/55xq3HeccBGnvAJQsVGitNac/iQCLyDTGLUBMPqlupIWp/rJg0hV3WWHusXchEIdqFAv1Q=="
+      theme:
+        dracula: "sha512-RPqCDyRPg34CE04QpEtt720zRNPR9oZElahfl1OrNl+pxERwvXw7usOOsR+vP6HnDQEmw+ioz2Nh/XOGP8aV0w=="
+        solarized: "sha512-V8VzH1oZOKksN3BHgMaqU9mZBqST6lh6CKSGOz4/pXjOHXHvm4NdX753i8ImR18/IpQqXKG2mUUrnB/zc3nFHQ=="
+      markdown: "sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw=="
+  marked:
+    url:
+      js: "https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"
+    integrity:
+      js: "sha512-rvRITpPeEKe4hV9M8XntuXX6nuohzqdR5O3W6nhjTLwkrx0ZgBQuaK4fv5DdOWzs2IaXsGt5h0+nyp9pEuoTXg=="
 
 # -----------------------------------------------------------------------------
 # Get external JSON data

@@ -213,3 +213,16 @@
     {% endfor %}
   {% endif %}
 {% endif %}
+
+{% comment %}
+  {% if page.revealjs %}
+    <!-- Reveal.js -->
+    <script src="{{ site.third_party_libraries.revealjs.url.js }}" defer></script>
+    <link
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.revealjs.url.css }}"
+      integrity="{{ site.third_party_libraries.revealjs.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+{% endcomment %}
