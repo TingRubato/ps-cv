@@ -16,7 +16,7 @@ pagination:
 <div class="musics-page container">
   <!-- Page Header -->
   <header class="musics-header text-center my-5">
-    <h1 class="musics-title">{{ page.title }}</h1>
+    <h1 class="musics-title">Music</h1>
     <p class="musics-description">{{ page.description }}</p>
   </header>
 
@@ -111,20 +111,6 @@ pagination:
               </li>
             {% endif %}
 
-            {% for page in (1..paginator.total_pages) %}
-              {% if page == paginator.page %}
-                <li class="page-item active">
-                  <span class="page-link">{{ page }}</span>
-                </li>
-              {% else %}
-                <li class="page-item">
-                  <a class="page-link" href="{{ paginator.paginate_path | replace: ':num', page | relative_url }}">
-                    {{ page }}
-                  </a>
-                </li>
-              {% endif %}
-            {% endfor %}
-
             {% if paginator.next_page %}
               <li class="page-item">
                 <a class="page-link" href="{{ paginator.next_page_path | relative_url }}" aria-label="Next"> Next &raquo; </a>
@@ -142,7 +128,6 @@ pagination:
 </div>
 
 <style>
-  /* Existing Styles */
   /* Root Font Size */
   html {
     font-size: 16px; /* Base font size */
@@ -162,7 +147,6 @@ pagination:
       sans-serif; /* 14px font size */
     -webkit-font-smoothing: antialiased;
     z-index: 1; /* ensures the background is behind other elements */
-    background-color: var(--background-color, #ffffff); /* Default background color */
   }
 
   /* Puff & Border Animations for Body Background */
@@ -184,26 +168,18 @@ pagination:
   }
 
   /* Base Typography */
-  h1,
+  h1 {
+    color: #e0e0e0;
+    font-weight: 500;
+  }
   h2 {
     font-weight: 500;
-    color-scheme: light dark;
     margin: 0 0 0.3125rem 0; /* 5px */
-  }
-
-  h1 {
-    font-size: 1.5rem; /* 24px */
-    color-scheme: light dark;
-  }
-
-  h2 {
-    font-size: 1rem; /* 16px */
-    color-scheme: light dark;
   }
 
   p {
     margin: 0;
-    color-scheme: light dark;
+    color: #e0e0e0;
     font-size: 0.875rem; /* 14px */
     line-height: 1.618;
   }
@@ -254,18 +230,17 @@ pagination:
   }
 
   .music-body p {
-    color-scheme: light dark;
+    color: #313440;
   }
 
   .profile-card p {
-    color: #000;
+    color: #313440;
   }
 
   /* Profile Card Header */
   .profile-card header {
     width: 100%;
     padding: 0.3125rem; /* 5px */
-    background: #ffffff;
     color: #000;
     opacity: 0;
     text-align: center;
@@ -303,7 +278,6 @@ pagination:
     height: 1.25rem; /* 20px */
     border: 0.25rem solid #ffffff; /* 4px */
     transform: scale(0);
-    background: linear-gradient(#2196f3 0%, #2196f3 50%, #ffc107 50%, #ffc107 100%);
     border-radius: 50%;
     box-shadow: 0px 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1); /* 1px 1px 3px */
     animation: scaleIn 0.3s 3.5s ease forwards;
@@ -327,7 +301,6 @@ pagination:
   .profile-bio {
     width: 100%;
     padding: 0 1rem;
-    background: #ffffff;
     color: #15160f;
     text-align: center;
     opacity: 0;
@@ -342,7 +315,6 @@ pagination:
     justify-content: center;
     gap: 0.9375rem; /* 15px */
     padding: 0.9375rem 0; /* 15px */
-    background: #ffffff;
     opacity: 0;
     animation: moveIn 1s 3.1s ease forwards;
     margin-top: 1.25rem; /* 20px */
@@ -398,7 +370,6 @@ pagination:
   }
 
   .music-title a {
-    color: #333;
   }
 
   .music-title a:hover {
@@ -407,7 +378,6 @@ pagination:
 
   .music-meta {
     font-size: 0.875rem; /* 14px */
-    color: #777;
   }
 
   .music-body {
@@ -420,7 +390,6 @@ pagination:
   }
 
   .music-footer strong {
-    color: #555;
   }
 
   .music-footer a {
