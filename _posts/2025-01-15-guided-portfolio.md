@@ -8,11 +8,7 @@ toc:
     sidebar: left
 ---
 
-<<<<<<< HEAD
 This portfolio is a curated selection of my musical, creative, technical, and scholarly works that highlight my skills and passion. Thank you for taking the time to explore me.
-=======
-This portfolio is a curated selection of my musical, creative, technical, and scholarly works that highlight my expertise and passion. Thank you for taking the time to explore my achievements.
->>>>>>> origin/main
 
 # **1.Projects**
 
