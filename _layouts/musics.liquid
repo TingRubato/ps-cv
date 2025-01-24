@@ -6,13 +6,6 @@ pagination:
   limit: 4 
   per_page: 4
 ---
-{% comment %}
-  Musics Layout:
-  - Lists all music compositions from the '_musics' collection.
-  - Includes profile card animations & background layering.
-  - Uses Bootstrap for a 2x2 grid view of music items with pagination.
-{% endcomment %}
-
 <div class="musics-page container">
   <!-- Page Header -->
   <header class="musics-header text-center my-5">
@@ -137,7 +130,7 @@ pagination:
   body {
     overflow: auto;
     background-size: cover;
-    position: fixed;
+    position: relative;
     padding: 0;
     margin: 0;
     width: 100%;
@@ -153,8 +146,8 @@ pagination:
   body:before {
     content: '';
     height: 0;
+    background-color: --var(--background-color);
     padding: 0;
-    border: 130em solid #313440; /* 130em = very large, likely for animation */
     position: absolute;
     left: 50%;
     top: 100%;
@@ -169,7 +162,7 @@ pagination:
 
   /* Base Typography */
   h1 {
-    color: #e0e0e0;
+    color: --var(--text-color);
     font-weight: 500;
   }
   h2 {
@@ -179,7 +172,7 @@ pagination:
 
   p {
     margin: 0;
-    color: #e0e0e0;
+    color: --var(--text-color);
     font-size: 0.875rem; /* 14px */
     line-height: 1.618;
   }
@@ -542,9 +535,9 @@ pagination:
 
   /* Media Query Adjustments */
   @media screen and (min-aspect-ratio: 4/3) {
-    body {
+    /* body {
       background-size: cover;
-    }
+    } */
 
     body:before {
       width: 0;
