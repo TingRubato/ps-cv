@@ -82,7 +82,12 @@
       "studyType": "Master of Science",
       "startDate": "2021-08-01",
       "endDate": "2023-05-01",
-      "courses": ["Machine Learning", "Embedded Systems", "Data Science", "Signal Processing"]
+      "courses": [
+        "Machine Learning",
+        "Embedded Systems",
+        "Data Science",
+        "Signal Processing"
+      ]
     },
     {
       "institution": "Shanghai Maritime University",
@@ -91,7 +96,13 @@
       "studyType": "Bachelor of Engineering",
       "startDate": "2017-09-01",
       "endDate": "2021-07-01",
-      "courses": ["Robotics", "Control Systems", "Image Processing", "Digital Signal Processing", "Circuit Theory"]
+      "courses": [
+        "Robotics",
+        "Control Systems",
+        "Image Processing",
+        "Digital Signal Processing",
+        "Circuit Theory"
+      ]
     }
   ],
   "awards": [
@@ -107,7 +118,7 @@
     {
       "name": "Design, Optimization, and Experimental Study of a Novel Direct-Driven Linear-Rotary Wave Generator",
       "publisher": "IEEE Transactions on Energy Conversion",
-      "releaseDate": "Manuscript",
+      "releaseDate": "Accepted",
       "url": "https://tingrubato.github.io/ps-cv/assets/pdf/TEC-01067-2023.R2.pdf",
       "summary": "This paper introduces a novel linear-rotary wave generator to enhance the reliability and efficiency of wave energy conversion systems. It proposes an optimization approach and validates it through experimental platforms."
     },
@@ -129,23 +140,67 @@
   "skills": [
     {
       "name": "Programming",
-      "keywords": ["C", "Python", "MATLAB", "C#", "SQL", "Shell", "Git", "Docker", "Node.js", "REST API"]
+      "keywords": [
+        "C",
+        "Python",
+        "MATLAB",
+        "C#",
+        "SQL",
+        "Shell",
+        "Git",
+        "Docker",
+        "Node.js",
+        "REST API"
+      ]
     },
     {
       "name": "Machine Learning",
-      "keywords": ["SciKit", "PyTorch", "TensorFlow", "LLM", "Transformers", "AWS Sagemaker", "YOLO"]
+      "keywords": [
+        "SciKit",
+        "PyTorch",
+        "TensorFlow",
+        "LLM",
+        "Transformers",
+        "AWS Sagemaker",
+        "YOLO"
+      ]
     },
     {
       "name": "Engineering",
-      "keywords": ["Embedded Systems", "RTOS", "MCU", "DSPs", "Oscilloscope", "AWS IoT", "I2C", "CAD", "Altium"]
+      "keywords": [
+        "Embedded Systems",
+        "RTOS",
+        "MCU",
+        "DSPs",
+        "Oscilloscope",
+        "AWS IoT",
+        "I2C",
+        "CAD",
+        "Altium"
+      ]
     },
     {
       "name": "Music Technology",
-      "keywords": ["MIDI", "Music Theory", "librosa", "music21", "Signal Processing", "Music Information Retrieval"]
+      "keywords": [
+        "MIDI",
+        "Music Theory",
+        "librosa",
+        "music21",
+        "Signal Processing",
+        "Music Information Retrieval"
+      ]
     },
     {
       "name": "Research",
-      "keywords": ["LaTeX", "Zotero", "Overleaf", "Data Analysis", "Data Scraping", "SPSS", "Manim"]
+      "keywords": [
+        "LaTeX",
+        "Zotero",
+        "Overleaf",
+        "Data Analysis",
+        "Data Scraping",
+        "SPSS",
+        "Manim"
+      ]
     }
   ],
   "languages": [
@@ -162,7 +217,10 @@
     {
       "name": "Cochlear Implant Simulator",
       "url": "https://tingrubato.github.io/ps-cv/projects/ci-simulator",
-      "highlights": ["Implemented a Python-based tool using Librosa.", "Evaluated noise reduction algorithms for auditory enhancement."],
+      "highlights": [
+        "Implemented a Python-based tool using Librosa.",
+        "Evaluated noise reduction algorithms for auditory enhancement."
+      ],
       "startDate": "2024-10-01",
       "endDate": "2025-01-15"
     },
