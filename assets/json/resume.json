@@ -29,8 +29,9 @@
       "url": "",
       "startDate": "2024-06-01",
       "endDate": "Present",
-      "summary": "Developed innovative solutions for AI tool integration and enhanced technical workflows for global clients.",
+      "summary": [],
       "highlights": [
+        "Developed innovative solutions for AI tool integration and enhanced technical workflows for global clients.",
         "Designed and deployed dashboards for enhanced observability and monitoring of cloud services, ensuring robust performance and reliability.",
         "Conducted in-depth research and analysis of client-provided evidence(STEM-Related) in collaboration with a law ﬁrm, utilizing analytical frameworks to evaluate alignment with regulatory standards and strategic objectives."
       ]
@@ -41,8 +42,9 @@
       "url": "https://varsitytutors.com",
       "startDate": "2024-02-01",
       "endDate": "2024-06-01",
-      "summary": "Tutored college students and professionals in STEM topics and developed tailored learning plans.",
+      "summary": [],
       "highlights": [
+        "Tutored college students and professionals in STEM topics and developed tailored learning plans.",
         "Delivered customized lessons in Mathematics, Physics, and Computer Science.",
         "Designed personalized strategies to improve academic performance."
       ]
@@ -53,8 +55,9 @@
       "url": "https://ctl.wustl.edu/",
       "startDate": "2021-08-01",
       "endDate": "2023-05-01",
-      "summary": "Streamlined campus-wide technology support and developed automated tools for project management.",
+      "summary": [],
       "highlights": [
+        "Streamlined campus-wide technology support and developed automated tools for project management.",
         "Streamlined routing for the tech support group by analyzing daily operations, signiﬁcantly reducing travel distances and boosting campus-wide efﬁciency",
         "Automated the pricing inquiry process for an EdTech project by developing a Python script with Selenium to systematically gather pricing data from vendor websites."
       ]
@@ -67,8 +70,9 @@
       "url": "https://iaeste.org/",
       "startDate": "2018-02-01",
       "endDate": "2018-06-01",
-      "summary": "Facilitated cultural exchanges and internships for international students.",
+      "summary": [],
       "highlights": [
+        "Facilitated cultural exchanges and internships for international students.",
         "Facilitated the onboarding of overseas interns and organized cultural exchange events, improving participant satisfaction.",
         "Matched candidates with international roles, coordinating communication across multiple stakeholders."
       ]
@@ -118,8 +122,8 @@
     {
       "name": "Design, Optimization, and Experimental Study of a Novel Direct-Driven Linear-Rotary Wave Generator",
       "publisher": "IEEE Transactions on Energy Conversion",
-      "releaseDate": "Accepted",
-      "url": "https://tingrubato.github.io/ps-cv/assets/pdf/TEC-01067-2023.R2.pdf",
+      "releaseDate": "02/04/2025",
+      "url": "https//doi.org/10.1109/TEC.2025.3538570",
       "summary": "This paper introduces a novel linear-rotary wave generator to enhance the reliability and efficiency of wave energy conversion systems. It proposes an optimization approach and validates it through experimental platforms."
     },
     {
