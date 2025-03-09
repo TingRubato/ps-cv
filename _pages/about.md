@@ -1,7 +1,7 @@
 ---
 layout: about
 title: about
-permalink: /
+permalink: /about
 subtitle: Explore without boundaries, create without limits, and connect the dots no one else sees.
 d3: true
 profile:

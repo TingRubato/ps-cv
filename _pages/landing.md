@@ -1,6 +1,6 @@
 ---
 layout: none
-title: "We, World"
+title: "Landing Page"
 permalink: /
 ---
 
@@ -9,9 +9,6 @@ permalink: /
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How about a cup of T?</title>
-  <!-- Link to the CSS file -->
-  <link rel="stylesheet" href="style.css">
-</head>
 
 <style>
 
@@ -670,7 +667,7 @@ div.tp-dfwv {
   animation: spin .5s linear infinite;
 }
 </style>
-
+</head>
 <body>
 <header>
   <h1 class="fluid">Before we start, remember that</h1>
@@ -744,7 +741,7 @@ div.tp-dfwv {
 <!-- Link to the JavaScript file -->
 <script>
 const inactivityDuration = 5000; // Duration before redirecting (in milliseconds)
-const redirectURL = "https://tingrubato.github.io/ps-cv/"; // Redirect URL
+const redirectURL = "https://tingrubato.github.io/ps-cv/about"; // Redirect URL
 let inactivityTimeout; // Variable to hold the timeout
 let isScrolling = false; // Flag to track user interaction
 
