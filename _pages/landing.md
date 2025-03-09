@@ -8,9 +8,10 @@ permalink: /
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Greetings</title>
+  <title>You can make it, Ting</title>
   <!-- Link to the CSS file -->
-
+  <link rel="stylesheet" href="style.css">
+</head>
 
 <style>
 
@@ -669,8 +670,6 @@ div.tp-dfwv {
   animation: spin .5s linear infinite;
 }
 </style>
-</head>
-
 
 <body>
 <header>
