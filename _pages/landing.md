@@ -8,7 +8,7 @@ permalink: /
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>You can make it, Ting</title>
+  <title>How about a cup of T?</title>
   <!-- Link to the CSS file -->
   <link rel="stylesheet" href="style.css">
 </head>
