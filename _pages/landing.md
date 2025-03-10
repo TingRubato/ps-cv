@@ -1,798 +1,508 @@
 ---
-layout: none
-title: "Landing Page"
-permalink: /
+layout: landing
+permalink: /landing.html
+title: "Loading..."
+no_styles: true
 ---
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How about a cup of T?</title>
-
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
-@import url('https://unpkg.com/normalize.css') layer(normalize);
-
-@layer normalize, base, demo, stick, effect, srollbar;
-
-@layer scrollbar {
-  @property --scroller {
-    initial-value: 0;
-    syntax: '<number>';
-    inherits: true;
-  }
-  @property --chroma {
-    initial-value: 0;
-    syntax: '<number>';
-    inherits: true;
-  }
-  
-  [data-sync-scrollbar='false'] {
-    scrollbar-color: light-dark(black, white) #0000;
-  }
-
-  [data-sync-scrollbar='true'] {
-    scrollbar-color: oklch(var(--lightness) var(--chroma) var(--scroller)) #0000;
-  }
-  @supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
-    [data-sync-scrollbar='true'] {
-      timeline-scope: --list;
-      scrollbar-color: oklch(var(--lightness) var(--chroma, 0) var(--scroller))
-        #0000;
-      animation-name: change, chroma-on, chroma-off;
-      animation-fill-mode: both;
-      animation-timing-function: linear;
-      /* animation-timeline: scroll(root); */
-      animation-range: entry 50% exit 50%, entry 40% entry 50%,
-        exit 30% exit 40%;
-      animation-timeline: --list;
-      ul {
-        view-timeline: --list;
-      }
-    }
-  }
-
-  @keyframes change {
-    to {
-      --scroller: var(--end);
-    }
-  }
-  @keyframes chroma-on {
-    to {
-      --chroma: 0.3;
-    }
-  }
-  @keyframes chroma-off {
-    to {
-      --chroma: 0;
-    }
-  }
+@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap);
+.card,
+.content,
+body {
+  overflow: hidden;
 }
 
-@layer effect {
-  :root {
-    --start: 0;
-    --end: 360;
-    --lightness: 65%;
-    --base-chroma: 0.3;
-  }
-  [data-theme='dark'] {
-    --lightness: 75%;
-  }
-  [data-theme='light'] {
-    --lightness: 65%;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --lightness: 75%;
-    }
-  }
-  ul {
-    --step: calc((var(--end) - var(--start)) / (var(--count) - 1));
-  }
-  li:not(:last-of-type) {
-    color: oklch(
-      var(--lightness) var(--base-chroma)
-        calc(var(--start) + (var(--step) * var(--i)))
-    );
-  }
-
-  @supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
-    li {
-      opacity: 0.2;
-      animation-name: brighten;
-
-      &:first-of-type {
-        opacity: 1;
-        animation-name: dim;
-      }
-      &:last-of-type {
-        opacity: 0.2;
-        animation-name: bright;
-      }
-      animation-fill-mode: both;
-      animation-timing-function: linear;
-      animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
-      animation-timeline: view();
-    }
-
-    @keyframes dim {
-      0%,
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0.2;
-      }
-    }
-
-    @keyframes bright {
-      0% {
-        opacity: 0.2;
-      }
-      50%,
-      100% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes brighten {
-      0%,
-      100% {
-        opacity: 0.2;
-      }
-      50% {
-        opacity: 1;
-        filter: brightness(1.2);
-      }
-    }
-  }
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
 }
 
-@layer stick {
-  section:first-of-type {
-    --font-level: 6;
-    --font-size-min: 20;
-    display: flex;
-    line-height: 1.25;
-    width: 100%;
-    padding-left: 2rem;
-    @media(min-width: 768px) {
-      padding-left: 5rem;
-    }
-  }
-  section:last-of-type {
-    min-height: 100svh;
-    display: flex;
-    place-items: center;
-    width: 100%;
-    justify-content: center;
-
-    h2 {
-      --font-level: 6;
-      --font-size-min: 20;
-    }
-  }
-  main {
-    width: 100%;
-  }
-  section:first-of-type h2 {
-    position: sticky;
-    top: calc(50% - 0.5lh);
-    font-size: inherit;
-    margin: 0;
-    display: inline-block;
-    height: fit-content;
-    font-weight: 600;
-  }
-  ul {
-    font-weight: 600;
-    padding-inline: 0;
-    margin: 0;
-    list-style-type: none;
-  }
-  html {
-    scroll-snap-type: y proximity;
-  }
-  li {
-    scroll-snap-align: center;
-  }
-  h2,
-  li:last-of-type {
-    background: linear-gradient(
-      canvasText 50%,
-      color-mix(in oklch, canvas, canvasText 25%)
-    );
-    background-clip: text;
-    color: #0000;
-  }
+.card,
+.container {
+  display: flex;
+  align-items: center;
 }
 
-@layer demo {
-  header {
-    min-height: 100svh;
-    display: flex;
-    place-items: center;
-    width: 100%;
-    padding-inline: 2rem;
-    @media(min-width: 768px) {
-      padding-inine: 5rem;
-    }
-  }
-
-  footer {
-    padding-block: 2rem;
-    opacity: 0.5;
-  }
-
-  h1 {
-    --font-size-min: 24;
-    --font-level: 8;
-    text-wrap: pretty;
-    line-height: 0.8;
-    margin: 0;
-    background: linear-gradient(
-      canvasText 60%,
-      color-mix(in oklch, canvas, canvasText)
-    );
-    background-clip: text;
-    color: #0000;
-  }
+.card {
+  width: 1280px;
+  height: 720px;
+  margin: 0;
+  justify-content: center;
 }
 
-@layer base {
-  :root {
-    --font-size-min: 14;
-    --font-size-max: 20;
-    --font-ratio-min: 1.1;
-    --font-ratio-max: 1.33;
-    --font-width-min: 375;
-    --font-width-max: 1500;
-  }
-
-  html {
-    color-scheme: light dark;
-  }
-
-  [data-theme='light'] {
-    color-scheme: light only;
-  }
-
-  [data-theme='dark'] {
-    color-scheme: dark only;
-  }
-
-  :where(.fluid) {
-    --fluid-min: calc(
-      var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0))
-    );
-    --fluid-max: calc(
-      var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0))
-    );
-    --fluid-preferred: calc(
-      (var(--fluid-max) - var(--fluid-min)) /
-        (var(--font-width-max) - var(--font-width-min))
-    );
-    --fluid-type: clamp(
-      (var(--fluid-min) / 16) * 1rem,
-      ((var(--fluid-min) / 16) * 1rem) -
-        (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) +
-        (var(--fluid-preferred) * var(--variable-unit, 100vi)),
-      (var(--fluid-max) / 16) * 1rem
-    );
-    font-size: var(--fluid-type);
-  }
-
-  *,
-  *:after,
-  *:before {
-    box-sizing: border-box;
-  }
-
-  body {
-    display: grid;
-    place-items: center;
-    background: light-dark(white, black);
-    min-height: 100svh;
-    font-family: 'Geist', 'SF Pro Text', 'SF Pro Icons', 'AOS Icons',
-      'Helvetica Neue', Helvetica, Arial, sans-serif, system-ui;
-  }
-
-  body::before {
-    --size: 45px;
-    --line: color-mix(in hsl, canvasText, transparent 70%);
-    content: '';
-    height: 100svh;
-    width: 100vw;
-    position: fixed;
-    background: linear-gradient(
-          90deg,
-          var(--line) 1px,
-          transparent 1px var(--size)
-        )
-        50% 50% / var(--size) var(--size),
-      linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
-        var(--size) var(--size);
-    mask: linear-gradient(-20deg, transparent 50%, white);
-    top: 0;
-    transform-style: flat;
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  .bear-link {
-    color: canvasText;
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    width: 48px;
-    aspect-ratio: 1;
-    display: grid;
-    place-items: center;
-    opacity: 0.8;
-  }
-
-  :where(.x-link, .bear-link):is(:hover, :focus-visible) {
-    opacity: 1;
-  }
-
-  .bear-link svg {
-    width: 75%;
-  }
-
-  /* Utilities */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
+.container-full,
+.content {
+  width: 1000px;
+  height: 562px;
 }
 
-div.tp-dfwv {
-  position: fixed;
+.backgroundImage {
+  position: absolute;
+  width: 1000px;
 }
 
-/* KEYFRAMES */
-@keyframes spin {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+.boyImage {
+  position: absolute;
+  width: 1000px;
+  z-index: 2;
+  animation: 200s linear infinite blur;
 }
 
-@keyframes spin3D {
-  from {
-    transform: rotate3d(.5,.5,.5, 360deg);
-  }
-  to {
-    transform: rotate3d(0deg);
-  }
+.content {
+  border-radius: 40px;
+  animation: 200s linear infinite brightness;
 }
 
-@keyframes configure-clockwise {
-  0% {
-    transform: rotate(0);
+.container {
+  justify-content: center;
+}
+
+.container-full,
+.face {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container-full {
+  margin: 0;
+  justify-content: center;
+  transform: scale(1);
+  animation: 200s linear infinite zoom-in;
+}
+
+.cube,
+.face {
+  width: 870px;
+  height: 190px;
+}
+
+.cube {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 480px;
+  transform-style: preserve-3d;
+  perspective-origin: 51% 70%;
+}
+
+.face,
+.hue {
+  position: absolute;
+}
+
+.face {
+  background: 0 0;
+  border: 0 solid #000;
+  opacity: 0.5;
+}
+
+.bottom,
+.top {
+  width: 870px;
+  height: 870px;
+}
+
+p {
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: calc(6em + (190px / 10) * 0.7);
+  padding-top: 20px;
+  color: #fff;
+}
+
+span {
+  color: red;
+}
+
+.front {
+  transform: translateZ(435px);
+  display: none;
+}
+
+.back {
+  transform: translateZ(-435px) rotateY(180deg) scaleX(-1);
+}
+
+.left {
+  transform: translateX(-435px) rotateY(-90deg) scaleX(-1);
+}
+
+.right {
+  transform: translateX(435px) rotateY(90deg) scaleX(-1);
+}
+
+.top {
+  transform: translateY(-435px) rotateX(90deg) scaleY(-1);
+}
+
+.bottom {
+  transform: translateY(-245px) rotateX(-90deg) scaleY(-1);
+}
+
+.left p {
+  margin-left: 480px;
+  animation: 200s linear infinite left;
+}
+
+.back p {
+  margin-left: -390px;
+  animation: 200s linear infinite back;
+}
+
+.right p {
+  margin-left: -1260px;
+  animation: 200s linear infinite right;
+}
+
+@keyframes left {
+  100% {
+    margin-left: -54000px;
   }
-  25% {
-    transform: rotate(90deg);
+}
+@keyframes back {
+  100% {
+    margin-left: -54870px;
+  }
+}
+@keyframes right {
+  100% {
+    margin-left: -55740px;
+  }
+}
+.hue {
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: overlay;
+  background: #1e5799;
+  background: radial-gradient(ellipse at center, #1e5799 0, #7db9e8 100%);
+  opacity: 1;
+}
+
+.hue.animated {
+  -webkit-animation: 8s infinite filter-animation;
+  animation: 8s infinite filter-animation;
+}
+
+.container-reflect {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 380px;
+  filter: blur(10px);
+}
+
+.container-reflect .cube {
+  perspective-origin: 51% -30%;
+}
+
+.container-reflect .back {
+  transform: translateZ(-435px) rotateY(180deg) scaleX(-1) scaleY(-1);
+}
+
+.container-reflect .left {
+  transform: translateX(-435px) rotateY(-90deg) scaleX(-1) scaleY(-1);
+}
+
+.container-reflect .right {
+  transform: translateX(435px) rotateY(90deg) scaleX(-1) scaleY(-1);
+}
+
+.container-reflect p {
+  transform: scaleY(70%);
+}
+
+@keyframes filter-animation {
+  0%, 100% {
+    filter: hue-rotate(0deg);
   }
   50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
+    filter: hue-rotate(100deg);
   }
 }
-
-@keyframes configure-xclockwise {
+@keyframes zoom-in {
   0% {
-    transform: rotate(45deg);
-  }
-  25% {
-    transform: rotate(-45deg);
-  }
-  50% {
-    transform: rotate(-135deg);
-  }
-  75% {
-    transform: rotate(-225deg);
-  }
-  100% {
-    transform: rotate(-315deg);
-  }
-}
-
-@keyframes pulse {
-  from {
-    opacity: 1;
     transform: scale(1);
   }
-  to {
-    opacity: .25;
-    transform: scale(.75);
+  100% {
+    transform: scale(2.5);
   }
 }
-
-/* SPINNER BOX BASE */
-.spinner-box {
-  width: 300px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
+@keyframes blur {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(3px);
+  }
+}
+@keyframes brightness {
+  0% {
+    filter: brightness(1) contrast(1);
+  }
+  100% {
+    filter: brightness(0.8) contrast(1.3);
+  }
+}
+#load {
+  position:absolute;
+  width:600px;
+  height:36px;
+  left:50%;
+  top:85%;
+  margin-left:-300px;
+  overflow:visible;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  cursor:default;
 }
 
-/* SPINNING CIRCLE */
-.circle-border {
-  width: 150px;
-  height: 150px;
-  padding: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
-  animation: spin .8s linear infinite;
+#load div {
+  position:absolute;
+  width:20px;
+  height:36px;
+  opacity:0;
+  font-family:Helvetica, Arial, sans-serif;
+  animation:move 2s linear infinite;
+  -o-animation:move 2s linear infinite;
+  -moz-animation:move 2s linear infinite;
+  -webkit-animation:move 2s linear infinite;
+  transform:rotate(180deg);
+  -o-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  color:#35C4F0;
 }
 
-.circle-core {
-  width: 100%;
-  height: 100%;
-  background-color: #1d2630;
-  border-radius: 50%;
+#load div:nth-child(2) {
+  animation-delay:0.2s;
+  -o-animation-delay:0.2s;
+  -moz-animation-delay:0.2s;
+  -webkit-animation-delay:0.2s;
+}
+#load div:nth-child(3) {
+  animation-delay:0.4s;
+  -o-animation-delay:0.4s;
+  -webkit-animation-delay:0.4s;
+  -webkit-animation-delay:0.4s;
+}
+#load div:nth-child(4) {
+  animation-delay:0.6s;
+  -o-animation-delay:0.6s;
+  -moz-animation-delay:0.6s;
+  -webkit-animation-delay:0.6s;
+}
+#load div:nth-child(5) {
+  animation-delay:0.8s;
+  -o-animation-delay:0.8s;
+  -moz-animation-delay:0.8s;
+  -webkit-animation-delay:0.8s;
+}
+#load div:nth-child(6) {
+  animation-delay:1s;
+  -o-animation-delay:1s;
+  -moz-animation-delay:1s;
+  -webkit-animation-delay:1s;
+}
+#load div:nth-child(7) {
+  animation-delay:1.2s;
+  -o-animation-delay:1.2s;
+  -moz-animation-delay:1.2s;
+  -webkit-animation-delay:1.2s;
 }
 
-/* SPINNING CIRCLE PLANES */
-.leo-border-1 {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  padding: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
-  animation: spin3D 1.8s linear infinite;
+@keyframes move {
+  0% {
+    left:0;
+    opacity:0;
+  }
+	35% {
+		left: 41%; 
+		-moz-transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	65% {
+		left:59%; 
+		-moz-transform:rotate(0deg); 
+		-webkit-transform:rotate(0deg); 
+		-o-transform:rotate(0deg);
+		transform:rotate(0deg); 
+		opacity:1;
+	}
+	100% {
+		left:100%; 
+		-moz-transform:rotate(-180deg); 
+		-webkit-transform:rotate(-180deg); 
+		-o-transform:rotate(-180deg); 
+		transform:rotate(-180deg);
+		opacity:0;
+	}
 }
 
-.leo-core-1 {
-  width: 100%;
-  height: 100%;
-  background-color: #37474faa;
-  border-radius: 50%;
+@-moz-keyframes move {
+	0% {
+		left:0; 
+		opacity:0;
+	}
+	35% {
+		left:41%; 
+		-moz-transform:rotate(0deg); 
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	65% {
+		left:59%; 
+		-moz-transform:rotate(0deg); 
+		transform:rotate(0deg);
+		opacity:1;
+	}
+	100% {
+		left:100%; 
+		-moz-transform:rotate(-180deg); 
+		transform:rotate(-180deg);
+		opacity:0;
+	}
 }
 
-.leo-border-2 {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  padding: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: linear-gradient(0deg, rgba(251, 91, 83, 0.1) 33%, rgba(251, 91, 83, 1) 100%);
-  animation: spin3D 2.2s linear infinite;
+@-webkit-keyframes move {
+	0% {
+		left:0; 
+		opacity:0;
+	}
+	35% {
+		left:41%; 
+		-webkit-transform:rotate(0deg); 
+		transform:rotate(0deg); 
+		opacity:1;
+	}
+	65% {
+		left:59%; 
+		-webkit-transform:rotate(0deg); 
+		transform:rotate(0deg); 
+		opacity:1;
+	}
+	100% {
+		left:100%;
+		-webkit-transform:rotate(-180deg); 
+		transform:rotate(-180deg); 
+		opacity:0;
+	}
 }
 
-.leo-core-2 {
-  width: 100%;
-  height: 100%;
-  background-color: #1d2630aa;
-  border-radius: 50%;
+@-o-keyframes move {
+	0% {
+		left:0; 
+		opacity:0;
+	}
+	35% {
+		left:41%; 
+		-o-transform:rotate(0deg); 
+		transform:rotate(0deg); 
+		opacity:1;
+	}
+	65% {
+		left:59%; 
+		-o-transform:rotate(0deg); 
+		transform:rotate(0deg); 
+		opacity:1;
+	}
+	100% {
+		left:100%; 
+		-o-transform:rotate(-180deg); 
+		transform:rotate(-180deg); 
+		opacity:0;
+	}
 }
 
-/* SPINNER ORBITS */
-.leo {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-}
-
-.blue-orbit {
-  width: 165px;
-  height: 165px;
-  border: 1px solid #91daffa5;
-  animation: spin3D 3s linear infinite;
-}
-
-.green-orbit {
-  width: 120px;
-  height: 120px;
-  border: 1px solid #91ffbfa5;
-  animation: spin3D 2s linear infinite;
-}
-
-.red-orbit {
-  width: 90px;
-  height: 90px;
-  border: 1px solid #ffca91a5;
-  animation: spin3D 1s linear infinite;
-}
-
-.white-orbit {
-  width: 60px;
-  height: 60px;
-  border: 2px solid #ffffff;
-  animation: spin3D 10s linear infinite;
-}
-
-.w1 {
-  transform: rotate3D(1, 1, 1, 90deg);
-}
-
-.w2 {
-  transform: rotate3D(1, 2, .5, 90deg);
-}
-
-.w3 {
-  transform: rotate3D(.5, 1, 2, 90deg);
-}
-
-/* X-ROTATING BOXES */
-.configure-border-1 {
-  width: 115px;
-  height: 115px;
-  padding: 3px;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fb5b53;
-  animation: configure-clockwise 3s ease-in-out infinite alternate;
-}
-
-.configure-border-2 {
-  width: 115px;
-  height: 115px;
-  padding: 3px;
-  left: -115px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(63,249,220);
-  transform: rotate(45deg);
-  animation: configure-xclockwise 3s ease-in-out infinite alternate;
-}
-
-.configure-core {
-  width: 100%;
-  height: 100%;
-  background-color: #1d2630;
-}
-
-/* PULSE BUBBLES */
-.pulse-container {
-  width: 120px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.pulse-bubble {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #3ff9dc;
-}
-
-.pulse-bubble-1 {
-  animation: pulse .4s ease infinite alternate;
-}
-
-.pulse-bubble-2 {
-  animation: pulse .4s ease .2s infinite alternate;
-}
-
-.pulse-bubble-3 {
-  animation: pulse .4s ease .4s infinite alternate;
-}
-
-/* SOLAR SYSTEM */
-.solar-system {
-  width: 250px;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.orbit {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #fafbfC;
-  border-radius: 50%;
-} 
-
-.earth-orbit {
-  width: 165px;
-  height: 165px;
-  animation: spin 12s linear infinite;
-}
-
-.venus-orbit {
-  width: 120px;
-  height: 120px;
-  animation: spin 7.4s linear infinite;
-}
-
-.mercury-orbit {
-  width: 90px;
-  height: 90px;
-  animation: spin 3s linear infinite;
-}
-
-.planet {
-  position: absolute;
-  top: -5px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #3ff9dc;
-}
-
-.sun {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-color: #ffab91;
-}
-
-/* THREE-QUARTER SPINNER */
-.three-quarter-spinner {
-  width: 50px;
-  height: 50px;
-  border: 3px solid #fb5b53;
-  border-top: 3px solid transparent;
-  border-radius: 50%;
-  animation: spin .5s linear infinite;
-}
 </style>
-</head>
-<body>
-<header>
-  <h1 class="fluid">Before we start, remember that</h1>
-</header>
-<main>
-    <section class="content fluid">
-    <h2>
-      <span aria-hidden="true">We&nbsp;</span>
-      <span class="sr-only">We</span>
-    </h2>
-    <ul aria-hidden="true" style="--count: 7">
-      <li style="--i: 0">see the world.</li>
-      <li style="--i: 1">study the world.</li>
-      <li style="--i: 2">simulate the world.</li>
-      <li style="--i: 3">solve problems for the world.</li>
-      <li style="--i: 4">survive this world.</li>
-      <li style="--i: 5">sing with the entire world.</li>
-      <li style="--i: 6">don't sabotage our world.</li>
-    </ul>
-  </section>
-  <section class="content fluid">
-    <div class="spinner-box">
-      <div class="solar-system">
-        <div class="earth-orbit orbit">
-          <div class="planet earth"></div>
-          <div class="venus-orbit orbit">
-            <div class="planet venus"></div>
-            <div class="mercury-orbit orbit">
-              <div class="planet mercury"></div>
-              <div class="sun"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-<footer>Ting Xu &copy; 2025</footer>
-<a
-        class="bear-link"
-        href="https://tingrubato.github.io/ps-cv/about"
-        target="_blank"
-        rel="noreferrer noopener"
->
-  <!-- New Headphones SVG -->
-  <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="48"
-          width="48"
-          viewBox="0 0 48 48"
-  >
-    <title>headphones</title>
-    <g fill="#FFFFFF" class="nc-icon-wrapper">
-      <path
-              d="M34.965,22a16.5,16.5,0,0,0-3.194.426A1,1,0,0,0,31,23.4V44.6a1,1,0,0,0,.724.961A11.246,11.246,0,0,0,34.829,46a12,12,0,1,0,.136-24Z"
-              fill="#FFFFFF"
-      ></path>
-      <path
-              d="M16.276,22.438A11.071,11.071,0,0,0,13,22a12,12,0,1,0,.034,24,16.4,16.4,0,0,0,3.195-.425A1,1,0,0,0,17,44.6V23.4A1,1,0,0,0,16.276,22.438Z"
-              fill="#FFFFFF"
-      ></path>
-      <path
-              data-color="color-2"
-              d="M43,19v3.533a14.057,14.057,0,0,1,1.89,1.57c.039.038.072.082.11.121V19A17.086,17.086,0,0,0,28,2H20A17.086,17.086,0,0,0,3,19v5.22a14.088,14.088,0,0,1,2-1.694V19A15.08,15.08,0,0,1,20,4h8A15.08,15.08,0,0,1,43,19Z"
-              fill="#FFFFFF"
-      ></path>
-    </g>
-  </svg>
-</a>
 
-<!-- Link to the JavaScript file -->
+<div class="container">
+	<div class="content" style="display:block;width:1000px;height:562px">
+		<div class="container-full">
+			<div class="animated hue"></div>
+      <img class="backgroundImage" src="assets/img/empty-room.jpg"> <img class="boyImage" src="assets/img/boy.png">
+			<div class="container">
+				<div class="cube">
+					<div class="face top"></div>
+					<div class="face bottom"></div>
+					<div class="face left text"></div>
+					<div class="face right text"></div>
+					<div class="face front"></div>
+					<div class="face back text"></div>
+				</div>
+			</div>
+			<div class="container-reflect">
+				<div class="cube">
+					<div class="face top"></div>
+					<div class="face bottom"></div>
+					<div class="face left text"></div>
+					<div class="face right text"></div>
+					<div class="face front"></div>
+					<div class="face back text"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="load">
+  <div>G</div>
+  <div>N</div>
+  <div>I</div>
+  <div>D</div>
+  <div>A</div>
+  <div>O</div>
+  <div>L</div>
+</div>
+
 <script>
-const inactivityDuration = 5000; // Duration before redirecting (in milliseconds)
-const redirectURL = "https://tingrubato.github.io/ps-cv/about"; // Redirect URL
-let inactivityTimeout; // Variable to hold the timeout
-let isScrolling = false; // Flag to track user interaction
+const kiplingPoem = `<p>One final point should be made here about the <span>social distribution of knowledge.</span> I encounter knowledge in everyday life as <span>socially distributed,</span> that is, as possessed differently by different individuals and types of individuals. I do not share my knowledge equally with all my fellowmen, and there may be some knowledge that I share with no one. I share my <span>professional expertise</span> with colleagues, but not with my family, and I may share with nobody my knowledge of how to cheat at cards. The social distribution of knowledge of certain elements of everyday reality can become highly complex and even confusing to the outsider. I not only do not possess the knowledge supposedly required to cure me of a physical ailment, I may even lack the knowledge of which one of a bewildering variety of <span>medical specialists</span> claims jurisdiction over what ails me. In such cases, I require not only the advice of experts, but the prior advice of <span>experts on experts</span>. The social distribution of knowledge thus begins with the simple fact that I do not know everything known to my fellowmen, and vice versa, and culminates in exceedingly complex and esoteric systems of expertise. Knowledge of how the socially available stock of knowledge is distributed, at least in outline, is an important element of that same stock of knowledge. In everyday life, I know, at least roughly, what I can hide from whom, whom I can turn to for information on what I do not know, and generally which types of individuals may be expected to have which types of knowledge.</p>`;
 
-// Function to randomly scroll to a list item
-function randomScroll() {
-    const listItems = document.querySelectorAll("ul[aria-hidden='true'] li");
-    if (listItems.length > 0) {
-        const randomIndex = Math.floor(Math.random() * listItems.length); // Pick a random index
-        const randomItem = listItems[randomIndex];
-        randomItem.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
+// Function to insert poem into divs
+function insertPoemIntoDivs() {
+  // Get all .text divs
+  const textDivs = document.querySelectorAll(".text");
+
+  // Insert poem into all .text divs
+  textDivs.forEach((div) => {
+    div.innerHTML = kiplingPoem;
+  });
 }
 
-// Function to handle inactivity
-function handleInactivity() {
-    randomScroll(); // Perform a random scroll
+// Call the function when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", insertPoemIntoDivs);
 
-    setTimeout(() => {
-        if (!isScrolling) {
-            // If no user interaction, redirect to the URL
-            window.location.href = redirectURL;
-        }
-    }, inactivityDuration); // Redirect after the inactivity duration
+const contentDiv = document.querySelector(".content");
+function adjustContentSize() {
+  const viewportWidth = window.innerWidth;
+  const baseWidth = 1000;
+  const scaleFactor =
+    viewportWidth < baseWidth ? (viewportWidth / baseWidth) * 0.8 : 1;
+  contentDiv.style.transform = `scale(${scaleFactor})`;
 }
+window.addEventListener("load", adjustContentSize);
+window.addEventListener("resize", adjustContentSize);
 
-// Function to reset inactivity timer
-function resetInactivityTimer() {
-    isScrolling = true; // Set interaction flag
-    clearTimeout(inactivityTimeout); // Clear existing timeout
-    inactivityTimeout = setTimeout(() => {
-        isScrolling = false; // Reset interaction flag
-        handleInactivity(); // Check inactivity
-    }, inactivityDuration);
-}
+// Set a timer for 15 seconds and then redirect to the relative path /
+setTimeout(() => {
+  window.location.href = "/";
+}, 15000);
 
-// Event listeners for user interaction
-["mousemove", "keydown", "scroll"].forEach(event => {
-    window.addEventListener(event, resetInactivityTimer);
-});
-
-// Initial timer setup
-resetInactivityTimer();
-
-// Redirect if user reaches the bottom of the page
-window.addEventListener('scroll', () => {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        setTimeout(() => {
-            window.location.href = redirectURL;
-        }, 3000);
-    }
-});
 </script>
-</body>
-</html>
