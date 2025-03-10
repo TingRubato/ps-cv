@@ -131,7 +131,7 @@ p {
   overflow: hidden;
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
-  font-size: calc(6em + (190px / 10) * 0.7);
+  font-size: 150px;
   padding-top: 20px;
   color: #fff;
 }
