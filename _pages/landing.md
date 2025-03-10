@@ -2,7 +2,6 @@
 layout: landing
 permalink: /landing.html
 title: "Loading..."
-no_styles: true
 ---
 
 <style>
