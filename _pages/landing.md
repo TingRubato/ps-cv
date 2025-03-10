@@ -519,7 +519,7 @@ window.addEventListener("resize", adjustContentSize);
 
 // Set a timer for 15 seconds and then redirect to the relative path /
 setTimeout(() => {
-  window.location.href = "/";
+  window.location.href = "/ps-cv/";
 }, 15000);
 
 </script>
