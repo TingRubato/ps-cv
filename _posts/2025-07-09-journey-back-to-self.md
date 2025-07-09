@@ -2,7 +2,7 @@
 layout: distill
 title: The Journey Back to Self
 description: You don't have to become someone new. You just have to become someone honest.
-date: 2025-07-09 00:00:00
+date: 2025-07-09
 thumbnail: assets/img/TMC09685.jpg
 toc:
     sidebar: left
@@ -13,7 +13,7 @@ bibliography: journey.bib
 <style>
 .childhood-room {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    //
     padding: 30px;
     border-radius: 15px;
     margin: 20px 0;
@@ -104,7 +104,7 @@ bibliography: journey.bib
     margin: 30px 0;
     padding: 20px;
     background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-    color: white;
+    //
     border-radius: 10px;
     position: relative;
 }
@@ -129,7 +129,7 @@ bibliography: journey.bib
 
 .courage-section {
     background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    //
     padding: 40px;
     border-radius: 20px;
     margin: 30px 0;
@@ -196,7 +196,7 @@ bibliography: journey.bib
 
 .creative-highlight {
     background: linear-gradient(45deg, #ffd89b 0%, #19547b 100%);
-    color: white;
+    //
     padding: 25px;
     border-radius: 15px;
     margin: 20px 0;
@@ -226,7 +226,7 @@ bibliography: journey.bib
 
 .innovation-card {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    //
     padding: 30px;
     border-radius: 20px;
     margin: 30px 0;
@@ -277,7 +277,7 @@ bibliography: journey.bib
 
 .final-message {
     background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-    color: white;
+    //
     padding: 40px;
     border-radius: 25px;
     text-align: center;
@@ -348,90 +348,95 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-<!-- BEGIN TMP.MD CONTENT -->
 
-<div class="reflection-quote">
-*You don’t have to become someone new. You just have to become someone honest.*
-</div>
 
 <div class="childhood-room">
-<h2>The Journey Back to Self</h2>
-We spend so much of our lives trying to become someone—<br>
-<strong>Someone impressive.</strong><br>
-<strong>Someone capable.</strong><br>
-<strong>Someone the world will take seriously.</strong><br>
-But somewhere along the way, we start to drift—<br>
-Not just from our fears or failures,<br>
-But from the person we once were.<br>
-Not the polished adult version,<br>
-but the original one—<br>
-<em>The one who dreamed freely, felt deeply, and believed without needing proof.</em>
+## The Journey Back to Self
+We spend so much of our lives striving to become *someone*—  
+**Someone impressive.**  
+**Someone capable.**  
+**Someone the world will respect.**
+But somewhere along the way, we start to drift—  
+Not just from our fears or failures,  
+But from the person we once were.  
+Not the polished adult version,  
+but the original one—  
+*The one who dreamed freely, felt deeply, and believed without needing proof.*
 <aside>This isn't a story about becoming someone new. It's about remembering someone old. Someone honest.</aside>
-Because sometimes, growth isn't about going forward at all.<br>
-It's about turning back—<br>
-To the one who never stopped believing in you.<br>
-And here's the thing:<br>
+Because sometimes, growth isn't about going forward at all.  
+It's about turning back—  
+To the one who never stopped believing in you.  
+And here's the thing:  
 That person was always
 </div>
 
 <hr>
 
 <div class="memory-card">
-<h3>Unpacking memory_arxiv.zip…</h3>
-Unpacked,<br>
-Output:<br>
-<blockquote>There's this image that's been stuck in my head for years.</blockquote>
-I must have been three or four, sitting on a tiny bench outside my preschool, watching the sky slowly turn dark.<br>
-One by one, the other children had been picked up. It was just me, a tired teacher on duty, and the quiet sound of evening settling in.<br>
-I was clutching my little backpack like it was the only thing I could hold onto, eyes fixed on the entrance—waiting for someone to take me home.<br>
-<em>I didn't know it then, but that bench would become a recurring image in my life.</em><br>
-It was before music. Before ambition. Before I knew anything about how the world would try to shape me.<br>
+### Unpacking memory_arxiv.zip…
+Unpacked,  
+Output:  
+> There's this image that's been stuck in my head for years.
+
+I must have been three or four, sitting on a tiny bench outside my preschool, watching the sky slowly turn dark.  
+One by one, the other children had been picked up. It was just me, a tired teacher on duty, and the quiet sound of evening settling in.  
+I was clutching my little backpack like it was the only thing I could hold onto, eyes fixed on the entrance—waiting for someone to take me home.  
+*I didn't know it then, but that bench would become a recurring image in my life.*  
+It was before music. Before ambition. Before I knew anything about how the world would try to shape me.  
 It was just that kid on the bench—waiting, feeling, hoping.
 </div>
 
-<div class="memory-card">
-<h3>The Piano Bench</h3>
-Later, I was transferred to a different preschool.<br>
-That's where the prelude began.<br>
-While other children played with Legos, I sat alone in another classroom, practicing piano.<br>
-<aside>And strangely, for a kid with severe ADHD, the piano bench became the one bench I could actually sit on.</aside>
-I didn't realize it then, but I had found something that anchored me—not because I was told to, but because my body and mind quietly said: <strong>this feels right.</strong><br>
-It wasn't until much later that I began to believe I might've been born to do this.<br>
-Even then, it wasn't a "follow your dreams" moment.<br>
+### The Piano Bench
+
+Later, I was transferred to a different preschool. That's where the prelude began.
+
+While other children played with Legos, I sat alone in another classroom, practicing piano.
+
+<div class="piano-keys">
+    <div class="white-key"></div>
+    <div class="black-key"></div>
+    <div class="white-key"></div>
+    <div class="black-key"></div>
+    <div class="white-key"></div>
+    <div class="white-key"></div>
+    <div class="black-key"></div>
+    <div class="white-key"></div>
+    <div class="black-key"></div>
+    <div class="white-key"></div>
+    <div class="black-key"></div>
+    <div class="white-key"></div>
+</div>
+
+Even then, it wasn't a "follow your dreams" moment.  
 It was something deeper—like being loyal to a version of myself that hadn't yet been edited, rationalized, or "corrected" by the world.
 </div>
 
 <div class="memory-card">
-<h3>The Resilience of Emotional Memory</h3>
-<strong>Most people think emotions make you weak.</strong> When I tell people about these childhood moments, I constantly hear things like:
-<ul>
-<li>"How do you still remember this stuff?"</li>
-<li>"That was so long ago, don't overthink it."</li>
-<li>"You're being too sensitive."</li>
-</ul>
+### The Resilience of Emotional Memory
+**Most people think emotions make you weak.** When I tell people about these childhood moments, I constantly hear things like:
+- "How do you still remember this stuff?"
+- "That was so long ago, don't overthink it."
+- "You're being too sensitive."
 But here's the thing – people who remember details aren't weak. They're just living with their hearts wide open.
 </div>
 
 <div class="memory-card">
-<h3>The Power of Emotional Memory</h3>
-Emotional memory is the one thing that survived when life hit me with its storms. Later, when I felt completely lost in a foreign country with no idea who I was supposed to become, my depression got worse and I had to increase my dose of Trintellix. That was the moment I started to look for myself, and it was that kid on the little bench who reminded me,<br>
-<em>do you still remember what really matters?</em><br>
+### The Power of Emotional Memory
+Emotional memory is the one thing that survived when life hit me with its storms. Later, when I felt completely lost in a foreign country with no idea who I was supposed to become, my depression got worse and I had to increase my dose of Trintellix. That was the moment I started to look for myself, and it was that kid on the little bench who reminded me,  
+*do you still remember what really matters?*
 So that little kid helped me realize that:
-<ul>
-<li>You didn’t grow up learning music professionally does not cancel you from being a “musician”.</li>
-<li>You have one thing that even musicians constantly looking for, a pair of response-sensitive ears that can differentiate more frequencies</li>
-<li>There’s a program called music technology, and they have phd programs that WANTS engineering background student</li>
-<li>Even if I never became a "traditional musician," I could still use the technical language I'd learned to create and play the melodies in my heart.</li>
-<li>I need to take care of this body; I've neglected it for too long—without it, I'd lose my ability to make music and connect with sound. Because that ear doesn't just hear music—it hears the love inside me that I haven't yet put into words.</li>
-</ul>
-So having those stuff figured out, I felt like I am ripped off by pharmaceutical companies again. Because I don’t think I need to double my dose anymore but now I’m on 20mg and withdrawing takes time now. Uffff <br>
-This is how amazing that little kid was, suicidal attempt? <br>
+- You didn’t grow up learning music professionally does not cancel you from being a “musician”.
+- You have one thing that even musicians constantly looking for, a pair of response-sensitive ears that can differentiate more frequencies
+- There’s a program called music technology, and they have phd programs that WANTS engineering background student
+- Even if I never became a "traditional musician," I could still use the technical language I'd learned to create and play the melodies in my heart.
+- I need to take care of this body; I've neglected it for too long—without it, I'd lose my ability to make music and connect with sound. Because that ear doesn't just hear music—it hears the love inside me that I haven't yet put into words.
+So having those stuff figured out, I felt like I am ripped off by pharmaceutical companies again. Because I don’t think I need to double my dose anymore but now I’m on 20mg and withdrawing takes time now. Uffff  
+This is how amazing that little kid was, suicidal attempt?  
 <div class="creative-highlight">
 $$\tan(\frac{\pi}{2}) !$$
 </div>
 Wanna figure out what nerdy card I’m playing? Try use ChatGPT!
 </div>
-
 <div class="creative-highlight">
 <h3>Creativity is About “Responding”</h3>
 </div>
@@ -481,9 +486,76 @@ I finally translated that realization into sound in a piece called <em>Waltz for
 <blockquote>Thank you, Dr. Pace, for allowing me to step outside the strict boundaries of classical form in my final project. You gave me the freedom to create on my own terms—while still honoring the emotional truths I had long kept guarded. Through that project, I found a way to reconnect with the earliest memories of my musical self, the child in me who once learned to feel through sound before words even made sense.</blockquote>
 </div>
 
-<!-- (continue wrapping all remaining sections in styled divs as above, for the rest of the story) -->
 
-<!-- END TMP.MD CONTENT -->
+Later, Misha told me something about Evonne that struck me deeply: that she once had a tumor in her brain, and for nearly a decade, lost the ability to feel empathy or sympathy. Knowing that, I began to understand her compulsion to write everything down, to scatter memo notes everywhere like breadcrumbs. It wasn’t just a habit—it was a form of recovery. To me, it was about reclaiming the humanity she had once been disconnected from. She wasn’t a workaholic; she was rebuilding her inner compass.
+
+That helped me make sense of something in myself too—why I always seem to be in a rush, why I cling to ideas as if they might slip away. I think, in some way, I’m trying to make up for all the years I wasn’t chasing what truly set me on fire. Maybe we’re all just trying to return to the place where we first felt joy, even if we have to build the road ourselves.
+
+---
+
+### **I Chose to Gamble, But It Wasn’t Reckless**
+
+One of the earliest truths I had to confront after graduation was this: being a student had shielded me far more than I realized. Once school ended, that protection vanished—and I was left to face a brutal gap between academia and real life.
+
+You think I didn’t know that when I threw my parents’ lifetime savings into this ridiculously expensive program?
+
+Of course I did.
+
+I saw it coming from miles away.
+
+And still—I chose to gamble.
+
+I chose to believe that once I graduated, I’d earn in USD, that I could finally live life on my own terms, fund the things I care about, build something that felt like *mine*.
+
+I chose to believe that the game was fair, or at the very least—standardized. That if I worked hard, played by the rules, I’d land somewhere solid.
+
+But I was wrong.
+
+And with my background—rooted in China, sharpened by years of watching people across different cultures—I should’ve known better. We’re all cut from the same cloth: ambition and fear, dreams and compromise, light and shadow. The ugliest parts of human nature? They aren’t regional—they’re universal.
+
+So here begins the darkest 18 months of my life.
+
+### Facing the Post-Graduation Reality
+
+When I graduated, I had no job.
+
+My visa was expiring.
+
+And honestly? No one was sticking around for me.
+
+No safety net. No sponsorship. No path.
+
+- No chance at the H-1B lottery
+- No solid job offer
+- OPT days vanishing, one by one
+
+And no, I didn’t take the easy way out.
+
+I didn’t marry some random guy for a green card.
+
+You wouldn’t *believe* how many Grindr messages I got from men who thought I’d swap my soul for a USCIS receipt.
+
+Painfully dull men with dead eyes and half-baked plans, who genuinely thought I’d trade a lifetime of potential for paperwork.
+
+Like—**bruh. Really?**
+
+No thanks.
+
+I’m many things, but desperate isn’t one of them.
+
+My gut instinct?
+
+It’s razor-sharp.
+
+It’s saved me more times than I can count. And these days, it doesn’t just whisper—it screams. The moment someone locks in on me with that subtle predatory stare, I feel it before it even happens. My internal radar flares: alert, calculating, already three moves ahead, already defending. Not because I’m paranoid—because I’ve had to be, since I really don’t believe that people will have my back.
+
+### Standing My Ground
+
+### Standing Up For My Worth
+
+There’s a particular conversation I’ll never forget.
+
+An employer from my own hometown assumed he could lowball me—
 —just because of my visa situation.
 
 He looked at my resume, heard my circumstances, and said,
@@ -881,3 +953,4 @@ We've all longed to be picked up, seen, and taken home.<br><br>
 
 And now—maybe—it's time.
 </div>
+
