@@ -3,7 +3,7 @@ layout: distill
 title: The Journey Back to Self
 description: You don't have to become someone new. You just have to become someone honest.
 date: 2025-07-09 00:00:00
-thumbnail: assets/img/childhood-room.jpg
+thumbnail: assets/img/TMC09685.jpg
 toc:
     sidebar: left
 bibliography: journey.bib
@@ -12,7 +12,7 @@ bibliography: journey.bib
 
 <style>
 .childhood-room {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%,rgb(233, 232, 235) 100%);
     color: white;
     padding: 30px;
     border-radius: 15px;
