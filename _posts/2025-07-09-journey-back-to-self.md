@@ -6,7 +6,6 @@ date: 2025-07-09
 thumbnail: assets/img/TMC09685.jpg
 toc:
     sidebar: left
-bibliography: journey.bib
 ---
 
 
@@ -349,44 +348,68 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
 <div class="childhood-room">
-## The Journey Back to Self
-We spend so much of our lives striving to become *someone*—  
-**Someone impressive.**  
-**Someone capable.**  
-**Someone the world will respect.**
-But somewhere along the way, we start to drift—  
-Not just from our fears or failures,  
-But from the person we once were.  
-Not the polished adult version,  
-but the original one—  
-*The one who dreamed freely, felt deeply, and believed without needing proof.*
-<aside>This isn't a story about becoming someone new. It's about remembering someone old. Someone honest.</aside>
-Because sometimes, growth isn't about going forward at all.  
-It's about turning back—  
-To the one who never stopped believing in you.  
-And here's the thing:  
-That person was always
+  <h2 style="margin-top:0;">The Journey Back to Self</h2>
+  <p>
+    We spend so much of our lives striving to become someone—<br>
+    <span style="display:block; margin-left:1em;">Someone <strong>impressive</strong>.<br>
+    Someone <strong>capable</strong>.<br>
+    Someone the world will respect.</span>
+  </p>
+  <p>
+    But somewhere along the way, we start to drift—<br>
+    Not just from our fears or failures,<br>
+    But from the person we once were.<br>
+    Not the polished adult version,<br>
+    <span style="font-style:italic;">but the original one—</span>
+  </p>
+  <p style="font-style:italic; margin-left:1em;">
+    The one who dreamed freely, felt deeply, and believed without needing proof.
+  </p>
+  <aside style="padding:10px 16px; margin:16px 0; border-left:4px solid; background: #f9f9f9;">
+    This isn't a story about becoming someone new. It's about remembering someone old. Someone honest.
+  </aside>
+  <p>
+    Because sometimes, growth isn't about going forward at all.<br>
+    It's about turning back—<br>
+    To the one who never stopped believing in you.<br>
+    <span style="display:block; margin-top:1em;">And here's the thing:</span>
+    <span style="font-weight:bold;">That person was always</span>
+  </p>
 </div>
 
 <hr>
 
-<div class="memory-card">
-### Unpacking memory_arxiv.zip…
-Unpacked,  
-Output:  
-> There's this image that's been stuck in my head for years.
-
-I must have been three or four, sitting on a tiny bench outside my preschool, watching the sky slowly turn dark.  
-One by one, the other children had been picked up. It was just me, a tired teacher on duty, and the quiet sound of evening settling in.  
-I was clutching my little backpack like it was the only thing I could hold onto, eyes fixed on the entrance—waiting for someone to take me home.  
-*I didn't know it then, but that bench would become a recurring image in my life.*  
-It was before music. Before ambition. Before I knew anything about how the world would try to shape me.  
-It was just that kid on the bench—waiting, feeling, hoping.
+<div class="memory-card" style="border-radius: 12px; padding: 28px 24px; margin: 24px 0; box-shadow: 0 2px 12px rgba(118,75,162,0.08); background: #f7f3ff;">
+  <h3 style="margin-top:0; font-size:1.4em; letter-spacing:0.02em;">Unpacking <span style="font-family:monospace; background:#eee; padding:2px 6px; border-radius:4px;">memory_arxiv.zip</span>…</h3>
+  <div style="margin-bottom:0.5em;">
+    <span style="font-weight:bold;">Unpacked,</span><br>
+    <span style="font-style:italic;">Output:</span>
+  </div>
+  <blockquote style="border-left:4px solid; margin:0 0 1em 0; padding:0.5em 1em; background:#faf7ff;">
+    <span>There's this image that's been stuck in my head for years.</span>
+  </blockquote>
+  <p style="margin-bottom:0.7em;">
+    I must have been <span style="font-weight:bold;">three or four</span>, sitting on a tiny bench outside my preschool, watching the sky slowly turn dark.
+  </p>
+  <p style="margin-bottom:0.7em;">
+    One by one, the other children had been picked up. It was just me, a tired teacher on duty, and the quiet sound of evening settling in.
+  </p>
+  <p style="margin-bottom:0.7em;">
+    I was clutching my little backpack like it was the only thing I could hold onto, eyes fixed on the entrance—<span>waiting for someone to take me home</span>.
+  </p>
+  <p style="font-style:italic; margin-bottom:0.7em;">
+    I didn't know it then, but that bench would become a recurring image in my life.
+  </p>
+  <p style="margin-bottom:0.7em;">
+    <span>It was before music. Before ambition. Before I knew anything about how the world would try to shape me.</span>
+  </p>
+  <p style="font-weight:bold;">
+    It was just that kid on the bench—<span>waiting, feeling, hoping.</span>
+  </p>
 </div>
 
-### The Piano Bench
+<h3>The Piano Bench</h3>
 
 Later, I was transferred to a different preschool. That's where the prelude began.
 
@@ -409,36 +432,49 @@ While other children played with Legos, I sat alone in another classroom, practi
 
 Even then, it wasn't a "follow your dreams" moment.  
 It was something deeper—like being loyal to a version of myself that hadn't yet been edited, rationalized, or "corrected" by the world.
+
+<div class="memory-card">
+<h3>The Resilience of Emotional Memory</h3>
+<p><strong>Most people think emotions make you weak.</strong> When I tell people about these childhood moments, I constantly hear things like:</p>
+<ul>
+  <li>"How do you still remember this stuff?"</li>
+  <li>"That was so long ago, don't overthink it."</li>
+  <li>"You're being too sensitive."</li>
+</ul>
+<p>But here's the thing &ndash; people who remember details aren't weak. They're just living with their hearts wide open.</p>
 </div>
 
 <div class="memory-card">
-### The Resilience of Emotional Memory
-**Most people think emotions make you weak.** When I tell people about these childhood moments, I constantly hear things like:
-- "How do you still remember this stuff?"
-- "That was so long ago, don't overthink it."
-- "You're being too sensitive."
-But here's the thing – people who remember details aren't weak. They're just living with their hearts wide open.
-</div>
-
-<div class="memory-card">
-### The Power of Emotional Memory
-Emotional memory is the one thing that survived when life hit me with its storms. Later, when I felt completely lost in a foreign country with no idea who I was supposed to become, my depression got worse and I had to increase my dose of Trintellix. That was the moment I started to look for myself, and it was that kid on the little bench who reminded me,  
-*do you still remember what really matters?*
-So that little kid helped me realize that:
-- You didn’t grow up learning music professionally does not cancel you from being a “musician”.
-- You have one thing that even musicians constantly looking for, a pair of response-sensitive ears that can differentiate more frequencies
-- There’s a program called music technology, and they have phd programs that WANTS engineering background student
-- Even if I never became a "traditional musician," I could still use the technical language I'd learned to create and play the melodies in my heart.
-- I need to take care of this body; I've neglected it for too long—without it, I'd lose my ability to make music and connect with sound. Because that ear doesn't just hear music—it hears the love inside me that I haven't yet put into words.
-So having those stuff figured out, I felt like I am ripped off by pharmaceutical companies again. Because I don’t think I need to double my dose anymore but now I’m on 20mg and withdrawing takes time now. Uffff  
-This is how amazing that little kid was, suicidal attempt?  
+<h3>The Power of Emotional Memory</h3>
+<p>
+  Emotional memory is the one thing that survived when life hit me with its storms. Later, when I felt completely lost in a foreign country with no idea who I was supposed to become, my depression got worse and I had to increase my dose of Trintellix. That was the moment I started to look for myself, and it was that kid on the little bench who reminded me,<br>
+  <em>do you still remember what really matters?</em>
+</p>
+<p>
+  So that little kid helped me realize that:
+</p>
+<ul>
+  <li>You didn’t grow up learning music professionally does not cancel you from being a “musician”.</li>
+  <li>You have one thing that even musicians are constantly looking for: a pair of response-sensitive ears that can differentiate more frequencies.</li>
+  <li>There’s a program called music technology, and they have PhD programs that WANT engineering background students.</li>
+  <li>Even if I never became a "traditional musician," I could still use the technical language I'd learned to create and play the melodies in my heart.</li>
+  <li>I need to take care of this body; I've neglected it for too long—without it, I'd lose my ability to make music and connect with sound. Because that ear doesn't just hear music—it hears the love inside me that I haven't yet put into words.</li>
+</ul>
+<p>
+  So having those things figured out, I felt like I am ripped off by pharmaceutical companies again. Because I don’t think I need to double my dose anymore but now I’m on 20mg and withdrawing takes time now. Uffff
+</p>
+<p>
+  This is how amazing that little kid was, suicidal attempt?
+</p>
 <div class="creative-highlight">
-$$\tan(\frac{\pi}{2}) !$$
+  $$\tan(\frac{\pi}{2}) !$$
 </div>
-Wanna figure out what nerdy card I’m playing? Try use ChatGPT!
+<p>
+  Wanna figure out what nerdy card I’m playing? Try use ChatGPT!
+</p>
 </div>
 <div class="creative-highlight">
-<h3>Creativity is About “Responding”</h3>
+  <h3>Creativity is About “Responding”</h3>
 </div>
 
 <div class="memory-card">
@@ -473,7 +509,6 @@ It’s bittersweet that only in the last year of my program at WashU did I begin
 And when the inspiration fades—when the page stays blank and the melody won’t come—music theory becomes your library. A quiet, powerful archive of timeless, proven musical languages that still move people. I came to realize that many of my creative ideas didn’t appear out of thin air—they emerged from fragments. “Incomplete phrases” that were waiting to grow into something whole. So, here, I would like to say a 
 </div>
 
-<div class="memory-card">
 <h3>A Special Thanks</h3>
 to Dr. Pace. Dr. Matthew Pace wasn't just my classical theory professor—he showed me how to manipulate  music, this universal human language, to express what's inside. In one semester, I wrote "Wowtz For Lunatics," something I never expected to create. <br>
 Dr. Pace is an extraordinary educator—someone whose mastery of music theory is so complete that he teaches with unwavering clarity. There’s no hesitation in his voice, no performance in his presence—just calm, grounded confidence. I admire that deeply. It’s a kind of quiet strength I hope to embody one day myself. If I ever stand at the podium, I want to speak with the same steady assurance he so effortlessly radiates.<br>
@@ -484,8 +519,7 @@ The idea of “well-behaving” notes felt like a new testament written over the
 Dr. Pace introduced me to a new emotional language—one that speaks across cultures and bypasses the limitations of words. Through his class, I began to realize that music isn’t just a system. It’s a form of communication, a way to feel <em>with</em> others when speaking <em>to</em> them isn’t enough.<br>
 I finally translated that realization into sound in a piece called <em>Waltz for Lunatics</em>, which you can find <a href="https://music.apple.com/us/album/wowtz-for-lunatics/1659269832?i=1659269833">here</a>. It’s my attempt to let something I once kept guarded speak freely, in a language Dr. Pace helped me rediscover.<br>
 <blockquote>Thank you, Dr. Pace, for allowing me to step outside the strict boundaries of classical form in my final project. You gave me the freedom to create on my own terms—while still honoring the emotional truths I had long kept guarded. Through that project, I found a way to reconnect with the earliest memories of my musical self, the child in me who once learned to feel through sound before words even made sense.</blockquote>
-</div>
-
+---
 
 Later, Misha told me something about Evonne that struck me deeply: that she once had a tumor in her brain, and for nearly a decade, lost the ability to feel empathy or sympathy. Knowing that, I began to understand her compulsion to write everything down, to scatter memo notes everywhere like breadcrumbs. It wasn’t just a habit—it was a form of recovery. To me, it was about reclaiming the humanity she had once been disconnected from. She wasn’t a workaholic; she was rebuilding her inner compass.
 
@@ -493,7 +527,7 @@ That helped me make sense of something in myself too—why I always seem to be i
 
 ---
 
-### **I Chose to Gamble, But It Wasn’t Reckless**
+<h3>I Chose to Gamble, But It Wasn’t Reckless</h3>
 
 One of the earliest truths I had to confront after graduation was this: being a student had shielded me far more than I realized. Once school ended, that protection vanished—and I was left to face a brutal gap between academia and real life.
 
@@ -505,7 +539,7 @@ I saw it coming from miles away.
 
 And still—I chose to gamble.
 
-I chose to believe that once I graduated, I’d earn in USD, that I could finally live life on my own terms, fund the things I care about, build something that felt like *mine*.
+I chose to believe that once I graduated, I’d earn in USD, that I could finally live life on my own terms, fund the things I care about, build something that felt like mine.
 
 I chose to believe that the game was fair, or at the very least—standardized. That if I worked hard, played by the rules, I’d land somewhere solid.
 
@@ -515,7 +549,7 @@ And with my background—rooted in China, sharpened by years of watching people 
 
 So here begins the darkest 18 months of my life.
 
-### Facing the Post-Graduation Reality
+<h3> Facing the Post-Graduation Reality</h3>
 
 When I graduated, I had no job.
 
@@ -525,19 +559,30 @@ And honestly? No one was sticking around for me.
 
 No safety net. No sponsorship. No path.
 
-- No chance at the H-1B lottery
-- No solid job offer
-- OPT days vanishing, one by one
+<ul style="margin-bottom:1.2em;"> 
+  <li>No chance at the <span style="font-weight:bold;"> H-1B lottery </span></li>
+  <li>No solid job offer</li>
+  <li>OPT days vanishing, one by one</li>
+</ul>
 
-And no, I didn’t take the easy way out.
+<p>
+  And no, I didn’t take the easy way out.
+</p>
+<p>
+  I didn’t marry some random guy for a green card.
+</p>
 
-I didn’t marry some random guy for a green card.
+<p>
+  <span style="font-style:italic;">You wouldn’t <strong>believe</strong> how many Grindr messages I got from men who thought I’d swap my soul for a USCIS receipt.</span>
+</p>
 
-You wouldn’t *believe* how many Grindr messages I got from men who thought I’d swap my soul for a USCIS receipt.
+<p>
+  Painfully dull men with dead eyes and half-baked plans, who genuinely thought I’d trade a lifetime of potential for paperwork.
+</p>
 
-Painfully dull men with dead eyes and half-baked plans, who genuinely thought I’d trade a lifetime of potential for paperwork.
-
-Like—**bruh. Really?**
+<p style="font-weight:bold; font-size:1.1em;">
+  Like—<span style="font-size:1.2em;">bruh. Really?</span>
+</p>
 
 No thanks.
 
@@ -549,36 +594,69 @@ It’s razor-sharp.
 
 It’s saved me more times than I can count. And these days, it doesn’t just whisper—it screams. The moment someone locks in on me with that subtle predatory stare, I feel it before it even happens. My internal radar flares: alert, calculating, already three moves ahead, already defending. Not because I’m paranoid—because I’ve had to be, since I really don’t believe that people will have my back.
 
-### Standing My Ground
+<h3>Standing My Ground</h3>
 
-### Standing Up For My Worth
+<h3 style="margin-top:1.5em; letter-spacing:0.01em;">Standing Up For My Worth</h3>
 
-There’s a particular conversation I’ll never forget.
+<p>
+  There’s a particular conversation I’ll never forget.
+</p>
 
-An employer from my own hometown assumed he could lowball me—
-—just because of my visa situation.
-
-He looked at my resume, heard my circumstances, and said,
-
-"Your family must've spoiled you. I mean, you're still surviving here without income, right?"
-
-But here's the thing:
-
-You can't offer a salary that doesn't even cover rent in LA and expect me to say yes out of fear.
-
-That's not resilience. That's settling.
-
-And I didn't come this far just to shrink into survival.
-
-Then, as if doubling down, he added:
-
-"Sorry to be blunt, but I've never heard of WashU. It's probably not that great of a school."
-
-That's when I knew—I wasn't just being undervalued.
-
-I was being erased.
+<div style="background:linear-gradient(90deg,#f9f6ff 80%,#fffbe7 100%); border-left:5px solid #764ba2; border-radius:8px; padding:18px 22px; margin:20px 0;">
+  <p style="margin-bottom:0.7em;">
+    <span style="font-weight:bold;">An employer from my own hometown</span> assumed he could <span style="font-style:italic;">lowball me</span>—<br>
+    <span style="margin-left:1.2em; display:block;">just because of my visa situation.</span>
+  </p>
+  <p style="margin-bottom:0.7em;">
+    He looked at my resume, heard my circumstances, and said,
+  </p>
+  <blockquote style="border-left:4px solid #bbb; margin:0 0 1em 0; padding:0.5em 1em; background:#f5f5f5; font-size:1.05em;">
+    "Your family must've spoiled you. I mean, you're still surviving here without income, right?"
+  </blockquote>
 </div>
-
+<p style="font-weight:bold; margin-top:1em; font-size:1.08em;">
+  But here's the thing:
+</p>
+<p>
+  You can't offer a salary that doesn't even cover rent in LA and expect me to say yes out of fear.
+</p>
+<p style="font-style:italic; margin-bottom:0.7em;">
+  That's not resilience. That's settling.
+</p>
+<p>
+  And I didn't come this far just to shrink into survival.
+</p>
+<div style="background:linear-gradient(90deg,#fffbe7 80%,#f9f6ff 100%); border-left:5px solid #ffd89b; border-radius:8px; padding:16px 20px; margin:20px 0;">
+  <p style="margin-bottom:0.7em;">
+    Then, as if doubling down, he added:
+  </p>
+  <blockquote style="border-left:4px solid #bbb; margin:0 0 1em 0; padding:0.5em 1em; background:#f9f9f9; font-size:1.05em;">
+    "Sorry to be blunt, but I've never heard of WashU. It's probably not that great of a school."
+  </blockquote>
+</div>
+<style>
+  .erased-container {
+    /* Add margin or padding as needed */
+  }
+  .erased-main {
+    font-weight: bold;
+    color: #b23a48;
+    font-size: 1.13em;
+    letter-spacing: 0.01em;
+  }
+  .erased-highlight {
+    color: #764ba2;
+    background: #f9f6ff;
+    border-radius: 4px;
+    padding: 2px 6px;
+  }
+</style>
+<div class="erased-container">
+  <p class="erased-main">
+    That's when I knew—I wasn't just being undervalued.<br>
+    <span class="erased-highlight">I was being erased.</span>
+  </p>
+</div>
 And that day was my 25th birthday—in lunar calendar, at least—when he essentially poured a bucket of ice water over my head. I told myself, no big deal, we celebrate the Western way anyway. The lunar calendar is just something my mom usually uses to track my birthday.
 
 I wasn't angry that he hadn't heard of WashU. I was angry that he thought his ignorance justified exploitation. If you don't know anything about it, use **Google**. If you do know and still act that way, then it's just **ego**.
@@ -597,7 +675,7 @@ Take PCB manufacturing, for example. To this day, I still haven't found a single
 
 I take pride in showcasing the best of what we make. But I'd feel genuinely embarrassed to show anyone poor-quality items that misrepresent Chinese manufacturing—especially because, more often than not, it was my own people who let me down here in the States.
 
-### The Real Gamble
+<h3> The Real Gamble</h3>
 
 Let's go back to that moment—the real turning point.
 
@@ -607,7 +685,7 @@ I wasn't about to shrink myself just to be tolerated. If I was going to stay, it
 
 ---
 
-## Finding My Support Network
+<h2> Finding My Support Network</h2>
 
 Along the way, I've been lucky—truly lucky—to cross paths with people who didn't just support me, but *saw* me.
 
@@ -616,44 +694,65 @@ Along the way, I've been lucky—truly lucky—to cross paths with people who di
         <h4>Jim Huber</h4>
         <p>Not just my boss, but a mentor who looked beyond my immigration status and saw my worth as a thinker, a builder, a human being.</p>
     </div>
-    
     <div class="support-card">
         <h4>Evonne Weinhaus</h4>
         <p>The warm, intuitive soul who recognized my potential and made the bridge to Jim happen in the first place.</p>
     </div>
 </div>
 
-<div class="memory-card">
-I'll never forget the day Jim swung by Kaldi's Coffee just to talk me down from a spiral.
-
-I remember the exact spot where we sat. I remember I even forgot that you didn't have a drink during the entire conversation. I remember what I said—and what I couldn't say.
-
-I remember how Jim just sat there, quietly fidgeting with his fingers, picking at his nails in that unmistakably Jim way. His voice was soft, steady, unrushed. He said, <em>"Kelly's excited about it. Bill's excited about it. Everyone's excited about it."</em>
-
-It wasn't some corporate pep talk. It was the way he said it—as if trying to reach a part of me that words don't usually reach.
+<div class="memory-card improved-memory-card" style="background: linear-gradient(135deg, #f8fafc 60%, #e0e7ef 100%); border-radius: 1.2em; box-shadow: 0 4px 24px rgba(60, 72, 100, 0.10), 0 1.5px 6px rgba(60, 72, 100, 0.08); padding: 2.2em 2em 1.5em 2em; margin: 2.5em 0; border-left: 6px solid #6c8cff;">
+  <p style="font-size: 1.13em; line-height: 1.7; color: #2a3142; margin-bottom: 1.1em;">
+    <span style="font-weight: 600; color: #4b5fa7;">I'll never forget</span> the day Jim swung by <span style="color: #7a869a;">Kaldi's Coffee</span>
+    <aside style="display: inline; font-size: 0.93em; color: #9ba6b8;">(the Ladue location<sup><a href="https://kaldiscoffee.com/pages/kaldis-coffee-at-ladue" target="_blank" style="color: #b3c6f7; text-decoration: none;">[1]</a></sup>)</aside>
+    just to talk me down from a spiral.
+  </p>
+  <ul style="list-style: disc inside; margin: 0 0 1.1em 0.5em; padding: 0; color: #3a4256;">
+    <li>I remember the exact spot where we sat.</li>
+    <li>I even forgot that you didn't have a drink during the entire conversation.</li>
+    <li>I remember what I said—and what I couldn't say.</li>
+  </ul>
+  <p style="margin-bottom: 1em; color: #2a3142;">
+    I remember how Jim just sat there, quietly fidgeting with his fingers, picking at his nails in that unmistakably Jim way.
+    <br>
+    <span style="color: #5a6bb7; font-style: italic; font-size: 1.08em;">
+      His voice was soft, steady, unrushed.
+    </span>
+    <br>
+    He said,
+    <span style="display: block; margin: 0.7em 0 0.7em 1.2em; padding-left: 0.7em; border-left: 3px solid #b3c6f7; color: #3a4256; font-style: italic; font-size: 1.08em;">
+      "Kelly's excited about it. Bill's excited about it. Everyone's excited about it."
+    </span>
+  </p>
+  <p style="color: #4b5fa7; font-weight: 500; margin-bottom: 0;">
+    It wasn't some corporate pep talk. It was the way he said it—as if trying to reach a part of me that words don't usually reach.
+  </p>
 </div>
 
-And in that moment, I realized: he wasn't calming me like an adult talks down a crisis. He was comforting me the way you'd soothe a child. Because maybe he sensed what I couldn't say out loud—at that particular moment, I *had* regressed. I wasn't standing tall in my adult self. I was a scared, exhausted version of me, curled up emotionally, just trying to hold it together.
+And in that moment, I realized: he wasn't calming me like an adult talks down a crisis. He was comforting me the way you'd soothe a child. Because maybe he sensed what I couldn't say out loud—at that particular moment, I <em>had</em> regressed. I wasn't standing tall in my adult self. I was a scared, exhausted version of me, curled up emotionally, just trying to hold it together.
 
 That's when it hit me:
 
-He wasn't just being polite. He wasn't waiting to reply. He was *fully there*—no judgment, no solutions, just presence.
+He wasn't just being polite. He wasn't waiting to reply. He was <em>fully there</em>—no judgment, no solutions, just presence.
 
-As he spoke with that calm clarity, I felt something shift. It wasn't about answers. It was about being seen.
+As he spoke with that calm clarity, I felt something shift. It wasn't about answers. It was about being heard.
 
-Someone had finally *noticed* the quiet storm I had been carrying in silence.
+Someone had finally <em>noticed</em> the quiet storm I had been carrying in silence.
 
 <div class="courage-section">
 <h3>In that moment, I wasn't just an employee.</h3>
-<p>I wasn't just a visa-holder.</p>
+<p>His not trying to push me to do anything that I was not comfortable.</p>
+<p>I was not some cheap labor on a temporary visa.</p>
 <p>I wasn't even just a musician clawing to stay afloat.</p>
+<p>You know for the first time that I felt, we could work something out together and you dont have to do that all alone. </p>
 <p>I was a <strong>whole person</strong>—full of contradictions, complicated emotions, and a story I couldn't carry by myself anymore.</p>
 <p>And for the first time since arriving in America, I genuinely believed: <em>I didn't have to</em>.</p>
 </div>
 
-*(Also—Jim, if you're reading this… boss, please stop picking at your nails like that. Keep it up and I'll make Misha drag you to a manicure appointment. Consider this a friendly threat.)*
+<p style="font-style: italic; color: #5a6bb7; margin-top: 1.2em;">
+  (Also—Jim, if you're reading this… boss, please stop picking at your nails like that. Keep it up and I'll make Misha drag you to a manicure appointment. Consider this a friendly threat.)
+</p>
 
-### Bridging the Generation Gap
+<h3>Bridging the Generation Gap</h3>
 
 Speaking of Evonne—she's 82 years old.
 
@@ -665,17 +764,18 @@ But now, I get what Jim meant when he said:<br>
 </div>
 
 The evidence speaks for itself:
-- Misha had no issue with me
-- Evonne had no issue with me  
-- Kelly had no issue with me
-
+<ul>
+  <li>Misha had no issue with me</li>
+  <li>Evonne had no issue with me</li>
+  <li>Kelly had no issue with me</li>
+</ul>
 So clearly, this isn't about age.
 
 Unless... Joe is just that rare breed of human who can bridge communism and capitalism and generational divides in one lifetime? (Still trying to figure that one out, just saying he couldn't be that complicated that I can't figure out.)
 
 *(FYI: Misha and I do have one weirdly specific thing in common—wanna guess? No, not that. Keep trying.)*
 
-But jokes aside—I've come to realize something deeper: **I choose to feel the world with my heart and bring it to life through engineering.**
+But jokes aside—I've come to realize something deeper: I choose to feel the world with my heart and bring it to life through engineering.
 
 And Evonne, with her 82 years of life wisdom, saw that in me. She truly saw it.
 
@@ -685,7 +785,7 @@ So if you're reading this—I want you to know: Your presence means more to me t
 
 It helped me break free from those intrusive flashbacks that chased me all the way from my hometown to the States... the kind that used to hijack my days out of nowhere with thoughts of his ignorant face.
 
-**Now? I'm still here. But I'm not haunted anymore ❤️ And I don't even have to think about that**
+Now? I'm still here. But I'm not haunted anymore ❤️ And I don't even have to think about that
 
 "it was such a shame that I helped him make that much money while he was still choking me on my sponsorship"
 
@@ -693,13 +793,12 @@ So, if my problem is not about generation, what is it really about?
 
 ---
 
-## Finding Your Childhood Room
+<h2>Finding Your Childhood Room</h2>
 
 I began writing this after discovering a book on shadow work. The first worksheet inspired this entire reflection. (And honestly, I'm not sure if I'm mentally prepared for the second worksheet!)
 
 <div class="childhood-room">
 <strong>I want to share something important about innovation and creativity: you need to find your childhood room.</strong>
-
 That childhood room of yours still exists, and the door isn't locked. Life got busy and growing up became stressful, so it's been far too long since anyone pushed open that door and walked in. Everything in that room is quietly waiting for you to come back.
 </div>
 
@@ -708,13 +807,15 @@ That childhood room of yours still exists, and the door isn't locked. Life got b
 <p>A private space that holds your earliest dreams and passions?</p>
 </div>
 
-### What's in your room?
+<h2>What's in your room?</h2>
 
-- Maybe a set of paintbrushes that colored your imagination
-- A notebook full of messy, magical stories  
-- A soccer ball that once gave you wings
-- A pile of building blocks that held a whole universe
-- Or just a beautiful daydream you never dared to share
+<ul>
+  <li>Maybe a set of paintbrushes that colored your imagination</li>
+  <li>A notebook full of messy, magical stories</li>
+  <li>A soccer ball that once gave you wings</li>
+  <li>A pile of building blocks that held a whole universe</li>
+  <li>Or just a beautiful daydream you never dared to share</li>
+</ul>
 
 You don't have to write music like I do. You don't have to tell stories like someone else.
 
@@ -722,9 +823,9 @@ But I deeply believe—at some point in your life—you've felt that one crystal
 
 ---
 
-## Redefining Success — Not by Forgetting Childhood, but by Honoring It
+<h2>Redefining Success — Not by Forgetting Childhood, but by Honoring It</h2>
 
-### Growing Beyond Childhood vs. Honoring It
+<h3>Growing Beyond Childhood vs. Honoring It</h3>
 
 We live in a world that constantly demands we "grow up"—a world that tells us to let go of our fantasies, to toughen up, to be realistic.
 
@@ -738,52 +839,57 @@ It means compromising before we even try, and quietly accepting beliefs that nev
 
 But is that what we really want?
 
-### What Real Growth Means
+<h3>What Real Growth Means</h3>
 
-I understand that the childhood version of yourself might seem foolish or embarrassing to recall now. You wanna grow out of it, I get it. But real growth doesn't mean forgetting your childhood.
+<p>I understand that the childhood version of yourself might seem foolish or embarrassing to recall now. You want to grow out of it, I get it. But real growth doesn't mean forgetting your childhood.</p>
 
-**It means honoring it.**
+<p><strong>It means honoring it.</strong></p>
 
-- It means remembering the promises you once made to yourself, even if no one else ever heard them.
-- It means carrying that pure, unfiltered self into an adult world—and finding ways to make it real without losing what made it magical.
+<ul>
+  <li>It means remembering the promises you once made to yourself, even if no one else ever heard them.</li>
+  <li>It means carrying that pure, unfiltered self into an adult world—and finding ways to make it real without losing what made it magical.</li>
+</ul>
 
 <div class="innovation-card">
-<strong>Maturity isn't about trading dreams for stability.</strong><br>
-It's about learning how to hold both.<br><br>
-
+<strong>Growing up isn't about trading dreams for a life.</strong><br>
+<br>It's about learning how to hold both.<br>
 And walking forward without betraying the kid who once dared to believe you could.
 </div>
 
-Because the version of success I believe in? It's the one where the grown-up and the child in me both get to say: **We did it.**
+<p>Because the version of success I believe in? It's the one where the grown-up and the child in me both get to say: <strong>We did it.</strong></p>
 
-On my journey, I didn't abandon engineering to pursue music out of pressure from reality, nor did I give up music to focus solely on engineering just because it felt safer or more "acceptable."
+<p>On my journey, I didn't abandon engineering to pursue music out of pressure from reality, nor did I give up music to focus solely on engineering just because it felt safer or more "acceptable."</p>
 
-This wasn't an either-or decision. When we don't have many options, we consider thinking out of the box. In this specific moment, we are greedy. So we decided to have them all.
+<p>This wasn't an either-or decision. When we don't have many options, we consider thinking out of the box. In this specific moment, we are greedy. So we decided to have them all.</p>
 
-It was about finding a path that could hold both truths—one that could let these two worlds breathe together rather than cancel each other out.
+<p>It was about finding a path that could hold both truths—one that could let these two worlds breathe together rather than cancel each other out.</p>
 
-- **Integration**: After years of searching, experimenting, and stumbling forward, I found my own way to let these seemingly opposite forces nourish one another.
-- **Creation**: This isn't just peaceful coexistence—it's a kind of chemical reaction, a creative fusion that sparks new possibilities neither side could've produced alone.
+<ul>
+  <li><strong>Integration</strong>: After years of searching, experimenting, and stumbling forward, I found my own way to let these seemingly opposite forces nourish one another.</li>
+  <li><strong>Creation</strong>: This isn't just peaceful coexistence—it's a kind of chemical reaction, a creative fusion that sparks new possibilities neither side could've produced alone.</li>
+</ul>
 
-Like two rivers meeting, reality gives ideals the soil, the structure, the pathways they need to take root. Ideals, in turn, give reality meaning—depth, direction, and the courage to ask why.
+<p>Like two rivers meeting, reality gives ideals the soil, the structure, the pathways they need to take root. Ideals, in turn, give reality meaning—depth, direction, and the courage to ask why.</p>
 
-When we live in that blend, we're no longer lost in the clouds of idealism, nor stuck in the mud of pragmatism. Instead, we carve out a new way of being—one that's true to our hearts, yet in rhythm with the world around us.
+<p>When we live in that blend, we're no longer lost in the clouds of idealism, nor stuck in the mud of pragmatism. Instead, we carve out a new way of being—one that's true to our hearts, yet in rhythm with the world around us.</p>
 
 ---
 
-## Redefining Courage
+<h2>Redefining Courage</h2>
 
-When people talk about courage, they usually picture someone standing alone—facing every challenge head-on, never flinching, never asking for help.
+<p>When people talk about courage, they usually picture someone standing alone—facing every challenge head-on, never flinching, never asking for help.</p>
 
-We glorify the lone warrior, the "self-made" hero. We're taught that real strength means carrying the weight of everything on your own.
+<p>We glorify the lone warrior, the "self-made" hero. We're taught that real strength means carrying the weight of everything on your own.</p>
 
-But that's just one story. And it's incomplete.
+<p>But that's just one story. And it's incomplete.</p>
 
-### True courage runs deeper.
+<h3>True courage runs deeper.</h3>
 
-- It's the kind of strength that allows you to say, *"I can't do this alone."*
-- It's the wisdom to recognize that you're not an isolated island—and that asking for support isn't a sign of weakness, but of clarity.
-- It's the quiet bravery of wanting to be seen, to be understood, and to have your efforts recognized—not for applause, but because we all need to feel real in someone else's eyes.
+<ul>
+  <li>It's the kind of strength that allows you to say, <em>"I can't do this alone."</em></li>
+  <li>It's the wisdom to recognize that you're not an isolated island—and that asking for support isn't a sign of weakness, but of clarity.</li>
+  <li>It's the quiet bravery of wanting to be seen, to be understood, and to have your efforts recognized—not for applause, but because we all need to feel real in someone else's eyes.</li>
+</ul>
 
 <div class="courage-section">
 <h3>This kind of courage isn't about enduring silently.</h3>
@@ -792,45 +898,52 @@ But that's just one story. And it's incomplete.
 <p>And maybe—just maybe—that's the kind of strength the world needs more of, while I haven't got the chance to build up my safety bubbles yet, so I am really sorry that I may still sometimes bug them for some extra courage to face my fear. Bruh.</p>
 </div>
 
-### Feasibility
+<h3>Feasibility</h3>
 
-There were times when it was hard for me to open up and ask for help.
+<p>There were times when it was hard for me to open up and ask for help.</p>
 
-But it was in those exact moments—when I allowed myself to be seen and supported—that I came to understand something essential:
+<p>But it was in those exact moments—when I allowed myself to be seen and supported—that I came to understand something essential:</p>
 
-**Your value doesn't need to be proven in isolation, over and over again.**
+<p><strong>Your value doesn't need to be proven in isolation, over and over again.</strong></p>
 
-But it does need to be met—by people with vision, wisdom, and the willingness to recognize it.
+<p>But it does need to be met—by people with vision, wisdom, and the willingness to recognize it.</p>
 
-Acknowledging this isn't weakness. It's maturity. It's accepting something real about life:
-
+<p>Acknowledging this isn't weakness. It's growing up. It's accepting something real about life:</p>
 <div class="creative-highlight">
 You don't grow by hiding—you grow by being met.
 </div>
 
-That's why it meant so much to me when Jim chose to "un-handcuff" me—by letting me use my own computer.
+<div>
+  <p>That's why it meant so much to me when Jim chose to <span style="font-style: italic;">"un-handcuff"</span> me—by letting me use my own computer.</p>
 
-But more than that, he took time out of his day to meet me at a coffee shop, just to calm my nerves and walk me through the team dynamics.
+  <p>But more than that, he took time out of his day to meet me at a coffee shop, just to calm my nerves and walk me through the team dynamics.</p>
 
-He didn't have to. He's busy. But he showed up—fully—and stayed for hours, simply because I was feeling uneasy.
+  <p>He didn't have to. He's busy. But he showed up—fully—and stayed for hours, simply because I was feeling uneasy.</p>
 
-It may sound small, but to me, it was a powerful gesture.
+  <p>It may sound small, but to me, it was a powerful gesture.</p>
 
-Especially in contrast to many of the workplaces I've seen in China, where employment might end via a cold text message with no conversation at all.
+  <p>Especially in contrast to many of the workplaces I've seen in China, where employment might end via a cold text message with no conversation at all.</p>
 
-Unlike the "I want it all, I want it now, and I want it perfect" mindset I've encountered before, Jim and the team understand that while my mind runs fast, it also needs space—not to slow down, but to stay clear.
+  <p>Unlike the <span style="font-style: italic;">"I want it all, I want it now, and I want it perfect"</span> mindset I've encountered before, Jim and the team understand that while my mind runs fast, it also needs space—not to slow down, but to stay clear.</p>
 
-By trusting me with autonomy, they've shown a rare kind of leadership: **The kind that sees who someone is—not just what they produce.**
+  <p>By trusting me with autonomy, they demonstrated a rare kind of leadership—the kind that sees a person not just for what they produce, but for who they are: imperfect, in need of support, and still worthy of trust.</p>
+</div>
 
 ---
 
-## Return to the Room: Reclaiming the True Meaning of Creativity
+<h2>Return to the Room: Reclaiming the True Meaning of Creativity</h2>
 
-The reason I'm writing this is because I recently stumbled upon a book on shadow work. The very first worksheet completely derailed me—and somehow led me here.
+<p>
+  The reason I'm writing this is because I recently stumbled upon a book on shadow work. The very first worksheet completely derailed me—and somehow led me here.
+</p>
 
-Uff. I'm honestly not even sure I'm ready for the second one. It sounds like a whole mental workout.
+<p>
+  Uff. I'm honestly not even sure I'm ready for the second one. It sounds like a whole mental workout.
+</p>
 
-But it got me thinking about something I've never said out loud:
+<p>
+  But it got me thinking about something I've never said out loud:
+</p>
 
 <div class="childhood-room">
 <strong>Innovation and creativity aren't just for the gifted or chosen few.</strong><br>
@@ -847,11 +960,11 @@ But everything in that room is still there, quietly waiting.
 
 If you're reading this, I want to ask:
 
-**Do you remember that dusty, forgotten room tucked away in your heart? That private space where your earliest dreams and purest joys still live?**
+<p><strong>Do you remember that dusty, forgotten room tucked away in your heart? That private space where your earliest dreams and purest joys still live?</strong></p>
 
 ---
 
-## Reflection Questions for Your Journey
+<h2>Reflection Questions for Your Journey</h2>
 
 <div class="question-box">
 <h4>If you've been moved by what I've shared today, take a moment to consider these three questions:</h4>
@@ -868,89 +981,110 @@ If yes, that's your direction. If no, that's what you need to search for.</p>
 
 ---
 
-## Overcoming Hesitation
+<section class="overcoming-hesitation" style="margin: 2.5em 0;">
+  <h2 style="color: #e65100; font-size: 2em; font-weight: 700; margin-bottom: 1em;">Overcoming Hesitation</h2>
 
-<blockquote style="border-left: 4px solid #FF9800; padding-left: 20px; font-style: italic; color: #FF9800;">
-"But I'm scared. I'm afraid pursuing those things will make me lose what I have now."
-</blockquote>
+  <blockquote style="border-left: 4px solid #FF9800; padding: 1em 1.5em; background: #fff8e1; font-style: italic; color: #b26a00; border-radius: 6px; margin-bottom: 1.5em;">
+    "But I'm scared. I'm afraid pursuing those things will make me lose what I have now."
+  </blockquote>
 
-I understand that fear. I've stood at that crossroads too.
+  <p style="color: #444; font-size: 1.08em; margin-bottom: 1.1em;">
+    I understand that fear. I've stood at that crossroads too.
+  </p>
 
-<div class="creative-highlight">
-What's truly scary isn't failure – it's regret.
-</div>
+  <div class="creative-highlight" style="background: #f3e5f5; border-left: 5px solid #8e24aa; border-radius: 7px; padding: 1em 1.5em; margin-bottom: 1.2em; color: #4a148c; font-weight: 500;">
+    What really scares me isn’t the impossible—it’s regret.
+  </div>
 
-It's lying there when my legs don't work anymore, still thinking "what if I had…"
+  <p style="color: #444; margin-bottom: 1.1em;">
+    It’s lying there when my hands don’t work anymore, still thinking, <span style="color:#8e24aa; font-style:italic;">“What if I hadn’t hesitated to enroll in MUS121C?”</span>
+  </p>
 
-<blockquote style="border-left: 4px solid #f44336; padding-left: 20px; font-style: italic; color: #f44336;">
-The biggest risk isn't chasing your dreams – it's never trying at all.
-</blockquote>
+  <blockquote style="border-left: 4px solid #f44336; padding: 1em 1.5em; background: #ffebee; font-style: italic; color: #b71c1c; border-radius: 6px; margin-bottom: 1.5em;">
+    The biggest risk isn’t chasing your dreams—it’s never trying at all.
+  </blockquote>
 
-You don't need to change everything at once. You just need to take the first step.
+  <p style="color: #444; font-size: 1.08em; margin-bottom: 1.2em;">
+    You don’t need to change everything at once. You just need to take the first step. As you begin this journey, something magical happens:
+  </p>
 
----
-
-## You're Not Alone
-
-As you begin this journey, something magical happens:
-
-<div class="support-network">
-    <div class="support-card">
-        <h4>When you start honestly pursuing what you truly want</h4>
-        <p>You'll begin to meet others who are doing the same.</p>
+  <section class="support-network" style="margin: 2em 0 2.5em 0;">
+    <div class="connection-card" style="background: #f4f9f4; border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em; margin-bottom: 1.1em;">
+      <div class="connection-title" style="font-weight: 600; color: #388e3c; font-size: 1.13em; margin-bottom: 0.3em;">
+        When you begin to move toward what you truly want,
+      </div>
+      <div class="connection-body" style="color: #333; font-size: 1.04em;">
+        you’ll notice others quietly stepping out too—drawn by the same longing.
+      </div>
     </div>
-    
-    <div class="support-card">
-        <h4>You'll realize</h4>
-        <p>You're not the only one who sat on a little bench, waiting.</p>
+    <div class="connection-card" style="background: #f4f9f4; border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em; margin-bottom: 1.1em;">
+      <div class="connection-title" style="font-weight: 600; color: #388e3c; font-size: 1.13em; margin-bottom: 0.3em;">
+        You’ll realize
+      </div>
+      <div class="connection-body" style="color: #333; font-size: 1.04em;">
+        you were never the only one waiting on that little bench.
+      </div>
     </div>
-    
-    <div class="support-card">
-        <h4>You'll find</h4>
-        <p>So many people—quietly, bravely—have been searching for their own way to be seen, to be heard, to be real.</p>
+    <div class="connection-card" style="background: #f4f9f4; border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em;">
+      <div class="connection-title" style="font-weight: 600; color: #388e3c; font-size: 1.13em; margin-bottom: 0.3em;">
+        You’ll find
+      </div>
+      <div class="connection-body" style="color: #333; font-size: 1.04em;">
+        so many people—gentle, brave—searching for their own way to be seen, to be heard, to be real.
+      </div>
     </div>
-</div>
+    <div class="support-message" style="margin: 1.7em 0 1.2em 0; color: #444; font-size: 1.07em;">
+      These people become your support system. They’ll see your worth, even on days you can’t.
+    </div>
+    <div class="courage-section" style="background: #fff3e6; border-left: 5px solid #FF9800; border-radius: 7px; padding: 1.1em 1.5em 1em 1.5em; margin-bottom: 1.2em;">
+      <h3 style="margin: 0; color: #e65100; font-size: 1.18em; font-weight: 600;">
+        You deserve to be here.<br>
+        You deserve to be cherished.
+      </h3>
+    </div>
+  </section>
 
-These people will become your support system. They'll recognize your worth, even on the days when you can't see it yourself.
+  <h2 style="color: #6a4cff; font-size: 2em; font-weight: 700; margin-bottom: 1em;">Back to the Beginning</h2>
+  <p style="color: #444; font-size: 1.08em; margin-bottom: 1.1em;">
+    So now, let’s return to that little bench.
+    <br>
+    If tonight, just for a moment, you’re willing to sit beside your younger self—not for nostalgia, but to ask honestly:
+  </p>
+  <div class="reflection-quote" style="font-style: italic; color: #6a4cff; background: #f3f0ff; border-radius: 6px; padding: 1em 1.5em; margin: 1.2em 0;">
+    "Are you still waiting for me?"
+  </div>
+  <p style="color: #444; font-size: 1.08em; margin-bottom: 1.1em;">
+    I believe that child will look up, maybe a little teary-eyed, and whisper:
+  </p>
+  <div class="reflection-quote" style="font-style: italic; color: #e67e22; background: #fff7ec; border-radius: 6px; padding: 1em 1.5em; margin: 1.2em 0;">
+    "I've been waiting for you all along. I always knew you'd come back."
+  </div>
 
-And when you falter, they'll remind you:
+  <p class="creativity-explanation" style="margin-bottom: 1.5em; color: #444; font-size: 1.12em; line-height: 1.7;">
+    Because creativity isn’t just a skill. It’s a
+    <span style="font-weight: bold; color: #6a4cff;">response</span>—an emotional impulse, a resonance waiting for the right signal.
+  </p>
 
-<div class="courage-section">
-<h3>You deserve to be here. You deserve to be cherished.</h3>
-</div>
+  <p class="sparkle-explanation" style="margin-bottom: 1.2em; color: #444; font-size: 1.1em;">
+    A response to the part of you that once
+    <span style="color: #e67e22; font-style: italic;">sparkled</span>—without needing permission. The part that never asked,
+    <span style="color: #888;">“Am I good enough?”</span> because it was too busy simply being alive.
+  </p>
 
----
+  <p class="shift-explanation" style="margin-bottom: 1.2em; color: #444; font-size: 1.1em;">
+    And when you start responding to that part again…<br>
+    <span style="color: #888;">something begins to shift.</span> Quietly at first—<br>
+    but undeniably, the signal returns.
+  </p>
 
-## Back to the Beginning
+  <p class="realization" style="margin-top: 2em;">
+    <span style="font-size: 1.1em; color: #6a4cff;"><em>You’ll realize:</em></span>
+  </p>
 
-So now, let's return to that little bench.
-
-If tonight, just for a moment, you're willing to sit beside your younger self—not for nostalgia, but to ask honestly:
-
-<div class="reflection-quote">
-"Are you still waiting for me?"
-</div>
-
-I believe that child will look up, maybe a little teary-eyed, and whisper:
-
-<div class="reflection-quote">
-"I've been waiting for you all along. I always knew you'd come back."
-</div>
-
-Because creativity isn't just a skill. **It's a response.**
-
-A response to the part of you that once sparkled without needing permission. The part of you that never asked, "Am I good enough?"—because they were too busy being alive.
-
-And when you begin to respond to that part again…
-
-You'll realize:
-
-<div class="final-message">
-<strong>You were never alone.</strong><br><br>
-
-We've all waited on little benches.<br>
-We've all longed to be picked up, seen, and taken home.<br><br>
-
-And now—maybe—it's time.
-</div>
-
+  <div class="final-message" style="background: #f8f6ff; border-left: 5px solid #6a4cff; border-radius: 8px; padding: 1.5em 1.5em 1.2em 1.5em; margin-top: 1.2em;">
+    <strong style="color: #6a4cff; font-size: 1.25em;">You were never alone.</strong><br><br>
+    <span style="color: #555;">We’ve all waited on little benches.<br>
+    We’ve all longed to be picked up, seen, and taken home.</span><br><br>
+    <span style="font-weight: bold; color: #e67e22;">And now—maybe—it’s time.</span>
+  </div>
+</section>
