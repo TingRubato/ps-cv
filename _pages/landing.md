@@ -454,7 +454,7 @@ span {
 	<div class="content" style="display:block;width:1000px;height:562px">
 		<div class="container-full">
 			<div class="animated hue"></div>
-      <img class="backgroundImage" src="assets/img/empty-room.jpg"> <img class="boyImage" src="assets/img/boy.png">
+      <img class="backgroundImage" src="{{ 'assets/img/empty-room.jpg' | relative_url }}"> <img class="boyImage" src="{{ 'assets/img/boy.png' | relative_url }}">
 			<div class="container">
 				<div class="cube">
 					<div class="face top"></div>

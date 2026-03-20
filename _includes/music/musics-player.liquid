@@ -1,0 +1,104 @@
+<!-- GSAP for Draggable -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Date display
+  const dt = new Date();
+  const dateEl = document.getElementById('mac-date');
+  if (dateEl) {
+    dateEl.textContent = dt.toLocaleString('en-us', { weekday: 'short' }) + ' ' +
+                         dt.toLocaleString('default', { month: 'short' }) + ' ' +
+                         dt.getDate();
+  }
+
+  // Make windows draggable
+  if (typeof Draggable !== 'undefined') {
+    Draggable.create('.mac-window', {
+      trigger: '.dragarea',
+      bounds: '.retro-mac-page',
+      type: 'x,y',
+      inertia: true,
+      onDragStart: function() {
+        document.querySelectorAll('.mac-window').forEach(w => w.style.zIndex = 999);
+        this.target.style.zIndex = 1000;
+      }
+    });
+  }
+
+  // Track selection
+  const tracks = document.querySelectorAll('.track-link');
+  const images = document.querySelectorAll('.imgwrap img');
+  const artistDisplay = document.getElementById('current-artist');
+  const songDisplay = document.getElementById('current-song');
+  const scPlayer = document.getElementById('sc-widget');
+  let currentIndex = 0;
+
+  function previewTrack(index) {
+    tracks.forEach(t => t.classList.remove('active'));
+    images.forEach(i => i.classList.remove('active'));
+
+    if (tracks[index]) {
+      tracks[index].classList.add('active');
+      images[index]?.classList.add('active');
+
+      artistDisplay.textContent = tracks[index].dataset.artist;
+      songDisplay.textContent = tracks[index].dataset.title;
+
+      if (scPlayer && tracks[index].dataset.soundcloud) {
+        scPlayer.src = tracks[index].dataset.soundcloud;
+      }
+
+      currentIndex = index;
+    }
+  }
+
+  tracks.forEach((track, index) => {
+    track.addEventListener('mouseenter', function() {
+      previewTrack(index);
+    });
+  });
+
+  document.getElementById('prev-track')?.addEventListener('click', function() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      previewTrack(currentIndex);
+    }
+  });
+
+  document.getElementById('next-track')?.addEventListener('click', function() {
+    if (currentIndex < tracks.length - 1) {
+      currentIndex++;
+      previewTrack(currentIndex);
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      if (currentIndex > 0) previewTrack(currentIndex - 1);
+    } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      if (currentIndex < tracks.length - 1) previewTrack(currentIndex + 1);
+    } else if (e.key === 'Enter') {
+      if (tracks[currentIndex]) {
+        window.location.href = tracks[currentIndex].href;
+      }
+    }
+  });
+
+  // Animated visualizer bars
+  function animateBars() {
+    const bars = document.querySelectorAll('.analyzer-bars > div');
+    bars.forEach((bar, i) => {
+      const height = Math.random() * 80 + 10;
+      bar.style.setProperty('--bar-height', height + '%');
+    });
+    requestAnimationFrame(animateBars);
+  }
+  animateBars();
+
+  document.body.classList.add('mac-loaded');
+});
+</script>
