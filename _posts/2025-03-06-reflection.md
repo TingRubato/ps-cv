@@ -1,13 +1,12 @@
 ---
 layout: distill
-title: Labels, Self-Fulfilling Prophecy 
+title: Labels, Self-Fulfilling Prophecy
 description: Do people embrace labels to seek identity, or just use them as an often-exploited excuse?
 date: 2025-03-06 00:00:00
 thumbnail: assets/img/self-labelling.jpg
 toc:
 sidebar: left
 bibliography: label.bib
-
 ---
 
 <style>
@@ -120,7 +119,7 @@ They say there are two types of people in this world: those trapped by mental he
 
 In plain English, your brain isn’t a hard drive you can format, but <u>you can rewrite the data</u><d-cite key="puderbaughNeuroplasticity2025"></d-cite>. The real issue? Some folks cling to their diagnosis like it’s a lifetime membership card to a club they never wanted to join, proudly declaring to the world:
 
-> *"Look! This is me! Don’t expect me to change!"*
+> _"Look! This is me! Don’t expect me to change!"_
 >
 > {: .block-blue }
 
@@ -132,12 +131,10 @@ So ask yourself:
 
 1. **Does a label define who you are?**
    <span class="reveal">Are you an anxious person, or are you a person experiencing anxiety? The difference is key. You are not HOT!—you just feel HOT.</span>
-    
 2. **Does a label dictate your fate?**
    <span class="reveal">Anxiety and depression aren’t life sentences. Your mental state is more like a revolving door—you can step in or out.</span>
-    
 3. **Does a label excuse everything?**
-   <span class="reveal">Can’t communicate in an argument? Instead of admitting you need to improve, it’s "I have avoidant personality disorder, I can’t help it." Relationship problems? Instead of fixing your communication, it’s "I was born unlucky in love." It’s like someone failing a driving test and saying, "I was just born bad at wheels!"—when, in reality, they just need more practice.</span>
+<span class="reveal">Can’t communicate in an argument? Instead of admitting you need to improve, it’s "I have avoidant personality disorder, I can’t help it." Relationship problems? Instead of fixing your communication, it’s "I was born unlucky in love." It’s like someone failing a driving test and saying, "I was just born bad at wheels!"—when, in reality, they just need more practice.</span>
 <div class="glow-button">Hint</div>
 
 Slapping a diagnosis on everything makes life seem easier, doesn’t it? It’s like blaming Mercury retrograde for all your problems instead of admitting you just made bad decisions. Bonus points if it earns you some tragic main character energy. **But at some point, ** you have to ask yourself:
@@ -153,7 +150,7 @@ Who are you? Who do you want to be? These are cliché questions in your college 
 
 There’s a *spooky* little concept in psychology called the **self-fulfilling prophecy**<d-footnote>A self-fulfilling prophecy <d-cite key="edenLeadershipExpectationsPygmalion1992"></d-cite> (also known as the interpersonal expectancy effect) refers to a phenomenon in which an individual’s or group’s expectations about another person’s behavior ultimately lead the person to act in a way that aligns with those expectations, thereby making the prophecy come true.</d-footnote> In plain terms:
 
-> *"If you believe you're useless, then congrats, you will become useless."*
+> _"If you believe you're useless, then congrats, you will become useless."_
 >
 > {: .block-warning}
 
@@ -165,12 +162,11 @@ For example:
 
 But let’s flip the script. What if, starting today, you look in the mirror and brainwash yourself with:
 
-> *"I am a highly disciplined and productive legend."*
+> _"I am a highly disciplined and productive legend."_
 >
 > {: .block-blue }
 
-
-Sounds like the corporate world’s version of *"fake it till you make it,"* but research<d-cite key="edenLeadershipExpectationsPygmalion1992"></d-cite> shows this actually works. Your brain doesn’t have a built-in **"fact-checker"** for incoming information—it absorbs whatever you feed it. That’s why the intern who confidently calls themselves a 'strategy consultant' on LinkedIn might actually start believing it—and so might their next employer. Similarly, kids who are praised for being smart actually try harder to prove it, while kids constantly told **"you’re bad at math"** tend to avoid it altogether.
+Sounds like the corporate world’s version of _"fake it till you make it,"_ but research<d-cite key="edenLeadershipExpectationsPygmalion1992"></d-cite> shows this actually works. Your brain doesn’t have a built-in **"fact-checker"** for incoming information—it absorbs whatever you feed it. That’s why the intern who confidently calls themselves a 'strategy consultant' on LinkedIn might actually start believing it—and so might their next employer. Similarly, kids who are praised for being smart actually try harder to prove it, while kids constantly told **"you’re bad at math"** tend to avoid it altogether.
 
 So if you’re going to brainwash yourself, at least do it for good:
 

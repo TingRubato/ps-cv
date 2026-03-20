@@ -23,7 +23,7 @@ layout: default
       <h3>Now Playing</h3>
       <div class="np-content">
         <div class="np-display">
-          <h4 id="current-artist">{{ site.author.name | default: "Ting Xu" }}</h4>
+          <h4 id="current-artist">{{ site.author.name | default: 'Ting Xu' }}</h4>
           <h4 id="current-song">Select a track</h4>
         </div>
         <div class="np-controls">
@@ -57,7 +57,7 @@ layout: default
   <div class="window mac-window album-window glow-card">
     <span class="glow"></span>
     <div class="dragarea"></div>
-    <h3>{{ page.title | default: "Music Collection" }}</h3>
+    <h3>{{ page.title | default: 'Music Collection' }}</h3>
     <div class="frame">
       <!-- Album Covers -->
       <div class="imgwrap">
@@ -86,7 +86,7 @@ layout: default
                 data-soundcloud="{{ music.soundcloud_url }}"
                 data-description="{{ music.description }}"
               >
-                {{ music.author | default: "Ting Xu" }} - <span>{{ music.title }}</span>
+                {{ music.author | default: 'Ting Xu' }} - <span>{{ music.title }}</span>
               </a>
             </li>
           {% endfor %}

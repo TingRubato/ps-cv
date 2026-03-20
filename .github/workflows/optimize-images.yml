@@ -3,7 +3,7 @@ name: Optimize Images
 on:
   pull_request:
     paths:
-      - 'assets/img/**'
+      - "assets/img/**"
   workflow_dispatch:
 
 jobs:

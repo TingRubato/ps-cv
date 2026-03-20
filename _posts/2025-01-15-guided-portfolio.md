@@ -5,7 +5,7 @@ description: Explore a list of selected work for Digital Portfolio
 date: 2025-01-15 00:00:00
 thumbnail: assets/img/portfolio.png
 toc:
-    sidebar: left
+  sidebar: left
 ---
 
 This portfolio is a curated selection of my musical, creative, technical, and scholarly works that highlight my skills and passion. Thank you for taking the time to explore me.
@@ -168,6 +168,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
 <br>
 
 # 3. **Compositions**
+
 <div class="container-card music-card">
     <div class="front side">
         <div class="content">
@@ -262,7 +263,6 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
 </div>
 <center><h2>Composition 5: Wowtz For Lunatics 🎵</h2></center>
 <br>
-
 
 <style>
 

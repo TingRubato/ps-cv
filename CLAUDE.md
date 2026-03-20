@@ -57,14 +57,14 @@ Prettier uses `@shopify/prettier-plugin-liquid` for `.liquid` files. CI will fai
 
 ### Content Collections
 
-| Collection | Directory | Notes |
-|-----------|-----------|-------|
-| Blog posts | `_posts/` | Named `YYYY-MM-DD-title.md` |
-| Projects | `_projects/` | Portfolio items |
-| Music | `_musics/` | Custom collection with pagination (4 per page) |
-| News | `_news/` | Homepage announcements |
-| Slides | `_slides/` | Presentations |
-| Pages | `_pages/` | Static pages (about, cv, projects) |
+| Collection   | Directory                  | Notes                                           |
+| ------------ | -------------------------- | ----------------------------------------------- |
+| Blog posts   | `_posts/`                  | Named `YYYY-MM-DD-title.md`                     |
+| Projects     | `_projects/`               | Portfolio items                                 |
+| Music        | `_musics/`                 | Custom collection with pagination (4 per page)  |
+| News         | `_news/`                   | Homepage announcements                          |
+| Slides       | `_slides/`                 | Presentations                                   |
+| Pages        | `_pages/`                  | Static pages (about, cv, projects)              |
 | Publications | `_bibliography/papers.bib` | BibTeX → auto-generated page via jekyll-scholar |
 
 ### Data Sources
@@ -98,11 +98,11 @@ Prettier uses `@shopify/prettier-plugin-liquid` for `.liquid` files. CI will fai
 
 GitHub Actions on push/PR to `main`:
 
-| Workflow | What it checks |
-|----------|---------------|
-| `deploy.yml` | Builds site, purges unused CSS, deploys to `gh-pages` branch |
-| `prettier.yml` | Prettier formatting check (blocks PR on failure) |
+| Workflow            | What it checks                                                                    |
+| ------------------- | --------------------------------------------------------------------------------- |
+| `deploy.yml`        | Builds site, purges unused CSS, deploys to `gh-pages` branch                      |
+| `prettier.yml`      | Prettier formatting check (blocks PR on failure)                                  |
 | `quality-gates.yml` | Template line count (<300 lines), pinned gems, no deprecated patterns, runs tests |
-| `broken-links.yml` | Link validation with lychee |
+| `broken-links.yml`  | Link validation with lychee                                                       |
 
 The deploy workflow runs `purgecss` after building — keep `purgecss.config.js` in sync if adding new CSS selectors that might be dynamically generated.

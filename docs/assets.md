@@ -4,19 +4,19 @@ This document describes the asset optimization pipeline and best practices for t
 
 ## Current Asset Breakdown
 
-| Directory | Size | Description |
-|-----------|------|-------------|
-| `assets/img/` | 60 MB | Images (PNG, JPEG, GIF) |
-| `assets/video/` | 27 MB | Video files |
-| `assets/pdf/` | 18 MB | PDF documents |
-| `assets/fonts/` | 9.2 MB | Font files (TTF, WOFF, WOFF2) |
-| `assets/plotly/` | 4.1 MB | Plotly visualizations |
-| `assets/js/` | 3.2 MB | JavaScript files |
-| `assets/css/` | 1.6 MB | Stylesheets |
-| `assets/json/` | 1.4 MB | JSON data files |
-| `assets/audio/` | 1.3 MB | Audio samples |
-| `assets/webfonts/` | 1 MB | Web font files |
-| **Total** | ~126 MB | |
+| Directory          | Size    | Description                   |
+| ------------------ | ------- | ----------------------------- |
+| `assets/img/`      | 60 MB   | Images (PNG, JPEG, GIF)       |
+| `assets/video/`    | 27 MB   | Video files                   |
+| `assets/pdf/`      | 18 MB   | PDF documents                 |
+| `assets/fonts/`    | 9.2 MB  | Font files (TTF, WOFF, WOFF2) |
+| `assets/plotly/`   | 4.1 MB  | Plotly visualizations         |
+| `assets/js/`       | 3.2 MB  | JavaScript files              |
+| `assets/css/`      | 1.6 MB  | Stylesheets                   |
+| `assets/json/`     | 1.4 MB  | JSON data files               |
+| `assets/audio/`    | 1.3 MB  | Audio samples                 |
+| `assets/webfonts/` | 1 MB    | Web font files                |
+| **Total**          | ~126 MB |                               |
 
 ## Image Optimization
 
@@ -45,10 +45,11 @@ mogrify -resize "2000x2000>" -quality 85 *.jpg
 Add `loading="lazy"` to images below the fold:
 
 ```html
-<img src="image.jpg" loading="lazy" alt="Description">
+<img src="image.jpg" loading="lazy" alt="Description" />
 ```
 
 In Liquid templates:
+
 ```liquid
 {% include figure.liquid path="assets/img/photo.jpg" loading="lazy" %}
 ```
@@ -99,8 +100,8 @@ Always use `font-display: swap` in @font-face rules:
 
 ```css
 @font-face {
-  font-family: 'CustomFont';
-  src: url('font.woff2') format('woff2');
+  font-family: "CustomFont";
+  src: url("font.woff2") format("woff2");
   font-display: swap;
 }
 ```
@@ -122,6 +123,7 @@ npm run build:css
 ### Safelist
 
 Dynamic classes that shouldn't be purged are safelisted:
+
 - Bootstrap grid/modal/tooltip classes
 - Theme classes (`dark`, `light`, `theme-*`)
 - MathJax classes
@@ -160,13 +162,13 @@ bundle exec jekyll serve
 
 ## Performance Targets
 
-| Metric | Target |
-|--------|--------|
-| First Contentful Paint | < 1.5s |
-| Largest Contentful Paint | < 2.5s |
-| Total page weight | < 1 MB (excluding media) |
-| Image format | WebP preferred |
-| Font files loaded | < 200 KB |
+| Metric                   | Target                   |
+| ------------------------ | ------------------------ |
+| First Contentful Paint   | < 1.5s                   |
+| Largest Contentful Paint | < 2.5s                   |
+| Total page weight        | < 1 MB (excluding media) |
+| Image format             | WebP preferred           |
+| Font files loaded        | < 200 KB                 |
 
 ## Future Improvements
 

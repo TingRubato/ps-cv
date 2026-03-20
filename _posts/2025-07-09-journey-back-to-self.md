@@ -5,7 +5,7 @@ description: You don't have to become someone new. You just have to become someo
 date: 2025-07-09
 thumbnail: assets/img/TMC09685.jpg
 toc:
-    sidebar: left
+  sidebar: left
 ---
 
 <style>
@@ -728,7 +728,7 @@ I take pride in showcasing the best of what we make. But I'd feel genuinely emba
 
 Let's go back to that moment—the real turning point.
 
-By then, I already knew staying in the U.S. would be hard. The system isn't built for people like me to just "blend in." But *staying*—and still choosing to stand for something? That was the real gamble.
+By then, I already knew staying in the U.S. would be hard. The system isn't built for people like me to just "blend in." But _staying_—and still choosing to stand for something? That was the real gamble.
 
 I wasn't about to shrink myself just to be tolerated. If I was going to stay, it had to mean something.
 
@@ -736,7 +736,7 @@ I wasn't about to shrink myself just to be tolerated. If I was going to stay, it
 
 <h2> Finding My Support Network</h2>
 
-Along the way, I've been lucky—truly lucky—to cross paths with people who didn't just support me, but *saw* me.
+Along the way, I've been lucky—truly lucky—to cross paths with people who didn't just support me, but _saw_ me.
 
 <div class="support-network">
     <div class="support-card">
@@ -813,6 +813,7 @@ But now, I get what Jim meant when he said:
 </div>
 
 The evidence speaks for itself:
+
 <ul>
   <li>Misha had no issue with me</li>
   <li>Evonne had no issue with me</li>
@@ -822,7 +823,7 @@ So clearly, this isn't about age.
 
 Unless... Joe is just that rare breed of human who can bridge communism and capitalism and generational divides in one lifetime? (Still trying to figure that one out, just saying he couldn't be that complicated that I can't figure out.)
 
-*(FYI: Misha and I do have one weirdly specific thing in common—wanna guess? No, not that. Keep trying.)*
+_(FYI: Misha and I do have one weirdly specific thing in common—wanna guess? No, not that. Keep trying.)_
 
 But jokes aside—I've come to realize something deeper: I choose to feel the world with my heart and bring it to life through engineering.
 
@@ -1000,6 +1001,7 @@ You don't grow by hiding—you grow by being met.
 And to truly create, we often have to return to a place most of us have long forgotten.<br><br>
 
 <strong>We have to find our childhood room.</strong>
+
 </div>
 
 Yes, that room—the one that still exists somewhere deep inside, even if we haven't stepped into it for years. The door was never locked. Life just got busy. Growing up got heavy. And it's probably been far too long since anyone gently pushed that door open and walked inside.

@@ -9,9 +9,15 @@
 // CUSTOM CURSORS
 // =============================================================================
 
-$mac-cursor-default: url("data:image/svg+xml,%3Csvg width='10' height='46' viewBox='0 0 48 84' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6 3V6H9H12V9V12H15H18V15V18H21H24V21V24H27H30V27V30H33H36V33V36H39H42V39V42H45H48V45V48H39H30V54V60H33H36V66V72H39H42V78V84H36H30V78V72H27H24V66V60H21H18V57V54H15H12V57V60H9H6V63V66H3H0V33V0H3H6V3Z' fill='black'/%3E%3C/svg%3E%0A") 16 16, pointer;
+$mac-cursor-default:
+  url("data:image/svg+xml,%3Csvg width='10' height='46' viewBox='0 0 48 84' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6 3V6H9H12V9V12H15H18V15V18H21H24V21V24H27H30V27V30H33H36V33V36H39H42V39V42H45H48V45V48H39H30V54V60H33H36V66V72H39H42V78V84H36H30V78V72H27H24V66V60H21H18V57V54H15H12V57V60H9H6V63V66H3H0V33V0H3H6V3Z' fill='black'/%3E%3C/svg%3E%0A")
+    16 16,
+  pointer;
 
-$mac-cursor-pointer: url("data:image/svg+xml,%3Csvg width='15' height='29' viewBox='0 0 90 114' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M42 3V6H45H48V21V36H54H60V39V42H66H72V45V48H78H84V51V54H87H90V69V84H87H84V90V96H81H78V105V114H75H72V105V96H75H78V90V84H81H84V69V54H78H72V51V48H66H60V45V42H51H42V24V6H36H30V36V66H27H24V60V54H21H18V51V48H12H6V51V54H9H12V60V66H15H18V75V84H21H24V90V96H27H30V99V102H33H36V108V114H33H30V108V102H27H24V99V96H21H18V90V84H15H12V75V66H9H6V60V54H3H0V48V42H9H18V45V48H21H24V27V6H27H30V3V0H36H42V3Z' fill='black'/%3E%3Cpath d='M72 114V105V96H75H78V90V84H81H84V69V54H78H72V51V48H66H60V45V42H51H42V24V6H36H30V36V66H27H24V60V54H21H18V51V48H12H6V51V54H9H12V60V66H15H18V75V84H21H24V90V96H27H30V99V102H33H36V108V114H72Z' fill='white'/%3E%3C/svg%3E%0A") 16 16, pointer;
+$mac-cursor-pointer:
+  url("data:image/svg+xml,%3Csvg width='15' height='29' viewBox='0 0 90 114' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M42 3V6H45H48V21V36H54H60V39V42H66H72V45V48H78H84V51V54H87H90V69V84H87H84V90V96H81H78V105V114H75H72V105V96H75H78V90V84H81H84V69V54H78H72V51V48H66H60V45V42H51H42V24V6H36H30V36V66H27H24V60V54H21H18V51V48H12H6V51V54H9H12V60V66H15H18V75V84H21H24V90V96H27H30V99V102H33H36V108V114H33H30V108V102H27H24V99V96H21H18V90V84H15H12V75V66H9H6V60V54H3H0V48V42H9H18V45V48H21H24V27V6H27H30V3V0H36H42V3Z' fill='black'/%3E%3Cpath d='M72 114V105V96H75H78V90V84H81H84V69V54H78H72V51V48H66H60V45V42H51H42V24V6H36H30V36V66H27H24V60V54H21H18V51V48H12H6V51V54H9H12V60V66H15H18V75V84H21H24V90V96H27H30V99V102H33H36V108V114H72Z' fill='white'/%3E%3C/svg%3E%0A")
+    16 16,
+  pointer;
 
 // =============================================================================
 // BACKGROUND PATTERNS
@@ -30,7 +36,9 @@ $mac-window-bg:
   repeating-linear-gradient(to bottom, #222 1px, #fff 1px, #fff 2px, #222 2px, #222 3px),
   #fff;
 
-$mac-window-shadow: 0 0 0 1px #000, 2px 2px 0 #000;
+$mac-window-shadow:
+  0 0 0 1px #000,
+  2px 2px 0 #000;
 
 // =============================================================================
 // PAGE CONTAINER
@@ -58,7 +66,9 @@ $mac-window-shadow: 0 0 0 1px #000, 2px 2px 0 #000;
     inset: 0;
     pointer-events: none;
     border-radius: 6px;
-    box-shadow: inset 0 0 0 2px #000, 0 0 0 5px #000;
+    box-shadow:
+      inset 0 0 0 2px #000,
+      0 0 0 5px #000;
   }
 
   // Loading overlay
@@ -218,7 +228,10 @@ $mac-window-shadow: 0 0 0 1px #000, 2px 2px 0 #000;
       flex: 1;
       padding: 4px 8px;
       border: none;
-      box-shadow: inset 0 0 0 1px #333, 0 0 0 2px #fff, 0 0 0 5px #333;
+      box-shadow:
+        inset 0 0 0 1px #333,
+        0 0 0 2px #fff,
+        0 0 0 5px #333;
       border-radius: 3px;
       cursor: $mac-cursor-pointer;
       background: #fff;
@@ -383,7 +396,8 @@ $mac-window-shadow: 0 0 0 1px #000, 2px 2px 0 #000;
         height: 14px;
         margin-right: 6px;
         opacity: 0;
-        background: url("data:image/svg+xml,%3Csvg width='95' height='126' viewBox='0 0 95 126' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31 126V121H40V63H45V58H54V54H63V49H72V45H81V40H91V86H86V99H81V95H77V90H72V85H86V81H64V86H59V90H55V103H59V108H64V112H86V108H95V0H86V9H77V16H68V23H50V32H37V99H31V95H9V99H5V104H0V117H5V121H9V126H31Z' fill='black'/%3E%3Cpath d='M72 85V90H77V95H81V99H86V86V85H72Z' fill='white'/%3E%3C/svg%3E%0A") 50% 50% / contain no-repeat;
+        background: url("data:image/svg+xml,%3Csvg width='95' height='126' viewBox='0 0 95 126' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31 126V121H40V63H45V58H54V54H63V49H72V45H81V40H91V86H86V99H81V95H77V90H72V85H86V81H64V86H59V90H55V103H59V108H64V112H86V108H95V0H86V9H77V16H68V23H50V32H37V99H31V95H9V99H5V104H0V117H5V121H9V126H31Z' fill='black'/%3E%3Cpath d='M72 85V90H77V95H81V99H86V86V85H72Z' fill='white'/%3E%3C/svg%3E%0A")
+          50% 50% / contain no-repeat;
       }
 
       &:not(.active):hover {
@@ -488,7 +502,9 @@ html[data-theme="dark"] {
       radial-gradient(circle at center, #fff 1px, #1a1a1a 0.5px, #1a1a1a 2px) 0 0 / 2px 2px repeat;
 
     &::before {
-      box-shadow: inset 0 0 0 2px #fff, 0 0 0 5px #fff;
+      box-shadow:
+        inset 0 0 0 2px #fff,
+        0 0 0 5px #fff;
     }
   }
 
@@ -497,7 +513,9 @@ html[data-theme="dark"] {
   }
 
   .mac-window {
-    box-shadow: 0 0 0 1px #fff, 2px 2px 0 #fff;
+    box-shadow:
+      0 0 0 1px #fff,
+      2px 2px 0 #fff;
   }
 }
 
