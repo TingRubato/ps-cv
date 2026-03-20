@@ -40,7 +40,7 @@
 
       if (tracks[index]) {
         tracks[index].classList.add('active');
-        images[index]?.classList.add('active');
+        if (images[index]) images[index].classList.add('active');
 
         artistDisplay.textContent = tracks[index].dataset.artist;
         songDisplay.textContent = tracks[index].dataset.title;
@@ -59,19 +59,23 @@
       });
     });
 
-    document.getElementById('prev-track')?.addEventListener('click', function () {
-      if (currentIndex > 0) {
-        currentIndex--;
-        previewTrack(currentIndex);
-      }
-    });
+    var prevBtn = document.getElementById('prev-track');
+    if (prevBtn)
+      prevBtn.addEventListener('click', function () {
+        if (currentIndex > 0) {
+          currentIndex--;
+          previewTrack(currentIndex);
+        }
+      });
 
-    document.getElementById('next-track')?.addEventListener('click', function () {
-      if (currentIndex < tracks.length - 1) {
-        currentIndex++;
-        previewTrack(currentIndex);
-      }
-    });
+    var nextBtn = document.getElementById('next-track');
+    if (nextBtn)
+      nextBtn.addEventListener('click', function () {
+        if (currentIndex < tracks.length - 1) {
+          currentIndex++;
+          previewTrack(currentIndex);
+        }
+      });
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
