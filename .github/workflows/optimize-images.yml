@@ -1,0 +1,105 @@
+name: Optimize Images
+
+on:
+  pull_request:
+    paths:
+      - 'assets/img/**'
+  workflow_dispatch:
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick webp
+
+      - name: Find large images
+        id: large-images
+        run: |
+          echo "Checking for oversized images..."
+          LARGE_IMAGES=""
+
+          # Find images larger than 500KB
+          for file in $(find assets/img -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) -size +500k); do
+            size=$(du -h "$file" | cut -f1)
+            echo "⚠️  Large image: $file ($size)"
+            LARGE_IMAGES="$LARGE_IMAGES\n$file ($size)"
+          done
+
+          if [ -n "$LARGE_IMAGES" ]; then
+            echo "has_large_images=true" >> $GITHUB_OUTPUT
+            echo -e "\nConsider optimizing these images before merging."
+          else
+            echo "has_large_images=false" >> $GITHUB_OUTPUT
+            echo "✓ All images are under 500KB"
+          fi
+
+      - name: Check image dimensions
+        run: |
+          echo "Checking for oversized dimensions..."
+          MAX_DIMENSION=3000
+          OVERSIZED=0
+
+          for file in $(find assets/img -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \)); do
+            dimensions=$(identify -format "%wx%h" "$file" 2>/dev/null || echo "0x0")
+            width=$(echo $dimensions | cut -d'x' -f1)
+            height=$(echo $dimensions | cut -d'x' -f2)
+
+            if [ "$width" -gt "$MAX_DIMENSION" ] || [ "$height" -gt "$MAX_DIMENSION" ]; then
+              echo "⚠️  Oversized: $file (${width}x${height})"
+              OVERSIZED=1
+            fi
+          done
+
+          if [ "$OVERSIZED" -eq 1 ]; then
+            echo ""
+            echo "Consider resizing images to max ${MAX_DIMENSION}px on longest side"
+          else
+            echo "✓ All images have reasonable dimensions"
+          fi
+
+      - name: Check WebP availability
+        run: |
+          echo "Checking WebP versions for new images..."
+          MISSING_WEBP=""
+
+          for file in $(git diff --name-only HEAD~1 -- 'assets/img/*.png' 'assets/img/*.jpg' 'assets/img/*.jpeg' 2>/dev/null || true); do
+            if [ -f "$file" ]; then
+              webp_file="${file%.*}.webp"
+              if [ ! -f "$webp_file" ]; then
+                echo "ℹ️  No WebP: $file"
+                MISSING_WEBP="$MISSING_WEBP $file"
+              fi
+            fi
+          done
+
+          if [ -n "$MISSING_WEBP" ]; then
+            echo ""
+            echo "Consider creating WebP versions for better performance:"
+            echo "  cwebp -q 80 input.png -o output.webp"
+          else
+            echo "✓ WebP check complete"
+          fi
+
+      - name: Summary
+        if: steps.large-images.outputs.has_large_images == 'true'
+        run: |
+          echo "## Image Optimization Recommendations" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Some images may benefit from optimization. See job output for details." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Quick optimization commands:" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+          echo "# Resize large images" >> $GITHUB_STEP_SUMMARY
+          echo "mogrify -resize '2000x2000>' image.jpg" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "# Convert to WebP" >> $GITHUB_STEP_SUMMARY
+          echo "cwebp -q 80 image.png -o image.webp" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "# Compress JPEG" >> $GITHUB_STEP_SUMMARY
+          echo "mogrify -quality 85 image.jpg" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY

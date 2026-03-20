@@ -1,0 +1,37 @@
+{% comment %}
+  Single music item card component
+  Usage: {% include music/music_card.liquid music=music %}
+{% endcomment %}
+{% assign music = include.music %}
+<div class="music-item col-lg-6 col-md-6 col-sm-12 mb-4">
+  <div class="card h-100 animated-card">
+    <!-- Music Header -->
+    <header class="music-header card-header">
+      <h2 class="music-title">
+        <a href="{{ music.url | relative_url }}" class="text-decoration-none">
+          {{ music.title }}
+        </a>
+      </h2>
+      <p class="music-meta text-muted small">
+        Released on {{ music.date | date: '%B %d, %Y' }}
+        {% if music.artist %} by {{ music.artist }}{% endif %}
+        {% if music.album -%}
+          , featured on <em>{{ music.album }}</em>
+        {%- endif %}
+      </p>
+    </header>
+    <!-- Music Body -->
+    <div class="music-body card-body">
+      {% if music.excerpt %}
+        <p>{{ music.excerpt | strip_html | truncate: 150 }}</p>
+      {% endif %}
+      <p>{{ music.description | strip_html | truncate: 150 }}</p>
+    </div>
+    <!-- Music Footer -->
+    <footer class="music-footer card-footer text-muted small">
+      {% if music.genres %}
+        <strong>Genres:</strong> {{ music.genres | join: ', ' }}
+      {% endif %}
+    </footer>
+  </div>
+</div>

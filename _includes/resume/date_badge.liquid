@@ -1,0 +1,36 @@
+{% comment %}
+  Date badge component for resume items (work/education)
+  Usage: {% include resume/date_badge.liquid content=content %}
+{% endcomment %}
+{% assign content = include.content %}
+
+<div class="col-xs-2 cl-sm-2 col-md-2 text-center date-column">
+  {% if content.startDate and content.startDate != '' %}
+    {% assign startDate = content.startDate | split: '-' | slice: 0, 2 | join: '.' %}
+    {% assign endDate = content.endDate | split: '-' | slice: 0, 2 | join: '.' | default: 'Present' %}
+    {% assign date = startDate | append: ' - ' | append: endDate %}
+  {% else %}
+    {% assign date = null %}
+  {% endif %}
+  <table class="table-cv">
+    <tbody>
+      <tr>
+        <td>
+          {% if date %}
+            <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px"> {{ date }} </span>
+          {% endif %}
+        </td>
+      </tr>
+      {% if content.location %}
+        <tr>
+          <td>
+            <p class="location">
+              <i class="fa-solid fa-location-dot iconlocation"></i>
+              {{ content.location }}
+            </p>
+          </td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>

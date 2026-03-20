@@ -1,0 +1,356 @@
+/*******************************************************************************
+ * Design System - Semantic Tokens & Foundation
+ * A comprehensive HSL-based design system for an elegant academic portfolio
+ ******************************************************************************/
+
+:root {
+  /* =========================================================================
+   * PRIMARY PALETTE (Analogous Harmony: Indigo → Violet → Teal)
+   * Psychology: Sophistication, Academia, Creativity, Balance
+   * ========================================================================= */
+
+  // Primary: Deep Indigo (sophistication, academia, trust)
+  --primary-h: 252;
+  --primary-s: 71%;
+  --primary-l: 45%;
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --primary-hover: hsl(var(--primary-h), var(--primary-s), 55%);
+  --primary-active: hsl(var(--primary-h), var(--primary-s), 40%);
+  --primary-glow: hsl(var(--primary-h), var(--primary-s), 65%);
+  --primary-subtle: hsl(var(--primary-h), 45%, 96%);
+  --primary-muted: hsl(var(--primary-h), 30%, 85%);
+
+  // Accent: Violet (creativity, innovation, music)
+  --accent-h: 280;
+  --accent-s: 65%;
+  --accent-l: 50%;
+  --accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  --accent-hover: hsl(var(--accent-h), var(--accent-s), 60%);
+  --accent-glow: hsl(var(--accent-h), var(--accent-s), 70%);
+  --accent-subtle: hsl(var(--accent-h), 45%, 96%);
+
+  // Secondary: Teal (music, harmony, balance)
+  --secondary-h: 175;
+  --secondary-s: 55%;
+  --secondary-l: 42%;
+  --secondary: hsl(var(--secondary-h), var(--secondary-s), var(--secondary-l));
+  --secondary-hover: hsl(var(--secondary-h), var(--secondary-s), 52%);
+  --secondary-subtle: hsl(var(--secondary-h), 45%, 96%);
+
+  /* =========================================================================
+   * SURFACE & BACKGROUND SYSTEM
+   * ========================================================================= */
+  --surface-bg: hsl(0, 0%, 100%);
+  --surface-elevated: hsl(252, 30%, 98%);
+  --surface-card: hsl(0, 0%, 100%);
+  --surface-overlay: hsla(252, 71%, 15%, 0.04);
+  --surface-backdrop: hsla(0, 0%, 100%, 0.85);
+  --surface-code: hsl(252, 30%, 97%);
+
+  /* =========================================================================
+   * TEXT HIERARCHY
+   * ========================================================================= */
+  --text-primary: hsl(252, 25%, 12%);
+  --text-secondary: hsl(252, 15%, 40%);
+  --text-tertiary: hsl(252, 10%, 58%);
+  --text-muted: hsl(252, 8%, 72%);
+  --text-on-primary: hsl(0, 0%, 100%);
+  --text-on-accent: hsl(0, 0%, 100%);
+  --text-link: var(--primary);
+  --text-link-hover: var(--primary-hover);
+
+  /* =========================================================================
+   * BORDER SYSTEM
+   * ========================================================================= */
+  --border-base: hsl(252, 15%, 90%);
+  --border-light: hsl(252, 15%, 94%);
+  --border-strong: hsl(252, 15%, 82%);
+  --border-focus: var(--primary);
+  --border-accent: var(--accent);
+
+  /* =========================================================================
+   * FOCUS & ACCESSIBILITY
+   * ========================================================================= */
+  --focus-ring: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.25);
+  --focus-ring-offset: 2px;
+  --focus-ring-width: 3px;
+
+  /* =========================================================================
+   * GRADIENT SYSTEM
+   * ========================================================================= */
+  --gradient-primary: linear-gradient(
+    135deg,
+    hsl(var(--primary-h), var(--primary-s), var(--primary-l)) 0%,
+    hsl(var(--accent-h), var(--accent-s), var(--accent-l)) 100%
+  );
+
+  --gradient-primary-reverse: linear-gradient(
+    135deg,
+    hsl(var(--accent-h), var(--accent-s), var(--accent-l)) 0%,
+    hsl(var(--primary-h), var(--primary-s), var(--primary-l)) 100%
+  );
+
+  --gradient-subtle: linear-gradient(180deg, hsla(var(--primary-h), 45%, 50%, 0.03) 0%, transparent 100%);
+
+  --gradient-radial: radial-gradient(circle at 30% 20%, hsla(var(--primary-h), 60%, 70%, 0.08) 0%, transparent 50%);
+
+  --gradient-overlay: linear-gradient(180deg, transparent 0%, hsla(252, 25%, 12%, 0.7) 100%);
+
+  --gradient-shine: linear-gradient(120deg, transparent 30%, hsla(0, 0%, 100%, 0.15) 50%, transparent 70%);
+
+  /* =========================================================================
+   * SHADOW SYSTEM (5-Level Elevation)
+   * ========================================================================= */
+  --shadow-color: 252, 71%, 15%;
+
+  --shadow-xs: 0 1px 2px hsla(var(--shadow-color), 0.04), 0 1px 1px hsla(var(--shadow-color), 0.03);
+
+  --shadow-sm: 0 2px 4px hsla(var(--shadow-color), 0.05), 0 1px 2px hsla(var(--shadow-color), 0.04);
+
+  --shadow-md: 0 4px 12px hsla(var(--shadow-color), 0.08), 0 2px 4px hsla(var(--shadow-color), 0.05);
+
+  --shadow-lg: 0 8px 24px hsla(var(--shadow-color), 0.1), 0 4px 8px hsla(var(--shadow-color), 0.06);
+
+  --shadow-xl: 0 16px 48px hsla(var(--shadow-color), 0.12), 0 8px 16px hsla(var(--shadow-color), 0.08);
+
+  --shadow-2xl: 0 24px 64px hsla(var(--shadow-color), 0.14), 0 12px 24px hsla(var(--shadow-color), 0.1);
+
+  --shadow-glow: 0 0 20px hsla(var(--primary-h), var(--primary-s), 55%, 0.15), 0 0 40px hsla(var(--primary-h), var(--primary-s), 55%, 0.08);
+
+  --shadow-glow-hover: 0 0 28px hsla(var(--primary-h), var(--primary-s), 55%, 0.25), 0 0 56px hsla(var(--primary-h), var(--primary-s), 55%, 0.12);
+
+  --shadow-glow-accent: 0 0 20px hsla(var(--accent-h), var(--accent-s), 55%, 0.15), 0 0 40px hsla(var(--accent-h), var(--accent-s), 55%, 0.08);
+
+  --shadow-inner: inset 0 2px 4px hsla(var(--shadow-color), 0.06);
+
+  /* =========================================================================
+   * TRANSITION & ANIMATION TIMING
+   * ========================================================================= */
+  --duration-instant: 50ms;
+  --duration-quick: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+  --duration-slower: 500ms;
+  --duration-slowest: 700ms;
+
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  --transition-quick: var(--duration-quick) var(--ease-default);
+  --transition-normal: var(--duration-normal) var(--ease-default);
+  --transition-slow: var(--duration-slow) var(--ease-default);
+  --transition-elastic: var(--duration-slower) var(--ease-elastic);
+
+  /* =========================================================================
+   * BORDER RADIUS SCALE
+   * ========================================================================= */
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 9999px;
+
+  /* =========================================================================
+   * SPACING SCALE (4px base unit)
+   * ========================================================================= */
+  --space-px: 1px;
+  --space-0: 0;
+  --space-0-5: 0.125rem; /* 2px */
+  --space-1: 0.25rem; /* 4px */
+  --space-1-5: 0.375rem; /* 6px */
+  --space-2: 0.5rem; /* 8px */
+  --space-2-5: 0.625rem; /* 10px */
+  --space-3: 0.75rem; /* 12px */
+  --space-3-5: 0.875rem; /* 14px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-7: 1.75rem; /* 28px */
+  --space-8: 2rem; /* 32px */
+  --space-9: 2.25rem; /* 36px */
+  --space-10: 2.5rem; /* 40px */
+  --space-11: 2.75rem; /* 44px */
+  --space-12: 3rem; /* 48px */
+  --space-14: 3.5rem; /* 56px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+  --space-24: 6rem; /* 96px */
+  --space-28: 7rem; /* 112px */
+  --space-32: 8rem; /* 128px */
+
+  /* =========================================================================
+   * TYPOGRAPHY SCALE (Fluid)
+   * ========================================================================= */
+  --font-sans: "Droid Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-serif: "Crimson Pro", Georgia, "Times New Roman", serif;
+  --font-mono: "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", Consolas, monospace;
+
+  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8125rem);
+  --text-sm: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+  --text-base: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+  --text-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.125rem);
+  --text-xl: clamp(1.1875rem, 1.1rem + 0.45vw, 1.3125rem);
+  --text-2xl: clamp(1.4375rem, 1.3rem + 0.7vw, 1.625rem);
+  --text-3xl: clamp(1.75rem, 1.55rem + 1vw, 2rem);
+  --text-4xl: clamp(2.1875rem, 1.9rem + 1.4vw, 2.625rem);
+  --text-5xl: clamp(2.75rem, 2.35rem + 2vw, 3.375rem);
+  --text-6xl: clamp(3.4375rem, 2.9rem + 2.7vw, 4.25rem);
+
+  --leading-none: 1;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 1.8;
+
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.04em;
+  --tracking-widest: 0.08em;
+
+  /* =========================================================================
+   * Z-INDEX SCALE
+   * ========================================================================= */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+
+  /* =========================================================================
+   * STATUS COLORS
+   * ========================================================================= */
+  --success-h: 152;
+  --success-s: 69%;
+  --success-l: 40%;
+  --success: hsl(var(--success-h), var(--success-s), var(--success-l));
+  --success-bg: hsl(var(--success-h), 60%, 95%);
+  --success-text: hsl(var(--success-h), 65%, 25%);
+
+  --warning-h: 45;
+  --warning-s: 93%;
+  --warning-l: 47%;
+  --warning: hsl(var(--warning-h), var(--warning-s), var(--warning-l));
+  --warning-bg: hsl(var(--warning-h), 90%, 95%);
+  --warning-text: hsl(var(--warning-h), 70%, 25%);
+
+  --danger-h: 0;
+  --danger-s: 72%;
+  --danger-l: 51%;
+  --danger: hsl(var(--danger-h), var(--danger-s), var(--danger-l));
+  --danger-bg: hsl(var(--danger-h), 70%, 96%);
+  --danger-text: hsl(var(--danger-h), 65%, 30%);
+
+  --info-h: 200;
+  --info-s: 98%;
+  --info-l: 39%;
+  --info: hsl(var(--info-h), var(--info-s), var(--info-l));
+  --info-bg: hsl(var(--info-h), 90%, 95%);
+  --info-text: hsl(var(--info-h), 80%, 25%);
+}
+
+/* =============================================================================
+ * DARK MODE OVERRIDES
+ * ============================================================================= */
+
+html[data-theme="dark"] {
+  /* Primary (Brighter for dark mode contrast) */
+  --primary-h: 252;
+  --primary-s: 70%;
+  --primary-l: 68%;
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --primary-hover: hsl(var(--primary-h), var(--primary-s), 75%);
+  --primary-active: hsl(var(--primary-h), var(--primary-s), 60%);
+  --primary-glow: hsl(var(--primary-h), var(--primary-s), 80%);
+  --primary-subtle: hsl(var(--primary-h), 35%, 15%);
+  --primary-muted: hsl(var(--primary-h), 25%, 25%);
+
+  /* Accent (Brighter) */
+  --accent-h: 280;
+  --accent-s: 70%;
+  --accent-l: 68%;
+  --accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  --accent-hover: hsl(var(--accent-h), var(--accent-s), 75%);
+  --accent-glow: hsl(var(--accent-h), var(--accent-s), 80%);
+  --accent-subtle: hsl(var(--accent-h), 35%, 15%);
+
+  /* Secondary (Brighter) */
+  --secondary-h: 175;
+  --secondary-s: 60%;
+  --secondary-l: 55%;
+  --secondary: hsl(var(--secondary-h), var(--secondary-s), var(--secondary-l));
+  --secondary-hover: hsl(var(--secondary-h), var(--secondary-s), 65%);
+  --secondary-subtle: hsl(var(--secondary-h), 35%, 15%);
+
+  /* Surfaces (Dark) */
+  --surface-bg: hsl(252, 25%, 9%);
+  --surface-elevated: hsl(252, 22%, 12%);
+  --surface-card: hsl(252, 20%, 14%);
+  --surface-overlay: hsla(252, 70%, 85%, 0.06);
+  --surface-backdrop: hsla(252, 25%, 9%, 0.92);
+  --surface-code: hsl(252, 22%, 16%);
+
+  /* Text (Light for dark mode) */
+  --text-primary: hsl(252, 20%, 93%);
+  --text-secondary: hsl(252, 12%, 68%);
+  --text-tertiary: hsl(252, 8%, 52%);
+  --text-muted: hsl(252, 6%, 38%);
+  --text-on-primary: hsl(252, 25%, 9%);
+  --text-on-accent: hsl(252, 25%, 9%);
+
+  /* Borders (Lighter in dark mode) */
+  --border-base: hsl(252, 18%, 22%);
+  --border-light: hsl(252, 16%, 18%);
+  --border-strong: hsl(252, 20%, 30%);
+
+  /* Shadows (Darker, more subtle) */
+  --shadow-color: 0, 0%, 0%;
+
+  --shadow-xs: 0 1px 2px hsla(var(--shadow-color), 0.25), 0 1px 1px hsla(var(--shadow-color), 0.2);
+
+  --shadow-sm: 0 2px 4px hsla(var(--shadow-color), 0.3), 0 1px 2px hsla(var(--shadow-color), 0.25);
+
+  --shadow-md: 0 4px 12px hsla(var(--shadow-color), 0.35), 0 2px 4px hsla(var(--shadow-color), 0.28);
+
+  --shadow-lg: 0 8px 24px hsla(var(--shadow-color), 0.4), 0 4px 8px hsla(var(--shadow-color), 0.32);
+
+  --shadow-xl: 0 16px 48px hsla(var(--shadow-color), 0.45), 0 8px 16px hsla(var(--shadow-color), 0.35);
+
+  --shadow-2xl: 0 24px 64px hsla(var(--shadow-color), 0.5), 0 12px 24px hsla(var(--shadow-color), 0.4);
+
+  --shadow-glow: 0 0 24px hsla(var(--primary-h), var(--primary-s), 60%, 0.2), 0 0 48px hsla(var(--primary-h), var(--primary-s), 60%, 0.1);
+
+  --shadow-glow-hover: 0 0 32px hsla(var(--primary-h), var(--primary-s), 60%, 0.35), 0 0 64px hsla(var(--primary-h), var(--primary-s), 60%, 0.18);
+
+  /* Gradients (Adjusted for dark mode) */
+  --gradient-subtle: linear-gradient(180deg, hsla(var(--primary-h), 45%, 60%, 0.05) 0%, transparent 100%);
+
+  --gradient-radial: radial-gradient(circle at 30% 20%, hsla(var(--primary-h), 60%, 60%, 0.12) 0%, transparent 50%);
+
+  /* Status colors (Adjusted for dark mode readability) */
+  --success-bg: hsl(var(--success-h), 50%, 12%);
+  --success-text: hsl(var(--success-h), 60%, 70%);
+
+  --warning-bg: hsl(var(--warning-h), 60%, 12%);
+  --warning-text: hsl(var(--warning-h), 80%, 70%);
+
+  --danger-bg: hsl(var(--danger-h), 50%, 12%);
+  --danger-text: hsl(var(--danger-h), 60%, 70%);
+
+  --info-bg: hsl(var(--info-h), 60%, 12%);
+  --info-text: hsl(var(--info-h), 70%, 70%);
+}

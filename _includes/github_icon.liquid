@@ -1,0 +1,20 @@
+{% comment %}
+  Shared GitHub icon component for project/slide cards
+  Usage:
+    {% include github_icon.liquid project=project %}
+    {% include github_icon.liquid project=slide %}
+{% endcomment %}
+{% assign item = include.project %}
+{% if item.github %}
+  <div class="github-icon">
+    <div class="icon" data-toggle="tooltip" title="Code Repository">
+      <a href="{{ item.github }}"><i class="fa-brands fa-github gh-icon"></i></a>
+    </div>
+    {% if item.github_stars %}
+      <span class="stars" data-toggle="tooltip" title="GitHub Stars">
+        <i class="fa-solid fa-star"></i>
+        <span id="{{ item.github_stars }}-stars"></span>
+      </span>
+    {% endif %}
+  </div>
+{% endif %}

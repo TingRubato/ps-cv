@@ -1,6 +1,13 @@
 {
+  "scripts": {
+    "format": "prettier --write .",
+    "purgecss": "purgecss --config purgecss.config.js",
+    "build:css": "bundle exec jekyll build && npm run purgecss",
+    "postbuild": "npm run purgecss"
+  },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "1.4.0",
+    "purgecss": "^6.0.0",
     "prettier": "^3.4.2"
   }
 }

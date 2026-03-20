@@ -1,0 +1,15 @@
+{% comment %}
+  Music list component with cards
+  Usage: {% include music/list.liquid %}
+{% endcomment %}
+<div class="col-lg-8 col-md-12 mb-4">
+  <section class="musics-list">
+    <div class="row">
+      {% for music in paginator.posts %}
+        {% include music/music_card.liquid music=music %}
+      {% endfor %}
+    </div>
+  </section>
+
+  {% include music/pagination.liquid %}
+</div>

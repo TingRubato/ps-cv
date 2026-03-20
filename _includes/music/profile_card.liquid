@@ -1,0 +1,36 @@
+{% comment %}
+  Music profile card sidebar component
+  Usage: {% include music/profile_card.liquid %}
+{% endcomment %}
+<div class="col-lg-4 col-md-12 mb-4 d-flex justify-content-center">
+  <section class="profile-card-section">
+    <aside class="profile-card">
+      <header class="text-center">
+        <a target="_blank" href="https://www.linkedin.com/in/7m-xu" aria-label="LinkedIn Profile">
+          <img src="{{ '/assets/img/head.png' | relative_url }}" alt="Ting Xu" class="img-fluid rounded-circle" loading="lazy">
+        </a>
+        <h1>Ting Xu</h1>
+      </header>
+      <div class="profile-bio mt-3">
+        <p>Creating immersive compositions that connect people with technology and music.</p>
+      </div>
+      <ul class="profile-social-links list-inline text-center mt-3">
+        <li class="list-inline-item">
+          <a href="https://on.soundcloud.com/TsH9CDhELbATtpZ49" target="_blank" aria-label="SoundCloud">
+            <i class="fab fa-soundcloud"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://github.com/tingrubato" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://www.linkedin.com/in/7m-xu" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </section>
+</div>

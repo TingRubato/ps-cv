@@ -384,21 +384,32 @@ lazy_loading_images: true # enables lazy loading of images (recommended)
 # Optional Features
 # -----------------------------------------------------------------------------
 
-enable_google_analytics: true # enables google analytics
-enable_cronitor_analytics: true # enables cronitor RUM analytics
-enable_pirsch_analytics: false # enables Pirsch analytics (https://pirsch.io/)
-enable_openpanel_analytics: false # enables Openpanel analytics (https://openpanel.dev/)
-enable_google_verification: true # enables google site verification
-enable_bing_verification: false # enables bing site verification
-enable_masonry: true # enables automatic  project cards arrangement
-enable_math: true # enables math typesetting (uses MathJax)
-enable_tooltips: true # enables automatic tooltip links generated for each section titles on pages and posts
-enable_darkmode: true # enables switching between light/dark modes
-enable_navbar_social: false # enables displaying social links in the navbar on the about page
-enable_project_categories: false # enables categorization of projects into multiple categories
-enable_medium_zoom: true # enables image zoom feature (as on medium.com)
-enable_progressbar: true # enables a horizontal progress bar linked to the vertical scroll position
-enable_video_embedding: false # enables video embedding for bibtex entries. If false, the button opens the video link in a new window.
+# --- Analytics & Verification ---
+# Toggle analytics providers and search engine verification
+enable_google_analytics: true # Google Analytics tracking
+enable_cronitor_analytics: true # Cronitor RUM analytics
+enable_pirsch_analytics: false # Pirsch analytics (https://pirsch.io/)
+enable_openpanel_analytics: false # Openpanel analytics (https://openpanel.dev/)
+enable_google_verification: true # Google Search Console verification
+enable_bing_verification: false # Bing Webmaster verification
+
+# --- UI/UX Features ---
+# Core site functionality and user experience
+enable_darkmode: true # Light/dark mode switching
+enable_math: true # MathJax math typesetting
+enable_tooltips: true # Section title tooltip links
+enable_medium_zoom: true # Image zoom (medium.com style)
+enable_progressbar: true # Horizontal scroll progress bar
+
+# --- Layout & Display ---
+# Content organization and visual layout
+enable_masonry: true # Automatic project card arrangement
+enable_project_categories: false # Project categorization
+enable_video_embedding: false # Embed videos in bibtex entries
+
+# --- Social Features ---
+# Social media and sharing integration
+enable_navbar_social: false # Social links in navbar
 
 # -----------------------------------------------------------------------------
 # Library versions
@@ -449,7 +460,7 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons|Droid+Sans:400,700&display=swap"
   highlightjs:
     integrity:
       css:

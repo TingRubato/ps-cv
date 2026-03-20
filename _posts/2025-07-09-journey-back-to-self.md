@@ -8,348 +8,397 @@ toc:
     sidebar: left
 ---
 
-
 <style>
-.childhood-room {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    //
-    padding: 30px;
-    border-radius: 15px;
-    margin: 20px 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    position: relative;
-    overflow: hidden;
-}
+  /* Base Definitions using Theme Variables */
+  :root {
+    --card-bg: var(--global-card-bg-color, #ffffff);
+    --text-color: var(--global-text-color, #333333);
+    --shadow-color: rgba(0,0,0,0.1);
+    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --piano-white: #ffffff;
+    --piano-black: #333333;
+    --piano-white-hover: #f0f8ff;
+    --piano-black-hover: #555555;
+  }
 
-.childhood-room::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    animation: float 6s ease-in-out infinite;
-}
+  html[data-theme="dark"] {
+    --shadow-color: rgba(0,0,0,0.4);
+    --accent-gradient: linear-gradient(135deg, #4b5fa7 0%, #5b3a7d 100%);
+    --piano-white: #e0e0e0;
+    --piano-white-hover: #d0d8e0;
+    --piano-black: #222222;
+  }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(180deg); }
-}
+  /* Childhood Room */
+  .childhood-room {
+      background: var(--accent-gradient);
+      color: white; /* Keep text white on the gradient background */
+      padding: 30px;
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: 0 10px 30px var(--shadow-color);
+      position: relative;
+      overflow: hidden;
+  }
 
-.memory-card {
-    background: rgba(255, 255, 255, 0.95);
-    color: #333;
-    padding: 25px;
-    border-radius: 12px;
-    margin: 20px 0;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    border-left: 5px solid #4CAF50;
-    transition: all 0.3s ease;
-}
+  .childhood-room::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+  }
 
-.memory-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
+  @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+  }
 
-.piano-keys {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-    height: 60px;
-}
+  /* Memory Card */
+  .memory-card {
+      background: var(--card-bg);
+      color: var(--text-color);
+      padding: 25px;
+      border-radius: 12px;
+      margin: 20px 0;
+      box-shadow: 0 8px 25px var(--shadow-color);
+      border-left: 5px solid #4CAF50;
+      transition: all 0.3s ease;
+  }
 
-.white-key, .black-key {
-    display: inline-block;
-    margin: 0 1px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
+  .memory-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px var(--shadow-color);
+  }
 
-.white-key {
-    width: 30px;
-    height: 60px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 0 0 5px 5px;
-}
+  /* Piano Keys */
+  .piano-keys {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      height: 60px;
+  }
 
-.black-key {
-    width: 20px;
-    height: 35px;
-    background: #333;
-    border-radius: 0 0 3px 3px;
-    margin-left: -10px;
-    margin-right: -10px;
-    z-index: 2;
-    position: relative;
-}
+  .white-key, .black-key {
+      display: inline-block;
+      margin: 0 1px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+  }
 
-.white-key:hover {
-    background: #f0f8ff;
-    transform: translateY(2px);
-}
+  .white-key {
+      width: 30px;
+      height: 60px;
+      background: var(--piano-white);
+      border: 1px solid #ccc;
+      border-radius: 0 0 5px 5px;
+  }
 
-.black-key:hover {
-    background: #555;
-    transform: translateY(1px);
-}
+  html[data-theme="dark"] .white-key {
+    border-color: #555;
+  }
 
-.reflection-quote {
-    font-style: italic;
-    font-size: 1.2em;
-    text-align: center;
-    margin: 30px 0;
-    padding: 20px;
-    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-    //
-    border-radius: 10px;
-    position: relative;
-}
+  .black-key {
+      width: 20px;
+      height: 35px;
+      background: var(--piano-black);
+      border-radius: 0 0 3px 3px;
+      margin-left: -10px;
+      margin-right: -10px;
+      z-index: 2;
+      position: relative;
+  }
 
-.reflection-quote::before {
-    content: '"';
-    font-size: 4em;
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    opacity: 0.3;
-}
+  .white-key:hover {
+      background: var(--piano-white-hover);
+      transform: translateY(2px);
+  }
 
-.reflection-quote::after {
-    content: '"';
-    font-size: 4em;
-    position: absolute;
-    bottom: -40px;
-    right: 20px;
-    opacity: 0.3;
-}
+  .black-key:hover {
+      background: var(--piano-black-hover);
+      transform: translateY(1px);
+  }
 
-.courage-section {
-    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-    //
-    padding: 40px;
-    border-radius: 20px;
-    margin: 30px 0;
-    text-align: center;
-}
+  /* Quotes */
+  .reflection-quote {
+      font-style: italic;
+      font-size: 1.2em;
+      text-align: center;
+      margin: 30px 0;
+      padding: 20px;
+      background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+      color: white; /* Ensure text is readable on gradient */
+      border-radius: 10px;
+      position: relative;
+  }
 
-.courage-section h3 {
-    margin-bottom: 20px;
-    font-size: 2em;
-}
+  .reflection-quote::before, .reflection-quote::after {
+      content: '"';
+      font-size: 4em;
+      position: absolute;
+      opacity: 0.3;
+      color: white;
+  }
+  .reflection-quote::before { top: -10px; left: 20px; }
+  .reflection-quote::after { bottom: -40px; right: 20px; }
 
-.timeline {
-    position: relative;
-    margin: 40px 0;
-    padding: 20px 0;
-}
+  /* Courage Section */
+  .courage-section {
+      background: var(--accent-gradient);
+      color: white;
+      padding: 40px;
+      border-radius: 20px;
+      margin: 30px 0;
+      text-align: center;
+  }
 
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, #667eea, #764ba2);
-    transform: translateX(-50%);
-}
+  .courage-section h3 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      color: white;
+  }
 
-.timeline-item {
-    position: relative;
-    margin: 30px 0;
-    padding: 0 20px;
-}
+  /* Timeline */
+  .timeline {
+      position: relative;
+      margin: 40px 0;
+      padding: 20px 0;
+  }
 
-.timeline-item:nth-child(odd) {
-    text-align: right;
-    padding-right: 60%;
-}
+  .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #667eea, #764ba2);
+      transform: translateX(-50%);
+  }
 
-.timeline-item:nth-child(even) {
-    text-align: left;
-    padding-left: 60%;
-}
+  .timeline-item {
+      position: relative;
+      margin: 30px 0;
+      padding: 0 20px;
+  }
 
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    width: 15px;
-    height: 15px;
-    background: #667eea;
-    border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 0 0 3px #667eea;
-}
+  .timeline-item:nth-child(odd) { text-align: right; padding-right: 60%; }
+  .timeline-item:nth-child(even) { text-align: left; padding-left: 60%; }
 
-.timeline-item:nth-child(odd)::before {
-    right: calc(50% - 7px);
-}
+  .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 15px;
+      height: 15px;
+      background: #667eea;
+      border-radius: 50%;
+      border: 3px solid var(--global-bg-color); /* Match page background */
+      box-shadow: 0 0 0 3px #667eea;
+  }
 
-.timeline-item:nth-child(even)::before {
-    left: calc(50% - 7px);
-}
+  .timeline-item:nth-child(odd)::before { right: calc(50% - 7px); }
+  .timeline-item:nth-child(even)::before { left: calc(50% - 7px); }
 
-.creative-highlight {
-    background: linear-gradient(45deg, #ffd89b 0%, #19547b 100%);
-    //
-    padding: 25px;
-    border-radius: 15px;
-    margin: 20px 0;
-    text-align: center;
-    font-weight: bold;
-    animation: pulse 3s infinite;
-}
+  /* Creative Highlight */
+  .creative-highlight {
+      background: linear-gradient(45deg, #ffd89b 0%, #19547b 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin: 20px 0;
+      text-align: center;
+      font-weight: bold;
+      animation: pulse 3s infinite;
+  }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-}
+  @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+  }
 
-.question-box {
-    background: rgba(76, 175, 80, 0.1);
-    border-left: 4px solid #4CAF50;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-}
+  /* Question Box */
+  .question-box {
+      background: rgba(76, 175, 80, 0.1);
+      border-left: 4px solid #4CAF50;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 5px;
+      color: var(--text-color);
+  }
+  
+  html[data-theme="dark"] .question-box {
+      background: rgba(76, 175, 80, 0.2); /* Slightly more visible in dark mode */
+  }
 
-.question-box h4 {
-    color: #4CAF50;
-    margin-bottom: 10px;
-}
+  .question-box h4 {
+      color: #4CAF50;
+      margin-bottom: 10px;
+  }
 
-.innovation-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    //
-    padding: 30px;
-    border-radius: 20px;
-    margin: 30px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
+  /* Innovation Card */
+  .innovation-card {
+      background: var(--accent-gradient);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      margin: 30px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+  }
 
-.innovation-card::before {
-    content: '💡';
-    font-size: 4em;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    opacity: 0.2;
-    animation: twinkle 2s infinite;
-}
+  .innovation-card::before {
+      content: '💡';
+      font-size: 4em;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      opacity: 0.2;
+      animation: twinkle 2s infinite;
+  }
 
-@keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 0.6; }
-}
+  @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.6; }
+  }
 
-.support-network {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin: 30px 0;
-}
+  /* Support Network */
+  .support-network {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+  }
 
-.support-card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 4px solid #667eea;
-    transition: transform 0.3s ease;
-}
+  .support-card {
+      background: var(--card-bg);
+      color: var(--text-color);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px var(--shadow-color);
+      border-top: 4px solid #667eea;
+      transition: transform 0.3s ease;
+  }
 
-.support-card:hover {
-    transform: translateY(-5px);
-}
+  .support-card:hover { transform: translateY(-5px); }
+  .support-card h4 { color: #667eea; margin-bottom: 15px; }
 
-.support-card h4 {
-    color: #667eea;
-    margin-bottom: 15px;
-}
+  /* Final Message */
+  .final-message {
+      background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      margin: 40px 0;
+      font-size: 1.1em;
+      line-height: 1.6;
+  }
 
-.final-message {
-    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-    //
-    padding: 40px;
-    border-radius: 25px;
-    text-align: center;
-    margin: 40px 0;
-    font-size: 1.1em;
-    line-height: 1.6;
-}
+  /* Improved Memory Card (Custom) */
+  .improved-memory-card {
+    background: linear-gradient(135deg, #f8fafc 60%, #e0e7ef 100%);
+    border-radius: 1.2em;
+    box-shadow: 0 4px 24px rgba(60, 72, 100, 0.10), 0 1.5px 6px rgba(60, 72, 100, 0.08);
+    padding: 2.2em 2em 1.5em 2em;
+    margin: 2.5em 0;
+    border-left: 6px solid #6c8cff;
+    color: #2a3142;
+  }
 
-@media (max-width: 768px) {
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        text-align: left;
-        padding-left: 40px;
-        padding-right: 20px;
-    }
-    
-    .timeline::before {
-        left: 20px;
-    }
-    
-    .timeline-item::before {
-        left: 13px !important;
-    }
-}
+  html[data-theme="dark"] .improved-memory-card {
+    background: linear-gradient(135deg, #2c3237 60%, #1c1c1d 100%);
+    color: #e0e0e0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  html[data-theme="dark"] .improved-memory-card span,
+  html[data-theme="dark"] .improved-memory-card p,
+  html[data-theme="dark"] .improved-memory-card ul {
+      color: #e0e0e0 !important;
+  }
+
+  @media (max-width: 768px) {
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+          text-align: left;
+          padding-left: 40px;
+          padding-right: 20px;
+      }
+      .timeline::before {
+          left: 20px;
+      }
+      .timeline-item::before {
+          left: 13px !important;
+      }
+  }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Add piano key sound effects
     const keys = document.querySelectorAll('.white-key, .black-key');
-    keys.forEach((key, index) => {
-        key.addEventListener('click', function() {
-            // Create a simple beep sound
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.value = 261.63 * Math.pow(2, index / 12); // Musical note frequencies
-            oscillator.type = 'sine';
-            
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.5);
+    if(window.AudioContext || window.webkitAudioContext) {
+        keys.forEach((key, index) => {
+            key.addEventListener('click', function() {
+                try {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    const audioContext = new AudioContext();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.frequency.value = 261.63 * Math.pow(2, index / 12); // Musical note frequencies
+                    oscillator.type = 'sine';
+                    
+                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                    
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.5);
+                } catch(e) {
+                    console.log("Audio context blocked or not supported");
+                }
+            });
         });
-    });
-    
+    }
+
     // Animate timeline items on scroll
     const timelineItems = document.querySelectorAll('.timeline-item');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
+    if('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
         });
-    });
-    
-    timelineItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px)';
-        item.style.transition = 'all 0.6s ease';
-        observer.observe(item);
-    });
+        
+        timelineItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'all 0.6s ease';
+            observer.observe(item);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        timelineItems.forEach(item => {
+            item.style.opacity = '1';
+        });
+    }
 });
 </script>
 
 <div class="childhood-room">
-  <h2 style="margin-top:0;">The Journey Back to Self</h2>
+  <h2 style="margin-top:0; color:white;">The Journey Back to Self</h2>
   <p>
     We spend so much of our lives striving to become someone—<br>
     <span style="display:block; margin-left:1em;">Someone <strong>impressive</strong>.<br>
@@ -366,7 +415,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <p style="font-style:italic; margin-left:1em;">
     The one who dreamed freely, felt deeply, and believed without needing proof.
   </p>
-  <aside style="padding:10px 16px; margin:16px 0; border-left:4px solid; background: #f9f9f9;">
+  <aside style="padding:10px 16px; margin:16px 0; border-left:4px solid; background: rgba(255,255,255,0.2);">
     This isn't a story about becoming someone new. It's about remembering someone old. Someone honest.
   </aside>
   <p>
@@ -380,13 +429,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <hr>
 
-<div class="memory-card" style="border-radius: 12px; padding: 28px 24px; margin: 24px 0; box-shadow: 0 2px 12px rgba(118,75,162,0.08); background: #f7f3ff;">
-  <h3 style="margin-top:0; font-size:1.4em; letter-spacing:0.02em;">Unpacking <span style="font-family:monospace; background:#eee; padding:2px 6px; border-radius:4px;">memory_arxiv.zip</span>…</h3>
+<div class="memory-card">
+  <h3 style="margin-top:0; font-size:1.4em; letter-spacing:0.02em;">Unpacking <span style="font-family:monospace; background:rgba(0,0,0,0.1); padding:2px 6px; border-radius:4px;">memory_arxiv.zip</span>…</h3>
   <div style="margin-bottom:0.5em;">
     <span style="font-weight:bold;">Unpacked,</span><br>
     <span style="font-style:italic;">Output:</span>
   </div>
-  <blockquote style="border-left:4px solid; margin:0 0 1em 0; padding:0.5em 1em; background:#faf7ff;">
+  <blockquote style="border-left:4px solid; margin:0 0 1em 0; padding:0.5em 1em; background:rgba(0,0,0,0.05);">
     <span>There's this image that's been stuck in my head for years.</span>
   </blockquote>
   <p style="margin-bottom:0.7em;">
@@ -467,7 +516,7 @@ It was something deeper—like being loyal to a version of myself that hadn't ye
   This is how amazing that little kid was, suicidal attempt?
 </p>
 <div class="creative-highlight">
-  $$\tan(\frac{\pi}{2}) !$$
+  $$\tan(\frac{\pi}{2}) !$$ 
 </div>
 <p>
   Wanna figure out what nerdy card I’m playing? Try use ChatGPT!
@@ -512,7 +561,7 @@ And when the inspiration fades—when the page stays blank and the melody won’
 <h3>A Special Thanks</h3>
 to Dr. Pace. Dr. Matthew Pace wasn't just my classical theory professor—he showed me how to manipulate  music, this universal human language, to express what's inside. In one semester, I wrote "Wowtz For Lunatics," something I never expected to create. <br>
 Dr. Pace is an extraordinary educator—someone whose mastery of music theory is so complete that he teaches with unwavering clarity. There’s no hesitation in his voice, no performance in his presence—just calm, grounded confidence. I admire that deeply. It’s a kind of quiet strength I hope to embody one day myself. If I ever stand at the podium, I want to speak with the same steady assurance he so effortlessly radiates.<br>
-But what Dr. Pace gave me went far beyond lectures, slides, or harmonic analysis. I still remember one particular afternoon after class, when I stayed behind to ask him why counterpoint frustrated me so much. I couldn’t quite articulate the disconnect I felt. He paused thoughtfully, then said:<br>
+But what Dr. Pace gave me went far beyond lectures, slides, or harmonic analysis. I still remember one particular afternoon after class, when I stayed behind to ask him why counterpoint frustrated me so much. I couldn’t quite articulate the disconnect I felt. He paused thoughtfully, then said:
 <blockquote>It’s about how you place the notes so they behave well. You want your music to be well-behaving.</blockquote>
 At first, I smiled politely—it sounded almost too simple. But the more I thought about it, the more it reshaped how I saw everything.<br>
 The idea of “well-behaving” notes felt like a new testament written over the old one. It wasn’t about blindly obeying the rules someone else laid down centuries ago. It was about listening closely to the logic and emotion behind those rules—to find the underlying integrity. It meant that musical choices aren’t just right or wrong; they’re ethical, emotional, intentional.<br>
@@ -602,7 +651,7 @@ It’s saved me more times than I can count. And these days, it doesn’t just w
   There’s a particular conversation I’ll never forget.
 </p>
 
-<div style="background:linear-gradient(90deg,#f9f6ff 80%,#fffbe7 100%); border-left:5px solid #764ba2; border-radius:8px; padding:18px 22px; margin:20px 0;">
+<div style="background:linear-gradient(90deg, rgba(249,246,255,0.5) 80%, rgba(255,251,231,0.5) 100%); border-left:5px solid #764ba2; border-radius:8px; padding:18px 22px; margin:20px 0;">
   <p style="margin-bottom:0.7em;">
     <span style="font-weight:bold;">An employer from my own hometown</span> assumed he could <span style="font-style:italic;">lowball me</span>—<br>
     <span style="margin-left:1.2em; display:block;">just because of my visa situation.</span>
@@ -610,7 +659,7 @@ It’s saved me more times than I can count. And these days, it doesn’t just w
   <p style="margin-bottom:0.7em;">
     He looked at my resume, heard my circumstances, and said,
   </p>
-  <blockquote style="border-left:4px solid #bbb; margin:0 0 1em 0; padding:0.5em 1em; background:#f5f5f5; font-size:1.05em;">
+  <blockquote style="border-left:4px solid var(--global-text-color-light); margin:0 0 1em 0; padding:0.5em 1em; background:rgba(0,0,0,0.05); font-size:1.05em;">
     "Your family must've spoiled you. I mean, you're still surviving here without income, right?"
   </blockquote>
 </div>
@@ -626,11 +675,11 @@ It’s saved me more times than I can count. And these days, it doesn’t just w
 <p>
   And I didn't come this far just to shrink into survival.
 </p>
-<div style="background:linear-gradient(90deg,#fffbe7 80%,#f9f6ff 100%); border-left:5px solid #ffd89b; border-radius:8px; padding:16px 20px; margin:20px 0;">
+<div style="background:linear-gradient(90deg, rgba(255,251,231,0.5) 80%, rgba(249,246,255,0.5) 100%); border-left:5px solid #ffd89b; border-radius:8px; padding:16px 20px; margin:20px 0;">
   <p style="margin-bottom:0.7em;">
     Then, as if doubling down, he added:
   </p>
-  <blockquote style="border-left:4px solid #bbb; margin:0 0 1em 0; padding:0.5em 1em; background:#f9f9f9; font-size:1.05em;">
+  <blockquote style="border-left:4px solid var(--global-text-color-light); margin:0 0 1em 0; padding:0.5em 1em; background:rgba(0,0,0,0.05); font-size:1.05em;">
     "Sorry to be blunt, but I've never heard of WashU. It's probably not that great of a school."
   </blockquote>
 </div>
@@ -646,7 +695,7 @@ It’s saved me more times than I can count. And these days, it doesn’t just w
   }
   .erased-highlight {
     color: #764ba2;
-    background: #f9f6ff;
+    background: rgba(118,75,162,0.1);
     border-radius: 4px;
     padding: 2px 6px;
   }
@@ -700,18 +749,18 @@ Along the way, I've been lucky—truly lucky—to cross paths with people who di
     </div>
 </div>
 
-<div class="memory-card improved-memory-card" style="background: linear-gradient(135deg, #f8fafc 60%, #e0e7ef 100%); border-radius: 1.2em; box-shadow: 0 4px 24px rgba(60, 72, 100, 0.10), 0 1.5px 6px rgba(60, 72, 100, 0.08); padding: 2.2em 2em 1.5em 2em; margin: 2.5em 0; border-left: 6px solid #6c8cff;">
-  <p style="font-size: 1.13em; line-height: 1.7; color: #2a3142; margin-bottom: 1.1em;">
+<div class="improved-memory-card">
+  <p style="font-size: 1.13em; line-height: 1.7; margin-bottom: 1.1em;">
     <span style="font-weight: 600; color: #4b5fa7;">I'll never forget</span> the day Jim swung by <span style="color: #7a869a;">Kaldi's Coffee</span>
     <aside style="display: inline; font-size: 0.93em; color: #9ba6b8;">(the Ladue location<sup><a href="https://kaldiscoffee.com/pages/kaldis-coffee-at-ladue" target="_blank" style="color: #b3c6f7; text-decoration: none;">[1]</a></sup>)</aside>
     just to talk me down from a spiral.
   </p>
-  <ul style="list-style: disc inside; margin: 0 0 1.1em 0.5em; padding: 0; color: #3a4256;">
+  <ul style="list-style: disc inside; margin: 0 0 1.1em 0.5em; padding: 0;">
     <li>I remember the exact spot where we sat.</li>
     <li>I even forgot that you didn't have a drink during the entire conversation.</li>
     <li>I remember what I said—and what I couldn't say.</li>
   </ul>
-  <p style="margin-bottom: 1em; color: #2a3142;">
+  <p style="margin-bottom: 1em;">
     I remember how Jim just sat there, quietly fidgeting with his fingers, picking at his nails in that unmistakably Jim way.
     <br>
     <span style="color: #5a6bb7; font-style: italic; font-size: 1.08em;">
@@ -719,7 +768,7 @@ Along the way, I've been lucky—truly lucky—to cross paths with people who di
     </span>
     <br>
     He said,
-    <span style="display: block; margin: 0.7em 0 0.7em 1.2em; padding-left: 0.7em; border-left: 3px solid #b3c6f7; color: #3a4256; font-style: italic; font-size: 1.08em;">
+    <span style="display: block; margin: 0.7em 0 0.7em 1.2em; padding-left: 0.7em; border-left: 3px solid #b3c6f7; font-style: italic; font-size: 1.08em;">
       "Kelly's excited about it. Bill's excited about it. Everyone's excited about it."
     </span>
   </p>
@@ -759,7 +808,7 @@ Speaking of Evonne—she's 82 years old.
 At first, I worried about the generation gap. I mean, what could someone like me possibly have in common with someone who's lived through so much more?
 
 <div class="creative-highlight">
-But now, I get what Jim meant when he said:<br>
+But now, I get what Jim meant when he said:
 "It's not about generations—it's about approach and methodology."
 </div>
 
@@ -827,7 +876,7 @@ But I deeply believe—at some point in your life—you've felt that one crystal
 
 <h3>Growing Beyond Childhood vs. Honoring It</h3>
 
-We live in a world that constantly demands we "grow up"—a world that tells us to let go of our fantasies, to toughen up, to be realistic.
+We live in a world that constantly demands we "grow up"—a world that constantly tells us to let go of our fantasies, to toughen up, to be realistic.
 
 In that world, dreams are downgraded to hobbies, curiosity is replaced by caution, and desire is filtered through what's practical, profitable, or acceptable.
 
@@ -852,7 +901,8 @@ But is that what we really want?
 
 <div class="innovation-card">
 <strong>Growing up isn't about trading dreams for a life.</strong><br>
-<br>It's about learning how to hold both.<br>
+<br>
+It's about learning how to hold both.<br>
 And walking forward without betraying the kid who once dared to believe you could.
 </div>
 
@@ -952,7 +1002,7 @@ And to truly create, we often have to return to a place most of us have long for
 <strong>We have to find our childhood room.</strong>
 </div>
 
-Yes, that room—the one that still exists somewhere deep inside, even if we haven't stepped into it for years. The door was never locked. Life just got loud. Growing up got heavy. And it's probably been far too long since anyone gently pushed that door open and walked inside.
+Yes, that room—the one that still exists somewhere deep inside, even if we haven't stepped into it for years. The door was never locked. Life just got busy. Growing up got heavy. And it's probably been far too long since anyone gently pushed that door open and walked inside.
 
 <blockquote style="border-left: 4px solid #4CAF50; padding-left: 20px; font-style: italic; color: #4CAF50;">
 But everything in that room is still there, quietly waiting.
@@ -984,59 +1034,59 @@ If yes, that's your direction. If no, that's what you need to search for.</p>
 <section class="overcoming-hesitation" style="margin: 2.5em 0;">
   <h2 style="color: #e65100; font-size: 2em; font-weight: 700; margin-bottom: 1em;">Overcoming Hesitation</h2>
 
-  <blockquote style="border-left: 4px solid #FF9800; padding: 1em 1.5em; background: #fff8e1; font-style: italic; color: #b26a00; border-radius: 6px; margin-bottom: 1.5em;">
+  <blockquote style="border-left: 4px solid #FF9800; padding: 1em 1.5em; background: rgba(255, 152, 0, 0.1); font-style: italic; color: #b26a00; border-radius: 6px; margin-bottom: 1.5em;">
     "But I'm scared. I'm afraid pursuing those things will make me lose what I have now."
   </blockquote>
 
-  <p style="color: #444; font-size: 1.08em; margin-bottom: 1.1em;">
+  <p style="font-size: 1.08em; margin-bottom: 1.1em;">
     I understand that fear. I've stood at that crossroads too.
   </p>
 
-  <div class="creative-highlight" style="background: #f3e5f5; border-left: 5px solid #8e24aa; border-radius: 7px; padding: 1em 1.5em; margin-bottom: 1.2em; color: #4a148c; font-weight: 500;">
+  <div class="creative-highlight" style="background: rgba(142, 36, 170, 0.1); border-left: 5px solid #8e24aa; border-radius: 7px; padding: 1em 1.5em; margin-bottom: 1.2em; color: #4a148c; font-weight: 500;">
     What really scares me isn’t the impossible—it’s regret.
   </div>
 
-  <p style="color: #444; margin-bottom: 1.1em;">
+  <p style="margin-bottom: 1.1em;">
     It’s lying there when my hands don’t work anymore, still thinking, <span style="color:#8e24aa; font-style:italic;">“What if I hadn’t hesitated to enroll in MUS121C?”</span>
   </p>
 
-  <blockquote style="border-left: 4px solid #f44336; padding: 1em 1.5em; background: #ffebee; font-style: italic; color: #b71c1c; border-radius: 6px; margin-bottom: 1.5em;">
+  <blockquote style="border-left: 4px solid #f44336; padding: 1em 1.5em; background: rgba(244, 67, 54, 0.1); font-style: italic; color: #b71c1c; border-radius: 6px; margin-bottom: 1.5em;">
     The biggest risk isn’t chasing your dreams—it’s never trying at all.
   </blockquote>
 
-  <p style="color: #444; font-size: 1.08em; margin-bottom: 1.2em;">
+  <p style="font-size: 1.08em; margin-bottom: 1.2em;">
     You don’t need to change everything at once. You just need to take the first step. As you begin this journey, something magical happens:
   </p>
 
   <section class="support-network" style="margin: 2em 0 2.5em 0;">
-    <div class="connection-card" style="background: #f4f9f4; border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em; margin-bottom: 1.1em;">
+    <div class="connection-card" style="background: rgba(76, 175, 80, 0.1); border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em; margin-bottom: 1.1em;">
       <div class="connection-title" style="font-weight: 600; color: #388e3c; font-size: 1.13em; margin-bottom: 0.3em;">
         When you begin to move toward what you truly want,
       </div>
-      <div class="connection-body" style="color: #333; font-size: 1.04em;">
+      <div class="connection-body" style="font-size: 1.04em;">
         you’ll notice others quietly stepping out too—drawn by the same longing.
       </div>
     </div>
-    <div class="connection-card" style="background: #f4f9f4; border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em; margin-bottom: 1.1em;">
+    <div class="connection-card" style="background: rgba(76, 175, 80, 0.1); border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em; margin-bottom: 1.1em;">
       <div class="connection-title" style="font-weight: 600; color: #388e3c; font-size: 1.13em; margin-bottom: 0.3em;">
         You’ll realize
       </div>
-      <div class="connection-body" style="color: #333; font-size: 1.04em;">
+      <div class="connection-body" style="font-size: 1.04em;">
         you were never the only one waiting on that little bench.
       </div>
     </div>
-    <div class="connection-card" style="background: #f4f9f4; border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em;">
+    <div class="connection-card" style="background: rgba(76, 175, 80, 0.1); border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em;">
       <div class="connection-title" style="font-weight: 600; color: #388e3c; font-size: 1.13em; margin-bottom: 0.3em;">
         You’ll find
       </div>
-      <div class="connection-body" style="color: #333; font-size: 1.04em;">
+      <div class="connection-body" style="font-size: 1.04em;">
         so many people—gentle, brave—searching for their own way to be seen, to be heard, to be real.
       </div>
     </div>
-    <div class="support-message" style="margin: 1.7em 0 1.2em 0; color: #444; font-size: 1.07em;">
+    <div class="support-message" style="margin: 1.7em 0 1.2em 0; font-size: 1.07em;">
       These people become your support system. They’ll see your worth, even on days you can’t.
     </div>
-    <div class="courage-section" style="background: #fff3e6; border-left: 5px solid #FF9800; border-radius: 7px; padding: 1.1em 1.5em 1em 1.5em; margin-bottom: 1.2em;">
+    <div class="courage-section" style="background: rgba(255, 152, 0, 0.15); border-left: 5px solid #FF9800; border-radius: 7px; padding: 1.1em 1.5em 1em 1.5em; margin-bottom: 1.2em;">
       <h3 style="margin: 0; color: #e65100; font-size: 1.18em; font-weight: 600;">
         You deserve to be here.<br>
         You deserve to be cherished.
@@ -1045,33 +1095,33 @@ If yes, that's your direction. If no, that's what you need to search for.</p>
   </section>
 
   <h2 style="color: #6a4cff; font-size: 2em; font-weight: 700; margin-bottom: 1em;">Back to the Beginning</h2>
-  <p style="color: #444; font-size: 1.08em; margin-bottom: 1.1em;">
+  <p style="font-size: 1.08em; margin-bottom: 1.1em;">
     So now, let’s return to that little bench.
     <br>
     If tonight, just for a moment, you’re willing to sit beside your younger self—not for nostalgia, but to ask honestly:
   </p>
-  <div class="reflection-quote" style="font-style: italic; color: #6a4cff; background: #f3f0ff; border-radius: 6px; padding: 1em 1.5em; margin: 1.2em 0;">
+  <div class="reflection-quote" style="font-style: italic; color: #6a4cff; background: rgba(106, 76, 255, 0.1); border-radius: 6px; padding: 1em 1.5em; margin: 1.2em 0;">
     "Are you still waiting for me?"
   </div>
-  <p style="color: #444; font-size: 1.08em; margin-bottom: 1.1em;">
+  <p style="font-size: 1.08em; margin-bottom: 1.1em;">
     I believe that child will look up, maybe a little teary-eyed, and whisper:
   </p>
-  <div class="reflection-quote" style="font-style: italic; color: #e67e22; background: #fff7ec; border-radius: 6px; padding: 1em 1.5em; margin: 1.2em 0;">
+  <div class="reflection-quote" style="font-style: italic; color: #e67e22; background: rgba(230, 126, 34, 0.1); border-radius: 6px; padding: 1em 1.5em; margin: 1.2em 0;">
     "I've been waiting for you all along. I always knew you'd come back."
   </div>
 
-  <p class="creativity-explanation" style="margin-bottom: 1.5em; color: #444; font-size: 1.12em; line-height: 1.7;">
+  <p class="creativity-explanation" style="margin-bottom: 1.5em; font-size: 1.12em; line-height: 1.7;">
     Because creativity isn’t just a skill. It’s a
     <span style="font-weight: bold; color: #6a4cff;">response</span>—an emotional impulse, a resonance waiting for the right signal.
   </p>
 
-  <p class="sparkle-explanation" style="margin-bottom: 1.2em; color: #444; font-size: 1.1em;">
+  <p class="sparkle-explanation" style="margin-bottom: 1.2em; font-size: 1.1em;">
     A response to the part of you that once
     <span style="color: #e67e22; font-style: italic;">sparkled</span>—without needing permission. The part that never asked,
     <span style="color: #888;">“Am I good enough?”</span> because it was too busy simply being alive.
   </p>
 
-  <p class="shift-explanation" style="margin-bottom: 1.2em; color: #444; font-size: 1.1em;">
+  <p class="shift-explanation" style="margin-bottom: 1.2em; font-size: 1.1em;">
     And when you start responding to that part again…<br>
     <span style="color: #888;">something begins to shift.</span> Quietly at first—<br>
     but undeniably, the signal returns.
@@ -1081,9 +1131,9 @@ If yes, that's your direction. If no, that's what you need to search for.</p>
     <span style="font-size: 1.1em; color: #6a4cff;"><em>You’ll realize:</em></span>
   </p>
 
-  <div class="final-message" style="background: #f8f6ff; border-left: 5px solid #6a4cff; border-radius: 8px; padding: 1.5em 1.5em 1.2em 1.5em; margin-top: 1.2em;">
+  <div class="final-message" style="background: rgba(106, 76, 255, 0.05); border-left: 5px solid #6a4cff; border-radius: 8px; padding: 1.5em 1.5em 1.2em 1.5em; margin-top: 1.2em;">
     <strong style="color: #6a4cff; font-size: 1.25em;">You were never alone.</strong><br><br>
-    <span style="color: #555;">We’ve all waited on little benches.<br>
+    <span style="color: var(--text-color);">We’ve all waited on little benches.<br>
     We’ve all longed to be picked up, seen, and taken home.</span><br><br>
     <span style="font-weight: bold; color: #e67e22;">And now—maybe—it’s time.</span>
   </div>

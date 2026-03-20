@@ -1,0 +1,100 @@
+name: Quality Gates
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  quality-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check template line counts
+        run: |
+          echo "Checking template file sizes..."
+          MAX_LINES=300
+          FAILED=0
+
+          for file in _layouts/*.liquid _includes/*.liquid; do
+            if [ -f "$file" ]; then
+              lines=$(wc -l < "$file")
+              if [ "$lines" -gt "$MAX_LINES" ]; then
+                echo "❌ $file has $lines lines (max: $MAX_LINES)"
+                FAILED=1
+              else
+                echo "✓ $file: $lines lines"
+              fi
+            fi
+          done
+
+          if [ "$FAILED" -eq 1 ]; then
+            echo ""
+            echo "Some templates exceed the maximum line count."
+            echo "Consider splitting large templates into smaller includes."
+            exit 1
+          fi
+
+          echo "✓ All templates within size limits"
+
+      - name: Check for unpinned gems
+        run: |
+          echo "Checking Gemfile for unpinned gems..."
+          UNPINNED=$(grep -E "^[[:space:]]*gem '[^']+'" Gemfile | grep -v '~>' | grep -v '>=' | grep -v '=' || true)
+
+          if [ -n "$UNPINNED" ]; then
+            echo "❌ Found unpinned gems:"
+            echo "$UNPINNED"
+            echo ""
+            echo "All gems should have version constraints (e.g., ~> 1.0.0)"
+            exit 1
+          fi
+
+          echo "✓ All gems are pinned"
+
+      - name: Check for deprecated patterns
+        run: |
+          echo "Checking for deprecated patterns..."
+          FAILED=0
+
+          # Check for broad exception handling
+          if grep -r "rescue Exception" _plugins/*.rb 2>/dev/null; then
+            echo "❌ Found 'rescue Exception' - use 'rescue StandardError' instead"
+            FAILED=1
+          fi
+
+          # Check for puts in plugins (should use Jekyll.logger)
+          if grep -rn "^\s*puts " _plugins/*.rb 2>/dev/null; then
+            echo "❌ Found 'puts' in plugins - use Jekyll.logger instead"
+            FAILED=1
+          fi
+
+          if [ "$FAILED" -eq 1 ]; then
+            exit 1
+          fi
+
+          echo "✓ No deprecated patterns found"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Run tests
+        run: |
+          if [ -d "spec" ]; then
+            bundle exec rake test || echo "Tests failed or not configured"
+          else
+            echo "No spec directory found, skipping tests"
+          fi

@@ -1,52 +1,225 @@
 /*******************************************************************************
  * Variables used throughout the theme.
  * To adjust anything, simply edit the variables below and rebuild the theme.
+ *
+ * Updated with elegant design system colors (HSL-based)
  ******************************************************************************/
 
 @use "sass:color";
 
-// Colors
-$red-color: #ff3636 !default;
-$red-color-dark: #b71c1c !default;
-$orange-color: #f29105 !default;
-$blue-color: #0076df !default;
-$blue-color-dark: #00369f !default;
-$cyan-color: #2698ba !default;
-$light-cyan-color: color.adjust($cyan-color, $lightness: 25%);
-$green-color: #00ab37 !default;
-$green-color-lime: #b7d12a !default;
-$green-color-dark: #009f06 !default;
-$green-color-light: #ddffdd !default;
-$green-color-bright: #11d68b !default;
-$purple-color: #b509ac !default;
-$light-purple-color: color.adjust($purple-color, $lightness: 25%);
-$pink-color: #f92080 !default;
-$pink-color-light: #ffdddd !default;
-$yellow-color: #efcc00 !default;
+/* =============================================================================
+ * PRIMARY PALETTE
+ * Indigo-Violet-Teal harmony for academic elegance with creative flair
+ * ============================================================================= */
 
-$grey-color: #828282 !default;
-$grey-color-light: color.adjust($grey-color, $lightness: 40%);
-$grey-color-dark: #1c1c1d;
-$grey-900: #212529;
+// Primary: Deep Indigo (sophistication, academia, trust)
+$primary-color: hsl(252, 71%, 45%) !default;
+$primary-color-light: hsl(252, 71%, 55%) !default;
+$primary-color-dark: hsl(252, 71%, 35%) !default;
+$primary-color-glow: hsl(252, 71%, 65%) !default;
 
-$white-color: #ffffff !default;
-$black-color: #000000 !default;
+// Accent: Violet (creativity, innovation, music)
+$accent-color: hsl(280, 65%, 50%) !default;
+$accent-color-light: hsl(280, 65%, 60%) !default;
+$accent-color-dark: hsl(280, 65%, 40%) !default;
 
-// Theme colors
+// Secondary: Teal (music, harmony, balance)
+$secondary-color: hsl(175, 55%, 42%) !default;
+$secondary-color-light: hsl(175, 55%, 52%) !default;
+$secondary-color-dark: hsl(175, 55%, 32%) !default;
 
-$code-bg-color-light: rgba($purple-color, 0.05);
-$code-bg-color-dark: #2c3237 !default;
+/* =============================================================================
+ * LEGACY COLOR SUPPORT (For backward compatibility)
+ * ============================================================================= */
 
-// Font awesome location
+// Semantic status colors
+$red-color: hsl(0, 72%, 51%) !default;
+$red-color-dark: hsl(0, 72%, 35%) !default;
+$red-color-light: hsl(0, 70%, 96%) !default;
+
+$orange-color: hsl(30, 95%, 48%) !default;
+$orange-color-dark: hsl(30, 95%, 35%) !default;
+
+$yellow-color: hsl(45, 93%, 47%) !default;
+$yellow-color-dark: hsl(45, 93%, 35%) !default;
+
+$green-color: hsl(152, 69%, 40%) !default;
+$green-color-dark: hsl(152, 69%, 30%) !default;
+$green-color-light: hsl(152, 60%, 95%) !default;
+$green-color-lime: hsl(72, 65%, 50%) !default;
+$green-color-bright: hsl(160, 85%, 45%) !default;
+
+$blue-color: hsl(207, 90%, 44%) !default;
+$blue-color-dark: hsl(207, 90%, 30%) !default;
+$blue-color-light: hsl(207, 90%, 95%) !default;
+
+// Map legacy purple/cyan to new palette
+$purple-color: $primary-color !default;
+$light-purple-color: $primary-color-light !default;
+$cyan-color: $secondary-color !default;
+$light-cyan-color: $secondary-color-light !default;
+
+$pink-color: hsl(340, 95%, 55%) !default;
+$pink-color-light: hsl(340, 70%, 96%) !default;
+
+/* =============================================================================
+ * NEUTRAL PALETTE
+ * Warm-tinted grays with subtle indigo undertone
+ * ============================================================================= */
+
+$white-color: hsl(0, 0%, 100%) !default;
+$black-color: hsl(252, 25%, 12%) !default;
+
+$grey-50: hsl(252, 30%, 98%) !default;
+$grey-100: hsl(252, 25%, 96%) !default;
+$grey-200: hsl(252, 20%, 90%) !default;
+$grey-300: hsl(252, 15%, 82%) !default;
+$grey-400: hsl(252, 10%, 65%) !default;
+$grey-500: hsl(252, 8%, 50%) !default;
+$grey-600: hsl(252, 10%, 40%) !default;
+$grey-700: hsl(252, 15%, 28%) !default;
+$grey-800: hsl(252, 20%, 18%) !default;
+$grey-900: hsl(252, 25%, 12%) !default;
+$grey-950: hsl(252, 30%, 8%) !default;
+
+// Legacy gray aliases
+$grey-color: $grey-500 !default;
+$grey-color-light: $grey-200 !default;
+$grey-color-dark: hsl(252, 25%, 9%) !default;
+
+/* =============================================================================
+ * THEME-SPECIFIC CODE BACKGROUNDS
+ * ============================================================================= */
+
+$code-bg-color-light: hsl(252, 30%, 97%) !default;
+$code-bg-color-dark: hsl(252, 22%, 16%) !default;
+
+/* =============================================================================
+ * FONT PATHS
+ * ============================================================================= */
+
 $fa-font-path: "../webfonts";
-
-// Tabler icons location
 $ti-font-path: "../fonts";
 
-// Back To Top button config
+/* =============================================================================
+ * TYPOGRAPHY
+ * ============================================================================= */
+
+$font-family-sans:
+  "Droid Sans",
+  "Inter",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  sans-serif !default;
+$font-family-serif: "Crimson Pro", Georgia, "Times New Roman", serif !default;
+$font-family-mono: "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", Consolas, monospace !default;
+
+$font-size-base: 1rem !default;
+$line-height-base: 1.5 !default;
+
+/* =============================================================================
+ * SPACING
+ * ============================================================================= */
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer * 0.75,
+  4: $spacer,
+  5: $spacer * 1.25,
+  6: $spacer * 1.5,
+  8: $spacer * 2,
+  10: $spacer * 2.5,
+  12: $spacer * 3,
+  16: $spacer * 4,
+  20: $spacer * 5,
+  24: $spacer * 6,
+) !default;
+
+/* =============================================================================
+ * BORDER RADIUS
+ * ============================================================================= */
+
+$border-radius-xs: 3px !default;
+$border-radius-sm: 5px !default;
+$border-radius-md: 8px !default;
+$border-radius-lg: 12px !default;
+$border-radius-xl: 16px !default;
+$border-radius-2xl: 24px !default;
+$border-radius-full: 9999px !default;
+
+/* =============================================================================
+ * SHADOWS
+ * Use CSS hsla() with individual components for compatibility
+ * ============================================================================= */
+
+$shadow-h: 252;
+$shadow-s: 71%;
+$shadow-l: 15%;
+
+$shadow-xs:
+  0 1px 2px hsla($shadow-h, $shadow-s, $shadow-l, 0.04),
+  0 1px 1px hsla($shadow-h, $shadow-s, $shadow-l, 0.03) !default;
+$shadow-sm:
+  0 2px 4px hsla($shadow-h, $shadow-s, $shadow-l, 0.05),
+  0 1px 2px hsla($shadow-h, $shadow-s, $shadow-l, 0.04) !default;
+$shadow-md:
+  0 4px 12px hsla($shadow-h, $shadow-s, $shadow-l, 0.08),
+  0 2px 4px hsla($shadow-h, $shadow-s, $shadow-l, 0.05) !default;
+$shadow-lg:
+  0 8px 24px hsla($shadow-h, $shadow-s, $shadow-l, 0.1),
+  0 4px 8px hsla($shadow-h, $shadow-s, $shadow-l, 0.06) !default;
+$shadow-xl:
+  0 16px 48px hsla($shadow-h, $shadow-s, $shadow-l, 0.12),
+  0 8px 16px hsla($shadow-h, $shadow-s, $shadow-l, 0.08) !default;
+
+/* =============================================================================
+ * TRANSITIONS
+ * ============================================================================= */
+
+$transition-quick: 150ms cubic-bezier(0.4, 0, 0.2, 1) !default;
+$transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1) !default;
+$transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1) !default;
+
+/* =============================================================================
+ * LAYOUT
+ * ============================================================================= */
+
+$max-content-width: 1080px !default;
+$navbar-height: 60px !default;
+
+/* =============================================================================
+ * BACK TO TOP BUTTON
+ * ============================================================================= */
+
 $back-to-top-z-index: 10;
 $back-to-top-bottom: 30px;
 $back-to-top-right: 30px;
-$back-to-top-diameter: 40px;
+$back-to-top-diameter: 44px;
 $back-to-top-height: $back-to-top-diameter;
 $back-to-top-width: $back-to-top-diameter;
+
+/* =============================================================================
+ * BREAKPOINTS
+ * ============================================================================= */
+
+$breakpoint-xs: 0 !default;
+$breakpoint-sm: 576px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 992px !default;
+$breakpoint-xl: 1200px !default;
+$breakpoint-xxl: 1400px !default;
+
+$breakpoints: (
+  xs: $breakpoint-xs,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+  xxl: $breakpoint-xxl,
+) !default;

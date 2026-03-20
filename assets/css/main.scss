@@ -6,16 +6,39 @@
 // Dimensions
 $max-content-width: {{ site.max_width }};
 
+// =============================================================================
+// DESIGN SYSTEM (Load first - defines all tokens)
+// =============================================================================
+@import "design-system";
+
+// =============================================================================
+// CORE FRAMEWORK
+// =============================================================================
 @import
-  "variables",
-  "themes",
-  "layout",
-  "base",
+  "variables",      // SCSS variables (references design tokens)
+  "animations",     // Motion system (uses tokens)
+  "themes",         // Light/dark mode (uses tokens)
+  "base",           // Typography & resets (uses all above)
+  "layout",         // Layout utilities
+  "components",     // UI components (cards, buttons, nav)
+  "glow"            // Glowing edge card effect
+;
+
+// =============================================================================
+// PAGE-SPECIFIC STYLES
+// =============================================================================
+@import
   "distill",
-  // "profile-card",
   "cv",
+  "musics",
   "tabs",
-  "typograms",
+  "typograms"
+;
+
+// =============================================================================
+// ICON FONTS
+// =============================================================================
+@import
   "font-awesome/fontawesome",
   "font-awesome/brands",
   "font-awesome/solid",

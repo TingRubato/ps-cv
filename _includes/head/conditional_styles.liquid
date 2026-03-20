@@ -1,0 +1,122 @@
+{% comment %}
+  Page-specific conditional stylesheets
+  Usage: {% include head/conditional_styles.liquid %}
+{% endcomment %}
+
+<!-- GeoJSON support via Leaflet -->
+{% if page.map %}
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.leaflet.url.css }}"
+    integrity="{{ site.third_party_libraries.leaflet.integrity.css }}"
+    crossorigin="anonymous"
+  >
+{% endif %}
+
+<!-- diff2html -->
+{% if page.code_diff %}
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.highlightjs.url.css.light }}"
+    integrity="{{ site.third_party_libraries.highlightjs.integrity.css.light }}"
+    crossorigin="anonymous"
+    media="screen and (prefers-color-scheme: light)"
+  >
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.highlightjs.url.css.dark }}"
+    integrity="{{ site.third_party_libraries.highlightjs.integrity.css.dark }}"
+    crossorigin="anonymous"
+    media="screen and (prefers-color-scheme: dark)"
+  >
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.diff2html.url.css }}"
+    integrity="{{ site.third_party_libraries.diff2html.integrity.css }}"
+    crossorigin="anonymous"
+  >
+{% endif %}
+
+{% if page.images %}
+  <!-- Image comparison slider -->
+  {% if page.images.compare %}
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.img-comparison-slider.url.css }}"
+      integrity="{{ site.third_party_libraries.img-comparison-slider.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+  <!-- Lightbox2 -->
+  {% if page.images.lightbox2 %}
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.lightbox2.url.css }}"
+      integrity="{{ site.third_party_libraries.lightbox2.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+  <!-- Photoswipe -->
+  {% if page.images.photoswipe %}
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.photoswipe.url.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+  <!-- Image slider -->
+  {% if page.images.slider %}
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.swiper.url.css }}"
+      integrity="{{ site.third_party_libraries.swiper.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+  <!-- Spotlight -->
+  {% if page.images.spotlight %}
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.spotlight.url.css }}"
+      integrity="{{ site.third_party_libraries.spotlight.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+  <!-- Venobox -->
+  {% if page.images.venobox %}
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.venobox.url.css }}"
+      integrity="{{ site.third_party_libraries.venobox.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+{% endif %}
+
+{% if page.tikzjax %}
+  <link
+    defer
+    rel="stylesheet"
+    type="text/css"
+    href="https://tikzjax.com/v1/fonts.css"
+  >
+{% endif %}
+
+{% if page.d3 %}
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" defer></script>
+  {% if page.chart_scripts %}
+    {% for script in page.chart_scripts %}
+      <script src="{{ '/assets/js/' | append: script | relative_url }}" defer></script>
+    {% endfor %}
+  {% endif %}
+{% endif %}

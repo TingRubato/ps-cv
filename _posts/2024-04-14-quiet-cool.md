@@ -258,7 +258,7 @@ $$\Bigl(T(t),\,F(t),\,\text{RPM}(t),\,\text{any noise measurements}\Bigr)$$
 1. **Augment**: Possibly estimate noise $\hat{n}(t)$ using the noise model, or measure it.
 2. **Retrain Condition**: Every time we accumulate, say, 10 new samples (or some threshold), we update the dataset $$\{(T_i, \hat{s}_i, \hat{n}_i, \hat{t}i)\}$$ and retrain the network by minimizing:
 
-   $$\min_{{W_1, b_1, W_2, b_2}} \mathcal{L}\Bigl(\{f(T_i)\}, \{\hat{\mathbf{y}}_i\}\Bigr)$$
+   $$\min_{ {W_1, b_1, W_2, b_2} } \mathcal{L}\Bigl(\{f(T_i)\}, \{\hat{\mathbf{y}}_i\}\Bigr)$$
 
 3. **Iterate**: Over time, the model learns more accurate temperature/noise relationships, refining predictions.
 

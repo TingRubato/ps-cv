@@ -1,253 +1,277 @@
-Jekyll::Hooks.register :site, :after_init do |site|
-  require 'css_parser'
-  require 'digest'
-  require 'fileutils'
-  require 'nokogiri'
-  require 'open-uri'
-  require 'uri'
+require 'css_parser'
+require 'digest'
+require 'fileutils'
+require 'nokogiri'
+require 'open-uri'
+require 'uri'
 
-  font_file_types = ['otf', 'ttf', 'woff', 'woff2']
-  image_file_types = ['.gif', '.jpg', '.jpeg', '.png', '.webp']
+# Helper module for downloading third-party assets
+module ThirdPartyDownloader
+  FONT_FILE_TYPES = %w[otf ttf woff woff2].freeze
+  IMAGE_FILE_TYPES = %w[.gif .jpg .jpeg .png .webp].freeze
+  OPEN_TIMEOUT = 10
+  READ_TIMEOUT = 30
 
-  def download_and_change_rule_set_url(rule_set, rule, dest, dirname, config, file_types)
-    # check if the rule has a url
-    if rule_set[rule].include?('url(')
-      # get the file url
-      url = rule_set[rule].split('url(').last.split(')').first
+  class << self
+    # Validate URL is safe to download from
+    def valid_url?(url)
+      return false if url.nil? || url.empty?
+      return false if url.start_with?('|')  # Security check
 
-      # remove quotes from the url
-      if url.start_with?('"') || url.start_with?("'")
-        url = url[1..-2]
-      end
-
-      file_name = url.split('/').last.split('?').first
-
-      # verify if the file is of the correct type
-      if file_name.end_with?(*file_types)
-        # fix the url if it is not an absolute url
-        unless url.start_with?('https://')
-          url = URI.join(url, url).to_s
-        end
-
-        # download the file
-        download_file(url, File.join(dest, file_name))
-
-        # change the url to the local file, considering baseurl
-        previous_rule = rule_set[rule]
-        if config['baseurl']
-          # add rest of the src attribute if it exists
-          if rule_set[rule].split(' ').length > 1
-            rule_set[rule] = "url(#{File.join(config['baseurl'], 'assets', 'libs', dirname, file_name)}) #{rule_set[rule].split(' ').last}"
-          else
-            rule_set[rule] = "url(#{File.join(config['baseurl'], 'assets', 'libs', dirname, file_name)})"
-          end
-        else
-          # add rest of the src attribute if it exists
-          if rule_set[rule].split(' ').length > 1
-            rule_set[rule] = "url(#{File.join('/assets', 'libs', dirname, file_name)}) #{rule_set[rule].split(' ').last}"
-          else
-            rule_set[rule] = "url(#{File.join('/assets', 'libs', dirname, file_name)})"
-          end
-        end
-        puts "Changed #{previous_rule} to #{rule_set[rule]}"
+      begin
+        uri = URI.parse(url)
+        uri.is_a?(URI::HTTP) || uri.is_a?(URI::HTTPS)
+      rescue URI::InvalidURIError
+        false
       end
     end
-  end
 
-  def download_file(url, dest)
-    # only try to download the file if url doesn't start with | for security reasons
-    if url.start_with?('|')
-      return
+    # Build local asset path with optional baseurl
+    def local_asset_path(config, *path_parts)
+      base = config['baseurl'] || ''
+      File.join(base, 'assets', 'libs', *path_parts)
     end
 
-    # create the directory if it doesn't exist
-    dir = File.dirname(dest)
-    unless File.directory?(dir)
-      FileUtils.mkdir_p(dir)
-    end
+    # Download file with proper error handling and timeouts
+    def download_file(url, dest)
+      return unless valid_url?(url)
 
-    # download the file if it doesn't exist
-    unless File.file?(dest)
-      puts "Downloading #{url} to #{dest}"
+      dir = File.dirname(dest)
+      FileUtils.mkdir_p(dir) unless File.directory?(dir)
+
+      return if File.file?(dest)
+
+      Jekyll.logger.info "Download", "Fetching #{url}"
       File.open(dest, "wb") do |saved_file|
-        URI.open(url, "rb") do |read_file|
+        URI.open(url, "rb", open_timeout: OPEN_TIMEOUT, read_timeout: READ_TIMEOUT) do |read_file|
           saved_file.write(read_file.read)
         end
       end
 
-      # check if the file was downloaded successfully
       unless File.file?(dest)
         raise "Failed to download #{url} to #{dest}"
       end
-    end
-  end
 
-  def download_fonts(url, dest, file_types)
-    # only try to download the file if url doesn't start with | for security reasons
-    if url.start_with?('|')
-      return
+      Jekyll.logger.info "Download", "Saved to #{dest}"
+    rescue Net::OpenTimeout, Net::ReadTimeout => e
+      Jekyll.logger.warn "Download", "Timeout downloading #{url}: #{e.message}"
+    rescue OpenURI::HTTPError => e
+      Jekyll.logger.warn "Download", "HTTP error downloading #{url}: #{e.message}"
+    rescue StandardError => e
+      Jekyll.logger.error "Download", "Error downloading #{url}: #{e.class} - #{e.message}"
     end
 
-    # only download fonts if the directory doesn't exist or is empty
-    unless File.directory?(dest) && !Dir.empty?(dest)
-      puts "Downloading fonts from #{url} to #{dest}"
-      # get available fonts from the url
-      doc = Nokogiri::HTML(URI.open(url, "User-Agent" => "Ruby/#{RUBY_VERSION}"))
+    # Update CSS rule set URL to local path
+    def update_rule_set_url(rule_set, rule, dest, dirname, config, file_types)
+      return unless rule_set[rule]&.include?('url(')
+
+      url = extract_url_from_css(rule_set[rule])
+      return unless url
+
+      file_name = File.basename(url.split('?').first)
+      return unless file_name.end_with?(*file_types)
+
+      # Ensure absolute URL
+      url = URI.join(url, url).to_s unless url.start_with?('https://')
+
+      download_file(url, File.join(dest, file_name))
+
+      # Update rule to local path
+      previous_rule = rule_set[rule]
+      local_path = local_asset_path(config, dirname, file_name)
+      rule_set[rule] = build_css_url(rule_set[rule], local_path)
+
+      Jekyll.logger.debug "Download", "Updated CSS: #{previous_rule} -> #{rule_set[rule]}"
+    end
+
+    # Extract URL from CSS url() function
+    def extract_url_from_css(css_value)
+      url = css_value.split('url(').last.split(')').first
+      url = url[1..-2] if url.start_with?('"', "'")
+      url
+    end
+
+    # Build CSS url() with optional format suffix
+    def build_css_url(original_rule, local_path)
+      parts = original_rule.split(' ')
+      if parts.length > 1
+        "url(#{local_path}) #{parts.last}"
+      else
+        "url(#{local_path})"
+      end
+    end
+
+    # Download fonts by scraping directory listing
+    def download_fonts_from_listing(url, dest)
+      return unless valid_url?(url)
+      return if File.directory?(dest) && !Dir.empty?(dest)
+
+      Jekyll.logger.info "Download", "Fetching fonts from #{url}"
+      doc = fetch_html(url)
+      return unless doc
+
       doc.css('a').each do |link|
-        # get the file name from the url
-        file_name = link['href'].split('/').last.split('?').first
+        href = link['href']
+        next unless href
 
-        # verify if the file is a font file
-        if file_name.end_with?(*file_types)
-          # download the file and change the url to the local file
-          download_file(URI.join(url, link['href']).to_s, File.join(dest, file_name))
-        end
+        file_name = File.basename(href.split('?').first)
+        next unless file_name.end_with?(*FONT_FILE_TYPES)
+
+        download_file(URI.join(url, href).to_s, File.join(dest, file_name))
       end
     end
-  end
 
-  def download_images(url, dest, file_types)
-    # only try to download the file if url doesn't start with | for security reasons
-    if url.start_with?('|')
-      return
-    end
+    # Download images by scraping directory listing
+    def download_images_from_listing(url, dest)
+      return unless valid_url?(url)
+      return if File.directory?(dest) && !Dir.empty?(dest)
 
-    # only download images if the directory doesn't exist or is empty
-    unless File.directory?(dest) && !Dir.empty?(dest)
-      puts "Downloading images from #{url} to #{dest}"
-      # get available fonts from the url
-      doc = Nokogiri::HTML(URI.open(url, "User-Agent" => "Ruby/#{RUBY_VERSION}"))
+      Jekyll.logger.info "Download", "Fetching images from #{url}"
+      doc = fetch_html(url)
+      return unless doc
+
       doc.xpath('/html/body/div/div[3]/table/tbody/tr/td[1]/a').each do |link|
-        # get the file name from the url
-        file_name = link['href'].split('/').last.split('?').first
+        href = link['href']
+        next unless href
 
-        # verify if the file is a font file
-        if file_name.end_with?(*file_types)
-          # download the file and change the url to the local file
-          download_file(URI.join(url, link['href']).to_s, File.join(dest, file_name))
-        end
+        file_name = File.basename(href.split('?').first)
+        next unless file_name.end_with?(*IMAGE_FILE_TYPES)
+
+        download_file(URI.join(url, href).to_s, File.join(dest, file_name))
       end
     end
-  end
 
-  def download_fonts_from_css(config, url, dest, lib_name, file_types)
-    # only try to download the file if url doesn't start with | for security reasons
-    if url.start_with?('|')
-      return
-    end
+    # Download fonts from CSS file and rewrite URLs
+    def download_fonts_from_css(config, url, dest, lib_name)
+      return unless valid_url?(url)
 
-    # get the file name from the url
-    file_name = url.split('/').last.split('?').first
+      file_name = File.basename(url.split('?').first)
+      file_name = 'google-fonts.css' if file_name == 'css'
 
-    if file_name == 'css'
-      file_name = 'google-fonts.css'
-    end
+      return file_name if File.file?(File.join(dest, file_name))
 
-    # only download the css file if it doesn't exist
-    unless File.file?(File.join(dest, file_name))
-      puts "Downloading fonts from #{url} to #{dest}"
-      # download the css file with a fake user agent to force downloading woff2 fonts instead of ttf
-      # user agent from https://www.whatismybrowser.com/guides/the-latest-user-agent/chrome
-      doc = Nokogiri::HTML(URI.open(url, "User-Agent" => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"))
+      Jekyll.logger.info "Download", "Processing CSS fonts from #{url}"
+
+      # Use Chrome UA to get woff2 fonts
+      doc = fetch_html(url, chrome_user_agent: true)
+      return unless doc
+
       css = CssParser::Parser.new
-      css.load_string! doc.document.text
+      css.load_string!(doc.document.text)
 
-      # get the font-face rules
       css.each_rule_set do |rule_set|
-        # check if the rule set has a url
-        download_and_change_rule_set_url(rule_set, 'src', File.join(dest, 'fonts'), File.join(lib_name, 'fonts'), config, file_types)
+        update_rule_set_url(
+          rule_set, 'src',
+          File.join(dest, 'fonts'),
+          File.join(lib_name, 'fonts'),
+          config,
+          FONT_FILE_TYPES
+        )
       end
 
-      # save the modified css file
-      puts "Saving modified css file to #{File.join(dest, file_name)}"
-      File.write(File.join(dest, file_name), css.to_s)
+      output_path = File.join(dest, file_name)
+      File.write(output_path, css.to_s)
+      Jekyll.logger.info "Download", "Saved modified CSS to #{output_path}"
+
+      file_name
     end
 
-    return file_name
+    private
+
+    def fetch_html(url, chrome_user_agent: false)
+      user_agent = if chrome_user_agent
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+      else
+        "Ruby/#{RUBY_VERSION}"
+      end
+
+      Nokogiri::HTML(URI.open(url, "User-Agent" => user_agent, open_timeout: OPEN_TIMEOUT, read_timeout: READ_TIMEOUT))
+    rescue Net::OpenTimeout, Net::ReadTimeout => e
+      Jekyll.logger.warn "Download", "Timeout fetching #{url}: #{e.message}"
+      nil
+    rescue OpenURI::HTTPError => e
+      Jekyll.logger.warn "Download", "HTTP error fetching #{url}: #{e.message}"
+      nil
+    rescue StandardError => e
+      Jekyll.logger.error "Download", "Error fetching #{url}: #{e.class} - #{e.message}"
+      nil
+    end
+  end
+end
+
+# Main Jekyll hook for downloading third-party libraries
+Jekyll::Hooks.register :site, :after_init do |site|
+  libs = site.config['third_party_libraries']
+  next unless libs
+
+  # Replace {{version}} placeholders in all URLs
+  libs.each do |key, value|
+    next if key == 'download' || !value.is_a?(Hash) || !value['url']
+
+    value['url'].each do |type, url|
+      if url.is_a?(Hash)
+        url.each do |type2, url2|
+          next unless url2.is_a?(String) && url2.include?('{{version}}')
+          libs[key]['url'][type][type2] = url2.gsub('{{version}}', value['version'].to_s)
+        end
+      elsif url.is_a?(String) && url.include?('{{version}}')
+        libs[key]['url'][type] = url.gsub('{{version}}', value['version'].to_s)
+      end
+    end
   end
 
-  # replace {{version}} with the version number in all 3rd party libraries urls
-  site.config['third_party_libraries'].each do |key, value|
-    if key != 'download'
-      value['url'].each do |type, url|
-        # check if url is a dictionary
-        if url.is_a?(Hash)
-          url.each do |type2, url2|
-            # replace {{version}} with the version number if it exists
-            if url2.include?('{{version}}')
-              site.config['third_party_libraries'][key]['url'][type][type2] = url2.gsub('{{version}}', site.config['third_party_libraries'][key]['version'])
-            end
-          end
+  # Download libraries if enabled
+  next unless libs['download']
+
+  Jekyll.logger.info "Download", "Starting third-party library downloads..."
+  download_count = 0
+
+  libs.each do |key, value|
+    next if key == 'download' || !value.is_a?(Hash) || !value['url']
+
+    value['url'].each do |type, url|
+      if url.is_a?(Hash)
+        url.each do |type2, url2|
+          file_name = File.basename(url2.split('?').first)
+          dest = File.join(site.source, 'assets', 'libs', key, file_name)
+          ThirdPartyDownloader.download_file(url2, dest)
+          libs[key]['url'][type][type2] = ThirdPartyDownloader.local_asset_path(site.config, key, file_name)
+          download_count += 1
+        end
+      elsif type == 'fonts'
+        file_name = File.basename(url.split('?').first)
+
+        if file_name.end_with?('css')
+          file_name = ThirdPartyDownloader.download_fonts_from_css(
+            site.config, url,
+            File.join(site.source, 'assets', 'libs', key),
+            key
+          )
+          libs[key]['url'][type] = ThirdPartyDownloader.local_asset_path(site.config, key, file_name) if file_name
         else
-          # replace {{version}} with the version number if it exists
-          if url.include?('{{version}}')
-            site.config['third_party_libraries'][key]['url'][type] = url.gsub('{{version}}', site.config['third_party_libraries'][key]['version'])
-          end
+          local_path = value.dig('local', type)
+          ThirdPartyDownloader.download_fonts_from_listing(
+            url,
+            File.join(site.source, 'assets', 'libs', key, local_path)
+          ) if local_path
         end
+        download_count += 1
+      elsif type == 'images'
+        local_path = value.dig('local', type)
+        ThirdPartyDownloader.download_images_from_listing(
+          url,
+          File.join(site.source, 'assets', 'libs', key, local_path)
+        ) if local_path
+        download_count += 1
+      else
+        file_name = File.basename(url.split('?').first)
+        dest = File.join(site.source, 'assets', 'libs', key, file_name)
+        ThirdPartyDownloader.download_file(url, dest)
+        libs[key]['url'][type] = ThirdPartyDownloader.local_asset_path(site.config, key, file_name)
+        download_count += 1
       end
     end
   end
 
-  # download 3rd party libraries if required
-  if site.config['third_party_libraries']['download']
-    site.config['third_party_libraries'].each do |key, value|
-      if key != 'download'
-        value['url'].each do |type, url|
-          # check if url is a dictionary
-          if url.is_a?(Hash)
-            url.each do |type2, url2|
-              # get the file name from the url
-              file_name = url2.split('/').last.split('?').first
-              # download the file and change the url to the local file
-              dest = File.join(site.source, 'assets', 'libs', key, file_name)
-              download_file(url2, dest)
-              # change the url to the local file, considering baseurl
-              if site.config['baseurl']
-                site.config['third_party_libraries'][key]['url'][type][type2] = File.join(site.config['baseurl'], 'assets', 'libs', key, file_name)
-              else
-                site.config['third_party_libraries'][key]['url'][type][type2] = File.join('/assets', 'libs', key, file_name)
-              end
-            end
-
-          else
-            if type == 'fonts'
-              # get the file name from the url
-              file_name = url.split('/').last.split('?').first
-
-              if file_name.end_with?('css')
-                # if the file is a css file, download the css file, the fonts from it, and change information on the css file
-                file_name = download_fonts_from_css(site.config, url, File.join(site.source, 'assets', 'libs', key), key, font_file_types)
-                # change the url to the local file, considering baseurl
-                if site.config['baseurl']
-                  site.config['third_party_libraries'][key]['url'][type] = File.join(site.config['baseurl'], 'assets', 'libs', key, file_name)
-                else
-                  site.config['third_party_libraries'][key]['url'][type] = File.join('/assets', 'libs', key, file_name)
-                end
-              else
-                # download the font files and change the url to the local file
-                download_fonts(url, File.join(site.source, 'assets', 'libs', key, site.config['third_party_libraries'][key]['local'][type]), font_file_types)
-              end
-
-            elsif type == 'images'
-              # download the font files and change the url to the local file
-              download_images(url, File.join(site.source, 'assets', 'libs', key, site.config['third_party_libraries'][key]['local'][type]), image_file_types)
-
-            else
-              # get the file name from the url
-              file_name = url.split('/').last.split('?').first
-              # download the file and change the url to the local file
-              dest = File.join(site.source, 'assets', 'libs', key, file_name)
-              download_file(url, dest)
-              # change the url to the local file, considering baseurl
-              if site.config['baseurl']
-                site.config['third_party_libraries'][key]['url'][type] = File.join(site.config['baseurl'], 'assets', 'libs', key, file_name)
-              else
-                site.config['third_party_libraries'][key]['url'][type] = File.join('/assets', 'libs', key, file_name)
-              end
-            end
-          end
-        end
-      end
-    end
-  end
+  Jekyll.logger.info "Download", "Completed processing #{download_count} assets"
 end

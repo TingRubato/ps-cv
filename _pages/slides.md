@@ -24,14 +24,14 @@ horizontal: false
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2">
     {% for slide in sorted_slides %}
-      {% include slides_horizontal.liquid %}
+      {% include project_card.liquid project=slide horizontal=true %}
     {% endfor %}
     </div>
   </div>
   {% else %}
   <div class="row row-cols-1 row-cols-md-3">
     {% for slide in sorted_slides %}
-      {% include slides.liquid %}
+      {% include project_card.liquid project=slide %}
     {% endfor %}
   </div>
   {% endif %}
@@ -50,14 +50,14 @@ horizontal: false
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2">
     {% for slide in sorted_slides %}
-      {% include slides_horizontal.liquid %}
+      {% include project_card.liquid project=slide horizontal=true %}
     {% endfor %}
     </div>
   </div>
   {% else %}
   <div class="row row-cols-1 row-cols-md-3">
     {% for slide in sorted_slides %}
-      {% include slides.liquid %}
+      {% include project_card.liquid project=slide %}
     {% endfor %}
   </div>
   {% endif %}

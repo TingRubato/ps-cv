@@ -1,642 +1,373 @@
 ---
-layout: default 
-pagination: 
-  enabled: true 
-  # collection: musics 
-  limit: 4 
-  per_page: 4
+layout: default
 ---
-<div class="musics-page container">
-  <!-- Page Header -->
-  <header class="musics-header text-center my-5">
-    <h1 class="musics-title">Music</h1>
-    <p class="musics-description">{{ page.description }}</p>
-  </header>
+<div class="retro-mac-page">
+  <!-- Date display -->
+  <div id="mac-date"></div>
 
-  <!-- Page Content -->
-  <article class="musics-content">
-    <div class="row">
-      <!-- Sidebar: Profile Card -->
-      <div class="col-lg-4 col-md-12 mb-4 d-flex justify-content-center">
-        <section class="profile-card-section">
-          <aside class="profile-card">
-            <header class="text-center">
-              <a target="_blank" href="https://www.linkedin.com/in/7m-xu" aria-label="LinkedIn Profile">
-                <img src="{{ '/assets/img/head.png' | relative_url }}" alt="Ting Xu" class="img-fluid rounded-circle" loading="lazy">
-              </a>
-              <h1>Ting Xu</h1>
-            </header>
-            <div class="profile-bio mt-3">
-              <p>Creating immersive compositions that connect people with technology and music.</p>
-            </div>
-            <ul class="profile-social-links list-inline text-center mt-3">
-              <li class="list-inline-item">
-                <a href="https://on.soundcloud.com/TsH9CDhELbATtpZ49" target="_blank" aria-label="SoundCloud">
-                  <i class="fab fa-soundcloud"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/tingrubato" target="_blank" aria-label="GitHub">
-                  <i class="fab fa-github"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.linkedin.com/in/7m-xu" target="_blank" aria-label="LinkedIn">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </aside>
-        </section>
-      </div>
+  <!-- Mac icon -->
+  <div id="mac-icon">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 4H20V16H4V4Z" fill="white" stroke="black" stroke-width="2"/>
+      <path d="M8 16V20H16V16" stroke="black" stroke-width="2"/>
+      <path d="M6 20H18" stroke="black" stroke-width="2"/>
+    </svg>
+  </div>
 
-      <!-- Main Content: Music List -->
-      <div class="col-lg-8 col-md-12 mb-4">
-        <section class="musics-list">
-          <div class="row">
-            {% for music in paginator.posts %}
-              <div class="music-item col-lg-6 col-md-6 col-sm-12 mb-4">
-                <div class="card h-100 animated-card">
-                  <!-- Music Header -->
-                  <header class="music-header card-header">
-                    <h2 class="music-title">
-                      <a href="{{ music.url | relative_url }}" class="text-decoration-none">
-                        {{ music.title }}
-                      </a>
-                    </h2>
-                    <p class="music-meta text-muted small">
-                      Released on {{ music.date | date: '%B %d, %Y' }}
-                      {% if music.artist %} by {{ music.artist }}{% endif %}
-                      {% if music.album -%}
-                        , featured on <em>{{ music.album }}</em>
-                      {%- endif %}
-                    </p>
-                  </header>
-                  <!-- Music Body -->
-                  <div class="music-body card-body">
-                    {% if music.excerpt %}
-                      <p>{{ music.excerpt | strip_html | truncate: 150 }}</p>
-                    {% endif %}
-                    <p>{{ music.description | strip_html | truncate: 150 }}</p>
-                  </div>
-                  <!-- Music Footer -->
-                  <footer class="music-footer card-footer text-muted small">
-                    {% if music.genres %}
-                      <strong>Genres:</strong> {{ music.genres | join: ', ' }}
-                    {% endif %}
-                  </footer>
-                </div>
-              </div>
-            {% endfor %}
-          </div>
-        </section>
-
-        <!-- Pagination Controls -->
-        <nav aria-label="Page navigation">
-          <ul class="pagination justify-content-center">
-            {% if paginator.previous_page %}
-              <li class="page-item">
-                <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}" aria-label="Previous"> &laquo; Previous </a>
-              </li>
-            {% else %}
-              <li class="page-item disabled">
-                <span class="page-link" aria-label="Previous"> &laquo; Previous </span>
-              </li>
-            {% endif %}
-
-            {% if paginator.next_page %}
-              <li class="page-item">
-                <a class="page-link" href="{{ paginator.next_page_path | relative_url }}" aria-label="Next"> Next &raquo; </a>
-              </li>
-            {% else %}
-              <li class="page-item disabled">
-                <span class="page-link" aria-label="Next"> Next &raquo; </span>
-              </li>
-            {% endif %}
-          </ul>
-        </nav>
+  <!-- Top row: Now Playing + Visualizer -->
+  <div class="toprow">
+    <!-- Now Playing Window -->
+    <div class="nowplaying mac-window glow-card">
+      <span class="glow"></span>
+      <div class="dragarea"></div>
+      <h3>Now Playing</h3>
+      <div class="np-content">
+        <div class="np-display">
+          <h4 id="current-artist">{{ site.author.name | default: "Ting Xu" }}</h4>
+          <h4 id="current-song">Select a track</h4>
+        </div>
+        <div class="np-controls">
+          <button id="prev-track" aria-label="Previous track">&#8249; Prev</button>
+          <button id="next-track" aria-label="Next track">Next &#8250;</button>
+        </div>
       </div>
     </div>
-  </article>
+
+    <!-- Visualizer Window -->
+    <div class="analyzer mac-window glow-card">
+      <span class="glow"></span>
+      <div class="dragarea"></div>
+      <h3>Visualizer</h3>
+      <div class="analyzer-bars">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Album Window -->
+  <div class="window mac-window album-window glow-card">
+    <span class="glow"></span>
+    <div class="dragarea"></div>
+    <h3>{{ page.title | default: "Music Collection" }}</h3>
+    <div class="frame">
+      <!-- Album Covers -->
+      <div class="imgwrap">
+        {% assign musics = site.musics | sort: 'composition_time' | reverse %}
+        {% for music in musics limit: 10 %}
+          <img
+            src="{{ music.image | relative_url }}"
+            alt="{{ music.title }}"
+            class="{% if forloop.first %}active{% endif %}"
+            data-index="{{ forloop.index0 }}"
+          >
+        {% endfor %}
+      </div>
+
+      <!-- Track List -->
+      <div class="tracklist">
+        <ul>
+          {% for music in musics limit: 10 %}
+            <li>
+              <a
+                href="{{ music.url | relative_url }}"
+                class="track-link {% if forloop.first %}active{% endif %}"
+                data-index="{{ forloop.index0 }}"
+                data-title="{{ music.title }}"
+                data-artist="{{ music.author | default: site.author.name }}"
+                data-soundcloud="{{ music.soundcloud_url }}"
+                data-description="{{ music.description }}"
+              >
+                {{ music.author | default: "Ting Xu" }} - <span>{{ music.title }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player Window (SoundCloud Embed) -->
+  <div class="player-window mac-window glow-card">
+    <span class="glow"></span>
+    <div class="dragarea"></div>
+    <h3>Player</h3>
+    <div class="player-content">
+      <div id="soundcloud-player">
+        {% assign first_music = musics | first %}
+        {% if first_music.soundcloud_url %}
+          <iframe
+            id="sc-widget"
+            width="100%"
+            height="166"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+            src="{{ first_music.soundcloud_url }}"
+          ></iframe>
+        {% else %}
+          <p>No track selected</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- SVG Dither Filter -->
+  <svg class="dither-svg">
+    <filter color-interpolation-filters="sRGB" height="100%" id="dither" width="100%" x="0" y="0">
+      <feImage height="4" width="4" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA+UlEQVR42gXBERTCUABA0X/OYDAYDAZBEAyCIBgMgiAIgiAYBINgEAwGgyAIBsFgMAiCIAiCIAgGQTAYDAaDIAiCwWDwulcIIXg8HgwGA36/H4qi8Hq9sCyLtm0Rm82G0WjE5XJhvV4ThiHT6ZT7/U4QBIhut0tVVaiqSpZl9Pt9vt8vnU6HsiwRh8OB5XLJfr9nNptxPp9xXZckSbBtGyHLMs/nE9M0aZoGSZJI05ThcEhd14izdYsdk8mE2+2G7/tst1vG4zHX6xXP8xCGYfD5fNB1nSIIeL1e6HU/AQAA//BxhJ37ABxhJ37AWo3A5AEI4LjTABzh8ACEweCBQzjCtf0LEFz4vNcAbHIu9gZl0V4AAAAASUVORK5CYII="></feImage>
+      <feTile></feTile>
+      <feComposite in="SourceGraphic" k1="0" k2="1" k3="1" k4="-0.5" operator="arithmetic"></feComposite>
+      <feComponentTransfer>
+        <feFuncR tableValues="0 1" type="discrete"></feFuncR>
+        <feFuncG tableValues="0 1" type="discrete"></feFuncG>
+        <feFuncB tableValues="0 1" type="discrete"></feFuncB>
+      </feComponentTransfer>
+    </filter>
+  </svg>
 </div>
 
-<style>
-  /* Root Font Size */
-  html {
-    font-size: 16px; /* Base font size */
+<!-- GSAP for Draggable -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Date display
+  const dt = new Date();
+  const dateEl = document.getElementById('mac-date');
+  if (dateEl) {
+    dateEl.textContent = dt.toLocaleString('en-us', { weekday: 'short' }) + ' ' +
+                         dt.toLocaleString('default', { month: 'short' }) + ' ' +
+                         dt.getDate();
   }
 
-  /* Original "Perfect" Body Styles */
-  body {
-    overflow: auto;
-    background-size: cover;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    font:
-      normal 0.875rem / 1.618em 'Roboto',
-      sans-serif; /* 14px font size */
-    -webkit-font-smoothing: antialiased;
-    z-index: 1; /* ensures the background is behind other elements */
-  }
-
-  /* Puff & Border Animations for Body Background */
-  body:before {
-    content: '';
-    height: 0;
-    background-color: --var(--background-color);
-    padding: 0;
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    z-index: 2;
-    display: block;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation:
-      puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards,
-      borderRadius 0.2s 2.3s linear forwards;
-  }
-
-  /* Base Typography */
-  h1 {
-    color: --var(--text-color);
-    font-weight: 500;
-  }
-  h2 {
-    font-weight: 500;
-    margin: 0 0 0.3125rem 0; /* 5px */
-  }
-
-  p {
-    margin: 0;
-    color: --var(--text-color);
-    font-size: 0.875rem; /* 14px */
-    line-height: 1.618;
-  }
-
-  /* Container for Page Content Above Background */
-  .musics-page {
-    position: relative;
-    z-index: 10; /* ensures .musics-page is above body:before */
-    font-family: 'Roboto', sans-serif;
-    color: #a54343; /* Changed from #ffffff for better readability */
-    padding: 1.25rem; /* 20px */
-  }
-
-  /* Header Tweaks */
-  .musics-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .musics-title {
-    font-size: 2.5rem; /* 40px */
-    margin-bottom: 0.5rem; /* 8px */
-  }
-
-  .musics-description {
-    font-size: 1.2rem; /* 19.2px */
-  }
-
-  /* Profile Card (Original Perfect Animations) */
-  .profile-card {
-    background: #ffb300;
-    width: 90%; /* Adjusted for padding */
-    max-width: 25rem; /* 400px */
-    height: auto;
-    margin: 0 auto;
-    overflow: hidden;
-    opacity: 0;
-    border-radius: 0.5rem; /* 8px */
-    box-shadow:
-      0px 0.1875rem 0.375rem rgba(0, 0, 0, 0.16),
-      0px 0.1875rem 0.375rem rgba(0, 0, 0, 0.23);
-    animation:
-      init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards,
-      moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards,
-      moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
-      materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
-    transition: all 0.3s ease;
-  }
-
-  .music-body p {
-    color: #313440;
-  }
-
-  .profile-card p {
-    color: #313440;
-  }
-
-  /* Profile Card Header */
-  .profile-card header {
-    width: 100%;
-    padding: 0.3125rem; /* 5px */
-    color: #000;
-    opacity: 0;
-    text-align: center;
-    animation: moveIn 1s 3.1s ease forwards;
-  }
-
-  /* Profile Card Name */
-  .profile-card header h1 {
-    color: #ff5722;
-    font-size: 1.5rem; /* 24px */
-    margin-bottom: 0.3125rem; /* 5px */
-  }
-
-  .profile-card header h2 {
-    font-size: 1rem; /* 16px */
-    margin-top: 0.3125rem; /* 5px */
-    color: #15160f;
-  }
-
-  /* Avatar Link */
-  .profile-card header a {
-    display: inline-block;
-    text-align: center;
-    position: relative;
-    margin: 1.5625rem 1.875rem; /* 25px 30px */
-  }
-
-  /* Animated Dot */
-  .profile-card header a:after {
-    position: absolute;
-    content: '';
-    bottom: 0.1875rem; /* 3px */
-    right: 0.1875rem; /* 3px */
-    width: 1.25rem; /* 20px */
-    height: 1.25rem; /* 20px */
-    border: 0.25rem solid #ffffff; /* 4px */
-    transform: scale(0);
-    border-radius: 50%;
-    box-shadow: 0px 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1); /* 1px 1px 3px */
-    animation: scaleIn 0.3s 3.5s ease forwards;
-  }
-
-  /* Avatar Image */
-  .profile-card header a > img {
-    width: 7.5rem; /* 120px */
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-    transition: box-shadow 0.3s ease;
-    box-shadow: 0px 0px 0px 0.5rem rgba(0, 0, 0, 0.06); /* 8px */
-  }
-
-  .profile-card header a:hover > img {
-    box-shadow: 0px 0px 0px 0.75rem rgba(0, 0, 0, 0.1); /* 12px */
-  }
-
-  /* Profile Bio */
-  .profile-bio {
-    width: 100%;
-    padding: 0 1rem;
-    color: #15160f;
-    text-align: center;
-    opacity: 0;
-    animation: moveIn 1s 3.1s ease forwards;
-    margin-top: 0.625rem; /* 10px */
-  }
-
-  /* Social Links */
-  .profile-social-links {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 0.9375rem; /* 15px */
-    padding: 0.9375rem 0; /* 15px */
-    opacity: 0;
-    animation: moveIn 1s 3.1s ease forwards;
-    margin-top: 1.25rem; /* 20px */
-  }
-
-  .profile-social-links li {
-    list-style: none;
-  }
-
-  .profile-social-links li a {
-    display: inline-block;
-    color: #757575;
-    font-size: 1.5rem; /* 24px */
-    transition:
-      color 0.3s ease,
-      transform 0.3s ease;
-  }
-
-  .profile-social-links li a:hover {
-    color: #ff5722;
-    transform: scale(1.1);
-  }
-
-  /* Music Card Styles */
-  .music-item .card {
-    background: #ffffff;
-    border: none;
-    border-radius: 0.5rem; /* 8px */
-    box-shadow:
-      0px 0.1875rem 0.375rem rgba(0, 0, 0, 0.16),
-      0px 0.1875rem 0.375rem rgba(0, 0, 0, 0.23);
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .music-item .card:hover {
-    transform: translateY(-0.3125rem); /* -5px */
-    box-shadow:
-      0px 0.375rem 0.75rem rgba(0, 0, 0, 0.2),
-      0px 0.375rem 0.75rem rgba(0, 0, 0, 0.19);
-  }
-
-  .music-header {
-    background: #f8f9fa;
-    padding: 0.9375rem; /* 15px */
-    border-bottom: 0.0625rem solid #e0e0e0; /* 1px */
-  }
-
-  .music-title {
-    font-size: 1.25rem; /* 20px */
-    margin-bottom: 0.3125rem; /* 5px */
-  }
-
-  .music-title a {
-  }
-
-  .music-title a:hover {
-    color: #ff5722;
-  }
-
-  .music-meta {
-    font-size: 0.875rem; /* 14px */
-  }
-
-  .music-body {
-    padding: 0.9375rem; /* 15px */
-  }
-
-  .music-footer {
-    background: #f8f9fa;
-    padding: 0.625rem 0.9375rem; /* 10px 15px */
-  }
-
-  .music-footer strong {
-  }
-
-  .music-footer a {
-    color: #007bff;
-  }
-
-  .music-footer a:hover {
-    text-decoration: underline;
-  }
-
-  /* Keyframe Animations */
-  @keyframes init {
-    0% {
-      width: 0;
-      height: 0;
-    }
-    100% {
-      width: 3.5rem; /* 56px */
-      height: 3.5rem; /* 56px */
-      margin-top: 0;
-      opacity: 1;
-    }
-  }
-
-  @keyframes puff {
-    0% {
-      top: 100%;
-      height: 0;
-      padding: 0;
-    }
-    100% {
-      top: 50%;
-      height: 100%;
-      padding: 0 100%;
-    }
-  }
-
-  @keyframes borderRadius {
-    0% {
-      border-radius: 50%;
-    }
-    100% {
-      border-radius: 0;
-    }
-  }
-
-  @keyframes moveDown {
-    0% {
-      top: 50%;
-    }
-    50% {
-      top: 40%;
-    }
-    100% {
-      top: 100%;
-    }
-  }
-
-  @keyframes moveUp {
-    0% {
-      background: #ffb300;
-      top: 100%;
-    }
-    50% {
-      top: 40%;
-    }
-    100% {
-      top: 50%;
-      background: #e0e0e0;
-    }
-  }
-
-  @keyframes materia {
-    0% {
-      background: #e0e0e0;
-    }
-    50% {
-      border-radius: 0.25rem; /* 4px */
-    }
-    100% {
-      width: 31.25rem; /* 500px */
-      height: 17.5rem; /* 280px */
-      background: #ffffff;
-      border-radius: 0.25rem; /* 4px */
-    }
-  }
-
-  @keyframes moveIn {
-    0% {
-      margin-top: 3.125rem; /* 50px */
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-      margin-top: -1.25rem; /* -20px */
-    }
-  }
-
-  @keyframes scaleIn {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes ripple {
-    0% {
-      transform: scale3d(0, 0, 0);
-    }
-    50%,
-    100% {
-      transform: scale3d(1, 1, 1);
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  /* Additional Animation for Profile Card on Mobile */
-  @keyframes moveInRight {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  /* Keyframe for Fade-In and Slide-Up Animation */
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(1.25rem); /* 20px */
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Apply the animation to the animated-card class */
-  .animated-card {
-    opacity: 0; /* Start hidden */
-    animation: fadeInUp 0.6s forwards;
-  }
-
-  /* Media Query Adjustments */
-  @media screen and (min-aspect-ratio: 4/3) {
-    /* body {
-      background-size: cover;
-    } */
-
-    body:before {
-      width: 0;
-    }
-
-    @keyframes puff {
-      0% {
-        top: 100%;
-        width: 0;
-        padding-bottom: 0;
+  // Make windows draggable
+  if (typeof Draggable !== 'undefined') {
+    Draggable.create('.mac-window', {
+      trigger: '.dragarea',
+      bounds: '.retro-mac-page',
+      type: 'x,y',
+      inertia: true,
+      onDragStart: function() {
+        // Bring window to front
+        document.querySelectorAll('.mac-window').forEach(w => w.style.zIndex = 999);
+        this.target.style.zIndex = 1000;
       }
-      100% {
-        top: 50%;
-        width: 100%;
-        padding-bottom: 100%;
+    });
+  }
+
+  // Track selection
+  const tracks = document.querySelectorAll('.track-link');
+  const images = document.querySelectorAll('.imgwrap img');
+  const artistDisplay = document.getElementById('current-artist');
+  const songDisplay = document.getElementById('current-song');
+  const scPlayer = document.getElementById('sc-widget');
+  let currentIndex = 0;
+
+  function previewTrack(index) {
+    // Update active states visually
+    tracks.forEach(t => t.classList.remove('active'));
+    images.forEach(i => i.classList.remove('active'));
+
+    if (tracks[index]) {
+      tracks[index].classList.add('active');
+      images[index]?.classList.add('active');
+
+      // Update display
+      artistDisplay.textContent = tracks[index].dataset.artist;
+      songDisplay.textContent = tracks[index].dataset.title;
+
+      // Update SoundCloud player
+      if (scPlayer && tracks[index].dataset.soundcloud) {
+        scPlayer.src = tracks[index].dataset.soundcloud;
+      }
+
+      currentIndex = index;
+    }
+  }
+
+  // Hover to preview track (update display without navigation)
+  tracks.forEach((track, index) => {
+    track.addEventListener('mouseenter', function() {
+      previewTrack(index);
+    });
+  });
+
+  // Click navigates to detail page (natural link behavior - no preventDefault)
+
+  // Navigation buttons update preview AND navigate
+  document.getElementById('prev-track')?.addEventListener('click', function() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      previewTrack(currentIndex);
+    }
+  });
+
+  document.getElementById('next-track')?.addEventListener('click', function() {
+    if (currentIndex < tracks.length - 1) {
+      currentIndex++;
+      previewTrack(currentIndex);
+    }
+  });
+
+  // Keyboard navigation - arrows preview, Enter navigates
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      if (currentIndex > 0) previewTrack(currentIndex - 1);
+    } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      if (currentIndex < tracks.length - 1) previewTrack(currentIndex + 1);
+    } else if (e.key === 'Enter') {
+      // Navigate to selected track's page
+      if (tracks[currentIndex]) {
+        window.location.href = tracks[currentIndex].href;
       }
     }
+  });
+
+  // Animated visualizer bars (simulated since SoundCloud doesn't expose audio data)
+  function animateBars() {
+    const bars = document.querySelectorAll('.analyzer-bars > div');
+    bars.forEach((bar, i) => {
+      const height = Math.random() * 80 + 10;
+      bar.style.setProperty('--bar-height', height + '%');
+    });
+    requestAnimationFrame(animateBars);
+  }
+  animateBars();
+
+  // Page loaded animation
+  document.body.classList.add('mac-loaded');
+
+  // ==========================================================================
+  // GLOWING EDGE EFFECT
+  // ==========================================================================
+
+  const glowCards = document.querySelectorAll('.glow-card');
+
+  const centerOfElement = ($el) => {
+    const { width, height } = $el.getBoundingClientRect();
+    return [width / 2, height / 2];
+  };
+
+  const pointerPositionRelativeToElement = ($el, e) => {
+    const { left, top, width, height } = $el.getBoundingClientRect();
+    const x = e.clientX - left;
+    const y = e.clientY - top;
+    const px = Math.min(Math.max((100 / width) * x, 0), 100);
+    const py = Math.min(Math.max((100 / height) * y, 0), 100);
+    return { pixels: [x, y], percent: [px, py] };
+  };
+
+  const angleFromPointerEvent = ($el, dx, dy) => {
+    let angleDegrees = 0;
+    if (dx !== 0 || dy !== 0) {
+      const angleRadians = Math.atan2(dy, dx);
+      angleDegrees = angleRadians * (180 / Math.PI) + 90;
+      if (angleDegrees < 0) angleDegrees += 360;
+    }
+    return angleDegrees;
+  };
+
+  const distanceFromCenter = ($el, x, y) => {
+    const [cx, cy] = centerOfElement($el);
+    return [x - cx, y - cy];
+  };
+
+  const closenessToEdge = ($el, x, y) => {
+    const [cx, cy] = centerOfElement($el);
+    const [dx, dy] = distanceFromCenter($el, x, y);
+    let k_x = Infinity;
+    let k_y = Infinity;
+    if (dx !== 0) k_x = cx / Math.abs(dx);
+    if (dy !== 0) k_y = cy / Math.abs(dy);
+    return Math.min(Math.max(1 / Math.min(k_x, k_y), 0), 1);
+  };
+
+  const round = (value, precision = 3) => parseFloat(value.toFixed(precision));
+
+  glowCards.forEach(card => {
+    card.addEventListener('pointermove', (e) => {
+      const position = pointerPositionRelativeToElement(card, e);
+      const [px, py] = position.pixels;
+      const [perx, pery] = position.percent;
+      const [dx, dy] = distanceFromCenter(card, px, py);
+      const edge = closenessToEdge(card, px, py);
+      const angle = angleFromPointerEvent(card, dx, dy);
+
+      card.style.setProperty('--pointer-x', `${round(perx)}%`);
+      card.style.setProperty('--pointer-y', `${round(pery)}%`);
+      card.style.setProperty('--pointer-deg', `${round(angle)}deg`);
+      card.style.setProperty('--pointer-d', `${round(edge * 100)}`);
+
+      card.classList.remove('animating');
+    });
+  });
+
+  // Intro animation for glow cards
+  function playGlowAnimation(card, delay = 0) {
+    const angleStart = 110;
+    const angleEnd = 465;
+
+    setTimeout(() => {
+      card.style.setProperty('--pointer-deg', `${angleStart}deg`);
+      card.classList.add('animating');
+
+      // Animate pointer-d (edge closeness)
+      animateValue(0, 100, 500, (v) => {
+        card.style.setProperty('--pointer-d', v);
+      });
+
+      // Animate angle
+      animateValue(0, 100, 1500, (v) => {
+        const d = (angleEnd - angleStart) * (v / 100) + angleStart;
+        card.style.setProperty('--pointer-deg', `${d}deg`);
+      });
+
+      // Fade out
+      setTimeout(() => {
+        animateValue(100, 0, 1500, (v) => {
+          card.style.setProperty('--pointer-d', v);
+        }, () => {
+          card.classList.remove('animating');
+        });
+      }, 2000);
+    }, delay);
   }
 
-  @media screen and (min-height: 500px) {
-    .profile-card header {
-      width: auto;
-      height: auto;
-      padding: 1.875rem 1.25rem; /* 30px 20px */
-      display: block;
-      float: none;
-      border-right: none;
-    }
+  function animateValue(start, end, duration, onUpdate, onEnd = () => {}) {
+    const startTime = performance.now();
+    const easeOutCubic = (x) => 1 - Math.pow(1 - x, 3);
 
-    .profile-bio {
-      width: auto;
-      height: auto;
-      padding: 0.46875rem 1.25rem 0.9375rem 1.25rem; /* 15px 20px 30px 20px */
-      display: block;
-      float: none;
-    }
-
-    .profile-social-links {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 0.9375rem; /* 15px */
-    }
-
-    @keyframes materia {
-      0% {
-        background: #e0e0e0;
-      }
-      50% {
-        border-radius: 0.25rem; /* 4px */
-      }
-      100% {
-        width: 17.5rem; /* 280px */
-        height: 26.25rem; /* 500px */
-        background: #ffffff;
-        border-radius: 0.25rem; /* 4px */
+    function update() {
+      const elapsed = performance.now() - startTime;
+      const t = Math.min(elapsed / duration, 1);
+      const value = start + (end - start) * easeOutCubic(t);
+      onUpdate(value);
+      if (t < 1) {
+        requestAnimationFrame(update);
+      } else {
+        onEnd();
       }
     }
+    requestAnimationFrame(update);
   }
-  /* Responsive Adjustments */
-  @media screen and (max-width: 768px) {
-    .profile-card {
-      width: 90%;
-      padding: 0.9375rem; /* 15px */
-      margin: 0 auto;
-      border-radius: 0.5rem; /* 8px */
-      animation:
-        init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards,
-        moveInRight 1s 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
-        materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
-    }
 
-    .profile-card header {
-      width: auto;
-      padding: 1rem; /* 20px */
-      margin-top: 0;
-      border-right: none;
-    }
-
-    .profile-card header a {
-      margin: 0.9375rem 0; /* 15px 0 */
-    }
-
-    .profile-card header a > img {
-      width: 5rem; /* 80px */
-      height: auto;
-    }
-
-    .profile-bio {
-      margin-top: 0.9375rem; /* 15px */
-    }
-
-    .profile-social-links {
-      margin-top: 0.9375rem; /* 15px */
-    }
-
-    /* Adjust music items to occupy full width on smaller screens */
-    .music-item {
-      width: 100%;
-    }
-  }
-</style>
+  // Play intro animation on each card with staggered delay
+  setTimeout(() => {
+    glowCards.forEach((card, i) => {
+      playGlowAnimation(card, i * 300);
+    });
+  }, 500);
+});
+</script>

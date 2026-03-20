@@ -1,47 +1,56 @@
 /*******************************************************************************
- * Themes
+ * Themes - Light & Dark Mode Configuration
+ * Uses semantic design tokens from _design-system.scss
  ******************************************************************************/
 
 @use "sass:color";
 
+/* =============================================================================
+ * LIGHT MODE (Default)
+ * ============================================================================= */
+
 :root {
-  --global-bg-color: #{$white-color};
-  --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-dark};
-  --global-footer-text-color: #{$grey-color-light};
+  /* Core semantic mappings to design system tokens */
+  --global-bg-color: var(--surface-bg);
+  --global-code-bg-color: var(--surface-code);
+  --global-text-color: var(--text-primary);
+  --global-text-color-light: var(--text-secondary);
+  --global-theme-color: var(--primary);
+  --global-hover-color: var(--primary-hover);
+  --global-hover-text-color: var(--text-on-primary);
+  --global-footer-bg-color: #{$grey-900};
+  --global-footer-text-color: #{$grey-300};
   --global-footer-link-color: #{$white-color};
-  --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(0, 0, 0, 0.1);
-  --global-card-bg-color: #{$white-color};
-  --global-highlight-color: #{$red-color-dark};
-  --global-back-to-top-bg-color: rgba(
-    #{color.channel($black-color, "red", $space: rgb)},
-    #{color.channel($black-color, "green", $space: rgb)},
-    #{color.channel($black-color, "blue", $space: rgb)},
-    0.4
-  );
+  --global-distill-app-color: var(--text-tertiary);
+  --global-divider-color: var(--border-base);
+  --global-card-bg-color: var(--surface-card);
+  --global-highlight-color: var(--accent);
+
+  /* Back to top button */
+  --global-back-to-top-bg-color: hsla(252, 25%, 12%, 0.85);
   --global-back-to-top-text-color: #{$white-color};
-  --global-newsletter-bg-color: #{$white-color};
-  --global-newsletter-text-color: #{$black-color};
 
-  --global-tip-block: #42b983;
-  --global-tip-block-bg: #e2f5ec;
-  --global-tip-block-text: #215d42;
-  --global-tip-block-title: #359469;
-  --global-warning-block: #e7c000;
-  --global-warning-block-bg: #fff8d8;
-  --global-warning-block-text: #6b5900;
-  --global-warning-block-title: #b29400;
-  --global-danger-block: #c00;
-  --global-danger-block-bg: #ffe0e0;
-  --global-danger-block-text: #600;
-  --global-danger-block-title: #c00;
+  /* Newsletter */
+  --global-newsletter-bg-color: var(--surface-elevated);
+  --global-newsletter-text-color: var(--text-primary);
 
+  /* Tip/Warning/Danger blocks */
+  --global-tip-block: var(--success);
+  --global-tip-block-bg: var(--success-bg);
+  --global-tip-block-text: var(--success-text);
+  --global-tip-block-title: hsl(152, 65%, 35%);
+
+  --global-warning-block: var(--warning);
+  --global-warning-block-bg: var(--warning-bg);
+  --global-warning-block-text: var(--warning-text);
+  --global-warning-block-title: hsl(45, 85%, 38%);
+
+  --global-danger-block: var(--danger);
+  --global-danger-block-bg: var(--danger-bg);
+  --global-danger-block-text: var(--danger-text);
+  --global-danger-block-title: hsl(0, 65%, 45%);
+
+  /* Theme toggle visibility */
   #light-toggle-system {
     padding-left: 10px;
     padding-top: 12px;
@@ -64,6 +73,7 @@
     display: none;
   }
 
+  /* Back to top button styling */
   #back-to-top {
     color: var(--global-back-to-top-text-color);
     background: var(--global-back-to-top-bg-color);
@@ -72,46 +82,64 @@
     height: $back-to-top-height;
     width: $back-to-top-width;
     z-index: $back-to-top-z-index;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(8px);
+    transition: all var(--transition-normal);
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+
+    &:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-glow);
+    }
   }
 }
 
+/* =============================================================================
+ * DARK MODE
+ * ============================================================================= */
+
 html[data-theme="dark"] {
-  --global-bg-color: #{$grey-color-dark};
-  --global-code-bg-color: #{$code-bg-color-dark};
-  --global-text-color: #{$grey-color-light};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-light};
-  --global-footer-text-color: #{$grey-color-dark};
-  --global-footer-link-color: #{$black-color};
-  --global-distill-app-color: #{$grey-color-light};
-  --global-divider-color: #424246;
-  --global-card-bg-color: #{$grey-900};
-  --global-back-to-top-bg-color: rgba(
-    #{color.channel($white-color, "red", $space: rgb)},
-    #{color.channel($white-color, "green", $space: rgb)},
-    #{color.channel($white-color, "blue", $space: rgb)},
-    0.5
-  );
-  --global-back-to-top-text-color: #{$black-color};
-  --global-newsletter-bg-color: #{$grey-color-light};
-  --global-newsletter-text-color: #{$grey-color-dark};
+  /* Core semantic mappings for dark mode */
+  --global-bg-color: var(--surface-bg);
+  --global-code-bg-color: var(--surface-code);
+  --global-text-color: var(--text-primary);
+  --global-text-color-light: var(--text-secondary);
+  --global-theme-color: var(--primary);
+  --global-hover-color: var(--primary-hover);
+  --global-hover-text-color: var(--text-on-primary);
+  --global-footer-bg-color: #{$grey-950};
+  --global-footer-text-color: #{$grey-400};
+  --global-footer-link-color: #{$grey-200};
+  --global-distill-app-color: var(--text-tertiary);
+  --global-divider-color: var(--border-base);
+  --global-card-bg-color: var(--surface-card);
 
-  --global-tip-block: #42b983;
-  --global-tip-block-bg: #e2f5ec;
-  --global-tip-block-text: #215d42;
-  --global-tip-block-title: #359469;
-  --global-warning-block: #e7c000;
-  --global-warning-block-bg: #fff8d8;
-  --global-warning-block-text: #6b5900;
-  --global-warning-block-title: #b29400;
-  --global-danger-block: #c00;
-  --global-danger-block-bg: #ffe0e0;
-  --global-danger-block-text: #600;
-  --global-danger-block-title: #c00;
+  /* Back to top button (lighter for dark mode) */
+  --global-back-to-top-bg-color: hsla(0, 0%, 100%, 0.15);
+  --global-back-to-top-text-color: #{$white-color};
 
+  /* Newsletter */
+  --global-newsletter-bg-color: var(--surface-elevated);
+  --global-newsletter-text-color: var(--text-primary);
+
+  /* Status blocks (adjusted for dark mode) */
+  --global-tip-block: var(--success);
+  --global-tip-block-bg: var(--success-bg);
+  --global-tip-block-text: var(--success-text);
+  --global-tip-block-title: hsl(152, 60%, 55%);
+
+  --global-warning-block: var(--warning);
+  --global-warning-block-bg: var(--warning-bg);
+  --global-warning-block-text: var(--warning-text);
+  --global-warning-block-title: hsl(45, 85%, 60%);
+
+  --global-danger-block: var(--danger);
+  --global-danger-block-bg: var(--danger-bg);
+  --global-danger-block-text: var(--danger-text);
+  --global-danger-block-title: hsl(0, 65%, 60%);
+
+  /* Theme toggle visibility */
   .only-light {
     display: none;
   }
@@ -119,7 +147,22 @@ html[data-theme="dark"] {
   .only-dark {
     display: block;
   }
+
+  /* Back to top button dark mode styling */
+  #back-to-top {
+    backdrop-filter: blur(12px);
+    border: 1px solid hsla(0, 0%, 100%, 0.08);
+
+    &:hover {
+      background: var(--primary);
+      box-shadow: var(--shadow-glow);
+    }
+  }
 }
+
+/* =============================================================================
+ * THEME SETTING STATES
+ * ============================================================================= */
 
 html[data-theme-setting="dark"] {
   #light-toggle-system {
@@ -156,4 +199,23 @@ html[data-theme-setting="light"] {
     padding-top: 12px;
     display: block;
   }
+}
+
+/* =============================================================================
+ * SMOOTH THEME TRANSITIONS
+ * ============================================================================= */
+
+html {
+  // Smooth scroll behavior
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+// Theme transition wrapper
+.theme-transition {
+  transition:
+    background-color var(--duration-slow) var(--ease-default),
+    border-color var(--duration-slow) var(--ease-default),
+    color var(--duration-slow) var(--ease-default);
 }

@@ -11,6 +11,10 @@ module Jekyll
   class InspireHEPCitationsTag < Liquid::Tag
     Citations = { }
 
+    # Timeout configuration
+    OPEN_TIMEOUT = 10
+    READ_TIMEOUT = 10
+
     def initialize(tag_name, params, tokens)
       super
       @recid = params.strip
@@ -26,13 +30,18 @@ module Jekyll
           return InspireHEPCitationsTag::Citations[recid]
         end
 
-        # Fetch the citation count from the API
+        # Fetch the citation count from the API with timeout
         uri = URI(api_url)
-        response = Net::HTTP.get(uri)
-        data = JSON.parse(response)
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+        http.open_timeout = OPEN_TIMEOUT
+        http.read_timeout = READ_TIMEOUT
 
-        # # Log the response for debugging
-        # puts "API Response: #{data.inspect}"
+        request = Net::HTTP::Get.new(uri)
+        request['User-Agent'] = 'Jekyll InspireHEP Plugin/1.0'
+
+        response = http.request(request)
+        data = JSON.parse(response.body)
 
         # Extract citation count from the JSON data
         citation_count = data["hits"]["hits"][0]["metadata"]["citation_count"].to_i
@@ -40,12 +49,25 @@ module Jekyll
         # Format the citation count for readability
         citation_count = Helpers.number_to_human(citation_count, format: '%n%u', precision: 2, units: { thousand: 'K', million: 'M', billion: 'B' })
 
-      rescue Exception => e
-        # Handle any errors that may occur during fetching
+      rescue Net::OpenTimeout, Net::ReadTimeout => e
         citation_count = "N/A"
+        Jekyll.logger.warn "InspireHEP", "Timeout fetching citation count for #{recid}: #{e.message}"
 
-        # Print the error message including the exception class and message
-        puts "Error fetching citation count for #{recid}: #{e.class} - #{e.message}"
+      rescue SocketError, Errno::ECONNREFUSED => e
+        citation_count = "N/A"
+        Jekyll.logger.warn "InspireHEP", "Network error fetching citation count for #{recid}: #{e.message}"
+
+      rescue JSON::ParserError => e
+        citation_count = "N/A"
+        Jekyll.logger.warn "InspireHEP", "Invalid JSON response for #{recid}: #{e.message}"
+
+      rescue NoMethodError, TypeError => e
+        citation_count = "N/A"
+        Jekyll.logger.warn "InspireHEP", "Unexpected API response format for #{recid}: #{e.message}"
+
+      rescue StandardError => e
+        citation_count = "N/A"
+        Jekyll.logger.error "InspireHEP", "Error fetching citation count for #{recid}: #{e.class} - #{e.message}"
       end
 
       InspireHEPCitationsTag::Citations[recid] = citation_count

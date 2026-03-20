@@ -1,0 +1,260 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Pin all gem versions in Gemfile",
+      "description": "Currently 24 gems are unpinned which risks breaking changes on bundle update. Add explicit version constraints (e.g., gem 'jekyll', '~> 4.3.4') for all gems in Gemfile based on current Gemfile.lock versions.",
+      "status": "done",
+      "priority": "high",
+      "dependencies": [],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T21:56:16.426Z"
+    },
+    {
+      "id": "2",
+      "title": "Fix exception handling in google-scholar-citations.rb",
+      "description": "Replace 'rescue Exception => e' with 'rescue StandardError => e' at line 71. Also add granular handling for Net::OpenTimeout, Net::ReadTimeout, SocketError, and OpenURI::HTTPError with proper Jekyll.logger messages.",
+      "status": "done",
+      "priority": "high",
+      "dependencies": [],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T21:56:54.272Z"
+    },
+    {
+      "id": "3",
+      "title": "Add HTTParty timeout configuration",
+      "description": "Add timeout: 10 to HTTParty.get calls in external-posts.rb (line 26, 89) and download-3rd-party.rb. Currently no timeout which can hang builds indefinitely.",
+      "status": "done",
+      "priority": "high",
+      "dependencies": [],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T21:58:04.916Z"
+    },
+    {
+      "id": "4",
+      "title": "Add basic plugin error logging",
+      "description": "Replace puts statements with Jekyll.logger.warn/error in all plugins. Use proper log levels: warn for recoverable issues, error for failures. Files: google-scholar-citations.rb, external-posts.rb, inspirehep-citations.rb.",
+      "status": "done",
+      "priority": "high",
+      "dependencies": [
+        "2"
+      ],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T21:58:07.302Z"
+    },
+    {
+      "id": "5",
+      "title": "Extract shared GitHub icon include",
+      "description": "Create _includes/github_icon.liquid to consolidate duplicated GitHub icon rendering from projects.liquid (lines 17-30) and projects_horizontal.liquid (lines 14-27). Pass project as parameter.",
+      "status": "done",
+      "priority": "medium",
+      "dependencies": [],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T21:59:28.967Z"
+    },
+    {
+      "id": "6",
+      "title": "Group feature flags in _config.yml",
+      "description": "Organize 15+ scattered enable_* flags into logical groups: analytics (google, cronitor, pirsch), features (darkmode, math, tooltips, masonry), social (navbar_social, project_categories). Add section comments.",
+      "status": "done",
+      "priority": "medium",
+      "dependencies": [],
+      "subtasks": []
+    },
+    {
+      "id": "7",
+      "title": "Add plugin test framework",
+      "description": "Set up RSpec or Minitest for _plugins/ directory. Create spec/plugins/ structure, add test helper with Jekyll site mock, write example test for one plugin. Zero test coverage currently.",
+      "status": "done",
+      "priority": "high",
+      "dependencies": [],
+      "subtasks": []
+    },
+    {
+      "id": "8",
+      "title": "Write tests for citation plugins",
+      "description": "Add unit tests for google-scholar-citations.rb and inspirehep-citations.rb. Mock HTTP responses, test citation parsing, error handling, and caching behavior.",
+      "status": "done",
+      "priority": "high",
+      "dependencies": [
+        "7"
+      ],
+      "subtasks": []
+    },
+    {
+      "id": "9",
+      "title": "Merge project card templates",
+      "description": "Consolidate projects.liquid and projects_horizontal.liquid into single template with layout parameter. Same for slides.liquid and slides_horizontal.liquid. Use {% assign layout = include.layout | default: 'vertical' %}.",
+      "status": "done",
+      "priority": "high",
+      "dependencies": [
+        "5"
+      ],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T22:02:14.979Z"
+    },
+    {
+      "id": "10",
+      "title": "Split musics.liquid into components",
+      "description": "Break 642-line musics.liquid into focused includes: _includes/music/profile_card.liquid, _includes/music/player.liquid, _includes/music/list.liquid, _includes/music/pagination.liquid.",
+      "status": "done",
+      "priority": "high",
+      "dependencies": [],
+      "subtasks": []
+    },
+    {
+      "id": "11",
+      "title": "Split head.liquid into focused includes",
+      "description": "Break 228-line head.liquid into: _includes/head/metadata.liquid, _includes/head/fonts.liquid, _includes/head/scripts.liquid, _includes/head/analytics.liquid. Improve maintainability.",
+      "status": "done",
+      "priority": "medium",
+      "dependencies": [],
+      "subtasks": []
+    },
+    {
+      "id": "12",
+      "title": "Implement retry logic for external fetches",
+      "description": "Add exponential backoff retry (max 3 attempts) for HTTParty calls in external-posts.rb and google-scholar-citations.rb. Handle transient network failures gracefully.",
+      "status": "done",
+      "priority": "medium",
+      "dependencies": [
+        "3"
+      ],
+      "subtasks": []
+    },
+    {
+      "id": "13",
+      "title": "Fix thread-safety in google-scholar-citations.rb",
+      "description": "Replace global mutable Citations = {} hash (line 11) with thread-safe implementation using Concurrent::Map or mutex protection.",
+      "status": "done",
+      "priority": "medium",
+      "dependencies": [
+        "2"
+      ],
+      "subtasks": []
+    },
+    {
+      "id": "14",
+      "title": "Refactor bib.liquid into components",
+      "description": "Break 369-line bib.liquid into: _includes/bib/author.liquid, _includes/bib/badges.liquid, _includes/bib/links.liquid. Reduce complexity from ~20 to ~10 per component.",
+      "status": "done",
+      "priority": "medium",
+      "dependencies": [],
+      "subtasks": []
+    },
+    {
+      "id": "15",
+      "title": "Extract date badge rendering include",
+      "description": "Create _includes/date_badge.liquid to consolidate duplicated date badge rendering from work.liquid and education.liquid resume templates.",
+      "status": "done",
+      "priority": "low",
+      "dependencies": [],
+      "subtasks": []
+    },
+    {
+      "id": "16",
+      "title": "Add CI quality gates for templates",
+      "description": "Add GitHub Actions workflow to check: template line counts (max 300), no unpinned gems, required test coverage. Fail PR if thresholds exceeded.",
+      "status": "done",
+      "priority": "medium",
+      "dependencies": [
+        "7"
+      ],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T22:10:00.000Z"
+    },
+    {
+      "id": "17",
+      "title": "Document asset optimization pipeline",
+      "description": "Create docs/assets.md documenting: image optimization requirements, video compression strategy, font subsetting approach. Currently 126MB assets with no documentation.",
+      "status": "done",
+      "priority": "low",
+      "dependencies": [],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T22:12:00.000Z"
+    },
+    {
+      "id": "18",
+      "title": "Implement CSS purging in build",
+      "description": "Configure purgecss to run automatically in production builds. Currently purgecss.config.js exists but isn't integrated into Jekyll build. Could reduce CSS by ~50%.",
+      "status": "done",
+      "priority": "medium",
+      "dependencies": [],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T22:10:00.000Z"
+    },
+    {
+      "id": "19",
+      "title": "Audit and optimize font loading",
+      "description": "Review 9.2MB font assets. Identify unused fonts, implement font subsetting for used fonts, add font-display: swap for better loading performance.",
+      "status": "done",
+      "priority": "low",
+      "dependencies": [],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T22:15:00.000Z"
+    },
+    {
+      "id": "20",
+      "title": "Add image optimization automation",
+      "description": "Set up automated image optimization pipeline: resize large images, convert to WebP with fallbacks, implement lazy loading. Target: reduce 60MB img folder.",
+      "status": "done",
+      "priority": "low",
+      "dependencies": [],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T22:18:00.000Z"
+    },
+    {
+      "id": "21",
+      "title": "Refactor download-3rd-party.rb plugin",
+      "description": "Reorganize 253-line plugin: extract helper methods into module, add proper error handling, improve URL validation beyond 'starts with |' check, add progress reporting.",
+      "status": "done",
+      "priority": "medium",
+      "dependencies": [
+        "3",
+        "4"
+      ],
+      "subtasks": []
+    },
+    {
+      "id": "22",
+      "title": "Remove deprecated Disqus code",
+      "description": "Delete disqus.liquid and remove disqus references from post.liquid (line 94). Config marks it deprecated but code remains. Clean dead code.",
+      "status": "done",
+      "priority": "low",
+      "dependencies": [],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T22:00:26.227Z"
+    },
+    {
+      "id": "23",
+      "title": "Validate external-posts.rb RSS parsing",
+      "description": "Add validation for malformed RSS feeds in external-posts.rb. Handle empty entries, missing fields, invalid dates. Currently fails silently on bad feeds.",
+      "status": "done",
+      "priority": "medium",
+      "dependencies": [
+        "3",
+        "8"
+      ],
+      "subtasks": [],
+      "updatedAt": "2026-01-03T22:10:00.000Z"
+    },
+    {
+      "id": "24",
+      "title": "Consolidate slug generation in external-posts.rb",
+      "description": "Refactor duplicated slug generation regex patterns (lines 46-53) into single reusable method. Three similar patterns currently exist.",
+      "status": "done",
+      "priority": "low",
+      "dependencies": [],
+      "subtasks": []
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastModified": "2026-01-03T22:18:00.000Z",
+    "taskCount": 24,
+    "completedCount": 24,
+    "tags": [
+      "master"
+    ]
+  }
+}
