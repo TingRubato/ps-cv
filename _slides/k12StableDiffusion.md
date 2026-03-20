@@ -23,13 +23,11 @@ importance: 4
 ## Decision:
 
 1. Send a pre-session email including:
-
    - A welcoming and fun introduction to the workshop.
    - Instructions on how to prepare (e.g., links to pre-installed tools or applications).
    - A confirmation of the scheduled session time.
 
 2. Prepare slides tailored for grade-school learners, featuring:
-
    - **Introduction to Stable Diffusion**:
      - A child-friendly explanation: "It’s like a magic artist that draws pictures from your words!"
      - Fun examples of AI-generated images, like a rainbow unicorn or a superhero banana.
@@ -38,7 +36,6 @@ importance: 4
      - Show visuals of how an image becomes clearer step-by-step.
 
 3. Examples for Hands-On Activities:
-
    - **Prompt Writing**:
      - "Write something fun, like 'a cat astronaut' or 'a dancing robot,' and see what happens!"
      - Compare results from simple and detailed prompts.

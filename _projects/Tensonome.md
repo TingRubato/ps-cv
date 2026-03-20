@@ -520,7 +520,6 @@ So in this section, I will go through how to implement a lambda function that ca
    If this lambda function is created from the new rule that we created from Message Routing setup, this should already be done.
 
    In the Trigger configuration, please set the trigger as listed below:
-
    - Service: AWS IoT
    - Select Custom IoT Rule
    - Using existing rules:

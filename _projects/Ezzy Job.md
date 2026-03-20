@@ -347,12 +347,10 @@ The Word Cloud focuses on employer frequency, visually showing which companies a
 #### How It Was Built
 
 1. **Data Preprocessing**:
-
    - Job data was grouped by company name, with each name assigned a frequency count.
    - Special characters (+) in company names were replaced with spaces for readability.
 
 2. **Dynamic Updates**:
-
    - The word cloud is connected to a scrubber widget that allows users to cycle through timestamps of job postings.
    - As the scrubber moves, the word cloud dynamically updates to reflect the most active companies at that time.
 
