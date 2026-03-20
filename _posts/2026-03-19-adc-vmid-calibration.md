@@ -2,7 +2,7 @@
 layout: post
 title: I Tried to Calibrate My ADC with VMID — and Ended Up Pulling VMID High
 description: The author attempted to calibrate an ADC using an additional ESP32 pin to read a high-impedance midpoint voltage, but this inadvertently loaded the node, causing the voltage to drift from 1.65V to 1.95V.
-date: 2025-03-19
+date: 2026-03-19
 tags: code IoT
 categories: hardware
 toc:
