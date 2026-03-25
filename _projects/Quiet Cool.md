@@ -318,9 +318,9 @@ python fan_control_server.py
 
 ---
 
-## Source Code:
+### Source Code:
 
-### **1. monitor_gpu_temp.sh**
+#### **1. monitor_gpu_temp.sh**
 
 ```bash
 #!/bin/bash
@@ -340,7 +340,7 @@ while true; do
 done
 ```
 
-### **2. fan_control_server.py**
+#### **2. fan_control_server.py**
 
 ```python
 import logging
@@ -536,7 +536,7 @@ if __name__ == '__main__':
         raise
 ```
 
-## **Limitations & Future Directions**
+### **Limitations & Future Directions**
 
 - Improved Modeling: Current noise and temperature models are approximations. Future work could involve more accurate acoustic measurements and detailed thermal models.
 - User Modes & GUIs: In the future, imagine a web interface letting you toggle “Quiet Mode” or “Performance Mode.”

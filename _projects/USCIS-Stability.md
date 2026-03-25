@@ -372,7 +372,7 @@ Next, we’ll walk you through the NIW application data trends, then build a Lya
 
 ---
 
-## **Lyapunov Stability Model**
+### **Lyapunov Stability Model**
 
 First, we need to determine the system’s state variable. We choose the **backlog of unprocessed NIW cases** as the system’s **state variable**.
 
@@ -408,7 +408,7 @@ $$V(B,\dot{B})=\alpha(B(t))^2+\beta(\frac{dB(t)}{dt})^2$$
 
 This Lyapunov function not only **measures the backlog itself** but also **captures the rate of change**, enabling a more comprehensive stability analysis.
 
-## **Solution Process:**
+### **Solution Process:**
 
 1. **Calculating the Derivative of the Lyapunov Function $$V(B,\dot{B})$$:**
 
@@ -418,9 +418,9 @@ $$\dot{V}(B, \dot{B}) = 2 \alpha B(t) \frac{dB(t)}{dt} + 2 \beta \frac{dB(t)}{dt
 
 $$\dot{V}(B, \dot{B}) = 2 \alpha B(t) \cdot (R(t) - C(t) + \eta(t)) + 2 \beta \left( R{\prime}(t) - C{\prime}(t) + \eta{\prime}(t) \right)$$
 
-## **Stability Analysis:**
+### **Stability Analysis:**
 
-### **1. Without External Disturbance ($$\eta(t)=0$$):**
+#### **1. Without External Disturbance ($$\eta(t)=0$$):**
 
 The equation simplifies to:
 
@@ -448,7 +448,7 @@ If $$R(t)-C(t)>0$$ and thus $$B(t)(R(t)-C(t))>0$$
 
 - Conclusion: $$\dot{V}(B,\dot{B})>0$$ shows backlog keeps rising and the system is **unstable**. Without increasing completions or reducing receipts, the backlog will continue to grow.
 
-### **2. Considering External Disturbances $$\eta(t)\neq0$$**
+#### **2. Considering External Disturbances $$\eta(t)\neq0$$**
 
 In reality, external disturbances (policy shifts, economic crises, etc.) can have unpredictable effects on the system.
 
@@ -503,9 +503,9 @@ As long as $$C(t)>R(t)$$, $$R(t)-C(t)<0$$:
    - If $$R(t)<C(t)$$, backlog decreases, system stable
    - If $$R(t)>C(t)$$, backlog grows, system unstable
 
-## **Interpretation of Results:**
+### **Interpretation of Results:**
 
-### **System Stability Analysis**
+#### **System Stability Analysis**
 
 #### 1. Evidence of Asymptotic Stability
 
@@ -709,9 +709,9 @@ USCIS must adapt to maintain Lyapunov stability.
 - **Without Disturbances**, stability depends on $$R(t)$$ and $$C(t)$$. Ensuring $$C(t)\ge R(t)$$ is key.
 - **With Disturbances**, the magnitude and duration of $$\eta(t)$$ matter. Anticipating and strategizing help maintain stability.
 
-## **Future Potential Disturbances and Stability Risks in the EB2-NIW System**
+### **Future Potential Disturbances and Stability Risks in the EB2-NIW System**
 
-### **I. Policy and Election Influences**
+#### **I. Policy and Election Influences**
 
 #### 1. Uncertainty of the 2024 Presidential Election Outcome
 
@@ -722,14 +722,14 @@ Latest polls show the election between Harris and Trump, affecting immigration p
 
 If $$\eta(t)\gg0$$ and $$R(t)>C(t)$$, $$\dot{V}(B,\dot{B})>0$$, instability occurs. USCIS must plan ahead.
 
-#### **II. Ripple Effects of Big Tech Companies Pausing PERM**
+##### **II. Ripple Effects of Big Tech Companies Pausing PERM**
 
 **Amazon and Google Pausing PERM until 2025[3]**:
 
 - Talent shifts to NIW, $$R(t)$$ surges
 - If $$C(t)$$ doesn’t rise, $$B(t)$$ grows
 
-#### **III. Economic Fluctuations and Labor Market Shocks**
+##### **III. Economic Fluctuations and Labor Market Shocks**
 
 **Mass Layoffs**:
 
@@ -742,13 +742,13 @@ If $$\eta(t)\gg0$$ and $$R(t)>C(t)$$, $$\dot{V}(B,\dot{B})>0$$, instability occu
 
 USCIS should monitor economic indicators and optimize resources.
 
-#### **IV. Technological and Automated Support**
+##### **IV. Technological and Automated Support**
 
 Automation boosts $$C(t)$$:
 
 - If $$C(t)\gg R(t)$$, $$\dot{V}(B,\dot{B})<0$$, system stable
 
-#### **V. Spillover Effects of Geopolitical Tensions**
+##### **V. Spillover Effects of Geopolitical Tensions**
 
 International conflicts push STEM talent to the U.S., $$R(t)$$ spikes:
 
@@ -756,7 +756,7 @@ International conflicts push STEM talent to the U.S., $$R(t)$$ spikes:
 
 **Summary**: All these factors are sources of external disturbances, affecting stability. USCIS needs flexibility and foresight.
 
-# References
+## References
 
 1. "2024 Presidential Election Polls: Harris vs. Trump," _270toWin_, Oct. 2024. [Online]. Available: [https://www.270towin.com](https://www.270towin.com/). [Accessed: 15-Oct-2024].
 2. "STEM-Related Petition Trends: EB-2 and O-1A Categories Fact Sheet FY23," _U.S. Citizenship and Immigration Services (USCIS)_, Oct. 2023. [Online]. Available: [USCIS.gov](http://uscis.gov/). [Accessed: 15-Oct-2024].

@@ -8,11 +8,11 @@ importance: 4
 revealjs: true
 ---
 
-# Introduction
+## Introduction
 
 Cochlear implants (CIs) provide significant benefits for speech perception, yet music perception remains a challenge. This article draws insights from the Iowa Head and Neck Protocols to explore why music sounds different through a CI and offers technical and practical perspectives to enhance music enjoyment.
 
-# 1. Why Music Sounds Different Through a CI
+## 1. Why Music Sounds Different Through a CI
 
 ## 1.1 CI Technology vs. The Complexity of Music
 
@@ -364,7 +364,7 @@ Cochlear implant technology prioritizes speech. While speech occurs within a rel
 
 #### Acoustic Hearing
 
-# 2. The CI Signal Chain: A Simplified Technical Overview
+## 2. The CI Signal Chain: A Simplified Technical Overview
 
 To better understand how cochlear implants process sound, let's analyze a practical example using a familiar piece of music. This hands-on demonstration will help illustrate the key processing steps and their effects on what CI users actually hear. Let's use a sound that everyone knows well: the opening fanfare of Universal Studios. You probably have the melody playing in your head right now.
 
@@ -508,11 +508,11 @@ $$
 {: .block-warning }
 <!-- prettier-ignore-end -->
 
-# 3. Music’s Building Blocks Through a CI
+## 3. Music’s Building Blocks Through a CI
 
 The original text highlights several **building blocks** of music—**temporal elements**, **pitch**, **timbre**, **dynamics**, and **lyrics**—each affected differently by CI processing:
 
-## 1. Rhythm & Temporal Elements
+### 1. Rhythm & Temporal Elements
 
 - **Advantage**: CI users often perceive rhythm and tempo as well as people with normal hearing
 - **Technical Reason**: Envelope-based CI processing effectively conveys amplitude changes that create rhythm
@@ -542,11 +542,11 @@ The original text highlights several **building blocks** of music—**temporal e
 - **Limitations**: Fast or ornate singing can be difficult to follow
 - **Technical Reason**: Envelope extraction may blur rapid vocal articulations
 
-# 4. Why Speech Is Easier than Music
+## 4. Why Speech Is Easier than Music
 
 From an **engineering** viewpoint, speech contains more predictable patterns (formants, transitions, and phonemes) within a restricted frequency band. CIs are optimized around these features. Music, on the other hand, extends beyond the narrow frequency range needed for intelligible speech and often involves **polyphonic** or **complex harmonic** structures that exceed the envelope-based representation. As the referenced material aptly states, “The processing of musical sounds by a CI might be compared to what happens to vegetables in a food processor”—distinct instrumental or vocal identities become less distinguishable. In more technical terms, the sound wave is quantized to a lower bit rate, making the signal less smooth while still preserving **essential** **information.** While this essential information may be sufficient for speech comprehension, it lacks the bandwidth necessary for CI users to fully enjoy music.
 
-# 5. Why Speech Is Easier than Music
+## 5. Why Speech Is Easier than Music
 
 From an **engineering** viewpoint, speech contains more predictable patterns (formants, transitions, and phonemes) within a restricted frequency band. CIs are optimized around these features. Music, on the other hand, extends beyond the narrow frequency range needed for intelligible speech and often involves **polyphonic** or **complex harmonic** structures that exceed the envelope-based representation. As the referenced material aptly states, “The processing of musical sounds by a CI might be compared to what happens to vegetables in a food processor”—distinct instrumental or vocal identities become less distinguishable. In more technical terms, the sound wave is quantized to a lower bit rate, making the signal less smooth while still preserving **essential** **information.** While this essential information may be sufficient for speech comprehension, it lacks the bandwidth necessary for CI users to fully enjoy music.
 

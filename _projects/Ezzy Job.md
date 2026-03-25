@@ -210,7 +210,7 @@ class JobDatabase:
             self.conn.commit()
 ```
 
-#### Step 4: Notifications via Telegram 📲
+### Step 4: Notifications via Telegram 📲
 
 Who wouldn’t want their scraper to double as a personal assistant? With Telebot, get instant alerts about job postings on your Telegram.
 
@@ -231,7 +231,7 @@ class TelebotNotifier:
             print(f"Failed to send notification: {e}")
 ```
 
-#### Step 5: Scraping in Action 🎬
+### Step 5: Scraping in Action 🎬
 
 Now, we stitch it all together into a scraper that fetches job listings, stores them, and keeps you updated.
 

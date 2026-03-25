@@ -22,7 +22,7 @@ toc:
 <div class="caption">
     PulsePace Featured Image
 </div>
-# Introduction
+## Introduction
 
 Musicians often struggle to maintain accurate rhythm during performances, a challenge that is typically overcome with the help of metronomes. However, conventional metronomes rely on sound or light cues to guide musicians, which can be distracting and difficult to follow. In this project, a novel approach is proposed that utilizes Transcutaneous Electrical Nerve Stimulation (TENS) technology instead of traditional cues. A TENS unit is a small, battery-operated device that delivers electrical impulses to the nerves and muscles through electrodes attached to the skin. This approach aims to develop a unique metronome that can provide more precise and intuitive guidance to musicians. The project objectives will be discussed in detail later in this section.
 
@@ -57,11 +57,11 @@ The TENS Metronome project has certain limitations, which are outlined below:
 
 These limitations should be taken into consideration during the development and implementation of the TENS metronome project to ensure the safety and effectiveness of the device for musicians.
 
-# But first, Music Theory
+## But first, Music Theory
 
 **Note:** _Hey, buckle up and brace yourself for some bumpy reading! Bracelet yourselves, folks, 'cause this part might have a few juicy tidbits of misinformation. So, put on your detective hats, grab a magnifying glass, and scrutinize me like a judge on a reality show. Go ahead, roast me, but make sure to sprinkle it with a generous dose of sugar-coated niceness!_
 
-## Meters
+### Meters
 
 In music theory, a meter (or time signature) is a notation used to indicate the rhythm of a piece of music. It consists of two numbers written as a fraction, typically appearing at the beginning of a piece of sheet music. The top number represents the number of beats in each measure, while the bottom number represents the type of note that receives one beat. For example, in the common time signature 4/4, there are four beats per measure, and a quarter note receives one beat.
 
@@ -93,7 +93,7 @@ Meters play a fundamental role in music, providing a structure for the rhythm an
 
 Overall, understanding meters is essential for anyone studying or performing music, as it provides a foundation for interpreting and expressing the rhythm and feel of a piece.
 
-## Orchestra Size And Settings
+### Orchestra Size And Settings
 
 An orchestra refers to a well-structured assembly of musicians who play music composed specifically for the instruments or groups of instruments that make up the orchestra. The beauty of orchestral music can only be fully appreciated when the entire group plays together in the way the composer intended. Normally, a conductor guides the performance.
 
@@ -134,9 +134,9 @@ This would help to determine what type of connectivity technology would be neede
 
 _Table: Composition and Size of Selected Orchestras Through the Centuries_
 
-# System Requirements and Specifications
+## System Requirements and Specifications
 
-## UML Diagram
+### UML Diagram
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -147,16 +147,16 @@ _Table: Composition and Size of Selected Orchestras Through the Centuries_
     UML Class Diagram showing the relationships and methods in the system.
 </div>
 
-## Hardware Design
+### Hardware Design
 
-### Hardware Requirement
+#### Hardware Requirement
 
 - Raspberry Pi 4B
 - 2 Channel DC 5V Relay Module-Low Level Trigger
 - TENS3000 Unit
 - Some Jumper Cables
 
-### Hardware Connection
+#### Hardware Connection
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -167,9 +167,9 @@ _Table: Composition and Size of Selected Orchestras Through the Centuries_
     Breadboard view of the hardware connections
 </div>
 
-## Software Design
+### Software Design
 
-### Block Diagram
+#### Block Diagram
 
 ```mermaid
 sequenceDiagram
@@ -187,7 +187,7 @@ sequenceDiagram
 
 ```
 
-### State Machine
+#### State Machine
 
 ```mermaid
 stateDiagram-v2
@@ -198,11 +198,11 @@ stateDiagram-v2
 
 ```
 
-# Software Implementation Details
+## Software Implementation Details
 
 This section provides documentation for the Python class **MetronomeController**. This class is responsible for controlling a metronome that is connected to an AWS IoT service using a Raspberry Pi.
 
-## Dependencies
+### Dependencies
 
 - `RPi.GPIO` - provides access to the GPIO pins on the Raspberry Pi.
 - `time` - provides access to sleep functions for timing.
@@ -210,7 +210,7 @@ This section provides documentation for the Python class **MetronomeController**
 - `json` - provides functions for encoding and decoding JSON data.
 - `AWSIoTPythonSDK.MQTTLib` - provides access to the AWS IoT MQTT client.
 
-## Class Attribute
+### Class Attribute
 
 The `MetronomeController` class has the following attributes:
 
@@ -221,9 +221,9 @@ The `MetronomeController` class has the following attributes:
 - `metronome_gpio` - an instance of the `MetronomeGPIO` class for controlling the metronome.
 - `aws_iot_client` - an instance of the `AWSIoTClient` class for connecting to and interacting with the AWS IoT service.
 
-## Class Methods
+### Class Methods
 
-### Method: `__init__(self, config)`
+#### Method: `__init__(self, config)`
 
 This method initializes the `MetronomeController` object.
 
@@ -231,7 +231,7 @@ This method initializes the `MetronomeController` object.
 
 - `config` - a dictionary containing the configuration settings for the class.
 
-### Method: `on_message_received(self, client, userdata, message)`
+#### Method: `on_message_received(self, client, userdata, message)`
 
 This method is called when a message is received from the AWS IoT service. It decodes the JSON message and updates the shared data. If the metronome is not currently playing, it starts a new thread to play the metronome.
 
@@ -241,17 +241,17 @@ This method is called when a message is received from the AWS IoT service. It de
 - `userdata` - the user data that was passed to the MQTT client instance.
 - `message` - the received message, which is an instance of the MQTTMessage class.
 
-### Method: `play_metronome(self)`
+#### Method: `play_metronome(self)`
 
 This method plays the metronome according to the shared data.
 
-### Method: `run(self)`
+#### Method: `run(self)`
 
 This method runs the main loop of the program. It publishes a message to the AWS IoT service and subscribes to the status topic. It then waits for messages and handles them until the program is interrupted by the user.
 
-## Nested Classes
+### Nested Classes
 
-### Class: `MetronomeGPIO`
+#### Class: `MetronomeGPIO`
 
 This class provides a simple interface for controlling the GPIO pins on the Raspberry Pi.
 
@@ -261,7 +261,7 @@ This class provides a simple interface for controlling the GPIO pins on the Rasp
 2. `output(self, value)`: Sets the state of the GPIO pin.
 3. `cleanup(self)`: Cleans up the GPIO pin.
 
-### Class: `AWSIoTClient`
+#### Class: `AWSIoTClient`
 
 This class provides a simple interface for connecting to and interacting with the AWS IoT service.
 
@@ -274,7 +274,7 @@ This class provides a simple interface for connecting to and interacting with th
 5. `unsubscribe(self, topic)`: Unsubscribes from a topic on the AWS IoT service.
 6. `disconnect(self)`: Disconnects the client from the AWS IoT service.
 
-### Example Usage
+#### Example Usage
 
 An example usage of the `MetronomeController` class is shown below:
 
@@ -312,11 +312,11 @@ _controller.run()
 
 For further details on how to connect to AWS IoT Core, please refer to AWS documentation.
 
-## Conclusion
+### Conclusion
 
 The `MetronomeController` class provides a simple interface for controlling a metronome that is connected to an AWS IoT service using a Raspberry Pi. It uses the `RPi.GPIO` module for controlling the GPIO pins on the Raspberry Pi and the `AWSIoTPythonSDK.MQTTLib` module for interacting with the AWS IoT service. The class can be easily customized to fit specific metronome configurations and can be extended to support additional functionality.
 
-# Let's IoT!
+## Let's IoT!
 
 The Internet of Things (IoT) has revolutionized the way we interact with devices, allowing them to communicate with each other and share data in real-time. In recent years, Amazon Web Services (AWS) has emerged as a leading provider of IoT services, offering a wide range of tools and resources for developers to build and manage IoT applications. In this chapter, we will explore how the use of AWS IoT services can greatly enhance the experience of conductors managing these devices.{%cite kurniawan2018learning%}
 
@@ -324,11 +324,11 @@ By leveraging the power of AWS IoT Core and Lambda Function, conductors can remo
 
 **If any step didn't work, check the policy and permissions.**
 
-## IoT Core
+### IoT Core
 
 To set up a thing type, thing group, and create things for a device called Tensnome in AWS IoT, follow these steps:
 
-### Create a Thing Type:
+#### Create a Thing Type:
 
 1. In the AWS IoT Console, go to the "Manage" tab and select "Thing Types".
 
@@ -366,7 +366,7 @@ After that, we can see that a thing type is already created.
     Created a Thing
 </div>
 
-### Create a Rule
+#### Create a Rule
 
 1. In the AWS IoT Console, go to the "Manage" tab and select "Message Routing" and select "Rules"
 2. Click on the "Create Rule" button and enter a name for the Rule, e.g. "New_Status_published_Rule".
@@ -391,7 +391,7 @@ After that, you should see a screen like this.
     Created a Rule
 </div>
 
-## AWS Lambda
+### AWS Lambda
 
 So in this section, I will go through how to implement a lambda function that can take the user's input and retrieve the bpm and time signature based on the user's input.
 

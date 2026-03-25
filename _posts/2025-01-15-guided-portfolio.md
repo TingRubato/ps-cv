@@ -26,7 +26,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Project 1: A Soundless Metronome</h2></center>
+<div class="caption">Project 1: A Soundless Metronome</div>
 <br>
 
 <div class="container-card project-card">
@@ -43,7 +43,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Project 2: Quiet Cool: AI Enablement for Old Machines</h2></center>
+<div class="caption">Project 2: Quiet Cool: AI Enablement for Old Machines</div>
 <br>
 
 <div class="container-card project-card">
@@ -60,7 +60,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Project 3: A Quantified Way to Evaluate Your EB2-NIW Petition</h2></center>
+<div class="caption">Project 3: A Quantified Way to Evaluate Your EB2-NIW Petition</div>
 <br>
 
 <div class="container-card project-card">
@@ -77,7 +77,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Project 4: Ezzy Job Finder 🕵️‍♂️ With Animated Visualizations</h2></center>
+<div class="caption">Project 4: Ezzy Job Finder 🕵️‍♂️ With Animated Visualizations</div>
 <br>
 
 <div class="container-card project-card">
@@ -94,7 +94,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Project 5: Monitor Your Homelab Using Grafana + Prometheus</h2></center>
+<div class="caption">Project 5: Monitor Your Homelab Using Grafana + Prometheus</div>
 <br>
 
 <div class="container-card project-card">
@@ -111,7 +111,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Project 6: Cochlear Implants and Music Perception</h2></center>
+<div class="caption">Project 6: Cochlear Implants and Music Perception</div>
 <br>
 
 # 2. **Writing samples**
@@ -130,7 +130,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Manuscript 1: 3-D Analysis and Experimental Verification of a Novel Magnetic Lead Screw with Checkerboard Array Magnetic Pole</h2></center>
+<div class="caption">Manuscript 1: 3-D Analysis and Experimental Verification of a Novel Magnetic Lead Screw with Checkerboard Array Magnetic Pole</div>
 <br>
 
 <div class="container-card research-card">
@@ -147,7 +147,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Manuscript 2: A 2-D MEC Model for HEMLS</h2></center>
+<div class="caption">Manuscript 2: A 2-D MEC Model for HEMLS</div>
 <br>
 
 <div class="container-card research-card">
@@ -164,7 +164,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Manuscript 3: Design, Optimization, and Experimental Study of a Novel Linear-Rotary Wave Generator</h2></center>
+<div class="caption">Manuscript 3: Design, Optimization, and Experimental Study of a Novel Linear-Rotary Wave Generator</div>
 <br>
 
 # 3. **Compositions**
@@ -185,7 +185,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Composition 1: Barely Fugue</h2></center>
+<div class="caption">Composition 1: Barely Fugue</div>
 <br>
 
 <div class="container-card music-card">
@@ -204,7 +204,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Composition 2: Begin Again</h2></center>
+<div class="caption">Composition 2: Begin Again</div>
 <br>
 
 <div class="container-card music-card">
@@ -223,7 +223,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Composition 3: February in G 🎵</h2></center>
+<div class="caption">Composition 3: February in G 🎵</div>
 <br>
 
 <div class="container-card music-card">
@@ -242,7 +242,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Composition 4: Tryout No.1</h2></center>
+<div class="caption">Composition 4: Tryout No.1</div>
 <br>
 
 <div class="container-card music-card">
@@ -261,7 +261,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<center><h2>Composition 5: Wowtz For Lunatics 🎵</h2></center>
+<div class="caption">Composition 5: Wowtz For Lunatics 🎵</div>
 <br>
 
 <style>
@@ -282,12 +282,14 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
   background-color: #f0f0f0;
 } */
 h2 {
+    font-family: var(--font-sans);
     font-size: 16px;
     font-weight: 300;
     margin-top: 10px;
 }
 
 .container-card {
+    font-family: var(--font-sans);
 	min-width: 700px;
 	min-height: 220px;
 	border-radius: 20px;
@@ -298,26 +300,32 @@ h2 {
 }
 
 .side {
+    font-family: var(--font-sans);
 	position: absolute;
 	text-align: center;
 	width: 100%;
 	height: 100%;
 	padding: 20px 50px;
 	color: #fff;
-	transform-style: preserve-3d;
 	backface-visibility: hidden;
 	border-radius: 20px;
+    background-color: #111; /* Ensure opaque background */
 }
 .content {
-	transform: translatez(70px) scale(0.8);
+    font-family: var(--font-sans);
 	line-height: 1.5em;
+    pointer-events: none; /* Prevent interaction issues with overlapping layers */
 }
 .content h3 {
+    font-family: var(--font-sans);
 	position: relative;
+    color: #fff !important;
 }
 .content p {
+    font-family: var(--font-sans);
 	margin-top: 50px;
 	line-height: 2em;
+    color: #fff !important;
 }
 .content h3:before {
 	content: "";
@@ -329,48 +337,55 @@ h2 {
 	left: 50%;
 	transform: translateX(-50%);
 }
+.caption {
+    font-family: var(--font-sans) !important;
+    font-weight: 600;
+    font-size: 1.25rem !important;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    color: var(--global-text-color);
+}
 /* Music Card */
 .music-card .front {
-  background-color: #000000;
-  background-opacity: 60%;
-  background-image: url('{{ site.baseurl }}/assets/img/music.png');
+  background-color: #000;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ site.baseurl }}/assets/img/music.png');
   background-size: cover;
   background-position: center;
 }
 
 .music-card .back {
-  background-color: #333;
-  background-image: url('{{ site.baseurl }}/assets/img/music.png');
+  background-color: #222;
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('{{ site.baseurl }}/assets/img/music.png');
   background-size: cover;
   background-position: center;
 }
 
 /* Research Card */
 .research-card .front {
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent grey */
-
-  background-image: url('{{ site.baseurl }}/assets/img/research.png');
+  background-color: #000;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ site.baseurl }}/assets/img/research.png');
   background-size: cover;
   background-position: center;
 }
 
 .research-card .back {
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent grey */
-  background-image: url('{{ site.baseurl }}/assets/img/research.png');
+  background-color: #222;
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('{{ site.baseurl }}/assets/img/research.png');
   background-size: cover;
   background-position: center;
 }
 
 /* Project Card */
 .project-card .front {
-  background-image: url('{{ site.baseurl }}/assets/img/project.png');
+  background-color: #000;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ site.baseurl }}/assets/img/project.png');
   background-size: cover;
   background-position: center;
 }
 
 .project-card .back {
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent grey */
-  background-image: url('{{ site.baseurl }}/assets/img/project.png');
+  background-color: #222;
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('{{ site.baseurl }}/assets/img/project.png');
   background-size: cover;
   background-position: center;
 }
