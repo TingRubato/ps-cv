@@ -4,8 +4,11 @@ title: Labels, Self-Fulfilling Prophecy
 description: Do people embrace labels to seek identity, or just use them as an often-exploited excuse?
 date: 2025-03-06 00:00:00
 thumbnail: assets/img/self-labelling.jpg
+authors:
+  - name: Ting Xu
+    url: "https://tingrubato.github.io/ps-cv/"
 toc:
-sidebar: left
+  sidebar: left
 bibliography: label.bib
 ---
 
@@ -115,6 +118,8 @@ bibliography: label.bib
     });
 </script>
 
+## **1. Mental Health Labels Aren't Your Identity**
+
 They say there are two types of people in this world: those trapped by mental health labels and those watching others get trapped. Getting stamped with *"anxiety disorder"* or *"depression"* is like getting a disability pass that grants you extra exam time? Sorry, but no. You’re just giving yourself a self-imposed debuff. There’s a fancy term in psychology called Neuroplasticity.<d-footnote>Neuroplasticity, also known as neural plasticity or brain plasticity, refers to the brain’s ability to adjust and reorganize itself throughout life by forming new neural connections<d-cite key="mateos-aparicioImpactStudyingBrain2019,rWhatNeuralPlasticity2017"></d-cite>. This dynamic property enables the nervous system to adapt and respond to various stimuli, including new experiences, learning, environmental changes, and injuries.<d-cite key="mateos-aparicioImpactStudyingBrain2019,WhatNeuroplasticityWhy"></d-cite></d-footnote>
 
 In plain English, your brain isn’t a hard drive you can format, but <u>you can rewrite the data</u><d-cite key="puderbaughNeuroplasticity2025"></d-cite>. The real issue? Some folks cling to their diagnosis like it’s a lifetime membership card to a club they never wanted to join, proudly declaring to the world:
@@ -137,7 +142,7 @@ So ask yourself:
 <span class="reveal">Can’t communicate in an argument? Instead of admitting you need to improve, it’s "I have avoidant personality disorder, I can’t help it." Relationship problems? Instead of fixing your communication, it’s "I was born unlucky in love." It’s like someone failing a driving test and saying, "I was just born bad at wheels!"—when, in reality, they just need more practice.</span>
 <div class="glow-button">Hint</div>
 
-Slapping a diagnosis on everything makes life seem easier, doesn’t it? It’s like blaming Mercury retrograde for all your problems instead of admitting you just made bad decisions. Bonus points if it earns you some tragic main character energy. **But at some point, ** you have to ask yourself:
+Slapping a diagnosis on everything makes life seem easier, doesn’t it? It’s like blaming Mercury retrograde for all your problems instead of admitting you just made bad decisions. Bonus points if it earns you some tragic main character energy. **But at some point,** you have to ask yourself:
 
 > Do you spend each day trying to embrace adulthood, or are you holding on to Neverland like Peter Pan, afraid of change?
 > {: .block-warning}
@@ -178,7 +183,7 @@ So if you’re going to brainwash yourself, at least do it for good:
 
 Some people think personality is as unchangeable as childhood food preferences. *"I liked sweets as a kid; I still like them now."* Okay, but you also thought superheroes were the strongest beings in the world—until you realized a corporate executive with a black Amex card holds more power, while superheroes are out here picking up DoorDash shifts between saving the city just to make rent.
 
-Is personality really a rigid, permanent trait? The **Big Five Personality Traits** theory<d-cite key="BigFivePersonality"></d-cite> suggests traits like openness, conscientiousness, extraversion, agreeableness, and neuroticism tend to remain stable into adulthood. But stable doesn’t mean **fixed**. Maybe you’re an introvert, or maybe you just hate your job so much that even the office coffee machine gets more social interaction than you do as they all are advertizing their embedded ‘AI’.
+Is personality really a rigid, permanent trait? The **Big Five Personality Traits** theory<d-cite key="BigFivePersonality"></d-cite> suggests traits like openness, conscientiousness, extraversion, agreeableness, and neuroticism tend to remain stable into adulthood. But stable doesn’t mean **fixed**. Maybe you’re an introvert, or maybe you just hate your job so much that even the office coffee machine gets more social interaction than you do, now that it's advertising its own embedded 'AI'.
 
 Consider this:
 
@@ -186,7 +191,7 @@ Consider this:
 - **Are you ignoring situational factors?** – The same person on *Monday morning at 8 AM* vs. *Friday night at 5 PM* is basically a different species.
 - **Are you confusing habits with personality?** – Maybe you’re not *naturally* quiet—you just haven’t found the right topic to talk your head off about.
 
-In reality, personality isn’t about what you can or can’t do—it’s about what you tend to do and how comfortable you feel doing it. Keep quiet long enough, and you don’t just *seem* reserved—you *become* reserved. But speak up just once, and you might realize people aren’t thinking, "Wow, that was awkward," but instead, "Finally! We’ve been waiting for you to say something.
+In reality, personality isn’t about what you can or can’t do—it’s about what you tend to do and how comfortable you feel doing it. Keep quiet long enough, and you don’t just *seem* reserved—you *become* reserved. But speak up just once, and you might realize people aren’t thinking, "Wow, that was awkward," but instead, "Finally! We’ve been waiting for you to say something."
 
 So, stay adaptable—treat life like a Wi-Fi router, always scanning for the best channel to get the strongest connection—because sometimes, life’s interference is just your neighbor streaming 4K cat videos at full bandwidth.
 
@@ -194,7 +199,7 @@ So, stay adaptable—treat life like a Wi-Fi router, always scanning for the bes
 
 ## **Final Thoughts:**
 
-- Use Psychology as a Tool, Not a Cage。
+- Use Psychology as a Tool, Not a Cage.
 - Mental health labels aren’t your destiny. Stop treating them like *get-out-of-jail-free* cards.
 - Personality isn’t set in stone. You’re way more adaptable than you think.
 - Psychological theories aren’t just trivia to flex on Twitter—they exist to help you **understand yourself**.

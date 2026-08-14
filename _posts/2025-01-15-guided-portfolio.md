@@ -10,7 +10,7 @@ toc:
 
 This portfolio is a curated selection of my musical, creative, technical, and scholarly works that highlight my skills and passion. Thank you for taking the time to explore me.
 
-# **1.Projects**
+## **1. Projects**
 
 <div class="container-card project-card">
     <div class="front side">
@@ -21,8 +21,8 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
-            <p>This project introduces a silent metronome that leverages TENS (Transcutaneous Electrical Nerve Stimulation) to deliver timed pulses. Instead of clicks or lights, musicians feel subtle muscle impulses, freeing them from the distractions of conventional metronomes. <a href="https://tingrubato.github.io/ps-cv/projects/Tensonome/">Click to read more</a></p>   
+            <strong>Overview:</strong>
+            <p>This project introduces a silent metronome that leverages TENS (Transcutaneous Electrical Nerve Stimulation) to deliver timed pulses. Instead of clicks or lights, musicians feel subtle muscle impulses, freeing them from the distractions of conventional metronomes. <a href="{% link _projects/Tensonome.md %}">Read more about A Soundless Metronome</a></p>   
         </div>
     </div>
 </div>
@@ -38,8 +38,8 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
-            <p>Transform an aging Dell PowerEdge or similar server into a modern, AI-assisted platform with Python/Flask, neural networks, and real-time sensor control. This project shows how to balance noise, temperature, and performance via predictive modeling. <a href="https://tingrubato.github.io/ps-cv/projects/Quiet-Cool/">Click to read more</a></p>   
+            <strong>Overview:</strong>
+            <p>Transform an aging Dell PowerEdge or similar server into a modern, AI-assisted platform with Python/Flask, neural networks, and real-time sensor control. This project shows how to balance noise, temperature, and performance via predictive modeling. <a href="{% link _projects/Quiet Cool.md %}">Read more about Quiet Cool</a></p>   
         </div>
     </div>
 </div>
@@ -55,8 +55,8 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
-            <p>This post introduces a structured mathematical model to evaluate EB2-NIW petitions under the <em>Matter of Dhanasar</em> framework. It proposes tiered scoring, threshold checks, and weighted components for clearer, more consistent adjudications. <a href="https://tingrubato.github.io/ps-cv/blog/2024/quantified-niw/">Click to read more</a></p>   
+            <strong>Overview:</strong>
+            <p>This post introduces a structured mathematical model to evaluate EB2-NIW petitions under the <em>Matter of Dhanasar</em> framework. It proposes tiered scoring, threshold checks, and weighted components for clearer, more consistent adjudications. <a href="{% link _posts/2024-12-04-quantified-niw.md %}">Read more about evaluating EB2-NIW petitions</a></p>   
         </div>
     </div>
 </div>
@@ -72,8 +72,8 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
-            <p>“Ezzy Job Finder” automates the hunt for new job postings by scraping websites, parsing results, and sending Telegram alerts. It also features interactive d3.js charts to visualize job trends, making the search process more insightful and efficient. <a href="https://tingrubato.github.io/ps-cv/blog/2024/ezzy-job/">Click to read more</a></p>   
+            <strong>Overview:</strong>
+            <p>“Ezzy Job Finder” automates the hunt for new job postings by scraping websites, parsing results, and sending Telegram alerts. It also features interactive d3.js charts to visualize job trends, making the search process more insightful and efficient. <a href="{% link _posts/2024-05-01-ezzy-job.md %}">Read more about Ezzy Job Finder</a></p>   
         </div>
     </div>
 </div>
@@ -89,8 +89,8 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
-            <p>This guide demonstrates how to set up Grafana and Prometheus to monitor servers, containers, or entire homelabs. From real-time data scraping to intuitive dashboards, learn how to visualize and manage system performance in style. <a href="https://tingrubato.github.io/ps-cv/blog/2024/observability/">Click to read more</a></p>   
+            <strong>Overview:</strong>
+            <p>This guide demonstrates how to set up Grafana and Prometheus to monitor servers, containers, or entire homelabs. From real-time data scraping to intuitive dashboards, learn how to visualize and manage system performance in style. <a href="{% link _posts/2024-04-28-observability.md %}">Read more about monitoring a homelab</a></p>   
         </div>
     </div>
 </div>
@@ -106,15 +106,15 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
-            <p>This article discusses the challenges cochlear implant wearers face in perceiving music. It examines the technology’s focus on speech frequencies, limited spectral resolution, and potential strategies—like hybrid devices and training—to improve musical enjoyment. <a href="https://tingrubato.github.io/ps-cv/projects/ci-simulator/">Click to read more</a></p>   
+            <strong>Overview:</strong>
+            <p>This article discusses the challenges cochlear implant wearers face in perceiving music. It examines the technology’s focus on speech frequencies, limited spectral resolution, and potential strategies—like hybrid devices and training—to improve musical enjoyment. <a href="{% link _projects/ci-simulator.md %}">Read more about cochlear implants and music perception</a></p>   
         </div>
     </div>
 </div>
 <div class="caption">Project 6: Cochlear Implants and Music Perception</div>
 <br>
 
-# 2. **Writing samples**
+## 2. **Writing samples**
 
 <div class="container-card research-card">
     <div class="front side">
@@ -125,8 +125,8 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
-            <p>This study introduces a novel checkerboard array pole (CAP) magnetic lead screw (MLS) designed to enhance energy efficiency by reducing permanent magnet consumption. The research leverages a 3-D sub-domain analytical model to evaluate magnetic field distribution, thrust force, and torque. Validation through finite element analysis (FEA) and experimental results demonstrates improved thrust and torque performance. <a href="#">Click to read more</a></p>
+            <strong>Overview:</strong>
+            <p>This study introduces a novel checkerboard array pole (CAP) magnetic lead screw (MLS) designed to enhance energy efficiency by reducing permanent magnet consumption. The research leverages a 3-D sub-domain analytical model to evaluate magnetic field distribution, thrust force, and torque. Validation through finite element analysis (FEA) and experimental results demonstrates improved thrust and torque performance. <a href="https://ieeexplore.ieee.org/document/10900580/">Read the full paper on IEEE Xplore</a></p>
         </div>
     </div>
 </div>
@@ -142,8 +142,8 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
-            <p>This research introduces a novel 2-D mesh-based Magnetic Equivalent Circuit (MEC) model tailored for Hybrid Exciting Magnetic Lead Screws (HEMLS). It reduces computational time in analyzing dynamic performance and optimal design. By simplifying the mesh structure and parameters, the study achieves accuracy while lowering computational costs. Comparisons with Finite Element Analysis validate its reliability and performance under varying conditions. <a href="https://ieeexplore.ieee.org/document/2024-SECSC-1317">Click to read more</a></p>
+            <strong>Overview:</strong>
+            <p>This research introduces a novel 2-D mesh-based Magnetic Equivalent Circuit (MEC) model tailored for Hybrid Exciting Magnetic Lead Screws (HEMLS). It reduces computational time in analyzing dynamic performance and optimal design. By simplifying the mesh structure and parameters, the study achieves accuracy while lowering computational costs. Comparisons with Finite Element Analysis validate its reliability and performance under varying conditions. <a href="https://ieeexplore.ieee.org/document/2024-SECSC-1317">Read the full paper on IEEE Xplore</a></p>
         </div>
     </div>
 </div>
@@ -159,15 +159,15 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
-            <p>This study presents a new direct-driven Linear-Rotary Wave Generator (LRWG) capable of converting low-speed linear motion from waves into high-speed rotational motion to generate electrical power. It incorporates a multi-objective optimization approach to improve energy conversion efficiency and reliability, validated through a prototype and experimental tests. The LRWG aims to advance wave energy conversion technology under harsh oceanic conditions. <a href="https://ieeexplore.ieee.org/document/TEC-01067-2023">Click to read more</a></p>
+            <strong>Overview:</strong>
+            <p>This study presents a new direct-driven Linear-Rotary Wave Generator (LRWG) capable of converting low-speed linear motion from waves into high-speed rotational motion to generate electrical power. It incorporates a multi-objective optimization approach to improve energy conversion efficiency and reliability, validated through a prototype and experimental tests. The LRWG aims to advance wave energy conversion technology under harsh oceanic conditions. <a href="https://ieeexplore.ieee.org/document/TEC-01067-2023">Read the full paper on IEEE Xplore</a></p>
         </div>
     </div>
 </div>
 <div class="caption">Manuscript 3: Design, Optimization, and Experimental Study of a Novel Linear-Rotary Wave Generator</div>
 <br>
 
-# 3. **Compositions**
+## 3. **Compositions**
 
 <div class="container-card music-card">
     <div class="front side">
@@ -179,7 +179,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
+            <strong>Overview:</strong>
             <p>A unique experimental piano composition exploring unconventional rhythmic structures and tones.</p>
             <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1930157858&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" target="_blank">Listen on SoundCloud</a>
         </div>
@@ -198,7 +198,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
+            <strong>Overview:</strong>
             <p>An emotional instrumental composition symbolizing resilience and renewal after challenging times.</p>
             <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1930157858&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" target="_blank">Listen on SoundCloud</a>
         </div>
@@ -217,7 +217,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
+            <strong>Overview:</strong>
             <p>A hopeful and reflective solo piano piece capturing a mix of struggle and optimism.</p>
             <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1455431401&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" target="_blank">Listen on SoundCloud</a>
         </div>
@@ -236,7 +236,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
+            <strong>Overview:</strong>
             <p>An experimental piece exploring electronic textures and soundscapes, pushing boundaries of composition.</p>
             <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1977100827&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" target="_blank">Listen on SoundCloud</a>
         </div>
@@ -255,7 +255,7 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     </div>
     <div class="back side">
         <div class="content">
-            <h3>Overview:</h3>
+            <strong>Overview:</strong>
             <p>A trio composition that ventures into unconventional harmonies and structures, evoking introspection.</p>
             <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1399659322&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" target="_blank">Listen on SoundCloud</a>
         </div>
@@ -425,5 +425,14 @@ h2 {
 
 .content a {
     color:rgb(27, 233, 230);
+}
+
+@media (max-width: 768px) {
+    .container-card {
+        min-width: 100%;
+    }
+    .side {
+        padding: 20px;
+    }
 }
 </style>

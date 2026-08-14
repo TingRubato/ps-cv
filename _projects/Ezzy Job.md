@@ -3,7 +3,7 @@ layout: post
 title: Ezzy Job Scraper 🕵️‍♂️
 date: 2024-05-01 00:32:13
 img: assets/img/ezzyjob.png
-description: Automate Job Postings Scraper with Python and elegent visualization using d3j
+description: Build an automated Python job-posting scraper with real-time Telegram alerts and D3.js visualizations.
 mermaid:
   enabled: true
   zoomable: true

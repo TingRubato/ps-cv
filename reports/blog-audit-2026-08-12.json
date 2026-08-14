@@ -1,0 +1,125 @@
+{
+  "audit_date": "2026-08-12",
+  "scope": "_posts/",
+  "total_posts": 9,
+  "average_score": 45,
+  "methodology": "9 parallel blog-reviewer agent runs (no bundled scripts/analyze_blog.py in this install), 5-category 100-point rubric, seeded with confirmed sitewide facts",
+  "health_overview": {
+    "excellent_90_plus": 0,
+    "good_70_89": 0,
+    "needs_work_50_69": 4,
+    "poor_below_50": 5,
+    "orphan_pages": 6,
+    "dead_end_pages": 8,
+    "cannibalization_issues": 0,
+    "stale_or_decaying": { "high": 1, "medium": 3, "low": 5 }
+  },
+  "sitewide_findings": [
+    "serve_schema_org: false and serve_og_meta: false in _config.yml — no JSON-LD or OpenGraph/Twitter Card tags emitted anywhere",
+    "No author: frontmatter field on any post — byline in _layouts/post.liquid never renders",
+    "No last_updated/dateModified frontmatter anywhere — no freshness signal",
+    "Only 3 outbound internal links exist across all 9 posts, all from one file (guided-portfolio.md)",
+    "robots.txt and jekyll-sitemap correctly configured, all crawlers including AI bots allowed; no llms.txt"
+  ],
+  "posts": [
+    {
+      "file": "2023-12-12-suicide.md",
+      "score": 16,
+      "categories": { "content_quality": 4, "seo": 7, "eeat": 2, "technical": 0, "ai_citation": 3 },
+      "top_issue": "P0: no crisis-support resources on a suicide-statistics post; near-zero body content",
+      "inbound_links": 0,
+      "outbound_links": 0,
+      "days_stale": 974,
+      "freshness_priority": "low"
+    },
+    {
+      "file": "2024-04-14-quiet-cool.md",
+      "score": 54,
+      "categories": { "content_quality": 24, "seo": 13, "eeat": 3, "technical": 3, "ai_citation": 11 },
+      "top_issue": "P0: published fan_control_server.py crashes on startup (missing import sys); layout: page drops date/tags/categories",
+      "inbound_links": 0,
+      "outbound_links": 0,
+      "days_stale": 850,
+      "freshness_priority": "medium"
+    },
+    {
+      "file": "2024-04-28-observability.md",
+      "score": 42,
+      "categories": { "content_quality": 15, "seo": 10.5, "eeat": 5, "technical": 3, "ai_citation": 8.5 },
+      "top_issue": "P0: intro promises Plugins/Alerting sections that don't exist",
+      "inbound_links": 1,
+      "outbound_links": 0,
+      "days_stale": 863,
+      "freshness_priority": "medium"
+    },
+    {
+      "file": "2024-05-01-ezzy-job.md",
+      "score": 52,
+      "categories": { "content_quality": 22, "seo": 11, "eeat": 3, "technical": 5, "ai_citation": 11 },
+      "top_issue": "P0: meta description contains typos ('elegent', 'd3j')",
+      "inbound_links": 1,
+      "outbound_links": 0,
+      "days_stale": 833,
+      "freshness_priority": "medium-high"
+    },
+    {
+      "file": "2024-12-04-quantified-niw.md",
+      "score": 44,
+      "categories": { "content_quality": 13, "seo": 13, "eeat": 4, "technical": 4, "ai_citation": 10 },
+      "top_issue": "P0: fabricated scoring methodology presented as authoritative on YMYL immigration-law topic, no disclaimer",
+      "inbound_links": 1,
+      "outbound_links": 0,
+      "days_stale": 616,
+      "freshness_priority": "high"
+    },
+    {
+      "file": "2025-01-15-guided-portfolio.md",
+      "score": 43,
+      "categories": { "content_quality": 15, "seo": 16, "eeat": 4, "technical": 2, "ai_citation": 6 },
+      "top_issue": "P0: dead link (href=\"#\") on Manuscript 1 card; min-width:700px breaks mobile with no media query",
+      "inbound_links": 0,
+      "outbound_links": 3,
+      "days_stale": 574,
+      "freshness_priority": "medium"
+    },
+    {
+      "file": "2025-03-06-reflection.md",
+      "score": 54,
+      "categories": { "content_quality": 21, "seo": 12, "eeat": 7, "technical": 4, "ai_citation": 10 },
+      "top_issue": "P0: broken heading numbering, jumps from intro to '2.' with no '1.' heading",
+      "inbound_links": 0,
+      "outbound_links": 0,
+      "days_stale": 524,
+      "freshness_priority": "low"
+    },
+    {
+      "file": "2025-07-09-journey-back-to-self.md",
+      "score": 39,
+      "categories": { "content_quality": 18, "seo": 9, "eeat": 3, "technical": 3, "ai_citation": 6 },
+      "top_issue": "P0: specific medication/dosage disclosures and casual suicide-attempt reference on a professional CV site",
+      "inbound_links": 0,
+      "outbound_links": 0,
+      "days_stale": 399,
+      "freshness_priority": "low_freshness_high_content_revision"
+    },
+    {
+      "file": "2026-03-19-adc-vmid-calibration.md",
+      "score": 60,
+      "categories": { "content_quality": 26, "seo": 18, "eeat": 3, "technical": 1, "ai_citation": 12 },
+      "top_issue": "P0: zero source citations on hardware/ADC technical claims",
+      "inbound_links": 0,
+      "outbound_links": 0,
+      "days_stale": 146,
+      "freshness_priority": "low"
+    }
+  ],
+  "cannibalization": [
+    { "topic": "self-identity / labels", "posts": ["2025-03-06-reflection.md", "2025-07-09-journey-back-to-self.md"], "recommendation": "differentiate" },
+    { "topic": "homelab / embedded hardware", "posts": ["2024-04-14-quiet-cool.md", "2024-04-28-observability.md", "2026-03-19-adc-vmid-calibration.md"], "recommendation": "differentiate, cross-link opportunity" }
+  ],
+  "link_graph_edges": [
+    { "from": "2025-01-15-guided-portfolio.md", "to": "2024-12-04-quantified-niw.md" },
+    { "from": "2025-01-15-guided-portfolio.md", "to": "2024-05-01-ezzy-job.md" },
+    { "from": "2025-01-15-guided-portfolio.md", "to": "2024-04-28-observability.md" }
+  ]
+}

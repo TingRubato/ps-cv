@@ -1,9 +1,10 @@
 ---
-layout: page
+layout: post
 title: ML Enablement for Old Homelab
 description: Charge Grandpa's Machine w/ Artificial Neural Network
 date: 2024-04-14 04:30:00
 thumbnail: assets/img/quietCool/image.png
+author: Ting Xu
 tags: code IoT ML
 categories: "Machine Learning"
 toc:
@@ -62,7 +63,7 @@ Quiet Cool serves as the missing link—a dynamic fan control system that fine-t
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/quietCool/diagram.png" title="Mechanisms" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/quietCool/diagram.png" title="Mechanisms" alt="Architecture diagram showing GPU temperature flowing to the Fan Control Server, which predicts fan speed via ML with a fallback safety mechanism, then sends commands through iDRAC to the fan hardware" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -193,7 +194,7 @@ Our custom loss function must capture three things:
 
 1. **Fan Speed MSE**: We compare the predicted fan speed to the _true/observed_ fan speed $$\hat{s}$$ (initially from the rule-based logic) to ensure continuity with past data:
 
-$$\mathcal{L}_{\text{fan_speed}} = \frac{1}{N}\sum{i=1}^{N} \bigl(\hat{s}_i - s_i\bigr)^2$$
+$$\mathcal{L}_{\text{fan_speed}} = \frac{1}{N}\sum_{i=1}^{N} \bigl(\hat{s}_i - s_i\bigr)^2$$
 
 1. **Noise Penalty: We penalize noise beyond some threshold $$\text{NOISE_THRESHOLD}$$ , e.g., 80 dB:**
 
@@ -245,7 +246,7 @@ $$
 F(t)=
 \begin{cases}
 s, & \text{if is_valid_fan_speed}(T, s)=\text{True}\\
-F{\text{init}}(T), & \text{otherwise}
+F_{\text{init}}(T), & \text{otherwise}
 \end{cases}
 $$
 
@@ -256,7 +257,7 @@ $$
 $$\Bigl(T(t),\,F(t),\,\text{RPM}(t),\,\text{any noise measurements}\Bigr)$$
 
 1. **Augment**: Possibly estimate noise $\hat{n}(t)$ using the noise model, or measure it.
-2. **Retrain Condition**: Every time we accumulate, say, 10 new samples (or some threshold), we update the dataset $$\{(T_i, \hat{s}_i, \hat{n}_i, \hat{t}i)\}$$ and retrain the network by minimizing:
+2. **Retrain Condition**: Every time we accumulate, say, 10 new samples (or some threshold), we update the dataset $$\{(T_i, \hat{s}_i, \hat{n}_i, \hat{t}_i)\}$$ and retrain the network by minimizing:
 
    $$\min_{ {W_1, b_1, W_2, b_2} } \mathcal{L}\Bigl(\{f(T_i)\}, \{\hat{\mathbf{y}}_i\}\Bigr)$$
 
@@ -296,14 +297,15 @@ This architecture ensures we keep the system safe (by falling back if prediction
 
 ## **Setting It Up: From Git Clone to Gentle Breeze**
 
-### **1. Clone the Repo & Setup Environment**
+### **1. Set Up Your Environment**
+
+This isn't published as a public repo. Save `monitor_gpu_temp.sh` and `fan_control_server.py` from the [Source Code](#source-code) section below into a local project folder, then set up a Python environment:
 
 ```bash
-git clone https://github.com/yourusername/quiet-cool.git
-cd quiet-cool
+mkdir quiet-cool && cd quiet-cool
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install flask numpy pandas tensorflow
 ```
 
 ### **2. Run the Server**
@@ -349,6 +351,7 @@ import logging
 import os
 import pickle
 import subprocess
+import sys
 from datetime import datetime
 
 import numpy as np

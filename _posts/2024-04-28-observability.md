@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Monitor Your Homelab Using Grafana + Prometheus
-date: 2024-04-01 15:06:00
-description: Tired of BI? Or Tableau too expensive? Well, try Grafana, or d3js(Come on, all the options available, don't get yourself robbed)
+date: 2024-04-28 15:06:00
+description: A hands-on guide to monitoring a homelab Proxmox server with Grafana and Prometheus, including PVE Exporter, Traefik, and GPU metric scraping.
 tags: data IoT Observability
 thumbnail: assets/img/grafana/image.png
 categories: Observability
@@ -37,7 +37,7 @@ Aight folks, let's start preparing for the Grafana journey. We'll be covering th
 - **Plugins**: Extending Grafana’s functionality with plugins.
 - **Alerting**: Setting up alerts for your data.
 
-#### Getting Started
+### Getting Started
 
 Grafana is a breeze to install and set up. You can choose from various installation methods, including Docker, RPM/DEB packages, and even cloud services like AWS and Azure. Once you’ve installed Grafana, you can access it via your browser and start configuring it to your heart’s content. Here is a quick guide to get you started: [Grafana Installation Guide](https://grafana.com/docs/grafana/latest/installation/).**If you are really in a hurry and want to get started right away before reading the installation guide, you can use the following Docker command to get Grafana up and running: `docker run -d -p 3000:3000 grafana/grafana`.** After running this command, you can access Grafana by navigating to `http://localhost:3000` in your browser.
 
@@ -45,7 +45,7 @@ If you set up Grafana successfully, you should see the login page as shown below
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/grafana/Login.png" title="Grafana Login Page" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/grafana/Login.png" title="Grafana Login Page" alt="Grafana login page after a fresh install" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -61,7 +61,7 @@ Grafana supports a wide range of data sources, including Graphite, Prometheus, I
 - **How to Add a Data Source**: To add a data source, navigate to the Configuration > Data Sources page in Grafana and click on the "Add data source" button as shown in the image below.
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/grafana/datasource.png" title="Add Data Source" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="lazy" path="assets/img/grafana/datasource.png" title="Add Data Source" alt="Grafana Configuration menu showing the Add data source button" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -72,7 +72,7 @@ Grafana supports a wide range of data sources, including Graphite, Prometheus, I
 - But wait, why do we need Prometheus as our data source? Well, Prometheus is a popular monitoring and alerting tool that is widely used in the industry. It is a great choice for monitoring your applications and infrastructure, and Grafana provides excellent support for Prometheus. So, since our topic is to cover how you can set up grafana for monitoring your server metrics, we will be using Prometheus as our data source. In the image below, you can see how we have configured Prometheus as our data source in Grafana. Since we are running Prometheus on our local machine, we'll just skip the TLS/SSL settings and click on the "Save & Test" button to save the data source settings as shown in the image below. I really like the way Grafana provides a test button to test the data source settings. It makes it easy to verify if the data source is correctly configured or not.
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/grafana/saveandtest.png" title="Save and Test Data Source" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="lazy" path="assets/img/grafana/saveandtest.png" title="Save and Test Data Source" alt="Prometheus data source configured in Grafana with Save and Test button" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -86,7 +86,7 @@ Dashboards are the heart and soul of Grafana. They allow you to visualize your d
 - **How to Create a Dashboard**: To create a dashboard, navigate to the Create > Dashboard page in Grafana and click on the "Add new panel" button as shown in the image below.
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/grafana/dashboard.png" title="Add New Panel" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="lazy" path="assets/img/grafana/dashboard.png" title="Add New Panel" alt="Grafana dashboard editor with the Add new panel button" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -97,22 +97,48 @@ Dashboards are the heart and soul of Grafana. They allow you to visualize your d
 - **After Creating a Dashboard**: Once you have created a dashboard, you can customize it by adding panels, changing the layout, and configuring the panel settings. You can also share the dashboard with others by exporting it as a JSON file or embedding it in a web page. In the image below, you can see how we have customized a dashboard in Grafana. This is an example of a dashboard that displays server metrics collected by Prometheus from PVE Exporter. This is used to monitor my home server and keep an eye on the server metrics like CPU usage, memory usage, disk usage, and network traffic. (To Dell: If you could have just provide user with a better ipmi tool, I wouldn't have to use PVE Exporter to monitor my server. But anyways, I am happy with the setup now.)
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/grafana/pve-grafana.png" title="Proxmox Server Metric Monitoring Dashboard" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="lazy" path="assets/img/grafana/pve-grafana.png" title="Proxmox Server Metric Monitoring Dashboard" alt="Grafana dashboard showing Proxmox CPU, memory, disk, and network metrics from PVE Exporter" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
     Proxmox Server Metric Monitoring Dashboard
 </div>
 
-In the example above, you can easily see the metric values like CPU usage, memory usage, disk usage, and network traffic. By looking at the dashboard, I can easily tell that the Memory Usage of my qemu/109 is quite high. As a DevOp, you better know what to do when you come across this situation. I would log into the guest machine and pull out the memory usage of the processes running on the machine to identify the culprit. Well I can guarantee you that I don't have culprit or malware running on my machine. It's just that I had too much stuff stored in the Disk and Synology DSM was probably doing some background cleaning and sorting tasks.
+In the example above, you can easily see the metric values like CPU usage, memory usage, disk usage, and network traffic. By looking at the dashboard, I can easily tell that the Memory Usage of my qemu/109 is quite high. As a DevOps person, you better know what to do when you come across this situation. I would log into the guest machine and pull out the memory usage of the processes running on the machine to identify the culprit. Well I can guarantee you that I don't have culprit or malware running on my machine. It's just that I had too much stuff stored in the Disk and Synology DSM was probably doing some background cleaning and sorting tasks.
 
 Now that you have a basic understanding of how to create and customize dashboards in Grafana, you can start exploring the various features and options available in Grafana to create stunning visualizations of your data. Remember, the sky's the limit when it comes to Grafana dashboards!
 
+### Plugins
+
+Grafana's plugin ecosystem is one of its strongest features, and there are three kinds:
+
+- **Panel plugins**: add new ways to visualize data, like pie charts, heatmaps, or worldmaps.
+- **Data source plugins**: let Grafana talk to systems that aren't supported out of the box.
+- **App plugins**: bundle panels and data sources together into a complete monitoring experience for a specific product.
+
+You can install plugins from the [Grafana plugin catalog](https://grafana.com/grafana/plugins/), either through the UI (Administration > Plugins) or via the CLI:
+
+```bash
+grafana-cli plugins install <plugin-id>
+```
+
+Restart the Grafana server after installing a plugin for it to take effect. I've found panel plugins particularly useful for visualizing data that doesn't fit neatly into Grafana's default panel types, like a piechart panel for disk usage breakdowns.
+
+### Alerting
+
+Once your dashboards are up and your data is flowing in, the next step is making sure you actually get notified when something goes wrong. Grafana's alerting system lets you define alert rules directly from a panel's query.
+
+- **Alert rules**: a condition, like "CPU usage above 90% for 5 minutes," based on the same query language you already use for dashboards.
+- **Contact points**: where an alert gets sent, like email, Slack, Discord, or a generic webhook.
+- **Notification policies**: route alerts to the right contact point based on labels, so a disk-usage alert on your Proxmox host doesn't page the same channel as a GPU-temperature alert.
+
+To create an alert rule, navigate to Alerting > Alert rules and click "New alert rule." You'll define the query, the condition, and how often Grafana should evaluate it. I'd recommend starting with a small number of high-signal alerts, like disk nearly full or a target going down, rather than alerting on everything. Alert fatigue is real, and it'll make you start ignoring notifications.
+
 ## Prometheus: From Raw Metrics to Symphony of Insights
 
-You might wonder why it sounds so easy to set up a Grafana Dashboard. Well, the secret sauce behind this is Prometheus. Prometheus is an open-source monitoring and alerting toolkit that is widely used in the industry. It provides a powerful data model, a flexible query language, and a sophisticated alerting system that makes it easy to monitor your applications and infrastructure. Prometheus collects metrics from your applications and infrastructure and stores them in a time-series database. You can then query these metrics using the Prometheus query language and visualize them in Grafana. This is why Prometheus is a great choice for monitoring your server metrics and Grafana is a great choice for visualizing these metrics. Together, they make a powerful combination that can help you monitor and troubleshoot your applications and infrastructure with ease. And I gotta be honest with you that it took me a while to properly set up Prometheus and PVE Exporter to monitor my Proxmox server. If you come across any issues while setting up Prometheus, here is a hint: **Check the certificates and user permission.** I know this sounds like a generic hint, but trust me, it can save you a lot of time.
+You might wonder why it sounds so easy to set up a Grafana Dashboard. Well, the secret sauce behind this is Prometheus. Prometheus is an open-source monitoring and alerting toolkit that is widely used in the industry. It provides a powerful data model, a flexible query language, and a sophisticated alerting system that makes it easy to monitor your applications and infrastructure. Prometheus collects metrics from your applications and infrastructure and stores them in a time-series database, and Grafana queries that database to visualize them. Together, they make a powerful combination that can help you monitor and troubleshoot your applications and infrastructure with ease. And I gotta be honest with you that it took me a while to properly set up Prometheus and PVE Exporter to monitor my Proxmox server. If you come across any issues while setting up Prometheus, here is a hint: **Check the certificates and user permission.** I know this sounds like a generic hint, but trust me, it can save you a lot of time.
 
-But in order to monitor your server metrics, there are a few additional set up that you need to do. You need to install Prometheus on your server and **configure it** to collect metrics from your applications and infrastructure. How to do that? Well, you can refer to the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/getting_started/) to get started. Or you can follow this GitHub Repo [Prometheus-PVE-Exporter](https://github.com/prometheus-pve/prometheus-pve-exporter). These tutorials will guide you through the process of installing Prometheus on your server and configuring it to collect metrics from your applications and infrastructure. Once you have Prometheus set up and running, you can configure Grafana to connect to Prometheus and start visualizing your server metrics. And that's how you can set up Grafana for monitoring your server metrics using Prometheus. This is specifically useful for monitoring your Proxmox server metrics. Below is my Prometheus configurations for monitoring my Proxmox server metrics. You can see that I have configured Prometheus to scrape the metrics from PVE Exporter, which is running on my Proxmox server. This is how Prometheus collects the metrics from my Proxmox server and stores them in a time-series database. You can then query these metrics using the Prometheus query language and visualize them in Grafana. This is how I monitor my Proxmox server metrics using Grafana and Prometheus. If you have any questions or need help setting up Prometheus and Grafana for monitoring your server metrics, feel free to leave me a comment below. I'll be happy to help you out.
+But in order to monitor your server metrics, there are a few additional setup steps you need to do. You need to install Prometheus on your server and **configure it** to collect metrics from your applications and infrastructure. You can refer to the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/getting_started/) to get started, or follow this GitHub repo: [Prometheus-PVE-Exporter](https://github.com/prometheus-pve/prometheus-pve-exporter), which is specifically useful for monitoring Proxmox server metrics. Below is my Prometheus configuration for monitoring my Proxmox server. You can see that I have configured Prometheus to scrape metrics from PVE Exporter, which runs on my Proxmox server. If you have any questions or need help setting this up, feel free to leave me a comment below. I'll be happy to help you out.
 
 ```yaml
 global:
@@ -159,7 +185,7 @@ scrape_configs:
     metrics_path: /metrics
     scheme: http
     static_configs:
-      - targets: ["another-service:$PORT NUMBER"] # Traefik host. You can replace this with your Traefik host.
+      - targets: ["another-service:8080"] # Traefik host and metrics port. Replace both with your own Traefik host.
     basic_auth: # Basic authentication. You can replace this with your basic authentication credentials. Not advised to use basic authentication. Use a more secure method but here I am running all of the service in local network and I am the only user, I will just skip the security part.
       username: username-for-real
       password: nobody-should-know-this
@@ -206,11 +232,11 @@ networks:
     driver: bridge
 ```
 
-By properly setting up Prometheus and Grafana, you can monitor your server metrics with ease and gain valuable insights into the performance of your applications and infrastructure. We can go to the Prometheus WEBUI and see the metrics that Prometheus is scraping from the target. This is how you can monitor your server metrics using Grafana and Prometheus. Below is a screenshot of my Prometheus target page. As you can see currently every tartget that I monitor is up. If you see any target down, you need to check the configurations and make sure that the target is up and running. If the target is down, Prometheus will not be able to scrape the metrics from the target and you will not be able to visualize the metrics in Grafana. So make sure that all your targets are up and running.
+By properly setting up Prometheus and Grafana, you can monitor your server metrics with ease and gain valuable insights into the performance of your applications and infrastructure. We can go to the Prometheus WEBUI and see the metrics that Prometheus is scraping from the target. This is how you can monitor your server metrics using Grafana and Prometheus. Below is a screenshot of my Prometheus target page. As you can see currently every target that I monitor is up. If you see any target down, you need to check the configurations and make sure that the target is up and running. If the target is down, Prometheus will not be able to scrape the metrics from the target and you will not be able to visualize the metrics in Grafana. So make sure that all your targets are up and running.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/grafana/prometheus-target.png" title="Prometheus Targets" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="lazy" path="assets/img/grafana/prometheus-target.png" title="Prometheus Targets" alt="Prometheus targets page showing all scrape targets in an up state" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

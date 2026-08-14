@@ -3,6 +3,7 @@ layout: post
 title: I Tried to Calibrate My ADC with VMID — and Ended Up Pulling VMID High
 description: The author attempted to calibrate an ADC using an additional ESP32 pin to read a high-impedance midpoint voltage, but this inadvertently loaded the node, causing the voltage to drift from 1.65V to 1.95V.
 date: 2026-03-19
+author: Ting Xu
 tags: code IoT
 categories: hardware
 toc:
@@ -14,6 +15,11 @@ Sometimes the most frustrating engineering bugs are not the obvious ones—the "
 The really maddening ones are the opposite: you think you're improving the system, and then you realize the new thing you added is the part causing the trouble.
 
 In other words, I was trying to make the circuit smarter, and it turned out the least stable part of the whole design was the "smart" idea I had added myself.
+
+> **TL;DR**
+> - I added a second ESP32 ADC pin to directly monitor a resistor-divider midpoint (VMID, meant to sit at 1.65V) for real-time calibration.
+> - Connecting that pin loaded the high-impedance node instead of just observing it, and VMID drifted up to 1.95V.
+> - The fix: don't measure VMID directly. Compute it in software as the running average of the ADC samples instead.
 
 ---
 
@@ -63,7 +69,7 @@ The funny part is that, at a glance, the schematic really did look fine.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/adc-vmid/circuit-schematic.png" title="Current-sensing front end schematic" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="lazy" path="assets/img/adc-vmid/circuit-schematic.png" title="Current-sensing front end schematic" alt="Schematic of the current-sensing front end: CT, burden resistor, VMID divider, Schottky clamps, and RC filter feeding the ESP32 ADC" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -325,7 +331,7 @@ That was a completely reasonable move, because Schottky diodes always seem to ca
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/adc-vmid/schottky-diodes.png" title="Schottky diode orientation check" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="lazy" path="assets/img/adc-vmid/schottky-diodes.png" title="Schottky diode orientation check" alt="Close-up of the two Schottky clamp diodes on the RAW signal node, checked for correct orientation during debugging" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -408,6 +414,11 @@ The key comparison was simple:
 - **When VMID was not connected to the ESP32 pin, it stayed at 1.65V**
 - **When I connected VMID to that pin, it started drifting upward**
 
+| State | VMID Behavior | Settled Value |
+|---|---|---|
+| ESP32 monitor pin disconnected | Stable, matches the divider math | 1.65V |
+| ESP32 monitor pin connected | Slow upward drift after connecting | ~1.95V |
+
 At that point, the whole thing finally made sense.
 
 The problem was not that the circuit failed to generate **1.65V**.
@@ -446,7 +457,7 @@ The ESP32 ADC input is not an infinitely high-impedance, perfectly passive obser
 - Pin mux circuitry
 - Other internal signal paths depending on configuration
 
-So it is not just "looking" at the node. It can interact with it.
+These are documented in the [ESP32 Technical Reference Manual](https://documentation.espressif.com/esp32_technical_reference_manual_en.pdf) (Espressif Systems), which covers the ADC's sample-and-hold behavior and I/O pin structure in detail. So it is not just "looking" at the node. It can interact with it.
 
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: A quantified way to evaluate your EB2-NIW Petition
 date: 2024-12-04 01:59:00
 description: A quantified methods to evaluate your EB2-NIW petition.
+author: Ting Xu
 tags: legal analysis
 categories: work
 thumbnail: assets/img/dhanasar/niw.png
@@ -16,7 +17,7 @@ chart_scripts:
 
 ## **Introduction**
 
-The regulations outlined in 8 CFR § 204.5(k) define the eligibility criteria for second-preference employment-based immigrant visas (EB-2), including the requirements for a National Interest Waiver (NIW). Historically, petitions were evaluated under the _Matter of New York State Dept. of Transportation_ (NYSDOT), a framework often criticized for its opaque standards and inconsistent application. In response, _Matter of Dhanasar_, 26 I&N Dec. 884 (AAO 2016), introduced a clearer, more flexible three-prong test to guide U.S. Citizenship and Immigration Services (USCIS) adjudicators.
+The regulations outlined in [8 CFR § 204.5(k)](https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-204/subpart-A/section-204.5) define the eligibility criteria for second-preference employment-based immigrant visas (EB-2), including the requirements for a National Interest Waiver (NIW). Historically, petitions were evaluated under the _Matter of New York State Dept. of Transportation_ (NYSDOT), a framework often criticized for its opaque standards and inconsistent application. In response, [_Matter of Dhanasar_, 26 I&N Dec. 884 (AAO 2016)](https://www.justice.gov/eoir/page/file/920996/dl), introduced a clearer, more flexible three-prong test to guide U.S. Citizenship and Immigration Services (USCIS) adjudicators.
 
 Dhanasar’s three-prong framework requires that a petitioner demonstrate:
 
@@ -128,7 +129,7 @@ Sum the scores from each factor to yield a total out of 100. A robust showing in
 
 Consider **Dr. Jane Doe**, a biomedical researcher using AI-driven diagnostics to improve early detection of pancreatic cancer.
 
-### **Prong 1: Substantial Merit and National Importance**
+### **Prong 1 (Worked Example): Substantial Merit and National Importance**
 
 | **Category**                           | Score | Weight | Weighted Score |
 | -------------------------------------- | ----- | ------ | -------------- |
@@ -150,7 +151,7 @@ Consider **Dr. Jane Doe**, a biomedical researcher using AI-driven diagnostics t
 
 ---
 
-### **Prong 2: Positioning to Advance the Proposed Endeavor**
+### **Prong 2 (Worked Example): Positioning to Advance the Proposed Endeavor**
 
 | **Component**                         | Score |
 | ------------------------------------- | ----- |
@@ -169,7 +170,7 @@ Consider **Dr. Jane Doe**, a biomedical researcher using AI-driven diagnostics t
 
 ---
 
-### **Prong 3: Balancing the National Interest**
+### **Prong 3 (Worked Example): Balancing the National Interest**
 
 | **Factor**                                     | Score |
 | ---------------------------------------------- | ----- |

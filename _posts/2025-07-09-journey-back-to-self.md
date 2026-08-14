@@ -4,6 +4,9 @@ title: The Journey Back to Self
 description: You don't have to become someone new. You just have to become someone honest.
 date: 2025-07-09
 thumbnail: assets/img/TMC09685.jpg
+authors:
+  - name: Ting Xu
+    url: "https://tingrubato.github.io/ps-cv/"
 toc:
   sidebar: left
 ---
@@ -161,48 +164,6 @@ toc:
       color: white;
   }
 
-  /* Timeline */
-  .timeline {
-      position: relative;
-      margin: 40px 0;
-      padding: 20px 0;
-  }
-
-  .timeline::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, #667eea, #764ba2);
-      transform: translateX(-50%);
-  }
-
-  .timeline-item {
-      position: relative;
-      margin: 30px 0;
-      padding: 0 20px;
-  }
-
-  .timeline-item:nth-child(odd) { text-align: right; padding-right: 60%; }
-  .timeline-item:nth-child(even) { text-align: left; padding-left: 60%; }
-
-  .timeline-item::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      width: 15px;
-      height: 15px;
-      background: #667eea;
-      border-radius: 50%;
-      border: 3px solid var(--global-bg-color); /* Match page background */
-      box-shadow: 0 0 0 3px #667eea;
-  }
-
-  .timeline-item:nth-child(odd)::before { right: calc(50% - 7px); }
-  .timeline-item:nth-child(even)::before { left: calc(50% - 7px); }
-
   /* Creative Highlight */
   .creative-highlight {
       background: linear-gradient(45deg, #ffd89b 0%, #19547b 100%);
@@ -323,18 +284,11 @@ toc:
       color: #e0e0e0 !important;
   }
 
-  @media (max-width: 768px) {
-      .timeline-item:nth-child(odd),
-      .timeline-item:nth-child(even) {
-          text-align: left;
-          padding-left: 40px;
-          padding-right: 20px;
-      }
-      .timeline::before {
-          left: 20px;
-      }
-      .timeline-item::before {
-          left: 13px !important;
+  @media (prefers-reduced-motion: reduce) {
+      .childhood-room::before,
+      .creative-highlight,
+      .innovation-card::before {
+          animation: none;
       }
   }
 </style>
@@ -367,31 +321,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log("Audio context blocked or not supported");
                 }
             });
-        });
-    }
-
-    // Animate timeline items on scroll
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    if('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        });
-        
-        timelineItems.forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'all 0.6s ease';
-            observer.observe(item);
-        });
-    } else {
-        // Fallback for browsers without IntersectionObserver
-        timelineItems.forEach(item => {
-            item.style.opacity = '1';
         });
     }
 });
@@ -503,7 +432,7 @@ It was something deeper—like being loyal to a version of myself that hadn't ye
   So that little kid helped me realize that:
 </p>
 <ul>
-  <li>You didn’t grow up learning music professionally does not cancel you from being a “musician”.</li>
+  <li>Not growing up learning music professionally doesn't cancel you out of being a “musician”.</li>
   <li>You have one thing that even musicians are constantly looking for: a pair of response-sensitive ears that can differentiate more frequencies.</li>
   <li>There’s a program called music technology, and they have PhD programs that WANT engineering background students.</li>
   <li>Even if I never became a "traditional musician," I could still use the technical language I'd learned to create and play the melodies in my heart.</li>
@@ -513,13 +442,13 @@ It was something deeper—like being loyal to a version of myself that hadn't ye
   So having those things figured out, I felt like I am ripped off by pharmaceutical companies again. Because I don’t think I need to double my dose anymore but now I’m on 20mg and withdrawing takes time now. Uffff
 </p>
 <p>
-  This is how amazing that little kid was, suicidal attempt?
+  This is how amazing that little kid was: he kept me tethered when the dosage changes and the doubt tried to pull me under.
 </p>
 <div class="creative-highlight">
   $$\tan(\frac{\pi}{2}) !$$ 
 </div>
 <p>
-  Wanna figure out what nerdy card I’m playing? Try use ChatGPT!
+  That's the nerdy way of saying "approaching infinity." Just a math joke, not a cry for help. Wanna decode the rest of it? Try ChatGPT!
 </p>
 </div>
 <div class="creative-highlight">
@@ -528,7 +457,7 @@ It was something deeper—like being loyal to a version of myself that hadn't ye
 
 <div class="memory-card">
 <h3>My Engineering Journey</h3>
-Later, I studied engineering—not with passion but not with hatred either. I approached it pragmatically, as a tool that might help me express myself. After coming here for grad school, I rebelled. And that was the most rebellious act I have ever committed in my life: <br>
+Later, I studied engineering—not with passion but not with hatred either. I approached it pragmatically, as a tool that might help me express myself. (Some of that engineering shows up elsewhere on this site too, like <a href="{% link _posts/2026-03-19-adc-vmid-calibration.md %}">a debugging writeup on ADC calibration</a> that turned out messier than expected.) After coming here for grad school, I rebelled. And that was the most rebellious act I have ever committed in my life: <br>
 I signed up for a few courses in music school, which—hmm—added around $10,000 to my tuition bill that went straight to my parents. I knew they wouldn't question anything about it since it was just another tuition bill! My friends thought I'd lost my mind.<br>
 <blockquote>"I don’t understand, you could’ve just went to those “music school” that teaches piano, but why would you spend that much money especially the they charge a ridiculous amount of tuition just for your a few music course."</blockquote>
 But honestly, it wasn't rebellion. It was me knowing that this was the last chance to let that little kid version of me—who was waiting for me to keep my promise—experience and feel it so he wouldn't destroy himself internally.<br>
@@ -570,7 +499,7 @@ I finally translated that realization into sound in a piece called <em>Waltz for
 <blockquote>Thank you, Dr. Pace, for allowing me to step outside the strict boundaries of classical form in my final project. You gave me the freedom to create on my own terms—while still honoring the emotional truths I had long kept guarded. Through that project, I found a way to reconnect with the earliest memories of my musical self, the child in me who once learned to feel through sound before words even made sense.</blockquote>
 ---
 
-Later, Misha told me something about Evonne that struck me deeply: that she once had a tumor in her brain, and for nearly a decade, lost the ability to feel empathy or sympathy. Knowing that, I began to understand her compulsion to write everything down, to scatter memo notes everywhere like breadcrumbs. It wasn’t just a habit—it was a form of recovery. To me, it was about reclaiming the humanity she had once been disconnected from. She wasn’t a workaholic; she was rebuilding her inner compass.
+Later, Misha told me something about Evonne that struck me deeply: that she'd carried something difficult for years, something that had disconnected her from parts of herself for a long time. Knowing that, I began to understand her compulsion to write everything down, to scatter memo notes everywhere like breadcrumbs. It wasn’t just a habit—it was a form of recovery. To me, it was about reclaiming the humanity she had once been disconnected from. She wasn’t a workaholic; she was rebuilding her inner compass.
 
 That helped me make sense of something in myself too—why I always seem to be in a rush, why I cling to ideas as if they might slip away. I think, in some way, I’m trying to make up for all the years I wasn’t chasing what truly set me on fire. Maybe we’re all just trying to return to the place where we first felt joy, even if we have to build the road ourselves.
 
@@ -643,8 +572,6 @@ It’s razor-sharp.
 
 It’s saved me more times than I can count. And these days, it doesn’t just whisper—it screams. The moment someone locks in on me with that subtle predatory stare, I feel it before it even happens. My internal radar flares: alert, calculating, already three moves ahead, already defending. Not because I’m paranoid—because I’ve had to be, since I really don’t believe that people will have my back.
 
-<h3>Standing My Ground</h3>
-
 <h3 style="margin-top:1.5em; letter-spacing:0.01em;">Standing Up For My Worth</h3>
 
 <p>
@@ -712,17 +639,7 @@ I wasn't angry that he hadn't heard of WashU. I was angry that he thought his ig
 
 As if not knowing my background gave him the right to decide my worth—and worse, this came from someone from my own country. The very people I thought would have my back while I was alone in a foreign land.
 
-And that's why I'm especially grateful to be working for someone like Jim.
-
-I'm usually more than happy to share insider insights on which Chinese products are reliable and which ones aren't. I genuinely enjoy helping people make better decisions when it comes to sourcing and quality.
-
-Sometimes, I even intentionally choose materials from China—especially when the value-to-price ratio is unbeatable.
-
-To be honest, in the embedded systems industry, China is already incredibly mature. In fact, I'd argue that in many areas, it's ahead of the U.S.
-
-Take PCB manufacturing, for example. To this day, I still haven't found a single U.S.-based alternative that can compete with JLCPCB—not just in terms of turnaround time, but in price. It's so goddamn affordable and efficient that nothing else even comes close.
-
-I take pride in showcasing the best of what we make. But I'd feel genuinely embarrassed to show anyone poor-quality items that misrepresent Chinese manufacturing—especially because, more often than not, it was my own people who let me down here in the States.
+And that's why I'm especially grateful to be working for someone like Jim. It stung more, coming from someone who should have understood: I've watched Chinese engineering and manufacturing mature into something genuinely world-class, and it was my own people, not strangers, who chose to underestimate it, and me, instead.
 
 <h3> The Real Gamble</h3>
 
@@ -731,6 +648,8 @@ Let's go back to that moment—the real turning point.
 By then, I already knew staying in the U.S. would be hard. The system isn't built for people like me to just "blend in." But _staying_—and still choosing to stand for something? That was the real gamble.
 
 I wasn't about to shrink myself just to be tolerated. If I was going to stay, it had to mean something.
+
+(If you want the less personal, more technical side of that same fight, I later wrote about [evaluating an EB2-NIW petition]({% link _posts/2024-12-04-quantified-niw.md %}).)
 
 ---
 
@@ -949,7 +868,7 @@ And walking forward without betraying the kid who once dared to believe you coul
 <p>And maybe—just maybe—that's the kind of strength the world needs more of, while I haven't got the chance to build up my safety bubbles yet, so I am really sorry that I may still sometimes bug them for some extra courage to face my fear. Bruh.</p>
 </div>
 
-<h3>Feasibility</h3>
+<h3>Learning to Be Met</h3>
 
 <p>There were times when it was hard for me to open up and ask for help.</p>
 
