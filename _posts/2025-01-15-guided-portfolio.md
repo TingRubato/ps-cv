@@ -133,7 +133,6 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
 <div class="caption">Paper 1: 3-D Analysis and Experimental Verification of a Novel Magnetic Lead Screw with Checkerboard Array Magnetic Pole</div>
 <br>
 
-
 <div class="container-card research-card">
     <div class="front side">
         <div class="content">
