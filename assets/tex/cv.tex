@@ -1,0 +1,224 @@
+% Ting Xu — CV
+% Content mirrors assets/json/resume.json (the /cv/ page). Research Experience
+% and paper author lists aren't in resume.json; they come from the old PDF.
+% Build:  cd assets/tex && latexmk -xelatex cv.tex && cp cv.pdf ../pdf/main.pdf
+\documentclass[letterpaper,10pt]{article}
+
+% ---------------------------------------------------------------------------
+% Packages
+% ---------------------------------------------------------------------------
+\usepackage[margin=0.65in,top=0.55in,bottom=0.65in,headheight=14pt,headsep=10pt]{geometry}
+\usepackage{fontspec}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tabularx}
+\renewcommand{\arraystretch}{0.95}
+\usepackage[hidelinks]{hyperref}
+
+% Helvetica ships with macOS; TeX Gyre Heros is the free metric clone
+% (used automatically on Overleaf / Linux).
+\IfFontExistsTF{Helvetica}{\setmainfont{Helvetica}}{\setmainfont{TeX Gyre Heros}}
+
+\definecolor{linkblue}{HTML}{1A0DAB}
+\hypersetup{colorlinks=true,urlcolor=linkblue,linkcolor=linkblue}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Header rule on top, "Page X of Y" footer
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.6pt}
+\cfoot{\small Page \thepage\ of \pageref*{LastPage}}
+
+% Section: bold, large, full-width rule beneath
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-3pt}{\rule{\textwidth}{0.6pt}}]
+\titlespacing*{\section}{0pt}{6pt}{-1pt}
+
+\setlist[itemize]{leftmargin=1.1em,label={\scriptsize\textbullet},itemsep=0pt,topsep=1pt,parsep=0pt}
+\setlist[enumerate]{leftmargin=2.2em,itemsep=0pt,topsep=1pt,parsep=0pt}
+
+% ---------------------------------------------------------------------------
+% Macros
+% ---------------------------------------------------------------------------
+% \entry{Bold title}{right (italic)}{second line}{right}
+\newcommand{\entry}[4]{%
+  \textbf{#1}\hfill\textit{#2}\\
+  #3\hfill #4\par}
+
+% \edu{School}{GPA}{Degree}{Dates}{Coursework}
+\newcommand{\edu}[5]{%
+  \textbf{#1}\hfill\textbf{GPA: #2}\\
+  \textit{#3}\hfill\textit{#4}\\
+  Relevant Coursework: #5\par}
+
+% \project{Name}{url}{dates}
+\newcommand{\project}[3]{%
+  \textbf{#1} \href{#2}{\small\faLink}\hfill\textit{#3}\par}
+
+\newcommand{\me}{\underline{\textbf{T. Xu}}}
+\newcommand{\paperlink}[1]{\href{#1}{\small\faLink}}
+
+% ---------------------------------------------------------------------------
+\begin{document}
+
+% Heading
+\begin{minipage}[t]{0.6\textwidth}
+  {\Large\bfseries Ting Xu}\\
+  \href{https://www.linkedin.com/in/7m-xu}{\faLinkedin\,linkedin.com/in/7m-xu}\\
+  \href{https://tingrubato.github.io/ps-cv/}{\faGithub\,tingrubato.github.io/ps-cv}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\textwidth}\raggedleft
+  \textbf{Contact Information}\\
+  \faEnvelope: \href{mailto:ting.x@wustl.edu}{ting.x@wustl.edu}\\
+  \faPhone: (314) 224-6046
+\end{minipage}
+
+% ---------------------------------------------------------------------------
+\section{Education}
+
+\edu{Washington University in St. Louis}{3.72/4.0}
+  {Master of Science in Electrical Engineering}{Aug 2021 - May 2023}
+  {Machine Learning, Embedded Systems, Data Science, Signal Processing}
+
+\edu{Shanghai Maritime University}{3.38/4.0}
+  {Bachelor of Engineering in Electrical Engineering}{Sept 2017 - July 2021}
+  {Robotics, Control Systems, Image Processing, Digital Signal Processing, Circuit Theory}
+
+% ---------------------------------------------------------------------------
+\section{Work Experience}
+
+\entry{Software Engineer, IoT and AI Systems}{Mar 2025 - Present}
+  {BHS, Inc.}{\textit{Contract via Byte Carnival LLC (Mar 2025 - Sep 2026); direct employee since Oct 2026}}
+\begin{itemize}
+  \item Design software architecture for connected industrial equipment, turning battery room, material handling, and service requirements into device-to-cloud telemetry workflows.
+  \item Build backend services and APIs that connect equipment data with internal enterprise systems, dashboards, and analytics services.
+  \item Develop ingestion, validation, and transformation pipelines for sensor, equipment-status, maintenance, and operational data.
+  \item Integrate software with embedded controllers, networked devices, and IoT gateways, accounting for latency, reliability, safety, and cybersecurity constraints.
+  \item Develop ML workflows in Python, PyTorch, TensorFlow, and scikit-learn for predictive maintenance, anomaly detection, and operational optimization.
+  \item Run deployment, CI/CD, containerization, logging, and monitoring for production software and analytics services.
+\end{itemize}
+
+\entry{Consultant}{June 2024 - Mar 2025}
+  {Byte Carnival LLC}{St. Louis, MO}
+\begin{itemize}
+  \item Developed innovative solutions for AI tool integration and enhanced technical workflows for global clients.
+  \item Designed and deployed dashboards for enhanced observability and monitoring of cloud services, ensuring robust performance and reliability.
+  \item Conducted in-depth research and analysis of client-provided evidence (STEM-related) in collaboration with a law firm, utilizing analytical frameworks to evaluate alignment with regulatory standards and strategic objectives.
+\end{itemize}
+
+\entry{Tutor}{Feb 2024 - June 2024}
+  {Varsity Tutors Inc.}{St. Louis, MO}
+\begin{itemize}
+  \item Tutored college students and professionals in STEM topics and developed tailored learning plans.
+  \item Delivered customized lessons in Mathematics, Physics, and Computer Science.
+  \item Designed personalized strategies to improve academic performance.
+\end{itemize}
+
+\entry{Student Worker}{Aug 2021 - May 2023}
+  {Washington University in St. Louis}{St. Louis, MO}
+\begin{itemize}
+  \item Streamlined campus-wide technology support and developed automated tools for project management.
+  \item Streamlined routing for the tech support group by analyzing daily operations, significantly reducing travel distances and boosting campus-wide efficiency.
+  \item Automated the pricing inquiry process for an EdTech project by developing a Python script with Selenium to systematically gather pricing data from vendor websites.
+\end{itemize}
+
+\entry{Exchange Program Coordination Intern (Volunteer)}{Feb 2018 - June 2018}
+  {International Association for the Exchange of Students for Technical Experience (IAESTE)}{Shanghai, China}
+\begin{itemize}
+  \item Facilitated cultural exchanges and internships for international students.
+  \item Facilitated the onboarding of overseas interns and organized cultural exchange events, improving participant satisfaction.
+  \item Matched candidates with international roles, coordinating communication across multiple stakeholders.
+\end{itemize}
+
+% ---------------------------------------------------------------------------
+\section{Awards}
+
+\textbf{Scholarship for Foreign Students in Natural and Engineering Sciences}\hfill\textit{2019}\\
+German Academic Exchange Service (DAAD)\\
+Awarded for exceptional academic performance in engineering sciences.
+
+% ---------------------------------------------------------------------------
+\section{Skills}
+
+\noindent\begin{tabularx}{\textwidth}{@{}lX<{\raggedleft}@{}}
+  \textbf{Programming:}      & C, Python, MATLAB, C\#, SQL, Shell, Git, Docker, Node.js, REST API \\
+  \textbf{Machine Learning:} & SciKit, PyTorch, TensorFlow, LLM, Transformers, AWS Sagemaker, YOLO \\
+  \textbf{Engineering:}      & Embedded Systems, RTOS, MCU, DSPs, Oscilloscope, AWS IoT, I\textsuperscript{2}C, CAD, Altium \\
+  \textbf{Music Technology:} & MIDI, Music Theory, librosa, music21, Signal Processing, Music Information Retrieval \\
+  \textbf{Research:}         & \LaTeX, Zotero, Overleaf, Data Analysis, Data Scraping, SPSS, Manim \\
+  \textbf{Languages:}        & English (Fluent), Chinese (Native Speaker) \\
+\end{tabularx}
+
+% ---------------------------------------------------------------------------
+\section{Publications}
+
+\begin{enumerate}
+  \item L. Zhu, L. Zhu, Q. Wu, \me, M. Huang, N. Gao, K. Wang, W. Wu, W. Li, C.-s. Koh, F. Blaabjerg (2025).
+    ``Design, Optimization, and Experimental Study of a Novel Direct-Driven Linear-Rotary Wave Generator.''
+    \textit{IEEE Transactions on Energy Conversion.}
+    \paperlink{https://ieeexplore.ieee.org/document/10870438}
+  \item L. Zhu, H. Ji, R. Fan, \me, N. Gao, K. Wang, M. Huang, X. Jin, W. Li, C.-s. Koh, F. Blaabjerg (2025).
+    ``Three-Dimensional Analysis and Experimental Verification of a Novel Magnetic Lead Screw With Checkerboard Array Magnetic Pole.''
+    \textit{IEEE Transactions on Transportation Electrification}, vol.~11, no.~4, pp.~8677--8688.
+    \paperlink{https://doi.org/10.1109/TTE.2025.3544831}
+\end{enumerate}
+
+% ---------------------------------------------------------------------------
+\section{Research Experience}
+
+\entry{Robotic Software Research Assistant}{Sept 2020 - June 2021}
+  {ROV Research Lab, Shanghai Maritime University}{Shanghai, China}
+\begin{itemize}
+  \item Conducted research on thrust allocation and developed an optimized algorithm in MATLAB using the Singular Value Decomposition (SVD) method to improve propulsion efficiency.
+  \item Transformed the user experience and interface for ROV control by using .NET and C\# to integrate a PS4 Controller, making it easier for non-professional users to operate and improving both accessibility and innovation in how users interact.
+\end{itemize}
+
+\entry{Embedded Systems Research Assistant}{July 2019 - Sept 2019}
+  {Hochschule Emden Leer}{Emden, Germany}
+\begin{itemize}
+  \item Developed and implemented device drivers for sensors with SMBus/I\textsuperscript{2}C interfaces on the nRF52840 platform using Embedded C for Riot-OS.
+  \item Improved the testing efficiency by automating the process through the development of a testing program.
+\end{itemize}
+
+\entry{Research Assistant}{Mar 2019 - June 2023}
+  {Department of Electrical Engineering, Shanghai Maritime University}{Shanghai, China}
+\begin{itemize}
+  \item Conducted computational optimization for a direct-driven linear-rotary wave generator (LRWG) using response surface methodology (RSM) and genetic algorithms to improve energy efficiency.
+  \item Developed multi-objective optimization models to minimize material use and enhance system performance, emphasizing parameter sensitivity.
+  \item Built 3-D analytical models for magnetic lead screws with Python and MATLAB, validated against finite element analysis (FEA).
+  \item Automated data analysis workflows to enable real-time comparisons between theoretical and experimental results.
+\end{itemize}
+
+% ---------------------------------------------------------------------------
+\section{Projects}
+
+\project{Cochlear Implant Simulator}{https://tingrubato.github.io/ps-cv/projects/ci-simulator}{Oct 2024 - Jan 2025}
+\begin{itemize}
+  \item Implemented a Python-based tool using Librosa.
+  \item Evaluated noise reduction algorithms for auditory enhancement.
+\end{itemize}
+
+\project{Quiet Cool: ML for Fan Control}{https://tingrubato.github.io/ps-cv/projects/Quiet-Cool/}{July 2024}
+\begin{itemize}
+  \item Designed a custom ML model to balance fan noise and GPU temperature.
+  \item Improved cooling efficiency in enterprise server environments.
+\end{itemize}
+
+\project{Ezzy Job}{https://tingrubato.github.io/ps-cv/blog/2024/ezzy-job/}{Nov 2023 - Jan 2024}
+\begin{itemize}
+  \item Built a backend scraper to automate the collection of job postings from Indeed by location and position.
+  \item Developed interactive dashboards using d3.js to track job postings, providing real-time insights with enhanced UI/UX.
+\end{itemize}
+
+\project{A Metronome Using TENS Unit}{https://tingrubato.github.io/ps-cv/projects/Tensonome/}{Apr 2023 - June 2023}
+\begin{itemize}
+  \item Created an embedded system to stimulate muscle rhythm for better timing.
+  \item Pioneered a novel approach in music performance technology.
+\end{itemize}
+
+\end{document}
