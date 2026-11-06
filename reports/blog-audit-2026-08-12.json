@@ -114,8 +114,16 @@
     }
   ],
   "cannibalization": [
-    { "topic": "self-identity / labels", "posts": ["2025-03-06-reflection.md", "2025-07-09-journey-back-to-self.md"], "recommendation": "differentiate" },
-    { "topic": "homelab / embedded hardware", "posts": ["2024-04-14-quiet-cool.md", "2024-04-28-observability.md", "2026-03-19-adc-vmid-calibration.md"], "recommendation": "differentiate, cross-link opportunity" }
+    {
+      "topic": "self-identity / labels",
+      "posts": ["2025-03-06-reflection.md", "2025-07-09-journey-back-to-self.md"],
+      "recommendation": "differentiate"
+    },
+    {
+      "topic": "homelab / embedded hardware",
+      "posts": ["2024-04-14-quiet-cool.md", "2024-04-28-observability.md", "2026-03-19-adc-vmid-calibration.md"],
+      "recommendation": "differentiate, cross-link opportunity"
+    }
   ],
   "link_graph_edges": [
     { "from": "2025-01-15-guided-portfolio.md", "to": "2024-12-04-quantified-niw.md" },

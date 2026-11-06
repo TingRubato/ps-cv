@@ -17,6 +17,7 @@ The really maddening ones are the opposite: you think you're improving the syste
 In other words, I was trying to make the circuit smarter, and it turned out the least stable part of the whole design was the "smart" idea I had added myself.
 
 > **TL;DR**
+>
 > - I added a second ESP32 ADC pin to directly monitor a resistor-divider midpoint (VMID, meant to sit at 1.65V) for real-time calibration.
 > - Connecting that pin loaded the high-impedance node instead of just observing it, and VMID drifted up to 1.95V.
 > - The fix: don't measure VMID directly. Compute it in software as the running average of the ADC samples instead.
@@ -414,10 +415,10 @@ The key comparison was simple:
 - **When VMID was not connected to the ESP32 pin, it stayed at 1.65V**
 - **When I connected VMID to that pin, it started drifting upward**
 
-| State | VMID Behavior | Settled Value |
-|---|---|---|
-| ESP32 monitor pin disconnected | Stable, matches the divider math | 1.65V |
-| ESP32 monitor pin connected | Slow upward drift after connecting | ~1.95V |
+| State                          | VMID Behavior                      | Settled Value |
+| ------------------------------ | ---------------------------------- | ------------- |
+| ESP32 monitor pin disconnected | Stable, matches the divider math   | 1.65V         |
+| ESP32 monitor pin connected    | Slow upward drift after connecting | ~1.95V        |
 
 At that point, the whole thing finally made sense.
 
