@@ -34,7 +34,7 @@ Earlier attempts at modeling the NIW framework as independent axes in a three-di
 ## **Conceptual Foundations: Sequential Evaluation of Dhanasar’s Prongs**
 
 <div id="chart-sunburst"></div>
-<script src="{{ '/assets/js/chart/chart-sunburst.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/chart/chart-sunburst.js' | relative_url | bust_file_cache }}" defer></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     if (typeof renderSunburstChart === 'function') {

@@ -8,16 +8,40 @@ authors:
   - name: Ting Xu
     url: "https://tingrubato.github.io/ps-cv/"
 toc:
-  sidebar: left
+  - name: "Unpacking memory_arxiv.zip…"
+  - name: "The Piano Bench"
+  - name: "The Resilience of Emotional Memory"
+  - name: "The Power of Emotional Memory"
+  - name: "Creativity is About “Responding”"
+  - name: "My Engineering Journey"
+  - name: "The Creative Breakthrough"
+  - name: "A Special Thanks"
+  - name: "I Chose to Gamble, But It Wasn’t Reckless"
+  - name: "Facing the Post-Graduation Reality"
+  - name: "Standing Up For My Worth"
+  - name: "The Real Gamble"
+  - name: "Finding My Support Network"
+  - name: "In that moment, I wasn't just an employee."
+  - name: "Bridging the Generation Gap"
+  - name: "Finding Your Childhood Room"
+  - name: "What's in your room?"
+  - name: "Redefining Success — Not by Forgetting Childhood, but by Honoring It"
+  - name: "Growing Beyond Childhood vs. Honoring It"
+  - name: "What Real Growth Means"
+  - name: "Redefining Courage"
+  - name: "True courage runs deeper."
+  - name: "This kind of courage isn't about enduring silently."
+  - name: "Learning to Be Met"
+  - name: "Return to the Room: Reclaiming the True Meaning of Creativity"
+  - name: "Reflection Questions for Your Journey"
+  - name: "Overcoming Hesitation"
+  - name: "You deserve to be here."
+  - name: "Back to the Beginning"
 ---
 
 <style>
-  /* Base Definitions using Theme Variables */
+  /* Piano keys */
   :root {
-    --card-bg: var(--global-card-bg-color, #ffffff);
-    --text-color: var(--global-text-color, #333333);
-    --shadow-color: rgba(0,0,0,0.1);
-    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --piano-white: #ffffff;
     --piano-black: #333333;
     --piano-white-hover: #f0f8ff;
@@ -25,56 +49,105 @@ toc:
   }
 
   html[data-theme="dark"] {
-    --shadow-color: rgba(0,0,0,0.4);
-    --accent-gradient: linear-gradient(135deg, #4b5fa7 0%, #5b3a7d 100%);
     --piano-white: #e0e0e0;
     --piano-white-hover: #d0d8e0;
     --piano-black: #222222;
   }
 
-  /* Childhood Room */
-  .childhood-room {
-      background: var(--accent-gradient);
-      color: white; /* Keep text white on the gradient background */
-      padding: 30px;
-      border-radius: 15px;
-      margin: 20px 0;
-      box-shadow: 0 10px 30px var(--shadow-color);
-      position: relative;
-      overflow: hidden;
+  /* Block system — built on the site's existing design tokens
+     (_sass/_design-system.scss, _sass/_themes.scss) so every block
+     adapts to light/dark automatically instead of hardcoding colors. */
+
+  .block-hero,
+  .block-card,
+  .block-emphasis,
+  .block-note,
+  .block-pullquote,
+  .support-network {
+    margin: 1.75em 0;
   }
 
-  .childhood-room::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      animation: float 6s ease-in-out infinite;
+  /* Full-bleed narrative wrapper for section openers/closers */
+  .block-hero {
+    background: var(--gradient-primary);
+    color: var(--text-on-primary);
+    padding: 2em;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
   }
 
-  @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(180deg); }
+  .block-hero h2,
+  .block-hero h3 {
+    margin-top: 0;
+    color: inherit;
   }
 
-  /* Memory Card */
-  .memory-card {
-      background: var(--card-bg);
-      color: var(--text-color);
-      padding: 25px;
-      border-radius: 12px;
-      margin: 20px 0;
-      box-shadow: 0 8px 25px var(--shadow-color);
-      border-left: 5px solid #4CAF50;
-      transition: all 0.3s ease;
+  /* Neutral story card */
+  .block-card,
+  .support-card {
+    background: var(--surface-card);
+    color: var(--global-text-color);
+    padding: 1.75em 2em;
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--global-theme-color);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .memory-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px var(--shadow-color);
+  .block-card:hover,
+  .support-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .block-card h3,
+  .block-card h4,
+  .support-card h4 {
+    margin-top: 0;
+    color: var(--global-theme-color);
+  }
+
+  /* Centered takeaway / pull statement */
+  .block-emphasis {
+    background: var(--primary-subtle);
+    border-left: 4px solid var(--global-highlight-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5em 2em;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .block-emphasis h3 {
+    margin-top: 0;
+  }
+
+  /* Reflective note / question box */
+  .block-note {
+    background: var(--global-tip-block-bg);
+    border-left: 4px solid var(--global-tip-block);
+    border-radius: var(--radius-lg);
+    padding: 1.25em 1.75em;
+  }
+
+  .block-note h4 {
+    margin-top: 0;
+    color: var(--global-tip-block-title);
+  }
+
+  /* Centered pull quote */
+  .block-pullquote {
+    background: var(--accent-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.25em 1.75em;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.15em;
+  }
+
+  .support-network {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25em;
   }
 
   /* Piano Keys */
@@ -125,172 +198,6 @@ toc:
       transform: translateY(1px);
   }
 
-  /* Quotes */
-  .reflection-quote {
-      font-style: italic;
-      font-size: 1.2em;
-      text-align: center;
-      margin: 30px 0;
-      padding: 20px;
-      background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-      color: white; /* Ensure text is readable on gradient */
-      border-radius: 10px;
-      position: relative;
-  }
-
-  .reflection-quote::before, .reflection-quote::after {
-      content: '"';
-      font-size: 4em;
-      position: absolute;
-      opacity: 0.3;
-      color: white;
-  }
-  .reflection-quote::before { top: -10px; left: 20px; }
-  .reflection-quote::after { bottom: -40px; right: 20px; }
-
-  /* Courage Section */
-  .courage-section {
-      background: var(--accent-gradient);
-      color: white;
-      padding: 40px;
-      border-radius: 20px;
-      margin: 30px 0;
-      text-align: center;
-  }
-
-  .courage-section h3 {
-      margin-bottom: 20px;
-      font-size: 2em;
-      color: white;
-  }
-
-  /* Creative Highlight */
-  .creative-highlight {
-      background: linear-gradient(45deg, #ffd89b 0%, #19547b 100%);
-      color: white;
-      padding: 25px;
-      border-radius: 15px;
-      margin: 20px 0;
-      text-align: center;
-      font-weight: bold;
-      animation: pulse 3s infinite;
-  }
-
-  @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-      100% { transform: scale(1); }
-  }
-
-  /* Question Box */
-  .question-box {
-      background: rgba(76, 175, 80, 0.1);
-      border-left: 4px solid #4CAF50;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 5px;
-      color: var(--text-color);
-  }
-  
-  html[data-theme="dark"] .question-box {
-      background: rgba(76, 175, 80, 0.2); /* Slightly more visible in dark mode */
-  }
-
-  .question-box h4 {
-      color: #4CAF50;
-      margin-bottom: 10px;
-  }
-
-  /* Innovation Card */
-  .innovation-card {
-      background: var(--accent-gradient);
-      color: white;
-      padding: 30px;
-      border-radius: 20px;
-      margin: 30px 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-  }
-
-  .innovation-card::before {
-      content: '💡';
-      font-size: 4em;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      opacity: 0.2;
-      animation: twinkle 2s infinite;
-  }
-
-  @keyframes twinkle {
-      0%, 100% { opacity: 0.2; }
-      50% { opacity: 0.6; }
-  }
-
-  /* Support Network */
-  .support-network {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin: 30px 0;
-  }
-
-  .support-card {
-      background: var(--card-bg);
-      color: var(--text-color);
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px var(--shadow-color);
-      border-top: 4px solid #667eea;
-      transition: transform 0.3s ease;
-  }
-
-  .support-card:hover { transform: translateY(-5px); }
-  .support-card h4 { color: #667eea; margin-bottom: 15px; }
-
-  /* Final Message */
-  .final-message {
-      background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-      color: white;
-      padding: 40px;
-      border-radius: 25px;
-      text-align: center;
-      margin: 40px 0;
-      font-size: 1.1em;
-      line-height: 1.6;
-  }
-
-  /* Improved Memory Card (Custom) */
-  .improved-memory-card {
-    background: linear-gradient(135deg, #f8fafc 60%, #e0e7ef 100%);
-    border-radius: 1.2em;
-    box-shadow: 0 4px 24px rgba(60, 72, 100, 0.10), 0 1.5px 6px rgba(60, 72, 100, 0.08);
-    padding: 2.2em 2em 1.5em 2em;
-    margin: 2.5em 0;
-    border-left: 6px solid #6c8cff;
-    color: #2a3142;
-  }
-
-  html[data-theme="dark"] .improved-memory-card {
-    background: linear-gradient(135deg, #2c3237 60%, #1c1c1d 100%);
-    color: #e0e0e0;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-  }
-  
-  html[data-theme="dark"] .improved-memory-card span,
-  html[data-theme="dark"] .improved-memory-card p,
-  html[data-theme="dark"] .improved-memory-card ul {
-      color: #e0e0e0 !important;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-      .childhood-room::before,
-      .creative-highlight,
-      .innovation-card::before {
-          animation: none;
-      }
-  }
 </style>
 
 <script>
@@ -326,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<div class="childhood-room">
-  <h2 style="margin-top:0; color:white;">The Journey Back to Self</h2>
+<div class="block-hero">
+  <h2>The Journey Back to Self</h2>
   <p>
     We spend so much of our lives striving to become someone—<br>
     <span style="display:block; margin-left:1em;">Someone <strong>impressive</strong>.<br>
@@ -358,13 +265,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <hr>
 
-<div class="memory-card">
-  <h3 style="margin-top:0; font-size:1.4em; letter-spacing:0.02em;">Unpacking <span style="font-family:monospace; background:rgba(0,0,0,0.1); padding:2px 6px; border-radius:4px;">memory_arxiv.zip</span>…</h3>
+<div class="block-card">
+  <h3 id="{{ "Unpacking memory_arxiv.zip…" | slugify }}" style="margin-top:0; font-size:1.4em; letter-spacing:0.02em;">Unpacking <span style="font-family:monospace; background:rgba(0,0,0,0.1); padding:2px 6px; border-radius:4px;">memory_arxiv.zip</span>…</h3>
   <div style="margin-bottom:0.5em;">
     <span style="font-weight:bold;">Unpacked,</span><br>
     <span style="font-style:italic;">Output:</span>
   </div>
-  <blockquote style="border-left:4px solid; margin:0 0 1em 0; padding:0.5em 1em; background:rgba(0,0,0,0.05);">
+  <blockquote>
     <span>There's this image that's been stuck in my head for years.</span>
   </blockquote>
   <p style="margin-bottom:0.7em;">
@@ -387,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </p>
 </div>
 
-<h3>The Piano Bench</h3>
+<h3 id="{{ "The Piano Bench" | slugify }}">The Piano Bench</h3>
 
 Later, I was transferred to a different preschool. That's where the prelude began.
 
@@ -411,8 +318,8 @@ While other children played with Legos, I sat alone in another classroom, practi
 Even then, it wasn't a "follow your dreams" moment.  
 It was something deeper—like being loyal to a version of myself that hadn't yet been edited, rationalized, or "corrected" by the world.
 
-<div class="memory-card">
-<h3>The Resilience of Emotional Memory</h3>
+<div class="block-card">
+<h3 id="{{ "The Resilience of Emotional Memory" | slugify }}">The Resilience of Emotional Memory</h3>
 <p><strong>Most people think emotions make you weak.</strong> When I tell people about these childhood moments, I constantly hear things like:</p>
 <ul>
   <li>"How do you still remember this stuff?"</li>
@@ -422,8 +329,8 @@ It was something deeper—like being loyal to a version of myself that hadn't ye
 <p>But here's the thing &ndash; people who remember details aren't weak. They're just living with their hearts wide open.</p>
 </div>
 
-<div class="memory-card">
-<h3>The Power of Emotional Memory</h3>
+<div class="block-card">
+<h3 id="{{ "The Power of Emotional Memory" | slugify }}">The Power of Emotional Memory</h3>
 <p>
   Emotional memory is the one thing that survived when life hit me with its storms. Later, when I felt completely lost in a foreign country with no idea who I was supposed to become, my depression got worse and I had to increase my dose of Trintellix. That was the moment I started to look for myself, and it was that kid on the little bench who reminded me,<br>
   <em>do you still remember what really matters?</em>
@@ -444,36 +351,58 @@ It was something deeper—like being loyal to a version of myself that hadn't ye
 <p>
   This is how amazing that little kid was: he kept me tethered when the dosage changes and the doubt tried to pull me under.
 </p>
-<div class="creative-highlight">
+<div class="block-emphasis">
   $$\tan(\frac{\pi}{2}) !$$ 
 </div>
 <p>
   That's the nerdy way of saying "approaching infinity." Just a math joke, not a cry for help. Wanna decode the rest of it? Try ChatGPT!
 </p>
 </div>
-<div class="creative-highlight">
-  <h3>Creativity is About “Responding”</h3>
+<div class="block-emphasis">
+  <h3 id="{{ "Creativity is About “Responding”" | slugify }}">Creativity is About “Responding”</h3>
 </div>
 
-<div class="memory-card">
-<h3>My Engineering Journey</h3>
-Later, I studied engineering—not with passion but not with hatred either. I approached it pragmatically, as a tool that might help me express myself. (Some of that engineering shows up elsewhere on this site too, like <a href="{% link _posts/2026-03-19-adc-vmid-calibration.md %}">a debugging writeup on ADC calibration</a> that turned out messier than expected.) After coming here for grad school, I rebelled. And that was the most rebellious act I have ever committed in my life: <br>
-I signed up for a few courses in music school, which—hmm—added around $10,000 to my tuition bill that went straight to my parents. I knew they wouldn't question anything about it since it was just another tuition bill! My friends thought I'd lost my mind.<br>
+<div class="block-card">
+<h3 id="{{ "My Engineering Journey" | slugify }}">My Engineering Journey</h3>
+<p style="margin-bottom:0.7em;">
+Later, I studied engineering—not with passion but not with hatred either. I approached it pragmatically, as a tool that might help me express myself. (Some of that engineering shows up elsewhere on this site too, like <a href="{% link _posts/2026-03-19-adc-vmid-calibration.md %}">a debugging writeup on ADC calibration</a> that turned out messier than expected.) After coming here for grad school, I rebelled. And that was the most rebellious act I have ever committed in my life:
+</p>
+<p style="margin-bottom:0.7em;">
+I signed up for a few courses in music school, which—hmm—added around $10,000 to my tuition bill that went straight to my parents. I knew they wouldn't question anything about it since it was just another tuition bill! My friends thought I'd lost my mind.
+</p>
 <blockquote>"I don’t understand, you could’ve just went to those “music school” that teaches piano, but why would you spend that much money especially the they charge a ridiculous amount of tuition just for your a few music course."</blockquote>
-But honestly, it wasn't rebellion. It was me knowing that this was the last chance to let that little kid version of me—who was waiting for me to keep my promise—experience and feel it so he wouldn't destroy himself internally.<br>
-And I was right. If I hadn't done that, if I hadn't had music during those 18 months—working various jobs and often being treated poorly—I don't know how I would have survived until finally meeting Jim.<br>
-I was right. That one semester finally colored my memory. I can still feel the sunny afternoons—the yellow leaves and blue skies. I even remember Professor William Lehman always wearing dark grey or blue Crocs with his suits, perpetually holding a paper espresso cup. It was a wonderful semester where I finally didn't have to struggle at night just to look smart in class. I simply came straight in with crazy but amazing ideas. You can never imagine how I felt when the girl who sat in front of me all the time said, "I would love to play this piece on my viola. I don't know how you made it, but this song is so beautiful." <br>
-What truly matters is that now I can finally utilize music theory to write my side of the story. It opened another channel for me to express my emotions and feelings—to articulate the way I see this world. <br>
-Being the cool guy in class felt good, but deep down I knew it was temporary. I was looking for something more profound—a way to master the language of musical notes. This universal language could be felt and understood by people from diverse backgrounds and cultures. Think about all the foreign language music you know—you can still feel if it's sad or happy, what kind of story it's telling. Is it a woman crying over a breakup?<br>
-Even when I didn't understand the lyrics to Edith Piaf's "Non, Je Ne Regrette Rien" or Mercedes Sosa's passionate ballads, their emotions transcended language barriers. That's the real power of music—it speaks directly to the soul.<br>
-Music was the one true international passport. While struggling to express myself in English during those early days in a new country, I could still communicate perfectly through rhythm and melody. When words failed me, musical phrases never did.<br>
-I wanted to develop this ability further—to express complex emotions through sound, to tell stories that couldn't be captured in conversation. I wasn't just pursuing technical skills; I was seeking a deeper form of human connection that existed beyond the limitations of spoken language.<br>
+<p style="margin-bottom:0.7em;">
+But honestly, it wasn't rebellion. It was me knowing that this was the last chance to let that little kid version of me—who was waiting for me to keep my promise—experience and feel it so he wouldn't destroy himself internally.
+</p>
+<p style="margin-bottom:0.7em;">
+And I was right. If I hadn't done that, if I hadn't had music during those 18 months—working various jobs and often being treated poorly—I don't know how I would have survived until finally meeting Jim.
+</p>
+<p style="margin-bottom:0.7em;">
+I was right. That one semester finally colored my memory. I can still feel the sunny afternoons—the yellow leaves and blue skies. I even remember Professor William Lehman always wearing dark grey or blue Crocs with his suits, perpetually holding a paper espresso cup. It was a wonderful semester where I finally didn't have to struggle at night just to look smart in class. I simply came straight in with crazy but amazing ideas. You can never imagine how I felt when the girl who sat in front of me all the time said, "I would love to play this piece on my viola. I don't know how you made it, but this song is so beautiful."
+</p>
+<p style="margin-bottom:0.7em;">
+What truly matters is that now I can finally utilize music theory to write my side of the story. It opened another channel for me to express my emotions and feelings—to articulate the way I see this world.
+</p>
+<p style="margin-bottom:0.7em;">
+Being the cool guy in class felt good, but deep down I knew it was temporary. I was looking for something more profound—a way to master the language of musical notes. This universal language could be felt and understood by people from diverse backgrounds and cultures. Think about all the foreign language music you know—you can still feel if it's sad or happy, what kind of story it's telling. Is it a woman crying over a breakup?
+</p>
+<p style="margin-bottom:0.7em;">
+Even when I didn't understand the lyrics to Edith Piaf's "Non, Je Ne Regrette Rien" or Mercedes Sosa's passionate ballads, their emotions transcended language barriers. That's the real power of music—it speaks directly to the soul.
+</p>
+<p style="margin-bottom:0.7em;">
+Music was the one true international passport. While struggling to express myself in English during those early days in a new country, I could still communicate perfectly through rhythm and melody. When words failed me, musical phrases never did.
+</p>
+<p style="margin-bottom:0.7em;">
+I wanted to develop this ability further—to express complex emotions through sound, to tell stories that couldn't be captured in conversation. I wasn't just pursuing technical skills; I was seeking a deeper form of human connection that existed beyond the limitations of spoken language.
+</p>
+<p style="margin-bottom:0.7em;">
 This whole process taught me:
+</p>
 <blockquote><em>The best kind of innovation is realizing those little fantasies that the kid inside of you has—whether him, her, or them, well, let's just not ruin this moment by being politically correct.</em></blockquote>
 </div>
 
-<div class="creative-highlight">
-<h3>The Creative Breakthrough</h3>
+<div class="block-emphasis">
+<h3 id="{{ "The Creative Breakthrough" | slugify }}">The Creative Breakthrough</h3>
 People often say that emotion makes you weak. But for me, emotion became the most powerful force behind everything I’ve been able to create. I learned that creativity isn’t some elusive gift—it’s actually quite simple. All you really need is:
 <ul>
 <li>A spark of inspiration</li>
@@ -487,7 +416,7 @@ It’s bittersweet that only in the last year of my program at WashU did I begin
 And when the inspiration fades—when the page stays blank and the melody won’t come—music theory becomes your library. A quiet, powerful archive of timeless, proven musical languages that still move people. I came to realize that many of my creative ideas didn’t appear out of thin air—they emerged from fragments. “Incomplete phrases” that were waiting to grow into something whole. So, here, I would like to say a 
 </div>
 
-<h3>A Special Thanks</h3>
+<h3 id="{{ "A Special Thanks" | slugify }}">A Special Thanks</h3>
 to Dr. Pace. Dr. Matthew Pace wasn't just my classical theory professor—he showed me how to manipulate  music, this universal human language, to express what's inside. In one semester, I wrote "Wowtz For Lunatics," something I never expected to create. <br>
 Dr. Pace is an extraordinary educator—someone whose mastery of music theory is so complete that he teaches with unwavering clarity. There’s no hesitation in his voice, no performance in his presence—just calm, grounded confidence. I admire that deeply. It’s a kind of quiet strength I hope to embody one day myself. If I ever stand at the podium, I want to speak with the same steady assurance he so effortlessly radiates.<br>
 But what Dr. Pace gave me went far beyond lectures, slides, or harmonic analysis. I still remember one particular afternoon after class, when I stayed behind to ask him why counterpoint frustrated me so much. I couldn’t quite articulate the disconnect I felt. He paused thoughtfully, then said:
@@ -505,7 +434,7 @@ That helped me make sense of something in myself too—why I always seem to be i
 
 ---
 
-<h3>I Chose to Gamble, But It Wasn’t Reckless</h3>
+<h3 id="{{ "I Chose to Gamble, But It Wasn’t Reckless" | slugify }}">I Chose to Gamble, But It Wasn’t Reckless</h3>
 
 One of the earliest truths I had to confront after graduation was this: being a student had shielded me far more than I realized. Once school ended, that protection vanished—and I was left to face a brutal gap between academia and real life.
 
@@ -527,7 +456,7 @@ And with my background—rooted in China, sharpened by years of watching people 
 
 So here begins the darkest 18 months of my life.
 
-<h3> Facing the Post-Graduation Reality</h3>
+<h3 id="{{ "Facing the Post-Graduation Reality" | slugify }}"> Facing the Post-Graduation Reality</h3>
 
 When I graduated, I had no job.
 
@@ -572,13 +501,13 @@ It’s razor-sharp.
 
 It’s saved me more times than I can count. And these days, it doesn’t just whisper—it screams. The moment someone locks in on me with that subtle predatory stare, I feel it before it even happens. My internal radar flares: alert, calculating, already three moves ahead, already defending. Not because I’m paranoid—because I’ve had to be, since I really don’t believe that people will have my back.
 
-<h3 style="margin-top:1.5em; letter-spacing:0.01em;">Standing Up For My Worth</h3>
+<h3 id="{{ "Standing Up For My Worth" | slugify }}" style="margin-top:1.5em; letter-spacing:0.01em;">Standing Up For My Worth</h3>
 
 <p>
   There’s a particular conversation I’ll never forget.
 </p>
 
-<div style="background:linear-gradient(90deg, rgba(249,246,255,0.5) 80%, rgba(255,251,231,0.5) 100%); border-left:5px solid #764ba2; border-radius:8px; padding:18px 22px; margin:20px 0;">
+<div class="block-card">
   <p style="margin-bottom:0.7em;">
     <span style="font-weight:bold;">An employer from my own hometown</span> assumed he could <span style="font-style:italic;">lowball me</span>—<br>
     <span style="margin-left:1.2em; display:block;">just because of my visa situation.</span>
@@ -586,7 +515,7 @@ It’s saved me more times than I can count. And these days, it doesn’t just w
   <p style="margin-bottom:0.7em;">
     He looked at my resume, heard my circumstances, and said,
   </p>
-  <blockquote style="border-left:4px solid var(--global-text-color-light); margin:0 0 1em 0; padding:0.5em 1em; background:rgba(0,0,0,0.05); font-size:1.05em;">
+  <blockquote>
     "Your family must've spoiled you. I mean, you're still surviving here without income, right?"
   </blockquote>
 </div>
@@ -602,37 +531,18 @@ It’s saved me more times than I can count. And these days, it doesn’t just w
 <p>
   And I didn't come this far just to shrink into survival.
 </p>
-<div style="background:linear-gradient(90deg, rgba(255,251,231,0.5) 80%, rgba(249,246,255,0.5) 100%); border-left:5px solid #ffd89b; border-radius:8px; padding:16px 20px; margin:20px 0;">
+<div class="block-card">
   <p style="margin-bottom:0.7em;">
     Then, as if doubling down, he added:
   </p>
-  <blockquote style="border-left:4px solid var(--global-text-color-light); margin:0 0 1em 0; padding:0.5em 1em; background:rgba(0,0,0,0.05); font-size:1.05em;">
+  <blockquote>
     "Sorry to be blunt, but I've never heard of WashU. It's probably not that great of a school."
   </blockquote>
 </div>
-<style>
-  .erased-container {
-    /* Add margin or padding as needed */
-  }
-  .erased-main {
-    font-weight: bold;
-    color: #b23a48;
-    font-size: 1.13em;
-    letter-spacing: 0.01em;
-  }
-  .erased-highlight {
-    color: #764ba2;
-    background: rgba(118,75,162,0.1);
-    border-radius: 4px;
-    padding: 2px 6px;
-  }
-</style>
-<div class="erased-container">
-  <p class="erased-main">
-    That's when I knew—I wasn't just being undervalued.<br>
-    <span class="erased-highlight">I was being erased.</span>
-  </p>
-</div>
+<p style="font-weight: 700; font-size: 1.13em; color: var(--global-danger-block-title);">
+  That's when I knew—I wasn't just being undervalued.<br>
+  <span style="background: var(--global-danger-block-bg); color: var(--global-danger-block-text); border-radius: 4px; padding: 2px 6px;">I was being erased.</span>
+</p>
 And that day was my 25th birthday—in lunar calendar, at least—when he essentially poured a bucket of ice water over my head. I told myself, no big deal, we celebrate the Western way anyway. The lunar calendar is just something my mom usually uses to track my birthday.
 
 I wasn't angry that he hadn't heard of WashU. I was angry that he thought his ignorance justified exploitation. If you don't know anything about it, use **Google**. If you do know and still act that way, then it's just **ego**.
@@ -641,7 +551,7 @@ As if not knowing my background gave him the right to decide my worth—and wors
 
 And that's why I'm especially grateful to be working for someone like Jim. It stung more, coming from someone who should have understood: I've watched Chinese engineering and manufacturing mature into something genuinely world-class, and it was my own people, not strangers, who chose to underestimate it, and me, instead.
 
-<h3> The Real Gamble</h3>
+<h3 id="{{ "The Real Gamble" | slugify }}"> The Real Gamble</h3>
 
 Let's go back to that moment—the real turning point.
 
@@ -653,7 +563,7 @@ I wasn't about to shrink myself just to be tolerated. If I was going to stay, it
 
 ---
 
-<h2> Finding My Support Network</h2>
+<h2 id="{{ "Finding My Support Network" | slugify }}"> Finding My Support Network</h2>
 
 Along the way, I've been lucky—truly lucky—to cross paths with people who didn't just support me, but _saw_ me.
 
@@ -668,7 +578,7 @@ Along the way, I've been lucky—truly lucky—to cross paths with people who di
     </div>
 </div>
 
-<div class="improved-memory-card">
+<div class="block-card">
   <p style="font-size: 1.13em; line-height: 1.7; margin-bottom: 1.1em;">
     <span style="font-weight: 600; color: #4b5fa7;">I'll never forget</span> the day Jim swung by <span style="color: #7a869a;">Kaldi's Coffee</span>
     <aside style="display: inline; font-size: 0.93em; color: #9ba6b8;">(the Ladue location<sup><a href="https://kaldiscoffee.com/pages/kaldis-coffee-at-ladue" target="_blank" style="color: #b3c6f7; text-decoration: none;">[1]</a></sup>)</aside>
@@ -706,8 +616,8 @@ As he spoke with that calm clarity, I felt something shift. It wasn't about answ
 
 Someone had finally <em>noticed</em> the quiet storm I had been carrying in silence.
 
-<div class="courage-section">
-<h3>In that moment, I wasn't just an employee.</h3>
+<div class="block-emphasis">
+<h3 id="{{ "In that moment, I wasn't just an employee." | slugify }}">In that moment, I wasn't just an employee.</h3>
 <p>His not trying to push me to do anything that I was not comfortable.</p>
 <p>I was not some cheap labor on a temporary visa.</p>
 <p>I wasn't even just a musician clawing to stay afloat.</p>
@@ -720,13 +630,13 @@ Someone had finally <em>noticed</em> the quiet storm I had been carrying in sile
   (Also—Jim, if you're reading this… boss, please stop picking at your nails like that. Keep it up and I'll make Misha drag you to a manicure appointment. Consider this a friendly threat.)
 </p>
 
-<h3>Bridging the Generation Gap</h3>
+<h3 id="{{ "Bridging the Generation Gap" | slugify }}">Bridging the Generation Gap</h3>
 
 Speaking of Evonne—she's 82 years old.
 
 At first, I worried about the generation gap. I mean, what could someone like me possibly have in common with someone who's lived through so much more?
 
-<div class="creative-highlight">
+<div class="block-emphasis">
 But now, I get what Jim meant when he said:
 "It's not about generations—it's about approach and methodology."
 </div>
@@ -748,7 +658,7 @@ But jokes aside—I've come to realize something deeper: I choose to feel the wo
 
 And Evonne, with her 82 years of life wisdom, saw that in me. She truly saw it.
 
-<div class="reflection-quote">
+<div class="block-pullquote">
 So if you're reading this—I want you to know: Your presence means more to me than you probably realize. Your support has been more than kind—it's been healing.
 </div>
 
@@ -762,21 +672,21 @@ So, if my problem is not about generation, what is it really about?
 
 ---
 
-<h2>Finding Your Childhood Room</h2>
+<h2 id="{{ "Finding Your Childhood Room" | slugify }}">Finding Your Childhood Room</h2>
 
 I began writing this after discovering a book on shadow work. The first worksheet inspired this entire reflection. (And honestly, I'm not sure if I'm mentally prepared for the second worksheet!)
 
-<div class="childhood-room">
+<div class="block-hero">
 <strong>I want to share something important about innovation and creativity: you need to find your childhood room.</strong>
 That childhood room of yours still exists, and the door isn't locked. Life got busy and growing up became stressful, so it's been far too long since anyone pushed open that door and walked in. Everything in that room is quietly waiting for you to come back.
 </div>
 
-<div class="question-box">
+<div class="block-note">
 <h4>If you're reading this right now, do you also have one of those dusty, forgotten rooms deep in your heart?</h4>
 <p>A private space that holds your earliest dreams and passions?</p>
 </div>
 
-<h2>What's in your room?</h2>
+<h2 id="{{ "What's in your room?" | slugify }}">What's in your room?</h2>
 
 <ul>
   <li>Maybe a set of paintbrushes that colored your imagination</li>
@@ -792,15 +702,15 @@ But I deeply believe—at some point in your life—you've felt that one crystal
 
 ---
 
-<h2>Redefining Success — Not by Forgetting Childhood, but by Honoring It</h2>
+<h2 id="{{ "Redefining Success — Not by Forgetting Childhood, but by Honoring It" | slugify }}">Redefining Success — Not by Forgetting Childhood, but by Honoring It</h2>
 
-<h3>Growing Beyond Childhood vs. Honoring It</h3>
+<h3 id="{{ "Growing Beyond Childhood vs. Honoring It" | slugify }}">Growing Beyond Childhood vs. Honoring It</h3>
 
 We live in a world that constantly demands we "grow up"—a world that constantly tells us to let go of our fantasies, to toughen up, to be realistic.
 
 In that world, dreams are downgraded to hobbies, curiosity is replaced by caution, and desire is filtered through what's practical, profitable, or acceptable.
 
-<blockquote style="border-left: 4px solid #f093fb; padding-left: 20px; font-style: italic; color: #f093fb;">
+<blockquote style="font-style: italic;">
 To most people, growing up means being rational—shelving anything that sounds "unrealistic."
 </blockquote>
 
@@ -808,7 +718,7 @@ It means compromising before we even try, and quietly accepting beliefs that nev
 
 But is that what we really want?
 
-<h3>What Real Growth Means</h3>
+<h3 id="{{ "What Real Growth Means" | slugify }}">What Real Growth Means</h3>
 
 <p>I understand that the childhood version of yourself might seem foolish or embarrassing to recall now. You want to grow out of it, I get it. But real growth doesn't mean forgetting your childhood.</p>
 
@@ -819,7 +729,7 @@ But is that what we really want?
   <li>It means carrying that pure, unfiltered self into an adult world—and finding ways to make it real without losing what made it magical.</li>
 </ul>
 
-<div class="innovation-card">
+<div class="block-emphasis">
 <strong>Growing up isn't about trading dreams for a life.</strong><br>
 <br>
 It's about learning how to hold both.<br>
@@ -845,7 +755,7 @@ And walking forward without betraying the kid who once dared to believe you coul
 
 ---
 
-<h2>Redefining Courage</h2>
+<h2 id="{{ "Redefining Courage" | slugify }}">Redefining Courage</h2>
 
 <p>When people talk about courage, they usually picture someone standing alone—facing every challenge head-on, never flinching, never asking for help.</p>
 
@@ -853,7 +763,7 @@ And walking forward without betraying the kid who once dared to believe you coul
 
 <p>But that's just one story. And it's incomplete.</p>
 
-<h3>True courage runs deeper.</h3>
+<h3 id="{{ "True courage runs deeper." | slugify }}">True courage runs deeper.</h3>
 
 <ul>
   <li>It's the kind of strength that allows you to say, <em>"I can't do this alone."</em></li>
@@ -861,14 +771,14 @@ And walking forward without betraying the kid who once dared to believe you coul
   <li>It's the quiet bravery of wanting to be seen, to be understood, and to have your efforts recognized—not for applause, but because we all need to feel real in someone else's eyes.</li>
 </ul>
 
-<div class="courage-section">
-<h3>This kind of courage isn't about enduring silently.</h3>
+<div class="block-emphasis">
+<h3 id="{{ "This kind of courage isn't about enduring silently." | slugify }}">This kind of courage isn't about enduring silently.</h3>
 <p>It's about surviving wisely.</p>
 <p>It's about choosing connection over isolation, and honesty over performance.</p>
 <p>And maybe—just maybe—that's the kind of strength the world needs more of, while I haven't got the chance to build up my safety bubbles yet, so I am really sorry that I may still sometimes bug them for some extra courage to face my fear. Bruh.</p>
 </div>
 
-<h3>Learning to Be Met</h3>
+<h3 id="{{ "Learning to Be Met" | slugify }}">Learning to Be Met</h3>
 
 <p>There were times when it was hard for me to open up and ask for help.</p>
 
@@ -879,7 +789,7 @@ And walking forward without betraying the kid who once dared to believe you coul
 <p>But it does need to be met—by people with vision, wisdom, and the willingness to recognize it.</p>
 
 <p>Acknowledging this isn't weakness. It's growing up. It's accepting something real about life:</p>
-<div class="creative-highlight">
+<div class="block-emphasis">
 You don't grow by hiding—you grow by being met.
 </div>
 
@@ -901,7 +811,7 @@ You don't grow by hiding—you grow by being met.
 
 ---
 
-<h2>Return to the Room: Reclaiming the True Meaning of Creativity</h2>
+<h2 id="{{ "Return to the Room: Reclaiming the True Meaning of Creativity" | slugify }}">Return to the Room: Reclaiming the True Meaning of Creativity</h2>
 
 <p>
   The reason I'm writing this is because I recently stumbled upon a book on shadow work. The very first worksheet completely derailed me—and somehow led me here.
@@ -915,7 +825,7 @@ You don't grow by hiding—you grow by being met.
   But it got me thinking about something I've never said out loud:
 </p>
 
-<div class="childhood-room">
+<div class="block-hero">
 <strong>Innovation and creativity aren't just for the gifted or chosen few.</strong><br>
 And to truly create, we often have to return to a place most of us have long forgotten.<br><br>
 
@@ -925,7 +835,7 @@ And to truly create, we often have to return to a place most of us have long for
 
 Yes, that room—the one that still exists somewhere deep inside, even if we haven't stepped into it for years. The door was never locked. Life just got busy. Growing up got heavy. And it's probably been far too long since anyone gently pushed that door open and walked inside.
 
-<blockquote style="border-left: 4px solid #4CAF50; padding-left: 20px; font-style: italic; color: #4CAF50;">
+<blockquote style="font-style: italic;">
 But everything in that room is still there, quietly waiting.
 </blockquote>
 
@@ -935,9 +845,9 @@ If you're reading this, I want to ask:
 
 ---
 
-<h2>Reflection Questions for Your Journey</h2>
+<h2 id="{{ "Reflection Questions for Your Journey" | slugify }}">Reflection Questions for Your Journey</h2>
 
-<div class="question-box">
+<div class="block-note">
 <h4>If you've been moved by what I've shared today, take a moment to consider these three questions:</h4>
 
 <p><strong>1. What moment did your childhood self look forward to most?</strong><br>
@@ -953,9 +863,9 @@ If yes, that's your direction. If no, that's what you need to search for.</p>
 ---
 
 <section class="overcoming-hesitation" style="margin: 2.5em 0;">
-  <h2 style="color: #e65100; font-size: 2em; font-weight: 700; margin-bottom: 1em;">Overcoming Hesitation</h2>
+  <h2 id="{{ "Overcoming Hesitation" | slugify }}" style="color: #e65100; font-size: 2em; font-weight: 700; margin-bottom: 1em;">Overcoming Hesitation</h2>
 
-  <blockquote style="border-left: 4px solid #FF9800; padding: 1em 1.5em; background: rgba(255, 152, 0, 0.1); font-style: italic; color: #b26a00; border-radius: 6px; margin-bottom: 1.5em;">
+  <blockquote style="font-style: italic; margin-bottom: 1.5em;">
     "But I'm scared. I'm afraid pursuing those things will make me lose what I have now."
   </blockquote>
 
@@ -963,7 +873,7 @@ If yes, that's your direction. If no, that's what you need to search for.</p>
     I understand that fear. I've stood at that crossroads too.
   </p>
 
-  <div class="creative-highlight" style="background: rgba(142, 36, 170, 0.1); border-left: 5px solid #8e24aa; border-radius: 7px; padding: 1em 1.5em; margin-bottom: 1.2em; color: #4a148c; font-weight: 500;">
+  <div class="block-emphasis">
     What really scares me isn’t the impossible—it’s regret.
   </div>
 
@@ -971,7 +881,7 @@ If yes, that's your direction. If no, that's what you need to search for.</p>
     It’s lying there when my hands don’t work anymore, still thinking, <span style="color:#8e24aa; font-style:italic;">“What if I hadn’t hesitated to enroll in MUS121C?”</span>
   </p>
 
-  <blockquote style="border-left: 4px solid #f44336; padding: 1em 1.5em; background: rgba(244, 67, 54, 0.1); font-style: italic; color: #b71c1c; border-radius: 6px; margin-bottom: 1.5em;">
+  <blockquote style="font-style: italic; margin-bottom: 1.5em;">
     The biggest risk isn’t chasing your dreams—it’s never trying at all.
   </blockquote>
 
@@ -979,55 +889,45 @@ If yes, that's your direction. If no, that's what you need to search for.</p>
     You don’t need to change everything at once. You just need to take the first step. As you begin this journey, something magical happens:
   </p>
 
-  <section class="support-network" style="margin: 2em 0 2.5em 0;">
-    <div class="connection-card" style="background: rgba(76, 175, 80, 0.1); border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em; margin-bottom: 1.1em;">
-      <div class="connection-title" style="font-weight: 600; color: #388e3c; font-size: 1.13em; margin-bottom: 0.3em;">
-        When you begin to move toward what you truly want,
-      </div>
-      <div class="connection-body" style="font-size: 1.04em;">
-        you’ll notice others quietly stepping out too—drawn by the same longing.
-      </div>
+  <section class="support-network">
+    <div class="support-card">
+      <h4>When you begin to move toward what you truly want,</h4>
+      <p>you’ll notice others quietly stepping out too—drawn by the same longing.</p>
     </div>
-    <div class="connection-card" style="background: rgba(76, 175, 80, 0.1); border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em; margin-bottom: 1.1em;">
-      <div class="connection-title" style="font-weight: 600; color: #388e3c; font-size: 1.13em; margin-bottom: 0.3em;">
-        You’ll realize
-      </div>
-      <div class="connection-body" style="font-size: 1.04em;">
-        you were never the only one waiting on that little bench.
-      </div>
+    <div class="support-card">
+      <h4>You’ll realize</h4>
+      <p>you were never the only one waiting on that little bench.</p>
     </div>
-    <div class="connection-card" style="background: rgba(76, 175, 80, 0.1); border-left: 5px solid #4CAF50; border-radius: 7px; padding: 1.2em 1.5em 1.1em 1.5em;">
-      <div class="connection-title" style="font-weight: 600; color: #388e3c; font-size: 1.13em; margin-bottom: 0.3em;">
-        You’ll find
-      </div>
-      <div class="connection-body" style="font-size: 1.04em;">
-        so many people—gentle, brave—searching for their own way to be seen, to be heard, to be real.
-      </div>
-    </div>
-    <div class="support-message" style="margin: 1.7em 0 1.2em 0; font-size: 1.07em;">
-      These people become your support system. They’ll see your worth, even on days you can’t.
-    </div>
-    <div class="courage-section" style="background: rgba(255, 152, 0, 0.15); border-left: 5px solid #FF9800; border-radius: 7px; padding: 1.1em 1.5em 1em 1.5em; margin-bottom: 1.2em;">
-      <h3 style="margin: 0; color: #e65100; font-size: 1.18em; font-weight: 600;">
-        You deserve to be here.<br>
-        You deserve to be cherished.
-      </h3>
+    <div class="support-card">
+      <h4>You’ll find</h4>
+      <p>so many people—gentle, brave—searching for their own way to be seen, to be heard, to be real.</p>
     </div>
   </section>
 
-  <h2 style="color: #6a4cff; font-size: 2em; font-weight: 700; margin-bottom: 1em;">Back to the Beginning</h2>
+  <p style="margin: 1.7em 0 1.2em 0; font-size: 1.07em;">
+    These people become your support system. They’ll see your worth, even on days you can’t.
+  </p>
+
+  <div class="block-emphasis">
+    <h3 id="{{ "You deserve to be here." | slugify }}" style="margin: 0;">
+      You deserve to be here.<br>
+      You deserve to be cherished.
+    </h3>
+  </div>
+
+  <h2 id="{{ "Back to the Beginning" | slugify }}" style="color: #6a4cff; font-size: 2em; font-weight: 700; margin-bottom: 1em;">Back to the Beginning</h2>
   <p style="font-size: 1.08em; margin-bottom: 1.1em;">
     So now, let’s return to that little bench.
     <br>
     If tonight, just for a moment, you’re willing to sit beside your younger self—not for nostalgia, but to ask honestly:
   </p>
-  <div class="reflection-quote" style="font-style: italic; color: #6a4cff; background: rgba(106, 76, 255, 0.1); border-radius: 6px; padding: 1em 1.5em; margin: 1.2em 0;">
+  <div class="block-pullquote">
     "Are you still waiting for me?"
   </div>
   <p style="font-size: 1.08em; margin-bottom: 1.1em;">
     I believe that child will look up, maybe a little teary-eyed, and whisper:
   </p>
-  <div class="reflection-quote" style="font-style: italic; color: #e67e22; background: rgba(230, 126, 34, 0.1); border-radius: 6px; padding: 1em 1.5em; margin: 1.2em 0;">
+  <div class="block-pullquote">
     "I've been waiting for you all along. I always knew you'd come back."
   </div>
 
@@ -1052,10 +952,10 @@ If yes, that's your direction. If no, that's what you need to search for.</p>
     <span style="font-size: 1.1em; color: #6a4cff;"><em>You’ll realize:</em></span>
   </p>
 
-  <div class="final-message" style="background: rgba(106, 76, 255, 0.05); border-left: 5px solid #6a4cff; border-radius: 8px; padding: 1.5em 1.5em 1.2em 1.5em; margin-top: 1.2em;">
-    <strong style="color: #6a4cff; font-size: 1.25em;">You were never alone.</strong><br><br>
-    <span style="color: var(--text-color);">We’ve all waited on little benches.<br>
-    We’ve all longed to be picked up, seen, and taken home.</span><br><br>
-    <span style="font-weight: bold; color: #e67e22;">And now—maybe—it’s time.</span>
+  <div class="block-hero">
+    <strong style="font-size: 1.25em;">You were never alone.</strong><br><br>
+    We’ve all waited on little benches.<br>
+    We’ve all longed to be picked up, seen, and taken home.<br><br>
+    <span style="font-weight: bold;">And now—maybe—it’s time.</span>
   </div>
 </section>

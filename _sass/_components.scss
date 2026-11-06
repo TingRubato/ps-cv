@@ -44,7 +44,7 @@
   }
 
   &:active {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(0.96);
   }
 
   /* Card body - where Bootstrap puts content */
@@ -99,6 +99,7 @@
     width: 100%;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     object-fit: cover;
+    box-shadow: var(--image-outline);
     transition: transform var(--transition-slow);
   }
 
@@ -209,6 +210,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        box-shadow: var(--image-outline);
         transition: transform var(--transition-slow);
       }
     }
@@ -276,7 +278,10 @@
   cursor: pointer;
   border: 1.5px solid transparent;
   transition:
-    all var(--transition-quick),
+    background-color var(--transition-quick),
+    border-color var(--transition-quick),
+    box-shadow var(--transition-quick),
+    color var(--transition-quick),
     transform var(--transition-quick);
   position: relative;
   overflow: hidden;
@@ -302,6 +307,10 @@
   &:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
+  }
+
+  &:active {
+    transform: scale(0.96);
   }
 
   &:disabled,
@@ -340,7 +349,7 @@
 
   &:active {
     background: var(--primary-active);
-    transform: translateY(0);
+    transform: translateY(0) scale(0.96);
   }
 }
 
@@ -474,7 +483,9 @@ nav.navbar {
   font-size: var(--text-sm);
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-sm);
-  transition: all var(--transition-quick);
+  transition:
+    color var(--transition-quick),
+    background-color var(--transition-quick);
   position: relative;
 
   /* Underline effect */
@@ -529,7 +540,7 @@ nav.navbar {
   border: 1px solid var(--border-base);
   padding: var(--space-2);
   border-radius: var(--radius-sm);
-  transition: all var(--transition-quick);
+  transition: background-color var(--transition-quick);
 
   &:hover {
     background: var(--surface-overlay);
@@ -599,13 +610,21 @@ nav.navbar {
   font-size: var(--text-xs);
   color: var(--text-secondary);
   text-decoration: none;
-  transition: all var(--transition-quick);
+  transition:
+    color var(--transition-quick),
+    background-color var(--transition-quick),
+    border-color var(--transition-quick),
+    transform var(--transition-quick);
 
   &:hover {
     background: var(--primary-subtle);
     border-color: var(--primary-muted);
     color: var(--primary);
     transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.96);
   }
 }
 
@@ -628,7 +647,9 @@ select {
   font-family: var(--font-sans);
   font-size: var(--text-base);
   color: var(--text-primary);
-  transition: all var(--transition-quick);
+  transition:
+    border-color var(--transition-quick),
+    box-shadow var(--transition-quick);
 
   &::placeholder {
     color: var(--text-muted);
@@ -781,7 +802,7 @@ select {
     width: 100%;
     aspect-ratio: 1;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-md), var(--image-outline);
     object-fit: cover;
     margin-bottom: var(--space-6);
     transition: transform var(--transition-slow);
@@ -915,7 +936,10 @@ select {
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transition: all var(--transition-quick);
+    transition:
+      opacity var(--transition-quick),
+      visibility var(--transition-quick),
+      transform var(--transition-quick);
     z-index: var(--z-tooltip);
     pointer-events: none;
   }

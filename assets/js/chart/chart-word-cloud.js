@@ -20,6 +20,7 @@ function renderWordCloudChart(selector) {
     .attr("text-anchor", "middle")
     .attr("font-size", "18px")
     .attr("font-weight", "bold")
+    .attr("fill", "currentColor")
     .text("Word Cloud Visualization");
 
   const g = svg.append("g").attr("transform", `translate(${width / 2}, ${height / 2})`);
@@ -67,6 +68,7 @@ function renderWordCloudChart(selector) {
 
       // Initialize automatic scrubber update
       let currentIndex = 0;
+      let layoutBusy = false; // guards against overlapping d3-cloud layouts interrupting each other's transitions
       const delay = 2000; // 2 seconds per update
 
       function cycleScrubber() {
@@ -93,6 +95,9 @@ function renderWordCloudChart(selector) {
 
       // Update function
       function update(words, time) {
+        if (layoutBusy) return; // a previous layout/transition is still settling; skip this tick rather than race it
+        layoutBusy = true;
+
         const currentFormattedTime = d3.utcFormat("%Y-%m-%d %H:%M:%S")(time);
         title.text(`As of ${currentFormattedTime}`);
 
@@ -112,7 +117,7 @@ function renderWordCloudChart(selector) {
           .on("end", (renderedWords) => {
             const text = g.selectAll("text").data(renderedWords, (d) => d.text);
 
-            text
+            const entered = text
               .enter()
               .append("text")
               .attr("font-size", 1e-6)
@@ -127,9 +132,19 @@ function renderWordCloudChart(selector) {
               .attr("transform", (d) => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`);
 
             text.exit().transition().duration(1000).ease(d3.easeCubicIn).attr("font-size", 1e-6).attr("opacity", 0).remove();
+
+            entered
+              .end()
+              .catch(() => {})
+              .finally(() => {
+                layoutBusy = false;
+              });
           });
 
         layout.start();
+        setTimeout(() => {
+          layoutBusy = false; // failsafe: don't let a stuck/slow layout permanently freeze future updates
+        }, delay * 2);
       }
     })
     .catch((error) => console.error("Error loading word cloud CSV data:", error));

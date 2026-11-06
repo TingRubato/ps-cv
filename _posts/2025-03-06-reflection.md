@@ -8,7 +8,10 @@ authors:
   - name: Ting Xu
     url: "https://tingrubato.github.io/ps-cv/"
 toc:
-  sidebar: left
+  - name: "1. Mental Health Labels Aren't Your Identity"
+  - name: "2. The Social Psychology of Labels: Self-Fulfilling Prophecy"
+  - name: "3. Personality Traits: Set in Stone or Flexible?"
+  - name: "Final Thoughts:"
 bibliography: label.bib
 ---
 
@@ -118,7 +121,7 @@ bibliography: label.bib
     });
 </script>
 
-## **1. Mental Health Labels Aren't Your Identity**
+<h2 id="{{ "1. Mental Health Labels Aren't Your Identity" | slugify }}">1. Mental Health Labels Aren't Your Identity</h2>
 
 They say there are two types of people in this world: those trapped by mental health labels and those watching others get trapped. Getting stamped with *"anxiety disorder"* or *"depression"* is like getting a disability pass that grants you extra exam time? Sorry, but no. You’re just giving yourself a self-imposed debuff. There’s a fancy term in psychology called Neuroplasticity.<d-footnote>Neuroplasticity, also known as neural plasticity or brain plasticity, refers to the brain’s ability to adjust and reorganize itself throughout life by forming new neural connections<d-cite key="mateos-aparicioImpactStudyingBrain2019,rWhatNeuralPlasticity2017"></d-cite>. This dynamic property enables the nervous system to adapt and respond to various stimuli, including new experiences, learning, environmental changes, and injuries.<d-cite key="mateos-aparicioImpactStudyingBrain2019,WhatNeuroplasticityWhy"></d-cite></d-footnote>
 
@@ -149,7 +152,7 @@ Slapping a diagnosis on everything makes life seem easier, doesn’t it? It’s 
 
 Staying the same might feel safe, but real life isn’t a fairytale—you don’t get to dodge growth forever. So instead of treating your label like a VIP pass to the "no-growth club," try reading a few books on mindfulness or putting in some CBT practice. Don’t let your diagnosis turn you into a “mental health martyr”—stuck in Neverland while everyone else learns to navigate the real world.
 
-## **2. The Social Psychology of Labels: Self-Fulfilling Prophecy**
+<h2 id="{{ "2. The Social Psychology of Labels: Self-Fulfilling Prophecy" | slugify }}">2. The Social Psychology of Labels: Self-Fulfilling Prophecy</h2>
 
 Who are you? Who do you want to be? These are cliché questions in your college application, right up there with *“Describe a time you overcame adversity”* and *“What makes you unique?”* But the real kicker is—**what do you believe about yourself?** Because if you think you're the main character, congrats—you just might be. If you think you're doomed to be an NPC, well... enjoy being stuck in the background while everyone else moves the plot forward. Just don’t be the guy who insists his *dream school* is Harvard while submitting a last-minute essay written in Google Docs at 2 AM. We should dream big, **but let’s not confuse ambition with staring at the ceiling**, waiting for success to magically happen.
 
@@ -179,7 +182,7 @@ So if you’re going to brainwash yourself, at least do it for good:
 2. **Base Self-Perception on Evidence** – Don’t just **feel** like you’re bad at something—check your actual progress.
 3. **Change Your Environment** – Surround yourself with people who push you forward, not a group of friends who sit around accepting their fate like doomed NPCs.
 
-## **3. Personality Traits: Set in Stone or Flexible?**
+<h2 id="{{ "3. Personality Traits: Set in Stone or Flexible?" | slugify }}">3. Personality Traits: Set in Stone or Flexible?</h2>
 
 Some people think personality is as unchangeable as childhood food preferences. *"I liked sweets as a kid; I still like them now."* Okay, but you also thought superheroes were the strongest beings in the world—until you realized a corporate executive with a black Amex card holds more power, while superheroes are out here picking up DoorDash shifts between saving the city just to make rent.
 
@@ -197,7 +200,7 @@ So, stay adaptable—treat life like a Wi-Fi router, always scanning for the bes
 
 **Ting’s Take:** Personality isn’t a released album—it’s more like your Spotify Wrapped. It evolves based on your habits, surprises you with unexpected trends, and sometimes makes you wonder, "Did I really listen to that on repeat?" What you shape it into is entirely up to you.
 
-## **Final Thoughts:**
+<h2 id="{{ "Final Thoughts:" | slugify }}">Final Thoughts:</h2>
 
 - Use Psychology as a Tool, Not a Cage.
 - Mental health labels aren’t your destiny. Stop treating them like *get-out-of-jail-free* cards.

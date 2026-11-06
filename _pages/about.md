@@ -10,7 +10,7 @@ profile:
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>St. Louis, MO 63130</p>
-news: true # includes a list of news items
+news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false #
 ---
@@ -129,7 +129,7 @@ splash .anim {
 
 <div id="chart-occlusion"></div>
 <!-- Chart Script -->
-<script src="{{ '/assets/js/chart/chart-occlusion.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/chart/chart-occlusion.js' | relative_url | bust_file_cache }}" defer></script>
 <!-- Call the Chart Function -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {

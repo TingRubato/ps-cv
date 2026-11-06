@@ -235,7 +235,10 @@ $mac-window-shadow:
       border-radius: 3px;
       cursor: $mac-cursor-pointer;
       background: #fff;
-      transition: all 0.1s ease;
+      transition:
+        background-color 0.1s ease,
+        color 0.1s ease,
+        transform 0.1s ease;
 
       &:hover {
         background: $mac-dark-bg;
@@ -243,7 +246,7 @@ $mac-window-shadow:
       }
 
       &:active {
-        transform: scale(0.98);
+        transform: scale(0.96);
       }
     }
   }
@@ -374,8 +377,7 @@ $mac-window-shadow:
     a {
       text-decoration: none;
       cursor: $mac-cursor-pointer;
-      color: #000;
-      opacity: 0.5;
+      color: #444;
       display: flex;
       align-items: center;
       font-weight: bold;
@@ -385,7 +387,7 @@ $mac-window-shadow:
       span {
         font-weight: normal;
         margin-left: 5px;
-        color: #555;
+        color: #666;
       }
 
       // Music note icon
@@ -401,11 +403,11 @@ $mac-window-shadow:
       }
 
       &:not(.active):hover {
-        opacity: 0.75;
+        color: #000;
       }
 
       &.active {
-        opacity: 1;
+        color: #000;
 
         &::before {
           opacity: 1;

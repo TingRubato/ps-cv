@@ -32,6 +32,15 @@ group :other_plugins do
   gem 'httparty', '~> 0.22.0'
 end
 
+# Removed from Ruby 4.0's default gems; Jekyll and its plugins still require them
+group :stdlib_compat do
+  gem 'base64', '~> 0.3.0'
+  gem 'bigdecimal', '~> 3.3.1'
+  gem 'csv', '~> 3.3.6'
+  gem 'logger', '~> 1.7.0'
+  gem 'ostruct', '~> 0.6.3'
+end
+
 # Test gems
 group :test do
   gem 'minitest', '~> 5.25'  # Pride is built-in via minitest/pride

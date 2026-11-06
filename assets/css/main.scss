@@ -21,7 +21,8 @@ $max-content-width: {{ site.max_width }};
   "base",           // Typography & resets (uses all above)
   "layout",         // Layout utilities
   "components",     // UI components (cards, buttons, nav)
-  "glow"            // Glowing edge card effect
+  "glow",           // Glowing edge card effect
+  "polish"          // Hero, nav pill, post cards, reveal
 ;
 
 // =============================================================================

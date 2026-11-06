@@ -84,7 +84,10 @@
     z-index: $back-to-top-z-index;
     border-radius: var(--radius-full);
     backdrop-filter: blur(8px);
-    transition: all var(--transition-normal);
+    transition:
+      background-color var(--transition-normal),
+      transform var(--transition-normal),
+      box-shadow var(--transition-normal);
     border: 1px solid hsla(0, 0%, 100%, 0.1);
 
     &:hover {

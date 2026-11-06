@@ -5,6 +5,9 @@
   // ==========================================================================
 
   document.addEventListener('DOMContentLoaded', function () {
+    // Respect the same reduced-motion preference the CSS animations already honor.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     // Find all elements that should have the glow effect
     const glowCards = document.querySelectorAll('.glow-card, .projects .card, .post-card, .news-item');
 

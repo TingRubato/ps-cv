@@ -87,19 +87,14 @@ layout: default
 <style>
   @import url('https://fonts.googleapis.com/css?family=Raleway');
 
-  body {
-    background-color: #eee;
-    font-family: 'Raleway', sans-serif;
-  }
-
   .music-post {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Raleway', var(--font-sans);
     margin: 2rem auto;
     padding: 2rem;
     max-width: 1200px;
-    background: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: var(--surface-elevated);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
   }
 
   .music-header {
@@ -124,21 +119,21 @@ layout: default
   .music-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    color: var(--text-primary);
     margin: 0.25rem 0;
   }
 
   .music-description {
     font-size: 1.1rem;
-    color: #666;
+    color: var(--text-secondary);
     margin: 0;
   }
 
   .music-meta {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--text-secondary);
     margin-top: 1rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--border-base);
     padding-top: 1rem;
   }
 
@@ -149,7 +144,7 @@ layout: default
   /* Basic Vinyl Style */
   .album {
     margin: 5vw auto;
-    box-shadow: 0 7px 10px #aaa;
+    box-shadow: var(--shadow-lg);
     position: relative;
     width: 250px;
     height: 250px;
@@ -176,7 +171,7 @@ layout: default
   .album .vinyl {
     background-color: #202020;
     z-index: 1;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
   }
 
   .album .vinyl .label {

@@ -130,25 +130,9 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
         </div>
     </div>
 </div>
-<div class="caption">Manuscript 1: 3-D Analysis and Experimental Verification of a Novel Magnetic Lead Screw with Checkerboard Array Magnetic Pole</div>
+<div class="caption">Paper 1: 3-D Analysis and Experimental Verification of a Novel Magnetic Lead Screw with Checkerboard Array Magnetic Pole</div>
 <br>
 
-<div class="container-card research-card">
-    <div class="front side">
-        <div class="content">
-            <h3>A 2-D Mesh-based Magnetic Equivalent Circuit Model for Hybrid Exciting Magnetic Lead Screw (HEMLS)</h3>
-            <p><strong>Key Words:</strong> Magnetic Lead Screw, Magnetic Equivalent Circuit, Hybrid Excitation, Wave Energy Conversion, Dynamic Modeling</p>
-        </div>
-    </div>
-    <div class="back side">
-        <div class="content">
-            <strong>Overview:</strong>
-            <p>This research introduces a novel 2-D mesh-based Magnetic Equivalent Circuit (MEC) model tailored for Hybrid Exciting Magnetic Lead Screws (HEMLS). It reduces computational time in analyzing dynamic performance and optimal design. By simplifying the mesh structure and parameters, the study achieves accuracy while lowering computational costs. Comparisons with Finite Element Analysis validate its reliability and performance under varying conditions. <a href="https://ieeexplore.ieee.org/document/2024-SECSC-1317">Read the full paper on IEEE Xplore</a></p>
-        </div>
-    </div>
-</div>
-<div class="caption">Manuscript 2: A 2-D MEC Model for HEMLS</div>
-<br>
 
 <div class="container-card research-card">
     <div class="front side">
@@ -160,11 +144,11 @@ This portfolio is a curated selection of my musical, creative, technical, and sc
     <div class="back side">
         <div class="content">
             <strong>Overview:</strong>
-            <p>This study presents a new direct-driven Linear-Rotary Wave Generator (LRWG) capable of converting low-speed linear motion from waves into high-speed rotational motion to generate electrical power. It incorporates a multi-objective optimization approach to improve energy conversion efficiency and reliability, validated through a prototype and experimental tests. The LRWG aims to advance wave energy conversion technology under harsh oceanic conditions. <a href="https://ieeexplore.ieee.org/document/TEC-01067-2023">Read the full paper on IEEE Xplore</a></p>
+            <p>This study presents a new direct-driven Linear-Rotary Wave Generator (LRWG) capable of converting low-speed linear motion from waves into high-speed rotational motion to generate electrical power. It incorporates a multi-objective optimization approach to improve energy conversion efficiency and reliability, validated through a prototype and experimental tests. The LRWG aims to advance wave energy conversion technology under harsh oceanic conditions. <a href="https://ieeexplore.ieee.org/document/10870438">Read the full paper on IEEE Xplore</a></p>
         </div>
     </div>
 </div>
-<div class="caption">Manuscript 3: Design, Optimization, and Experimental Study of a Novel Linear-Rotary Wave Generator</div>
+<div class="caption">Paper 2: Design, Optimization, and Experimental Study of a Novel Linear-Rotary Wave Generator</div>
 <br>
 
 ## 3. **Compositions**

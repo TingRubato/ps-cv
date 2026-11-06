@@ -57,3 +57,36 @@ $(document).ready(function () {
     trigger: "hover",
   });
 });
+
+// Nav shadow on scroll + staggered scroll reveal
+(function () {
+  var nav = document.getElementById("navbar");
+  if (nav) {
+    var onScroll = function () {
+      nav.classList.toggle("scrolled", window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var groups = [".latest-posts > li", ".projects .row > .col", "article > h2"];
+  var io = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { rootMargin: "0px 0px -10% 0px" }
+  );
+  groups.forEach(function (sel) {
+    document.querySelectorAll(sel).forEach(function (el, i) {
+      el.style.setProperty("--reveal-i", i % 6);
+      el.classList.add("reveal");
+      io.observe(el);
+    });
+  });
+})();

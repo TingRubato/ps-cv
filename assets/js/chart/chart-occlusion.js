@@ -1,201 +1,159 @@
-// Function to render an occlusion chart
+// Skills cloud on the home page.
+// Words are sized by weight (1-3), colored by category, and packed with a
+// spiral placement that keeps every label inside the SVG box without overlaps.
 function renderOcclusionChart(selector) {
-  const width = 600;
-  const height = 450;
+  const width = 640;
+  const height = 460;
+  const pad = 6; // gap between labels and from the edges
 
-  // Combine descriptive words and technical skills
-  const words = [
-    // Descriptive Words
-    "Innovative",
-    "Resilient",
-    "Interdisciplinary",
-    "Analytical",
-    "Empathetic",
-    "Visionary",
-    "Adaptable",
-    "Collaborative",
-    "Passionate",
-    "Mentor",
-    "Curious",
-    "Meticulous",
-    "Communicative",
-    "Human-Centered",
-    "Forward-Thinking",
-    "Creative",
-    "Persistent",
-    "Thoughtful",
-    "Problem-Solving",
-    "Independent",
-    "Strategic",
-    "Experimental",
-    "Pragmatic",
-    "Reflective",
-    "Logical",
-    "Inspirational",
-    "Intuitive",
-    "Open-Minded",
-    "Observant",
-    "Diligent",
-    "Determined",
-    "Ambitious",
-    "Focused",
-    "Grounded",
-    "Versatile",
-    "Original",
-    "Authentic",
-    "Empirical",
-    "Community-Oriented",
-    "Ethical",
-    "Decisive",
-    "Organized",
-    "Self-Motivated",
-    "Purpose-Driven",
-    "Practical",
-    "Respectful",
-    "Inquisitive",
-    "Balanced",
-    "Polished",
-    "Quick-Learning",
-    "Leadership-Oriented",
-    "Introspective",
-    "Dependable",
-    "Resourceful",
-    "Self-Aware",
-    "Transformative",
-
-    // Technical Skills
-    "C",
-    "Python",
-    "MATLAB",
-    "C#",
-    "SQL",
-    "Shell",
-    "Git",
-    "Docker",
-    "AWS",
-    "Node.js",
-    "REST API",
-    "SciKit",
-    "PyTorch",
-    "TensorFlow",
-    "LLM",
-    "Transformers",
-    "AWS Sagemaker",
-    "Yolo",
-    "Embedded Systems",
-    "RTOS",
-    "MCU",
-    "DSPs",
-    "Oscilloscope",
-    "AWS IoT",
-    "I2C",
-    "CAD",
-    "Altium",
-    "MIDI",
-    "Music Theory",
-    "librosa",
-    "music21",
-    "Signal Processing",
-    "MIR",
-    "LaTeX",
-    "Zotero",
-    "Overleaf",
-    "Data Analysis",
-    "Data Scraping",
-    "SPSS",
-    "Manim",
+  // Category classes are written out in full so purgecss can see them.
+  const groups = [
+    {
+      cls: "wc-code",
+      words: [
+        ["Python", 3],
+        ["Embedded C", 2],
+        ["C#", 1],
+        ["SQL", 2],
+        ["MATLAB", 2],
+        ["REST APIs", 2],
+        ["Docker", 2],
+        ["Git", 1],
+        ["Shell", 1],
+        ["Node.js", 1],
+      ],
+    },
+    {
+      cls: "wc-ml",
+      words: [
+        ["PyTorch", 3],
+        ["TensorFlow", 2],
+        ["scikit-learn", 2],
+        ["LLMs", 2],
+        ["Transformers", 1],
+        ["YOLO", 1],
+        ["Anomaly Detection", 2],
+        ["Predictive Maintenance", 2],
+        ["AWS SageMaker", 1],
+      ],
+    },
+    {
+      cls: "wc-iot",
+      words: [
+        ["Industrial IoT", 3],
+        ["Embedded Systems", 3],
+        ["Telemetry Pipelines", 2],
+        ["AWS IoT", 2],
+        ["Edge Computing", 1],
+        ["IoT Gateways", 1],
+        ["RTOS", 2],
+        ["Microcontrollers", 1],
+        ["I2C", 1],
+        ["Altium", 1],
+        ["CAD", 1],
+      ],
+    },
+    {
+      cls: "wc-signal",
+      words: [
+        ["Signal Processing", 3],
+        ["DSP", 2],
+        ["MIR", 2],
+        ["Music Theory", 2],
+        ["MIDI", 1],
+        ["librosa", 1],
+        ["music21", 1],
+      ],
+    },
+    {
+      cls: "wc-research",
+      words: [
+        ["Data Analysis", 2],
+        ["Data Scraping", 1],
+        ["LaTeX", 1],
+        ["SPSS", 1],
+        ["Zotero", 1],
+        ["Manim", 1],
+      ],
+    },
+    {
+      cls: "wc-trait",
+      words: [
+        ["Curious", 1],
+        ["Interdisciplinary", 1],
+        ["Analytical", 1],
+        ["Creative", 1],
+        ["Resourceful", 1],
+        ["Collaborative", 1],
+        ["Adaptable", 1],
+        ["Mentor", 1],
+      ],
+    },
   ];
 
-  // Create SVG container
+  const nodes = groups.flatMap((g) => g.words.map(([text, w]) => ({ text, w, cls: g.cls })));
+
+  // Heaviest words are placed first, so they land nearest the center.
+  nodes.sort((a, b) => b.w - a.w);
+
   const svg = d3
     .select(selector)
     .append("svg")
-    .attr("width", width)
-    .attr("height", height)
     .attr("viewBox", [0, 0, width, height])
-    .attr("style", "max-width: 100%; height: auto; font: 14.5px sans-serif; cursor: pointer;");
+    .attr("role", "img")
+    .attr("aria-label", "Skills: " + nodes.map((d) => d.text).join(", "))
+    .attr("class", "skills-cloud")
+    .attr("style", "width: 100%; max-width: " + width + "px; height: auto; font-family: inherit;");
 
-  // Color palette for words
-  const colorPalette = d3.scaleOrdinal(d3.schemeSet3);
-
-  // Create nodes for each word
-  const nodes = words.map((word, i) => ({
-    id: i,
-    text: word,
-    x: Math.random() * width,
-    y: Math.random() * height,
-    radius: Math.random() * 10 + 20, // Adjust for size variety
-  }));
-
-  // Add text elements with colors
   const text = svg
     .selectAll("text")
     .data(nodes)
     .join("text")
-    .attr("x", (d) => d.x)
-    .attr("y", (d) => d.y)
-    .attr("font-size", (d) => d.radius / 2 + "px")
-    .attr("fill", (d) => colorPalette(d.text)) // Assign color from palette
+    .attr("class", (d) => d.cls)
+    .attr("font-size", (d) => 11 + d.w * 4 + "px")
+    .attr("font-weight", (d) => (d.w === 3 ? 600 : 400))
     .attr("text-anchor", "middle")
-    .text((d) => d.text)
-    .attr("data-priority", 0);
+    .attr("dominant-baseline", "central")
+    .text((d) => d.text);
 
-  // Define a force simulation for better distribution
-  const simulation = d3
-    .forceSimulation(nodes)
-    .force("x", d3.forceX(width / 2).strength(0.05)) // Center alignment
-    .force("y", d3.forceY(height / 2).strength(0.05)) // Center alignment
-    .force(
-      "collide",
-      d3.forceCollide((d) => d.radius)
-    ) // Prevent overlap
-    .on("tick", () => {
-      text.attr("x", (d) => d.x).attr("y", (d) => d.y);
-    });
+  // Measure the real rendered label size for collision and bounds.
+  text.each(function (d) {
+    const b = this.getBBox();
+    d.hw = b.width / 2 + pad / 2;
+    d.hh = b.height / 2 + pad / 2;
+  });
 
-  // Occlusion logic
-  function occlusion(svg, against = "text") {
-    const nodes = d3
-      .sort(svg.selectAll(against), (node) => +node.getAttribute("data-priority"))
-      .reverse()
-      .map((node) => {
-        const { x, y, width, height } = node.getBoundingClientRect();
-        return { node, x, y, width, height };
-      });
-
-    const visible = [];
-    for (const d of nodes) {
-      const occluded = visible.some((e) => intersectRect(d, e));
-      d3.select(d.node)
-        .classed("occluded", occluded)
-        .style("opacity", occluded ? 0.3 : 1); // Adjust opacity for occluded words
-      if (!occluded) visible.push(d);
+  // Spiral placement: each word takes the first spot on an outward spiral where it
+  // fits inside the box without touching an already placed word. Deterministic, so
+  // the cloud looks the same on every visit.
+  // ponytail: O(n²) overlap scan, fine for ~50 words; use a quadtree past a few hundred.
+  const placed = [];
+  const hits = (d) => placed.some((p) => Math.abs(p.x - d.x) < p.hw + d.hw && Math.abs(p.y - d.y) < p.hh + d.hh);
+  const inside = (d) => d.x - d.hw >= 0 && d.x + d.hw <= width && d.y - d.hh >= 0 && d.y + d.hh <= height;
+  for (const d of nodes) {
+    d.hidden = true;
+    for (let t = 0; t < 600; t += 0.05) {
+      d.x = width / 2 + 2.2 * t * Math.cos(t) * (width / height);
+      d.y = height / 2 + 2.2 * t * Math.sin(t);
+      if (inside(d) && !hits(d)) {
+        d.hidden = false;
+        placed.push(d);
+        break;
+      }
     }
   }
 
-  // Intersection detection for rectangles
-  function intersectRect(a, b) {
-    return !(a.x + a.width < b.x || b.x + b.width < a.x || a.y + a.height < b.y || b.y + b.height < a.y);
-  }
+  text.attr("display", (d) => (d.hidden ? "none" : null));
+  text.attr("x", (d) => d.x).attr("y", (d) => d.y);
 
-  // Add interactivity
-  let priority = 0;
+  // Hovering a word highlights its whole category.
   text
-    .on("mouseover", function () {
-      d3.select(this).attr("fill", "red").raise();
-      svg.call(occlusion);
+    .on("mouseover", (event, d) => {
+      svg.classed("has-hover", true);
+      text.classed("is-hover", (o) => o.cls === d.cls);
     })
-    .on("mouseout", function () {
-      d3.select(this).attr("fill", (d) => colorPalette(d.text));
-      svg.call(occlusion);
-    })
-    .on("click", function () {
-      const node = d3.select(this);
-      const cur = +node.attr("data-priority");
-      node.attr("data-priority", cur ? null : ++priority).attr("fill", cur ? colorPalette(node.text) : "steelblue");
-      svg.call(occlusion);
+    .on("mouseout", () => {
+      svg.classed("has-hover", false);
+      text.classed("is-hover", false);
     });
-
-  // Perform initial occlusion calculation
-  svg.call(occlusion);
 }
