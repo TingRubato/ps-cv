@@ -3,7 +3,8 @@ layout: page
 permalink: /publications/
 title: publications
 description: Peer-reviewed papers, newest first.
-nav: false
+nav: true
+nav_order: 6
 ---
 
 <p>
