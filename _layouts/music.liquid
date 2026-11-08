@@ -32,6 +32,21 @@ layout: default
               </iframe>
             </div>
           {% endif %}
+          <!-- Spotify Embed -->
+          {% if page.spotify_id %}
+            <div class="soundcloud-embed">
+              <iframe
+                title="Spotify player: {{ page.title | escape }}"
+                width="100%"
+                height="152"
+                frameborder="0"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                src="https://open.spotify.com/embed/track/{{ page.spotify_id }}"
+              >
+              </iframe>
+            </div>
+          {% endif %}
         </div>
 
         <!-- Vinyl Album Design -->

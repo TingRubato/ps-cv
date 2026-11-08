@@ -1,80 +1,129 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header hero">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span>
-        {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
+<div class="post home">
+  <!-- Hero: headline left, tilted photo deck right -->
+  <section class="home-hero">
+    <div class="home-hero-text">
+      {% if page.profile.more_info %}
+        <span class="home-chip home-chip-accent">{{ page.profile.more_info | strip_html | strip }}</span>
       {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
-
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+      <header class="post-header hero">
+        <h1 class="post-title">
+          {% if site.title == 'blank' %}
+            {{ site.first_name }}
+            {{ site.middle_name }}
+            {{ site.last_name }}
           {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-    rounded' %}
+            {{ site.title }}
           {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-    30vw, 95vw"{% endcapture %}
+        </h1>
+      </header>
+      <p class="home-lede">{{ page.subtitle }}</p>
+      <div class="home-actions">
+        <a class="home-btn" href="{{ '/blog/' | relative_url }}">Read the blog &rarr;</a>
+        <a class="home-btn home-btn-alt" href="{{ '/projects/' | relative_url }}">See projects</a>
+      </div>
+    </div>
+
+    {% if page.profile.image %}
+      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+      <div class="home-deck">
+        <div class="deck-card deck-c3" aria-hidden="true"></div>
+        <div class="deck-card deck-c2" aria-hidden="true"></div>
+        <div class="deck-card deck-c1">
           {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
+            include figure.liquid loading="eager" path=profile_image_path class="deck-img" sizes="(min-width: 992px) 340px, 80vw"
+            alt="Portrait of Ting Xu" cache_bust=true
           %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
+          <span class="home-chip deck-label">
+            {{- site.first_name }}
+            {{ site.last_name -}}
+          </span>
+        </div>
       </div>
     {% endif %}
+  </section>
 
-    <div class="clearfix">{{ content }}</div>
-
-    <!-- News -->
-    {% if page.news and site.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if site.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
-
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-        <div class="contact-note">{{ site.contact_note }}</div>
+  <!-- Latest posts as a card grid -->
+  {% if site.latest_posts.enabled %}
+    <section class="home-section">
+      <div class="home-section-head">
+        <h2>Latest posts</h2>
+        <a class="home-more" href="{{ '/blog/' | relative_url }}">All posts &rarr;</a>
       </div>
-    {% endif %}
+      <div class="home-grid">
+        {% assign home_limit = site.latest_posts.limit | default: 3 %}
+        {% for item in site.posts limit: home_limit %}
+          {% assign read_time = item.content | number_of_words | divided_by: 180 | plus: 1 %}
+          {% if item.redirect == blank %}
+            {% assign item_url = item.url | relative_url %}
+          {% elsif item.redirect contains '://' %}
+            {% assign item_url = item.redirect %}
+          {% else %}
+            {% assign item_url = item.redirect | relative_url %}
+          {% endif %}
+          <article class="home-card{% if forloop.index == 2 %} home-card-sun{% endif %}">
+            <div class="home-card-meta">
+              <span class="home-chip home-chip-mono">{{ item.date | date: '%Y.%m' }}</span>
+              {% if item.categories.size > 0 %}
+                <span class="home-chip home-chip-accent">{{ item.categories | first }}</span>
+              {% endif %}
+            </div>
+            <h3 data-toc-skip>
+              <a href="{{ item_url }}">{{ item.title }}</a>
+            </h3>
+            {% if item.description %}
+              <p>{{ item.description | strip_html | truncatewords: 22 }}</p>
+            {% endif %}
+            <div class="home-card-foot">
+              <a href="{{ item_url }}">Read entry &rarr;</a>
+              <span class="home-chip home-chip-mono">{{ read_time }} min read</span>
+            </div>
+          </article>
+        {% endfor %}
 
-    {% if site.newsletter.enabled and site.footer_fixed %}
-      {% include scripts/newsletter.liquid center=true %}
-    {% endif %}
-  </article>
+        <!-- Wide feature card: bio + word cloud (the page content) -->
+        <article class="home-card home-feature">
+          <div class="home-card-meta">
+            <span class="home-chip home-chip-mono">about</span>
+            <span class="home-chip">skill map</span>
+          </div>
+          <div class="home-feature-body">{{ content }}</div>
+        </article>
+      </div>
+    </section>
+  {% else %}
+    <article class="home-card home-feature">
+      <div class="home-feature-body">{{ content }}</div>
+    </article>
+  {% endif %}
+
+  <!-- News -->
+  {% if page.news and site.announcements.enabled %}
+    <h2>
+      <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+    </h2>
+    {% include news.liquid limit=true %}
+  {% endif %}
+
+  <!-- Selected papers -->
+  {% if page.selected_papers %}
+    <h2>
+      <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+    </h2>
+    {% include selected_papers.liquid %}
+  {% endif %}
+
+  <!-- Social -->
+  {% if page.social %}
+    <div class="social">
+      <div class="contact-icons">{% include social.liquid %}</div>
+      <div class="contact-note">{{ site.contact_note }}</div>
+    </div>
+  {% endif %}
+
+  {% if site.newsletter.enabled and site.footer_fixed %}
+    {% include scripts/newsletter.liquid center=true %}
+  {% endif %}
 </div>

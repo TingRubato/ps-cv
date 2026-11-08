@@ -1,138 +1,210 @@
 ---
 layout: default
 ---
-<div class="retro-mac-page">
-  <!-- Date display -->
-  <div id="mac-date"></div>
+{% assign musics = site.musics | sort: 'composition_time' | reverse %}
+{% assign spotify_seconds = 0 %}
+{% assign release_count = 0 %}
+{% for music in musics %}
+  {% if music.spotify_id %}
+    {% assign spotify_seconds = spotify_seconds | plus: music.duration %}
+    {% assign release_count = release_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
+{% assign sketch_count = musics.size | minus: release_count %}
+{% assign first = musics | first %}
 
-  <!-- Mac icon -->
-  <div id="mac-icon">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 4H20V16H4V4Z" fill="white" stroke="black" stroke-width="2"/>
-      <path d="M8 16V20H16V16" stroke="black" stroke-width="2"/>
-      <path d="M6 20H18" stroke="black" stroke-width="2"/>
-    </svg>
-  </div>
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-description">{{ page.description }}</p>
+  </header>
 
-  <!-- Top row: Now Playing + Visualizer -->
-  <div class="toprow">
-    <!-- Now Playing Window -->
-    <div class="nowplaying mac-window glow-card">
-      <span class="glow"></span>
-      <div class="dragarea"></div>
-      <h3>Now Playing</h3>
-      <div class="np-content">
-        <div class="np-display">
-          <h4 id="current-artist">{{ site.author.name | default: 'Ting Xu' }}</h4>
-          <h4 id="current-song">Select a track</h4>
+  <div class="music-app">
+    <!-- Library sidebar: filters + where to listen -->
+    <aside class="ma-side" aria-label="Library">
+      <p class="ma-label">Library</p>
+      <button type="button" class="ma-filter is-active" data-filter="all">
+        All tracks <span>{{ musics.size }}</span>
+      </button>
+      <button type="button" class="ma-filter" data-filter="spotify">
+        Releases <span>{{ release_count }}</span>
+      </button>
+      <button type="button" class="ma-filter" data-filter="soundcloud">
+        Sketches <span>{{ sketch_count }}</span>
+      </button>
+      <p class="ma-label">Listen on</p>
+      <a class="ma-out" href="https://soundcloud.com/gsx8ulnze6ys" target="_blank" rel="noopener noreferrer">SoundCloud ↗</a>
+      <a class="ma-out" href="https://open.spotify.com/artist/3PKOqg8vJ4Qojqrld9K2d2" target="_blank" rel="noopener noreferrer">Spotify ↗</a>
+    </aside>
+
+    <!-- Catalog: header + track list -->
+    <section class="ma-main">
+      <div class="ma-hero">
+        <img id="ma-hero-cover" src="{{ first.image | relative_url }}" alt="" width="180" height="180">
+        <div>
+          <p class="ma-kicker">Artist &middot; Catalog</p>
+          <h2 class="ma-title" data-toc-skip>{{ first.author | default: 'Ting Xu' }}</h2>
+          <p class="ma-sub">{{ musics.size }} tracks &middot; {{ release_count }} on Spotify ({{ spotify_seconds | divided_by: 60 }} min)</p>
         </div>
-        <div class="np-controls">
-          <button id="prev-track" aria-label="Previous track">&#8249; Prev</button>
-          <button id="next-track" aria-label="Next track">Next &#8250;</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Visualizer Window -->
-    <div class="analyzer mac-window glow-card">
-      <span class="glow"></span>
-      <div class="dragarea"></div>
-      <h3>Visualizer</h3>
-      <div class="analyzer-bars">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Album Window -->
-  <div class="window mac-window album-window glow-card">
-    <span class="glow"></span>
-    <div class="dragarea"></div>
-    <h3>{{ page.title | default: 'Music Collection' }}</h3>
-    <div class="frame">
-      <!-- Album Covers -->
-      <div class="imgwrap">
-        {% assign musics = site.musics | sort: 'composition_time' | reverse %}
-        {% for music in musics limit: 10 %}
-          <img
-            src="{{ music.image | relative_url }}"
-            alt="{{ music.title }}"
-            class="{% if forloop.first %}active{% endif %}"
-            data-index="{{ forloop.index0 }}"
-          >
-        {% endfor %}
       </div>
 
-      <!-- Track List -->
-      <div class="tracklist">
-        <ul>
-          {% for music in musics limit: 10 %}
-            <li>
-              <a
-                href="{{ music.url | relative_url }}"
-                class="track-link {% if forloop.first %}active{% endif %}"
-                data-index="{{ forloop.index0 }}"
-                data-title="{{ music.title }}"
-                data-artist="{{ music.author | default: site.author.name }}"
-                data-soundcloud="{{ music.soundcloud_url }}"
-                data-description="{{ music.description }}"
-              >
-                {{ music.author | default: 'Ting Xu' }} - <span>{{ music.title }}</span>
-              </a>
-            </li>
+      <table class="ma-tracks">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col" class="ma-col-src">Source</th>
+            <th scope="col" class="ma-col-time"><i class="fa-regular fa-clock" aria-label="Duration"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for music in musics %}
+            {% if music.spotify_id %}{% assign src = 'spotify' %}{% else %}{% assign src = 'soundcloud' %}{% endif %}
+            <tr
+              class="ma-row{% if forloop.first %} is-active{% endif %}"
+              data-source="{{ src }}"
+              {% if music.soundcloud_url %}
+                data-sc="{{ music.soundcloud_url | escape }}"
+                data-sc-page="{{ music.soundcloud_page | default: '' }}"
+              {% endif %}
+              {% if music.spotify_id %}
+                data-sp="https://open.spotify.com/embed/track/{{ music.spotify_id }}?utm_source=generator"
+                data-sp-page="https://open.spotify.com/track/{{ music.spotify_id }}"
+              {% endif %}
+              data-page="{{ music.url | relative_url }}"
+              data-title="{{ music.title | escape }}"
+              data-artist="{{ music.author | default: 'Ting Xu' | escape }}"
+              data-cover="{{ music.image | relative_url }}"
+            >
+              <td class="ma-num">{{ forloop.index }}</td>
+              <td>
+                <button type="button" class="ma-play">
+                  <img src="{{ music.image | relative_url }}" alt="" width="40" height="40" loading="lazy">
+                  <span>
+                    <strong>{{ music.title }}</strong>
+                    <small>{{ music.author | default: 'Ting Xu' }}</small>
+                  </span>
+                </button>
+              </td>
+              <td class="ma-col-src">
+                <span class="ma-src ma-src-{{ src }}">
+                  {%- if src == 'spotify' %}Release{% else %}Sketch{% endif -%}
+                </span>
+              </td>
+              <td class="ma-col-time">
+                {% if music.duration %}
+                  {% assign s = music.duration | modulo: 60 %}
+                  {{ music.duration | divided_by: 60 }}:{% if s < 10 %}0{% endif -%}
+                  {{- s }}
+                {% else %}
+                  &mdash;
+                {% endif %}
+              </td>
+            </tr>
           {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
+        </tbody>
+      </table>
+    </section>
 
-  <!-- Player Window (SoundCloud Embed) -->
-  <div class="player-window mac-window glow-card">
-    <span class="glow"></span>
-    <div class="dragarea"></div>
-    <h3>Player</h3>
-    <div class="player-content">
-      <div id="soundcloud-player">
-        {% assign first_music = musics | first %}
-        {% if first_music.soundcloud_url %}
-          <iframe
-            id="sc-widget"
-            width="100%"
-            height="166"
-            scrolling="no"
-            frameborder="no"
-            allow="autoplay"
-            src="{{ first_music.soundcloud_url }}"
-          ></iframe>
-        {% else %}
-          <p>No track selected</p>
-        {% endif %}
+    <!-- Now playing: the platform's own embed is the real player -->
+    <aside class="ma-now" aria-label="Now playing">
+      <img id="ma-now-cover" src="{{ first.image | relative_url }}" alt="Cover art" width="260" height="260">
+      <h3 id="ma-now-title" data-toc-skip>{{ first.title }}</h3>
+      <p id="ma-now-artist">{{ first.author | default: 'Ting Xu' }}</p>
+      <div class="ma-platforms" role="group" aria-label="Play on">
+        <button type="button" data-platform="soundcloud" aria-pressed="true">SoundCloud &middot; full</button>
+        <button type="button" data-platform="spotify" aria-pressed="false">Spotify</button>
       </div>
-    </div>
+      <div class="ma-embed">
+        <iframe
+          id="ma-embed"
+          title="Music player"
+          width="100%"
+          height="152"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          src=""
+        ></iframe>
+      </div>
+      <div class="ma-controls">
+        <button type="button" id="ma-prev" aria-label="Previous track">&#9198;</button>
+        <button type="button" id="ma-next" aria-label="Next track">&#9197;</button>
+      </div>
+      <div class="ma-links">
+        <a id="ma-page" href="#">Track notes</a>
+        <a id="ma-open" href="#" target="_blank" rel="noopener noreferrer">Open ↗</a>
+      </div>
+    </aside>
   </div>
-
-  <!-- SVG Dither Filter -->
-  <svg class="dither-svg">
-    <filter color-interpolation-filters="sRGB" height="100%" id="dither" width="100%" x="0" y="0">
-      <feImage height="4" width="4" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA+UlEQVR42gXBERTCUABA0X/OYDAYDAZBEAyCIBgMgiAIgiAYBINgEAwGgyAIBsFgMAiCIAiCIAgGQTAYDAaDIAiCwWDwulcIIXg8HgwGA36/H4qi8Hq9sCyLtm0Rm82G0WjE5XJhvV4ThiHT6ZT7/U4QBIhut0tVVaiqSpZl9Pt9vt8vnU6HsiwRh8OB5XLJfr9nNptxPp9xXZckSbBtGyHLMs/nE9M0aZoGSZJI05ThcEhd14izdYsdk8mE2+2G7/tst1vG4zHX6xXP8xCGYfD5fNB1nSIIeL1e6HU/AQAA//BxhJ37ABxhJ37AWo3A5AEI4LjTABzh8ACEweCBQzjCtf0LEFz4vNcAbHIu9gZl0V4AAAAASUVORK5CYII="></feImage>
-      <feTile></feTile>
-      <feComposite in="SourceGraphic" k1="0" k2="1" k3="1" k4="-0.5" operator="arithmetic"></feComposite>
-      <feComponentTransfer>
-        <feFuncR tableValues="0 1" type="discrete"></feFuncR>
-        <feFuncG tableValues="0 1" type="discrete"></feFuncG>
-        <feFuncB tableValues="0 1" type="discrete"></feFuncB>
-      </feComponentTransfer>
-    </filter>
-  </svg>
 </div>
 
-{% include music/musics-player.liquid %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const rows = [...document.querySelectorAll('.ma-row')];
+    const $ = (id) => document.getElementById(id);
+    const embed = $('ma-embed');
+    let current = 0;
+
+    const visible = () => rows.filter((r) => !r.hidden);
+
+    // SoundCloud plays full tracks for everyone; Spotify's embed only plays
+    // 30 s previews unless the listener is logged in. So prefer SoundCloud.
+    let platform = 'soundcloud';
+    const switcher = document.querySelector('.ma-platforms');
+
+    function select(row) {
+      rows.forEach((r) => r.classList.toggle('is-active', r === row));
+      current = rows.indexOf(row);
+      const d = row.dataset;
+      const both = d.sc && d.sp;
+      const use = both ? platform : d.sc ? 'soundcloud' : 'spotify';
+      const src = use === 'spotify' ? d.sp : d.sc;
+      switcher.hidden = !both;
+      switcher.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.platform === use));
+      $('ma-now-cover').src = d.cover;
+      $('ma-hero-cover').src = d.cover;
+      $('ma-now-title').textContent = d.title;
+      $('ma-now-artist').textContent = d.artist;
+      $('ma-page').href = d.page;
+      const ext = use === 'spotify' ? d.spPage : d.scPage;
+      $('ma-open').href = ext || d.page;
+      $('ma-open').textContent = ext ? (use === 'spotify' ? 'Open in Spotify ↗' : 'Open in SoundCloud ↗') : 'Track page ↗';
+      embed.height = use === 'spotify' ? 152 : 166;
+      embed.title = d.title + ' player';
+      if (embed.src !== src) embed.src = src;
+    }
+
+    switcher.querySelectorAll('button').forEach((b) =>
+      b.addEventListener('click', () => {
+        platform = b.dataset.platform;
+        select(rows[current]);
+      })
+    );
+
+    function step(dir) {
+      const list = visible();
+      if (!list.length) return;
+      const i = list.indexOf(rows[current]);
+      select(list[(i + dir + list.length) % list.length]);
+    }
+
+    rows.forEach((row) => row.querySelector('.ma-play').addEventListener('click', () => select(row)));
+    $('ma-prev').addEventListener('click', () => step(-1));
+    $('ma-next').addEventListener('click', () => step(1));
+
+    document.querySelectorAll('.ma-filter').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ma-filter').forEach((b) => b.classList.toggle('is-active', b === btn));
+        const f = btn.dataset.filter;
+        let n = 0;
+        rows.forEach((r) => {
+          r.hidden = f !== 'all' && r.dataset.source !== f;
+          if (!r.hidden) r.querySelector('.ma-num').textContent = ++n;
+        });
+        if (rows[current].hidden && visible().length) select(visible()[0]);
+      })
+    );
+
+    if (rows.length) select(rows[0]);
+  });
+</script>

@@ -1,0 +1,1683 @@
+/*******************************************************************************
+ * Brutal layer: neo-brutalist skin over the token system.
+ * Purple ground, yellow/cyan accents, 4px ink borders, hard offset shadows,
+ * heavy uppercase Inter. Loaded last; delete the import in main.scss to undo.
+ ******************************************************************************/
+
+:root {
+  --b-purple: #9c6cff;
+  --b-yellow: #ffd100;
+  --b-cyan: #20d2ff;
+  --b-paper: #ffffff;
+  --b-ink: #000000;
+  --b-ground: var(--b-purple);
+  --b-border: 4px solid var(--b-ink);
+  --b-shadow: 6px 6px 0 var(--b-ink);
+  --b-shadow-lg: 12px 12px 0 var(--b-ink);
+  --b-display: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  // Re-point the shared tokens so stock al-folio components follow along
+  --global-bg-color: var(--b-ground);
+  --global-card-bg-color: var(--b-paper);
+  --global-text-color: var(--b-ink);
+  --global-text-color-light: #2b2140;
+  --global-theme-color: var(--b-ink);
+  --global-hover-color: var(--b-ink);
+  --global-divider-color: var(--b-ink);
+  --global-footer-bg-color: transparent;
+  --global-footer-text-color: var(--b-ink);
+  --global-footer-link-color: var(--b-ink);
+  --surface-bg: var(--b-ground);
+  --surface-card: var(--b-paper);
+  --text-primary: var(--b-ink);
+  --text-secondary: #2b2140;
+  --text-link: var(--b-ink);
+  --text-link-hover: var(--b-ink);
+}
+
+// Dark mode: night-purple ground, light ink so borders and shadows still read
+html[data-theme="dark"] {
+  --b-ground: #1d1238;
+  --b-paper: #2a1d4d;
+  --b-ink: #f4efff;
+  --global-text-color-light: #d9cff5;
+  --text-secondary: #d9cff5;
+  --global-code-bg-color: #140c29;
+}
+
+/* =============================================================================
+ * GROUND + TYPE
+ * ============================================================================= */
+
+body {
+  background-color: var(--b-ground);
+  color: var(--b-ink);
+
+  // Dot grid
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: radial-gradient(var(--b-ink) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.1;
+  }
+}
+
+h1,
+h2,
+h3,
+.post-title,
+.card-title,
+.section-title {
+  font-family: var(--b-display);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--b-ink);
+}
+
+a {
+  color: var(--b-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: var(--b-ink);
+    background: var(--b-yellow);
+    text-decoration: none;
+  }
+}
+
+html[data-theme="dark"] a:hover {
+  color: #000;
+}
+
+// The old soft glow fights the hard shadows
+.glow-card::before,
+.glow-card::after,
+.glow,
+.glow-spans,
+.post-header.hero::before,
+.post-header.hero .post-title::after {
+  display: none !important;
+}
+
+/* =============================================================================
+ * BRUTAL SURFACES (shared look for every card-like thing)
+ * ============================================================================= */
+
+.card,
+.post-card,
+.publications ol.bibliography > li,
+.post-list > li,
+.profile .more-info,
+.featured-posts .card,
+#markdown-content .card {
+  background: var(--b-paper) !important;
+  border: var(--b-border) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--b-shadow) !important;
+  color: var(--b-ink);
+}
+
+.card,
+.post-card,
+.post-list > li {
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--b-ink) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .post-card,
+  .post-list > li {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+img,
+.card-img-top,
+.profile img {
+  border-radius: 0 !important;
+}
+
+.profile img,
+.profile img.img-fluid.rounded,
+.profile figure img {
+  border: var(--b-border) !important;
+  border-radius: 32px !important;
+  box-shadow: var(--b-shadow-lg);
+}
+
+// Card titles: plain heavy caps, no tab
+.card .card-text,
+.card p {
+  color: var(--b-ink) !important;
+}
+
+.card img,
+.card .card-img-top {
+  border: 0 !important;
+  border-bottom: var(--b-border) !important;
+}
+
+.card .card-title {
+  font-weight: 900 !important;
+  color: var(--b-ink) !important;
+  font-size: 1.35rem;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0 0 0.4em;
+}
+
+// Wider canvas, like the reference's edge-to-edge layout
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1240px;
+  }
+}
+
+// Project grid sits straight on the purple ground
+article:has(.projects),
+.post:has(.projects) > article,
+#markdown-content:has(.projects) {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* =============================================================================
+ * NAV: chunky buttons
+ * ============================================================================= */
+
+#navbar.navbar {
+  background: var(--b-ground) !important; // solid, so content doesn't show through
+  padding-bottom: 10px;
+}
+
+#navbar.navbar > .container {
+  background: transparent !important;
+}
+
+#navbar.navbar,
+#navbar.navbar > .container {
+  backdrop-filter: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#navbar {
+  .navbar-brand {
+    font-family: var(--b-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    background: var(--b-paper);
+    border: var(--b-border);
+    box-shadow: 4px 4px 0 var(--b-ink);
+    padding: 6px 14px;
+    color: var(--b-ink);
+  }
+
+  .nav-item {
+    margin-left: 10px;
+  }
+
+  .nav-link,
+  #search-toggle,
+  #light-toggle {
+    font-family: var(--b-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #000 !important;
+    background: var(--b-yellow);
+    border: 3px solid #000;
+    border-radius: 0 !important;
+    box-shadow: 4px 4px 0 #000;
+    padding: 6px 14px !important;
+    transition: transform 0.1s ease;
+
+    &:hover {
+      transform: translate(-2px, -2px);
+      background: var(--b-cyan);
+    }
+  }
+
+  // The search button wraps a .nav-link; only the inner one gets the box
+  #search-toggle {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    padding: 0 !important;
+    min-height: 0;
+
+    &:hover {
+      transform: none;
+      background: none;
+    }
+  }
+
+  #light-toggle {
+    margin-left: 10px;
+  }
+
+  .nav-item.active > .nav-link {
+    background: #fff;
+  }
+
+  .dropdown-menu {
+    border: var(--b-border);
+    border-radius: 0;
+    box-shadow: var(--b-shadow);
+    background: var(--b-paper);
+
+    .dropdown-item {
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--b-ink);
+
+      &:hover {
+        background: var(--b-yellow);
+        color: #000;
+      }
+    }
+  }
+
+  .navbar-toggler .icon-bar {
+    background-color: var(--b-ink);
+  }
+}
+
+/* =============================================================================
+ * HERO (about page) and page headers
+ * ============================================================================= */
+
+// Outline via stacked shadows: -webkit-text-stroke draws Inter's internal
+// contour overlaps as lines through the letters.
+.post-header .post-title {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--b-cyan);
+  text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000,
+    0 -2px 0 #000,
+    0 2px 0 #000,
+    -2px 0 0 #000,
+    2px 0 0 #000,
+    6px 6px 0 #000;
+  margin-bottom: 0.3em;
+
+  // Hero name and short page titles (about, projects, cv) go big
+  @at-root .post-header.hero .post-title,
+    .post-header:not(:has(.post-meta)) .post-title {
+    font-size: clamp(3rem, 10vw, 7.5rem);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    text-shadow:
+      -3px -3px 0 #000,
+      3px -3px 0 #000,
+      -3px 3px 0 #000,
+      3px 3px 0 #000,
+      0 -3px 0 #000,
+      0 3px 0 #000,
+      -3px 0 0 #000,
+      3px 0 0 #000,
+      9px 9px 0 #000;
+  }
+
+  span {
+    color: inherit !important;
+  }
+}
+
+// Yellow chip: text and border stay black in both themes (polish's
+// `.post-header.hero .desc` color would otherwise win and wash it out)
+.post-header .desc,
+.post-header .post-description,
+.post-header .post-meta,
+.post-header.hero .desc {
+  display: inline-block;
+  font-family: var(--b-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #000 !important;
+  background: var(--b-yellow);
+  border: 4px solid #000;
+  box-shadow: var(--b-shadow);
+  padding: 6px 14px;
+  font-size: 1rem;
+}
+
+.post-header .post-tags {
+  margin-top: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+// Long-form pages and posts: put the reading text on paper
+article.post,
+.post > article,
+.post-content,
+#markdown-content {
+  background: var(--b-paper);
+  border: var(--b-border);
+  box-shadow: var(--b-shadow-lg);
+  padding: clamp(18px, 4vw, 40px);
+}
+
+.post-content #markdown-content,
+.post-content .post-content {
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+// Section headings inside content: white box with shadow
+.post h2:not(.card-title),
+.post-content h2:not(.card-title),
+.post > h2,
+.post .news > h2 {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  padding: 6px 14px;
+  margin: 1.6em 0 0.8em;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.post h2 a {
+  color: #000;
+}
+
+blockquote {
+  background: var(--b-cyan);
+  color: #000;
+  border: var(--b-border) !important;
+  border-left: var(--b-border) !important;
+  box-shadow: var(--b-shadow);
+  border-radius: 0;
+  padding: 16px 20px;
+
+  a,
+  p,
+  strong,
+  li {
+    color: #000;
+  }
+}
+
+/* =============================================================================
+ * TAGS, BADGES, BUTTONS
+ * ============================================================================= */
+
+.post-tags a:nth-of-type(3n + 1) {
+  background: var(--b-yellow);
+  color: #000 !important;
+}
+
+.post-tags a:nth-of-type(3n + 2) {
+  background: var(--b-cyan);
+  color: #000 !important;
+}
+
+.post-tags a:nth-of-type(3n) {
+  background: var(--b-purple);
+  color: #000 !important;
+}
+
+// Blog tag/category row: the whole li is the chip (icon included).
+// Siblings include <p>• separators, so count li by type, and every chip gets
+// a border so none can vanish into the purple ground.
+.tag-category-list {
+  margin-bottom: 28px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  p {
+    display: none !important;
+  }
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 0 #000;
+    background: var(--b-yellow);
+    color: #000;
+    font-family: var(--b-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+
+    &:nth-of-type(3n + 2) {
+      background: var(--b-cyan);
+    }
+
+    &:nth-of-type(3n) {
+      background: #fff;
+    }
+
+    a {
+      background: none !important;
+      color: #000 !important;
+      padding: 0 !important;
+      font-size: inherit;
+      letter-spacing: inherit;
+    }
+  }
+}
+
+.badge,
+.post-tags a,
+.btn,
+.abbr .badge {
+  font-family: var(--b-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  border-radius: 0 !important;
+  background: #000;
+  color: #fff !important;
+  padding: 4px 10px;
+  border: 0;
+}
+
+.btn {
+  background: var(--b-yellow);
+  color: #000 !important;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  font-size: 0.85rem;
+}
+
+/* =============================================================================
+ * FOOTER
+ * ============================================================================= */
+
+footer {
+  background: transparent !important;
+  border-top: 4px dashed var(--b-ink);
+
+  .container {
+    font-family: var(--b-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    color: var(--b-ink) !important;
+  }
+}
+
+/* =============================================================================
+ * MISC
+ * ============================================================================= */
+
+.post-content #markdown-content table {
+  margin: 1.5rem 0 1.75rem;
+}
+
+table {
+  border: var(--b-border);
+  background: var(--b-paper);
+
+  th {
+    background: var(--b-yellow);
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  td,
+  th {
+    border-color: var(--b-ink) !important;
+  }
+}
+
+figure img,
+.figure img,
+.img-fluid.rounded {
+  border: 3px solid var(--b-ink);
+  border-radius: 0 !important;
+}
+
+hr {
+  border-top: 3px solid var(--b-ink);
+  opacity: 1;
+}
+
+::selection {
+  background: var(--b-yellow);
+  color: #000;
+}
+
+#back-to-top {
+  background: var(--b-yellow) !important;
+  color: #000 !important;
+  border: 3px solid #000;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0 #000;
+}
+
+@media (max-width: 575px) {
+  #navbar .nav-item {
+    margin: 6px 0 0;
+  }
+}
+
+// Blog index cards: keep text off the border, let long titles wrap
+.post-list > li {
+  padding: clamp(18px, 3vw, 32px) !important;
+  margin-bottom: 24px;
+  overflow-wrap: anywhere;
+
+  h3 {
+    font-size: clamp(1.3rem, 2.6vw, 2rem);
+  }
+}
+
+// CV skills: colored header strip per card, black-bordered chips
+.skill-card {
+  background: var(--b-paper);
+  border: var(--b-border);
+  box-shadow: var(--b-shadow);
+  transition: transform 0.1s ease;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--b-ink);
+  }
+}
+
+.skill-card-title {
+  background: var(--b-yellow);
+  color: #000;
+  border-bottom: var(--b-border);
+  font-size: 1.15rem;
+}
+
+.skill-card:nth-child(3n + 2) .skill-card-title {
+  background: var(--b-cyan);
+}
+
+.skill-card:nth-child(3n) .skill-card-title {
+  background: var(--b-purple);
+}
+
+.skill-card-count {
+  background: #000;
+  color: #fff;
+  opacity: 1;
+  padding: 2px 8px;
+  font-weight: 800;
+}
+
+.skill-chips li {
+  background: var(--b-paper);
+  color: var(--b-ink);
+  border: 2px solid var(--b-ink);
+  box-shadow: 2px 2px 0 var(--b-ink);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card,
+  .skill-card:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+// Older CV list tables (languages, interests) are layout, not data: no boxes
+table.list-group-table {
+  border: 0;
+  background: none;
+
+  td {
+    border: 0 !important;
+  }
+}
+
+// Icons inside the outlined page title (CV's PDF link) skip the outline
+.post-title a,
+.post-title i {
+  text-shadow: none !important;
+  color: var(--b-ink) !important;
+  background: none !important;
+}
+
+/* =============================================================================
+ * HOMEPAGE (crew layout): hero + tilted photo deck, post card grid, wide
+ * feature card holding the bio and the word cloud
+ * ============================================================================= */
+
+.home-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: #fff;
+  color: #000;
+  border: 2.5px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  font-family: var(--b-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.home-chip-accent {
+  background: var(--b-purple);
+}
+
+.home-chip-mono {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+  margin: 20px 0 100px;
+
+  .post-header.hero {
+    padding: 0;
+    margin: 18px 0 20px;
+  }
+}
+
+.home-lede {
+  max-width: 34ch;
+  font-family: var(--b-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--b-ink);
+  margin-bottom: 32px;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 26px;
+  background: var(--b-yellow);
+  color: #000 !important;
+  border: 3px solid #000;
+  box-shadow: 5px 5px 0 #000;
+  font-family: var(--b-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.15s;
+
+  &:hover {
+    background: var(--b-yellow);
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 #000;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #000;
+  }
+}
+
+.home-btn-alt,
+.home-btn-alt:hover {
+  background: #fff;
+}
+
+// Photo deck: three stacked cards that fan out on hover
+.home-deck {
+  position: relative;
+  height: 480px;
+}
+
+.deck-card {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 300px;
+  height: 400px;
+  margin-left: -170px;
+  border: 4px solid #000;
+  box-shadow: var(--b-shadow);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
+  figure,
+  picture {
+    margin: 0;
+    height: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+    border: 0 !important;
+  }
+}
+
+.deck-c1 {
+  z-index: 3;
+  background: #fff;
+  transform: rotate(-6deg) translateX(-20px);
+}
+
+.deck-c2 {
+  z-index: 2;
+  background: var(--b-cyan);
+  transform: rotate(4deg) translate(40px, 20px);
+}
+
+.deck-c3 {
+  z-index: 1;
+  background: var(--b-yellow);
+  transform: rotate(12deg) translate(100px, 40px);
+}
+
+.home-deck:hover {
+  .deck-c1 {
+    transform: rotate(-2deg) translateX(-40px);
+  }
+
+  .deck-c2 {
+    transform: rotate(0deg) translateX(50px);
+  }
+
+  .deck-c3 {
+    transform: rotate(4deg) translateX(140px);
+  }
+}
+
+.deck-label {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  font-size: 0.85rem;
+}
+
+// Section heading row
+.home-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+
+  h2 {
+    margin: 0 !important;
+  }
+}
+
+.home-more {
+  font-family: var(--b-display);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+// Post cards
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--b-paper);
+  color: var(--b-ink);
+  border: var(--b-border);
+  box-shadow: var(--b-shadow);
+  padding: 26px;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    line-height: 1.05;
+    margin: 0 0 14px;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        background: none;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p {
+    color: var(--b-ink);
+    opacity: 0.8;
+    margin-bottom: 20px;
+  }
+}
+
+.home-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.home-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 2px dashed currentColor;
+
+  a {
+    font-family: var(--b-display);
+    font-weight: 900;
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+// The second card is the yellow one, like the reference
+.home-card-sun {
+  background: var(--b-yellow);
+  color: #000;
+
+  p,
+  h3 a,
+  .home-card-foot a {
+    color: #000;
+  }
+}
+
+// Wide feature card: bio on the left, word cloud on a white panel to the right
+.home-feature {
+  grid-column: 1 / -1;
+  background: var(--b-cyan);
+  color: #000;
+  box-shadow: var(--b-shadow-lg);
+}
+
+.home-feature-body {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 32px;
+  align-items: center;
+
+  > p {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #000;
+    opacity: 1;
+    margin: 0;
+  }
+
+  > #chart-occlusion {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0; // base style's auto margins shrink a grid item to fit-content
+    width: 100%;
+    background: var(--b-paper); // dark panel in dark mode, where the cloud uses light text
+    border: 3px solid #000;
+    box-shadow: 5px 5px 0 #000;
+    padding: 12px;
+  }
+
+  > script {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .home-deck {
+    height: 440px;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-feature-body {
+    grid-template-columns: 1fr;
+
+    > p,
+    > #chart-occlusion {
+      grid-column: 1;
+      grid-row: auto;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deck-card {
+    width: 240px;
+    height: 320px;
+    margin-left: -130px;
+  }
+
+  .home-deck {
+    height: 380px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-card,
+  .home-card,
+  .home-btn {
+    transition: none;
+  }
+
+  .home-card:hover {
+    transform: none;
+  }
+}
+
+/* =============================================================================
+ * MUSIC PAGE: player-app window (library sidebar, track list, now playing)
+ * ============================================================================= */
+
+.music-app {
+  --ma-bg: #1a1033;
+  --ma-panel: #241845;
+  --ma-line: rgba(255, 255, 255, 0.12);
+  --ma-text: #f4efff;
+  --ma-dim: #b9acdf;
+
+  display: grid;
+  grid-template-columns: 200px 1fr 300px;
+  background: var(--ma-bg);
+  color: var(--ma-text);
+  border: 4px solid #000;
+  box-shadow: var(--b-shadow-lg);
+  min-height: 560px;
+  margin-bottom: 40px;
+
+  button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+}
+
+.ma-label {
+  margin: 0 0 10px;
+  font-family: var(--b-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ma-dim);
+}
+
+// Sidebar
+.ma-side {
+  padding: 24px 16px;
+  border-right: 4px solid #000;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  .ma-label:not(:first-child) {
+    margin-top: 22px;
+  }
+}
+
+.ma-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 700;
+  border: 2px solid transparent !important;
+
+  span {
+    font-size: 0.75rem;
+    color: var(--ma-dim);
+  }
+
+  &:hover {
+    background: var(--ma-panel) !important;
+  }
+
+  &.is-active {
+    background: var(--b-yellow) !important;
+    color: #000 !important;
+    border-color: #000 !important;
+    box-shadow: 3px 3px 0 #000;
+
+    span {
+      color: #000;
+    }
+  }
+}
+
+.ma-out {
+  padding: 9px 12px;
+  font-weight: 700;
+  color: var(--ma-text) !important;
+  text-decoration: none;
+
+  &:hover {
+    color: #000 !important;
+  }
+}
+
+// Main column
+.ma-main {
+  padding: 28px;
+  min-width: 0;
+}
+
+.ma-hero {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 28px;
+
+  img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 3px solid #000 !important;
+    box-shadow: 6px 6px 0 #000;
+    flex-shrink: 0;
+  }
+}
+
+.ma-kicker {
+  margin: 0;
+  color: var(--ma-dim);
+  font-weight: 600;
+}
+
+.post .ma-title,
+.ma-title {
+  display: block;
+  margin: 4px 0 8px !important;
+  padding: 0 !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--b-cyan) !important;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  text-shadow: 4px 4px 0 #000;
+}
+
+.ma-sub {
+  margin: 0;
+  color: var(--ma-dim);
+}
+
+.ma-tracks {
+  width: 100%;
+  border: 0 !important;
+  background: none !important;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+
+  th {
+    background: none !important;
+    color: var(--ma-dim) !important;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    padding: 6px 10px;
+    border: 0 !important;
+    border-bottom: 1px solid var(--ma-line) !important;
+  }
+
+  td {
+    padding: 6px 10px;
+    border: 0 !important;
+    vertical-align: middle;
+    color: var(--ma-text);
+  }
+}
+
+.ma-num {
+  width: 2.5rem;
+  color: var(--ma-dim) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.ma-col-time {
+  width: 4rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--ma-dim) !important;
+}
+
+.ma-play {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 2px solid #000 !important;
+    flex-shrink: 0;
+  }
+
+  strong,
+  small {
+    display: block;
+  }
+
+  strong {
+    color: var(--ma-text);
+  }
+
+  small {
+    color: var(--ma-dim);
+  }
+}
+
+.ma-row {
+  transition: background 0.15s;
+
+  td:first-child {
+    border-left: 3px solid transparent !important;
+  }
+
+  &:hover td {
+    background: var(--ma-panel);
+  }
+
+  &.is-active td {
+    background: var(--b-yellow);
+    color: #000 !important;
+
+    strong,
+    small,
+    .ma-num {
+      color: #000 !important;
+    }
+  }
+
+  &.is-active td:first-child {
+    border-left-color: #000 !important;
+  }
+
+  &.is-active .ma-num {
+    font-size: 0;
+
+    &::before {
+      content: "▶";
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.ma-src {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 2px solid #000;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.ma-src-spotify {
+  background: var(--b-cyan);
+}
+
+.ma-src-soundcloud {
+  background: #fff;
+}
+
+// Now playing
+.ma-now {
+  padding: 24px;
+  border-left: 4px solid #000;
+  background: var(--ma-panel);
+  text-align: center;
+
+  > img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 3px solid #000 !important;
+    box-shadow: 6px 6px 0 #000;
+    margin-bottom: 18px;
+  }
+
+  h3 {
+    margin: 0 0 4px;
+    font-size: 1.3rem;
+    color: var(--ma-text);
+    line-height: 1.1;
+  }
+
+  p {
+    margin: 0 0 16px;
+    color: var(--ma-dim);
+  }
+}
+
+.ma-embed iframe {
+  display: block;
+  border: 2px solid #000;
+}
+
+.ma-controls {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 16px 0 12px;
+
+  button {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+    background: var(--b-yellow) !important;
+    color: #000 !important;
+    border: 3px solid #000 !important;
+    box-shadow: 3px 3px 0 #000;
+
+    &:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 #000;
+    }
+  }
+}
+
+.ma-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  a {
+    color: var(--ma-text) !important;
+  }
+
+  a:hover {
+    color: #000 !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .music-app {
+    grid-template-columns: 1fr 280px;
+  }
+
+  .ma-side {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    border-right: 0;
+    border-bottom: 4px solid #000;
+
+    .ma-label,
+    .ma-label:not(:first-child) {
+      margin: 0 6px 0 0;
+    }
+
+    .ma-filter {
+      width: auto;
+      gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .music-app {
+    grid-template-columns: 1fr;
+  }
+
+  .ma-now {
+    border-left: 0;
+    border-top: 4px solid #000;
+    order: -1;
+  }
+
+  .ma-hero img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .ma-col-src {
+    display: none;
+  }
+}
+
+.ma-platforms {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+
+  &[hidden] {
+    display: none;
+  }
+
+  button {
+    padding: 5px 10px !important;
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid #000 !important;
+    background: var(--ma-bg) !important;
+    color: var(--ma-text) !important;
+
+    &[aria-pressed="true"] {
+      background: var(--b-cyan) !important;
+      color: #000 !important;
+      box-shadow: 2px 2px 0 #000;
+    }
+  }
+}
+
+// CV publications
+.pub-card {
+  background: var(--b-paper);
+  border: var(--b-border);
+  box-shadow: var(--b-shadow);
+}
+
+.pub-chip {
+  border: 2px solid #000;
+  background: var(--b-yellow);
+  color: #000;
+  font-family: var(--b-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pub-chip-date {
+  background: #fff;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-weight: 500;
+}
+
+.pub-title {
+  text-transform: none !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.2 !important;
+
+  a {
+    color: var(--b-ink);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.pub-authors strong {
+  background: var(--b-cyan);
+  color: #000;
+  padding: 0 4px;
+}
+
+.pub-btn {
+  padding: 5px 12px;
+  background: var(--b-yellow);
+  color: #000 !important;
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  font-family: var(--b-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+
+  &:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 #000;
+  }
+}
+
+/* =============================================================================
+ * CV PAGE: sections as cards on the ground, colored header strips,
+ * flat date chips, dashed dividers
+ * ============================================================================= */
+
+.cv-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 0 14px;
+  padding: 6px 16px;
+  vertical-align: top;
+  background: #fff;
+  color: #000 !important;
+  border: 4px solid #000;
+  box-shadow: var(--b-shadow);
+  font-family: var(--b-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--b-cyan);
+    transform: translate(-2px, -2px);
+  }
+}
+
+// No paper behind the section cards: one level of boxes, not two
+.post:has(.cv) > article,
+.post:has(.pub-list) > article {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.cv > .card {
+  padding: 0 !important;
+  margin: 0 0 32px !important;
+  overflow: hidden;
+
+  &:hover {
+    transform: none;
+  }
+
+  > .card-title {
+    margin: 0 !important;
+    padding: 12px 22px;
+    background: var(--b-yellow);
+    color: #000 !important;
+    border-bottom: var(--b-border);
+    font-size: 1.5rem;
+  }
+
+  > div {
+    padding: 18px 22px 22px;
+  }
+}
+
+.cv > .card:nth-of-type(3n + 2) > .card-title {
+  background: var(--b-cyan);
+}
+
+.cv > .card:nth-of-type(3n) > .card-title {
+  background: var(--b-purple);
+}
+
+// Entries: dashed dividers instead of hairlines
+.cv .list-group-item {
+  background: none;
+  border: 0;
+  border-bottom: 2px dashed var(--global-divider-color);
+  padding: 18px 0;
+  color: var(--b-ink);
+
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+// Date column: one flat chip, no table box around it
+.cv .date-column {
+  text-align: left !important;
+
+  table.table-cv,
+  table.table-cv td {
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none;
+    padding: 0 !important;
+  }
+
+  .badge,
+  .badge.danger-color-dark {
+    background: #fff !important;
+    color: #000 !important;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 0 #000;
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-weight: 500;
+    letter-spacing: 0;
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  .location {
+    margin: 10px 0 0;
+    font-size: 0.8rem;
+    color: var(--global-text-color-light);
+  }
+}
+
+.cv .title,
+.cv h6.title {
+  font-family: var(--b-display);
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--b-ink);
+}
+
+// Basics: label chips + plain values
+.cv .table-cv-map {
+  border: 0 !important;
+  background: none !important;
+
+  td {
+    border: 0 !important;
+    padding: 6px 12px 6px 0 !important;
+    vertical-align: middle;
+  }
+
+  td:first-child b {
+    display: inline-block;
+    min-width: 72px;
+    padding: 2px 8px;
+    background: var(--b-ink);
+    color: var(--b-paper);
+    font-family: var(--b-display);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
+// Links inside CV cards: readable in both themes
+.cv a:not(.pub-btn) {
+  color: var(--b-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--b-cyan);
+  text-decoration-thickness: 3px;
+}
+
+@media (max-width: 767px) {
+  .cv-pdf-btn {
+    margin: 8px 0 0;
+  }
+}
+
+.pub-scholar {
+  margin: 0 0 24px;
+}
+
+// Inline links in page prose and the footer: ink + cyan underline,
+// so they read on paper and on the purple ground in both themes
+footer a,
+.post > article p > a:not([class]) {
+  color: var(--b-ink) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--b-cyan);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}

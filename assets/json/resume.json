@@ -173,9 +173,10 @@
   "publications": [
     {
       "name": "Design, Optimization, and Experimental Study of a Novel Direct-Driven Linear-Rotary Wave Generator",
-      "publisher": "IEEE Transactions on Energy Conversion",
-      "releaseDate": "2025-02",
-      "url": "https://ieeexplore.ieee.org/document/10870438",
+      "publisher": "IEEE Transactions on Energy Conversion, vol. 40, no. 3, pp. 1712-1725",
+      "releaseDate": "2025-09",
+      "url": "https://doi.org/10.1109/TEC.2025.3538570",
+      "doi": "10.1109/TEC.2025.3538570",
       "summary": "This paper introduces a novel linear-rotary wave generator to enhance the reliability and efficiency of wave energy conversion systems. It proposes an optimization approach and validates it through experimental platforms.",
       "authors": "L. Zhu, L. Zhu, Q. Wu, T. Xu, M. Huang, N. Gao, K. Wang, W. Wu, W. Li, C.-s. Koh, F. Blaabjerg"
     },
@@ -184,8 +185,9 @@
       "publisher": "IEEE Transactions on Transportation Electrification, vol. 11, no. 4, pp. 8677-8688",
       "releaseDate": "2025-08",
       "url": "https://doi.org/10.1109/TTE.2025.3544831",
+      "doi": "10.1109/TTE.2025.3544831",
       "summary": "This research proposes a checkerboard array pole magnetic lead screw that improves efficiency and reduces material costs while ensuring optimal thrust and torque characteristics.",
-      "authors": "L. Zhu, H. Ji, R. Fan, T. Xu, N. Gao, K. Wang, M. Huang, X. Jin, W. Li, C.-s. Koh, F. Blaabjerg"
+      "authors": "L. Zhu, H. Ji, T. Xu, N. Gao, K. Wang, M. Huang, R. Fan, X. Jin, W. Li, C.-s. Koh, F. Blaabjerg"
     }
   ],
   "skills": [
